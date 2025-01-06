@@ -4,7 +4,6 @@
 ## Cleared interview rounds: 5
 ## No. of pages reviewed: 0
 
-
 ## Virtusa L3 Q&A Mon 28 Mar 2022 6:30pm – 7pm (IST)
 
 ## 1.	What kind of script did you used to interact with data base?
