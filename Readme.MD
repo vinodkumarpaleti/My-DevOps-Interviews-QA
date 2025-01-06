@@ -1,15 +1,15 @@
-3.	What kind of problems that you had with terraform work around you?
+3. What kind of problems that you had with terraform work around you?
 Ans: common challenges that users might face when working with Terraform and potential workarounds:
-1. State Management:
-   - Challenge: Managing Terraform state across teams or multiple environments can be challenging.
+## 1. State Management:
+   ??? - Challenge: Managing Terraform state across teams or multiple environments can be challenging.
    - Workaround: Use remote backends (e.g., AWS S3, Azure Storage) for centralized state management. Use workspaces for environment-specific configurations.
-2. Dependency Ordering:
+## 2. Dependency Ordering:
    - Challenge: Managing dependencies between resources and ensuring they are created or updated in the correct order.
    - Workaround: Use `depends_on` and `terraform graph` to visualize dependencies. Terraform usually handles this automatically, but understanding resource dependencies is crucial.
-3. Reproducibility:
+## 3. Reproducibility:
    - Challenge: Ensuring reproducibility of infrastructure across different environments.
    - Workaround: Use variables and modules to parameterize configurations. Maintain consistent versions of Terraform and provider plugins.
-4. Provider Updates:
+## 4. Provider Updates:
    - Challenge: Provider updates may introduce breaking changes or new features.
    - Workaround: Monitor provider release notes, test updates in a non-production environment, and pin provider versions in your Terraform configuration.
 5. Sensitive Data:
