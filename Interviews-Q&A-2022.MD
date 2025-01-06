@@ -1,8 +1,9 @@
 # My DevOps Engineer Interviews Q&A-2022
 
 ## Total interview rounds given: 8
-## Cleared interview rounds: 5
-## No. of pages reviewed: 0
+## Cleared interview rounds: 
+## No.of pages reviewed: 0
+
 ---
 
 ## Virtusa L3 Q&A Mon 28 Mar 2022 6:30pm – 7pm (IST)
@@ -10,10 +11,10 @@
 ### 1.	What kind of script did you used to interact with data base?
 ### 2.	How did you do the script for interaction with the databases?
 ### 3.	What kind of problems that you had with terraform work around you?
-Ans: common challenges that users might face when working with Terraform and potential `Workaround`s:
+Ans: common challenges that users might face when working with Terraform and potential Workarounds:
 ### 1. State Management:
    - `Challenge`: Managing Terraform state across teams or multiple environments can be challenging.
-   - ``Workaround``: Use remote backends (e.g., AWS S3, Azure Storage) for centralized state management. Use workspaces for environment-specific configurations.
+   - `Workaround`: Use remote backends (e.g., AWS S3, Azure Storage) for centralized state management. Use workspaces for environment-specific configurations.
 ### 2. Dependency Ordering:
    - `Challenge`: Managing dependencies between resources and ensuring they are created or updated in the correct order.
    - `Workaround`: Use `depends_on` and `terraform graph` to visualize dependencies. Terraform usually handles this automatically, but understanding resource dependencies is crucial.
@@ -39,8 +40,8 @@ Ans: common challenges that users might face when working with Terraform and pot
    - `Challenge`: Terraform's parallel execution can lead to race conditions or conflicts in some scenarios.
    - `Workaround`: Set appropriate parallelism limits (`-parallelism`) or use `-target` to limit the scope of operations.
 ### 10. Learning Curve:
-    - `Challenge`: Learning Terraform and keeping up with updates can be daunting for newcomers.
-    - `Workaround`: Invest time in learning Terraform best practices, attend training sessions, and leverage documentation. Engage with the Terraform community for support.
+- `Challenge`: Learning Terraform and keeping up with updates can be daunting for newcomers. 
+- `Workaround`: Invest time in learning Terraform best practices, attend training sessions, and leverage documentation. Engage with the Terraform community for support.
 Always refer to the official Terraform documentation and release notes for the most up-to-date information on best practices and potential workarounds for specific challenges.
 ### 4.	As a developer, how did you make the switch from writing code and running applications to automate them?
 Ans: 
@@ -63,17 +64,17 @@ Ans:
 ### 9. Collaborate with Operations Teams:
    - Collaborate with operations or infrastructure teams in your organization. Gain insights into their workflows and challenges. This collaboration can help bridge the gap between development and operations.
 ### 10. Continuous Learning:
-    - Automation and infrastructure technologies are continuously evolving. Stay informed about new tools, features, and best practices. Attend conferences, webinars, and workshops to stay updated.
+- Automation and infrastructure technologies are continuously evolving. Stay informed about new tools, features, and best practices. Attend conferences, webinars, and workshops to stay updated.
 ### 11. Test and Validate:
-    - Test your automation scripts in non-production environments before applying them in production. Validate that changes have the desired impact and do not introduce unexpected issues.
+- Test your automation scripts in non-production environments before applying them in production. Validate that changes have the desired impact and do not introduce unexpected issues.
 ### 12. Understand Security Implications:
-    - Consider the security implications of automation. Understand best practices for securing infrastructure as code and automation scripts.
+- Consider the security implications of automation. Understand best practices for securing infrastructure as code and automation scripts.
 ### 13. Version Control:
-    - Use version control systems (e.g., Git) to manage your automation code. This ensures versioning, collaboration, and the ability to roll back changes if needed.
+- Use version control systems (e.g., Git) to manage your automation code. This ensures versioning, collaboration, and the ability to roll back changes if needed.
 ### 14. Monitor and Troubleshoot:
-    - Learn how to monitor automated processes and troubleshoot issues. Understand logging, monitoring tools, and debugging techniques.
+- Learn how to monitor automated processes and troubleshoot issues. Understand logging, monitoring tools, and debugging techniques.
 ### 15. Document Your Code:
-    - Document your automation code and processes. This is crucial for knowledge sharing, onboarding new team members, and ensuring that others can understand and maintain the code.
+- Document your automation code and processes. This is crucial for knowledge sharing, onboarding new team members, and ensuring that others can understand and maintain the code.
 Remember that transitioning to automation is an ongoing process, and continuous learning and adaptation are key. Leverage your coding skills as a developer to create efficient, scalable, and maintainable automation solutions.
 ### 5.	We very much focus on we code for everything so what kind of code did use for configuration of code specifically run Jenkins and Jenkins jobs in the pipeline?
 Ans: In Jenkins, pipeline configuration is typically done using a domain-specific language called "Pipeline DSL" or "Jenkinsfile." Jenkinsfiles are written in Groovy, a scripting language for the Java Virtual Machine (JVM). These files define the entire build and deployment process, including stages, steps, and configurations.
@@ -374,11 +375,11 @@ Ans: Managing Kubernetes deployments involves defining the desired state of your
 ### 9. Rolling Updates and Rollbacks:
    - When updating applications, perform rolling updates to minimize downtime. Kubernetes supports rolling updates out of the box. Ensure you have a rollback strategy in case of issues.
 ### 10. Infrastructure as Code (IaC):
-    - If you are using Infrastructure as Code (IaC) tools like Terraform to provision your Kubernetes clusters, integrate your cluster provisioning and application deployment processes.
+- If you are using Infrastructure as Code (IaC) tools like Terraform to provision your Kubernetes clusters, integrate your cluster provisioning and application deployment processes.
 ### 11. CI/CD Operators:
-    - Consider using CI/CD operators like Jenkins Operator or Tekton Operator to manage your CI/CD pipelines as Kubernetes resources.
+- Consider using CI/CD operators like Jenkins Operator or Tekton Operator to manage your CI/CD pipelines as Kubernetes resources.
 ### 12. Cluster Configurations:
-    - Use tools like `kubectl` or Kubernetes management platforms to interact with and configure your Kubernetes clusters. Tools like Rancher or Kubernetes Dashboard can provide a graphical interface for managing clusters.
+- Use tools like `kubectl` or Kubernetes management platforms to interact with and configure your Kubernetes clusters. Tools like Rancher or Kubernetes Dashboard can provide a graphical interface for managing clusters.
 By following these practices, you can establish a robust and automated workflow for managing Kubernetes deployments, making it easier to scale, update, and maintain your applications in a Kubernetes environment.
 
 ### 11.	Where do you store these manifest files?
@@ -427,7 +428,7 @@ Ans: Storing Kubernetes manifest files is an important aspect of managing Kubern
 ---
 
 ## Genpact L2 Q&A Mon 28 Mar 2022 3pm – 4pm (IST)
-
+---
 ### 1.	What all you did in Linux?
 ### 2.	How to resolve the stale file handle in Linux machine?
 Ans: "Stale file handle" is an error in Linux that typically occurs when a process or system attempts to access a file or directory that was previously mounted or accessed, but the handle to that file or directory is no longer valid. This can happen for various reasons, such as a network failure, unmounting, or a change in the underlying filesystem.
@@ -474,7 +475,7 @@ Here are some steps you can take to resolve the "stale file handle" issue:
 Note:
 - Make sure to replace `/path/to/mounted/directory` with the actual path to the mounted directory or the mounted device.
 If the problem persists after trying these steps, it may indicate a more complex issue with the filesystem, network, or storage system. In such cases, it might be necessary to investigate further or seek assistance from system administrators or support channels.
-* `Or`
+- `Or`
 ### 1.	Try to umount the partition.
 [root@ngelinux samba]# umount /NGEI/NGEEXL2/MDM/ngeaix208/interfaces umount.nfs: /NGEI/NGEEXL2/MDM/ngeaix208/interfaces: device is busy umount.nfs: /NGEI/NGEEXL2/MDM/ngeaix208/interfaces: device is busy
 [root@ngelinux samba]#
@@ -716,7 +717,7 @@ Ans: Building a .NET application involves converting the human-readable source c
    - Optionally, developers can define post-build events or scripts that run after the build process to perform additional tasks, such as copying files, running tests, or creating installers.
 		In summary, the .NET build process involves compiling the source code into assemblies using a build system like MSBuild. The result is executable code that can be run on the .NET runtime. The build process can be triggered manually by developers or as part of an automated build and continuous integration system.
 * `Or`
- 	.Net Framework is a software development platform developed by Microsoft for building and running Windows applications. The .Net framework consists of developer tools, programming languages, and libraries to build desktop and web applications. It is also used to build websites, web services, and games.
+* .Net Framework is a software development platform developed by Microsoft for building and running Windows applications. The .Net framework consists of developer tools, programming languages, and libraries to build desktop and web applications. It is also used to build websites, web services, and games.
 * The .Net framework was meant to create applications, which would run on the Windows Platform.
 ### 15.	How do you classify weather it is public subnet or private subnets?
 Ans: Already available
@@ -781,7 +782,7 @@ Ans: Amazon Route 53 is a scalable and highly available domain name system (DNS)
 * `Or`
 * Amazon Route 53 is a highly available and scalable cloud Domain Name System (DNS) web service. It is basically designed for developers and corporate to route the end users to Internet applications by translating human-readable names like www.example.org into the numeric IP addresses like 192.0.1.1 that computers use to connect to each other.
 ### 18.	What all the records are there in the Route 53? 
-	Ans: Already available
+Ans:  Already available
 ### 19.	What are the playbooks that you used in Ansible?
 Ans:Ansible playbooks are written in YAML format and define a set of tasks to be executed on remote hosts. Here are a few examples:
 
@@ -948,8 +949,8 @@ Ans: Terraform is a widely used Infrastructure as Code (IaC) tool that allows yo
    - `jsondecode()`: Decode a JSON-formatted string into a data structure.
    - `yamldecode()`: Decode a YAML-formatted string into a data structure.
 * These functions can be used within Terraform configurations to perform various operations, manipulate values, and create more dynamic and reusable infrastructure code. Refer to the [official Terraform documentation](https://www.terraform.io/docs/language/functions/index.html) for the most up-to-date and comprehensive information on Terraform functions.
-- `Or`
-element, lookup, file,list,count,for_each,for
+`Or`
+* element, lookup, file,list,count,for_each,for
 o	index finds the index for a particular element value.
 o	lookup retrieves a value from a map given its key.
 o	element retrieves a single element from a list.
@@ -1184,10 +1185,10 @@ Data:
     }
   }
   ```
--Usage:
+- Usage:
   - Used when you need information from existing resources or external sources to inform decisions or configurations.
 * **When to Use Both**:
-#### - Scenario 1: Data to Get Information for Resource Configuration:**
+#### - Scenario 1: Data to Get Information for Resource Configuration:
   - You might use a `data` block to retrieve information (e.g., AMI ID) and then use that information within a `resource` block to create a new resource.
 - Example:
   ```hcl
@@ -1205,7 +1206,7 @@ Data:
     instance_type = "t2.micro"
   }
   ```
-#### - Scenario 2: Use Data for Decisions in Resource Configuration:**
+#### - Scenario 2: Use Data for Decisions in Resource Configuration:
   - You might use a `data` block to fetch information that helps decide how to configure a `resource`.
 - Example:
   ```hcl
@@ -1221,7 +1222,8 @@ Data:
 * Resource section we can use any resources like weather it is S3 bucket, EC2 instance. But using the data we can fetch the information about the AWS resource which is already provisioned, so we can get the data from the AWS and we use those information in the terraform configuration file.
 ### 7.	Do you know what is state file in terraform what is its use?
 Ans: In Terraform, the state file is a crucial component used to store information about the infrastructure managed by Terraform. This file is generated when you run terraform apply and is typically named terraform.tfstate. The state file serves several important purposes:
-* `Or`
+
+`Or`
 * State file is used to store the kind of infrastructure that we created it stores that information.
 ### 8.	Have you written any modules in Terraform?
 Ans: In Terraform, a module is a container for multiple resources that are used together. Modules allow you to encapsulate and organize your Terraform code, making it more reusable and maintainable. They provide a way to create a logical grouping of resources and configurations that can be used as a single unit. Here are key aspects of Terraform modules:
@@ -1271,24 +1273,25 @@ output "module_instance_ids" {
 ```
 * In this example, we have a module (`module_example.tf`) that defines an AWS instance with a variable for the instance count. The calling configuration (`main.tf`) uses this module with a specific instance count and outputs the instance IDs.
 Modules play a crucial role in making Terraform configurations modular, maintainable, and scalable.
-- `Or`
+
+  `Or`
 * Modules are used for reusability purpose, suppose we have s3 bucket we did not give variable values we create it just like a template, the s3 bucket details we define at the variable.tf file and main.tf. Here we give the source. 
 * In the source we give the module location information under this source we give the variables that we define in the module and we pass the required values here.
-So here every time we no need to create different kinds files, we have a file to the S3 bucket so in that file only we modify the details.
-Modules Overview - Conﬁguration Language | Terraform by HashiCorp
-Modules are containers for multiple resources that are used together. A module consists of a collection of .tf and/or .tf.json files kept together in a directory.
+* So here every time we no need to create different kinds files, we have a file to the S3 bucket so in that file only we modify the details.
+* Modules Overview - Conﬁguration Language | Terraform by HashiCorp
+* Modules are containers for multiple resources that are used together. A module consists of a collection of .tf and/or .tf.json files kept together in a directory.
 
 * Modules are the main way to package and reuse resource configurations with Terraform.
-* **The Root Module**
+* **The Root Module:**
 Every Terraform configuration has at least one module, known as its root module, which consists of the resources defined in the .tf files in the main working directory.
-* **Child Modules**
+* **Child Modules:**
 * A Terraform module (usually the root module of a configuration) can call other modules to include their resources into the configuration. A module that has been called by another module is often referred to as a child module.
 * Child modules can be called multiple times within the same configuration, and multiple configurations can use the same child module.
-* **Published Modules**
+* **Published Modules:**
 * In addition to modules from the local filesystem, Terraform can load modules from a public or private registry. This makes it possible to publish modules for others to use, and to use modules that others have published.
 * The Terraform Registry hosts a broad collection of publicly available Terraform modules for configuring many kinds of common infrastructure. These modules are free to use, and Terraform can download them automatically if you specify the appropriate source and version in a module call block.
 * Also, members of your organization might produce modules specifically crafted for your own infrastructure needs. Terraform Cloud and Terraform Enterprise both include a private module registry for sharing modules internally within your organization.
-* **Using Modules**
+* **Using Modules:**
 * Module Blocks documents the syntax for calling a child module from a parent module, including meta-arguments like for_each.
 * Module Sources documents what kinds of paths, addresses, and URIs can be used in the source argument of a module block.
 The Meta-Arguments section documents special arguments that can be used with every module, including providers, depends_on, count, and for_each.
@@ -1298,54 +1301,57 @@ Ans: CloudFront Distribution, Route 53
 Ans: JAVA based application
 ### 11.	For any JAVA applications Runs It needs some runtime environment right? So what is the runtime you are using?
 Ans: When running a Java application, a Java Runtime Environment (JRE) or a Java Development Kit (JDK) is required. The JRE provides the necessary runtime support for executing Java applications, while the JDK includes additional tools for Java development.
-- `Or`
+
+`Or`
 * The JDK and JRE interact with one another to create a sustainable runtime environment that enables the seamless execution of Java-based applications in virtually any operating system. 
 * The following make up the JRE runtime architecture:
 The Java Runtime Environment, or JRE, is a software layer that runs on top of a computer’s operating system software and provides the class libraries and other resources that a specific Java program needs to run.
 ### 12.	What is the App server you were using?
 Ans: Tomcat and Nginx are both widely used servers, but they serve different purposes in the web application stack. Let's look at each of them:
 * **Apache Tomcat**:
-- Type: Application Server (Servlet Container)
-- Primary Use:
+- `Type`: Application Server (Servlet Container)
+- `Primary Use`:
   - Tomcat is an open-source implementation of the Java Servlet, JavaServer Pages (JSP), and Java Expression Language (EL) technologies.
   - It is designed to be a lightweight, robust servlet container for running Java-based web applications.
-* **- Key Features**:
+* **Key Features**:
   - Supports Java EE specifications.
   - Servlet container for executing Java servlets and JSP pages.
   - Configurable through XML files.
   - Commonly used with Java frameworks like Spring.
   - Often used for hosting Java web applications.
-- Deployment:
+* **Deployment**:
   - Applications are typically packaged as WAR (Web Application Archive) files and deployed to Tomcat.
   - Can be used independently or integrated with other web servers like Apache HTTP Server.
-Nginx:
-- Type: Web Server and Reverse Proxy Server
-- Primary Use:
-  - Nginx is a high-performance, open-source web server that also functions as a reverse proxy server.
+* **Nginx**:
+- `Type`: Web Server and Reverse Proxy Server
+- `Primary Use`:
+  - `Nginx` is a high-performance, open-source web server that also functions as a reverse proxy server.
   - It's designed to handle a large number of simultaneous connections efficiently.
-- Key Features:
+* **Key Features**:
   - Efficiently serves static content.
   - Acts as a reverse proxy, forwarding requests to other servers (e.g., application servers).
   - Handles SSL/TLS termination.
   - Supports load balancing.
   - Often used as a front-end proxy for applications.
-- Deployment:
+* **Deployment**:
   - Nginx can serve static content directly and pass dynamic requests to backend application servers (e.g., Tomcat, Apache, etc.).
   - Commonly used as a reverse proxy in front of application servers to improve performance and security.
   - Widely used in microservices architectures.
 * **Use Case Comparison**:
-- Tomcat Use Cases:
+- `Tomcat Use Cases`:
   - Ideal for hosting Java-based web applications.
   - Used when you need to run Java servlets and JSP pages.
   - Suitable for applications built with Java frameworks like Spring.
-- Nginx Use Cases:
+- `Nginx Use Cases`:
   - Excellent for serving static content efficiently.
   - Often used as a reverse proxy in front of application servers.
   - Suitable for load balancing and handling a large number of concurrent connections.
   - Frequently employed in microservices architectures.
 * In many web application deployments, it's common to see Nginx used as a front-end web server or reverse proxy in conjunction with application servers like Tomcat to enhance performance, security, and scalability.
-- `Or`
-- `Tomcat`
+
+`Or`
+
+**Tomcat**
 * Suppose In POD we have the container. In Container we have Tomcat. In Tomcat our application is running.
 ### 13.	So Tomcat is running right, now in some other cases the tomcat server is got crashed so will you start creating a new instance and install everything? how does it works?
 Ans: In a production environment, when a Tomcat server crashes or becomes unresponsive, the typical approach is not to manually create a new instance and install everything but rather to design the infrastructure to be resilient and employ strategies for automatic recovery. Here are some common practices to handle such situations:
@@ -1366,7 +1372,8 @@ Ans: In a production environment, when a Tomcat server crashes or becomes unresp
 ### 8. Centralized Logging:
    - Centralized logging solutions help in identifying issues and diagnosing problems. Analyzing logs can provide insights into the root cause of failures, and it facilitates debugging and troubleshooting.
 * By combining these practices, you can build a resilient and self-healing infrastructure that can automatically recover from failures and provide high availability for your Tomcat application. The goal is to minimize manual intervention and ensure that the system can recover quickly and reliably in the event of issues.
-- `Or`
+
+`Or`
 * Suppose if the Tomcat is not working in the sense that POD is not working. Here the service will automatically redirect the routing to another POD.
 * If the tomcat not working means POD gets crashed. The POD gets restarts. And that we need to identify and fix it.
 * Actually my application is hosted on a kubernetes inside a POD, the POD will have the container the container will having tomcat. If the particular tomcat is down which present in the container routing will be happened to another POD
@@ -1454,7 +1461,8 @@ Ans: In Kubernetes, routing and directing traffic to the appropriate services an
 #### 7. Service Mesh (Optional):
    - In more complex scenarios, service meshes like Istio or Linkerd can be used to manage and control the traffic between services, providing features like traffic routing, load balancing, and observability.
 * In summary, Kubernetes uses Services, Ingress, and networking concepts to manage the routing of traffic within and external to the cluster. The specifics can vary based on the type of service, the networking environment, and the desired access patterns.
-- `Or`
+
+`Or`
 * When we hit the service in kubernetes the services will redirects to the available PODs.
 #### 15.	Are you running EC2 instances on top of a tomcat and then your application, you are using EC2 instances as a kubernetes instances or nodes?
 Ans: In a Kubernetes environment, EC2 instances can be used as worker nodes in a cluster. These worker nodes host and run the containers that make up your applications. 
@@ -1510,15 +1518,18 @@ spec:
 ```
 * In this example, the manifest deploys a web application (`my-app`) with three replicas and exposes it externally using a LoadBalancer service. The application runs on port 8080 inside the container.
 * In summary, EC2 instances in an AWS environment can be utilized as worker nodes in a Kubernetes cluster, and Kubernetes abstracts away the underlying infrastructure details, providing a platform for deploying, managing, and scaling containerized applications.
-- `Or`
+
+`Or`
 * For application purpose we use tomcat, in container we have the tomcat. In tomcat we have the application.
 ### 16.	How scaling does happens?
 Ans: Detailed answer already available
-- `Or`
+
+`Or`
 * Scaling will be work based on the auto scaling, we have configured node group in the launch template, and while configuring the node group we use to define the auto scaling configuration what is the desired number of instances and minimum number of instances and maximum number of instances.
 * In Horizontal POD Auto scaling we define that number .of replicas, and minimum and maximum number of replicas. If CPU utilization is more than 70% that PODs will be increase
 ### 17.	Suppose In account you created a S3 bucket using your role, other user with different role, how will you give the access to others for that bucket?
-- `(Or)`
+
+`(Or)`
 ### Suppose you are the admin I am the developer, I told to you this is the Dev bucket I am having the developer role, give me access to developer role access to the bucket so how will you do that?
 Ans: When you create an S3 bucket using your IAM role, you can grant access to other users by configuring the bucket's Access Control List (ACL) or by defining a bucket policy. Here's a brief overview of both approaches:
 #### 1. Access Control List (ACL):
@@ -1638,23 +1649,23 @@ Ans: In AWS Application Load Balancer (ALB), you can configure listeners to rout
 #### 3. Configure Listeners:
    - For each port that you want to handle traffic, create a listener. A listener is associated with a specific port and protocol (HTTP or HTTPS).
    Example:
-   - Listener for HTTP (port 80):
+   - `Listener for HTTP (port 80)`:
      - Protocol: HTTP
      - Port: 80
      - Default action: Forward to Target Group A
-   - Listener for HTTPS (port 443):
+   - `Listener for HTTPS (port 443)`:
      - Protocol: HTTPS
      - Port: 443
      - Default action: Forward to Target Group B
 #### 4. Define Rules for Each Listener:
    - Once you've created listeners, you can define rules for each listener to specify conditions for routing traffic to different target groups.
    Example Rule for HTTP (port 80):
-   * **- Rule 1**: If the condition is true (e.g., path starts with "/app1"), forward to Target Group A.
-   * **- Rule 2**: If the condition is true (e.g., path starts with "/app2"), forward to Target Group B.
+   * **Rule 1**: If the condition is true (e.g., path starts with "/app1"), forward to Target Group A.
+   * **Rule 2**: If the condition is true (e.g., path starts with "/app2"), forward to Target Group B.
 
    #### Example Rule for HTTPS (port 443):
-   * **- Rule 1**: If the condition is true (e.g., host header equals "secure.example.com"), forward to Target Group B.
-   * **- Rule 2**: If the condition is true (e.g., path starts with "/secure"), #### forward to Target Group C.
+   * **Rule 1**: If the condition is true (e.g., host header equals "secure.example.com"), forward to Target Group B.
+   * **Rule 2**: If the condition is true (e.g., path starts with "/secure"), #### forward to Target Group C.
 #### 5. Update Security Groups and Instances:
    - Ensure that the security groups associated with your instances allow incoming traffic from the Application Load Balancer on the required ports.
 - `Example CloudFormation Template:`
@@ -1721,7 +1732,8 @@ Resources:
                 - /secure/*
 ```
 * In this example, HTTP traffic on port 80 is handled by `ListenerHTTP` with rules forwarding to `TargetGroupA` and `TargetGroupB` based on path conditions. HTTPS traffic on port 443 is handled by `ListenerHTTPS` with rules forwarding to `TargetGroupB` and `TargetGroupC` based on host header and path conditions. Adjust the configuration based on your specific requirements.
-- `Or`
+
+`Or`
 * In this case we will use Network Load balancers because it will supports port based routing. Here we will create a target group there we will associate instances to the target group. Then we will come to network load balancers inside the listeners we use to set the rules there we will define that routing if the particular request comes from 80 it can go to specific target group.
 ### 21.	Can we use application load balancer in the above scenario?
 Ans: Yes, you can configure listeners in an Application Load Balancer (ALB) to handle requests on different ports and route them to different sets of servers. ALB is designed to work at the application layer (Layer 7), allowing you to route traffic based on content, including ports.
@@ -1782,9 +1794,10 @@ Ans: DevOps, short for Development and Operations, is a set of practices, princi
 #### 9. Cultural Transformation:
    - DevOps is not just about tools and processes; it involves a cultural shift that encourages communication, collaboration, and a shared sense of responsibility among all stakeholders.
 #### 10. Lean Principles:
-    - DevOps borrows principles from Lean manufacturing, aiming to eliminate waste, optimize processes, and deliver value to customers more efficiently.
+- DevOps borrows principles from Lean manufacturing, aiming to eliminate waste, optimize processes, and deliver value to customers more efficiently.
 * By embracing DevOps principles and practices, organizations can achieve faster time-to-market, improved software quality, increased collaboration between teams, and enhanced overall efficiency in the software development and delivery lifecycle. * DevOps is a holistic approach that spans technology, processes, and people.
-- `Or`
+
+`Or`
 * DevOps is a set of practices that combines software development (Dev) and IT operations (Ops). It aims to shorten the systems development life cycle and provide continuous delivery with high software quality.DevOps is complementary with Agile software development; several DevOps aspects came from the Agile methodology.
 ### 4.	As a DevOps engineer what is your current roles and responsibilities in the project? What are the tools you are using and what are the tasks you are doing?
 Ans: Explain about your current role, responsibilities and tools.
@@ -1796,24 +1809,24 @@ Ans: We were managing the kubernetes in AKS (Azure Kubernetes service)
 Ans: Deploying an application on Amazon Elastic Kubernetes Service (EKS) involves several steps, including setting up your EKS cluster, preparing your application, and deploying it to the cluster. Here are the high-level steps you might follow:
 #### 1. Set Up AWS EKS Cluster:
 
-	* **1. Create an Amazon EKS Cluster:**
-  	 - Use the AWS Management Console, AWS CLI, or an infrastructure-as-code (IaC) tool (e.g., Terraform) to create an EKS cluster.
-	* **2. Configure `kubectl` for EKS:**
-  - Download the `kubeconfig` file for your EKS cluster from the AWS Management Console.
-   	- Configure `kubectl` to use this `kubeconfig` file.
+* **1. Create an Amazon EKS Cluster:**
+- Use the AWS Management Console, AWS CLI, or an infrastructure-as-code (IaC) tool (e.g., Terraform) to create an EKS cluster.
+* **2. Configure `kubectl` for EKS:**
+- Download the `kubeconfig` file for your EKS cluster from the AWS Management Console.
+- Configure `kubectl` to use this `kubeconfig` file.
 
 ```bash
 aws eks --region <region> update-kubeconfig --name <cluster-name>
 ```
-* **2. Prepare Your Application:**
+**2. Prepare Your Application:**
 
-  * **3. Containerize Your Application:**
+  * **1. Containerize Your Application:**
    - Package your application into a container. Use Docker or another containerization tool.
    - Create a `Dockerfile` to define your application's container image.
 
- * **4. Push Container Image to Amazon ECR:**
-   - Create an Amazon Elastic Container Registry (ECR) repository.
-   - Build your container image and push it to ECR.
+ * **2. Push Container Image to Amazon ECR:**
+ - Create an Amazon Elastic Container Registry (ECR) repository.
+ - Build your container image and push it to ECR.
 
 ```bash
 aws ecr create-repository --repository-name <repo-name> --region <region>
@@ -1891,7 +1904,7 @@ kubectl scale deployment <deployment-name> --replicas=5
 	Remember to replace placeholders like `<region>`, `<repo-name>`, `<tag>`, `<deployment-name>`, `<app-name>`, `<container-name>`, `<service-name>`, and others with your actual values.
 
 #### This is a simplified overview, and the actual steps may vary based on your application requirements and deployment strategy. Additionally, consider using infrastructure-as-code tools (e.g., Terraform, AWS CDK) for a more automated and reproducible deployment process.
-- `Or`
+`Or`
 * Suppose once we build our application, it will creates the artefacts weather it is a JAR/ WAR files. Here we create the WAR file. So already we define in POM.xml what kind of files that we need (JAR/WAR).
 * And later I set that docker image to the kubernetes deployment. And I follow the rolling update strategy to update deployment in the kubernetes which is deployed in AWS EKS.
 ### 8.	Who creates this JAR/WAR files?
@@ -1924,11 +1937,12 @@ Ans: In a typical software development workflow:
 #### 1. Developers: They write code, make changes, and develop new features. They often use version control systems (e.g., Git) and build tools (e.g., Maven, Gradle) to manage and build their code.
 #### 2. Build Servers or CI/CD Systems: Continuous Integration/Continuous Deployment (CI/CD) systems or build servers (e.g., Jenkins, GitLab CI, Travis CI) are responsible for automating the build process. They pull code from version control, run tests, and create deployable artifacts (e.g., JAR, WAR files).
 #### 3. Deployment: After the build, deployment processes may be triggered to move the application to testing, staging, or production environments.
-- `Or`
+`Or`
  * In some projects developers has that access, and some projects that DevOps engineer has that access. Generally for Dev environment we give the build permissions to the developers. And rest of the environments we taking care of the builds.
 ### 10.	What is the piece of work that you are doing in the project?
 Ans: Explain about your work
-- `Or`
+
+`Or`
  * Mostly I use to create the CI/CD pipelines, and I use to work on kubernetes deployment and write some kubernetes manifest files and I work on terraform to provision the infrastructure resources. And I use to manage the application which already deployed on AWS. These are the primary responsibilities that I am involving.
 ### 11.	Where we install the Kubernetes and EKS vs Kubernetes?
 Ans: We are not installing any kubernetes we are using kubernetes as service in AWS(EKS) and AKS in azure.
@@ -1954,7 +1968,8 @@ Ans: In a real-world project, the responsibility for deploying applications and 
    - Security engineers are responsible for ensuring the security of the deployment environment. This includes configuring security policies, managing access controls, and addressing vulnerabilities.
 * The specific roles and responsibilities can vary between organizations, and some tasks may be shared or overlap depending on the size and structure of the team. Collaborative efforts among these roles are essential for successful and efficient project delivery.
 * In many organizations, there is a strong emphasis on collaboration between development and operations teams, often referred to as a DevOps culture, to ensure a smooth and automated flow from code development to deployment and operations.
-- `Or`
+
+`Or`
 * I am not part of creating the EKS, we have a separate team they create and manage these things. Once they create by using these EKS we are managing the deployment.
 Suppose, In EKS node groups (servers) utilization of CPU and memory is high we change the IP Address of that particular server instance type. I.e which instance is providing more CPU and memory that we give
 ### 14.	What is your experience in the Terraform?
@@ -1987,9 +2002,10 @@ Ans: Monitoring and ensuring the success of deployments in Amazon EKS (Elastic K
 #### 9. Post-Deployment Verification:
    - After deployment, perform post-deployment verification tests to ensure that the application is functioning correctly in the live environment.
 #### 10. Observability Tools:
-    - Use observability tools such as Prometheus and Grafana for in-depth monitoring, metrics visualization, and anomaly detection within your Kubernetes clusters.
+- Use observability tools such as Prometheus and Grafana for in-depth monitoring, metrics visualization, and anomaly detection within your Kubernetes clusters.
 * Remember to tailor your monitoring and observability practices based on the specifics of your application architecture and business requirements. Continuous monitoring, automated testing, and feedback loops are essential components of a robust deployment strategy in Kubernetes environments like EKS.
-- `Or`
+
+`Or`
 * Suppose once deployment was done, we need to list the POD weather the deployment is success or not. Here we use “kubectl get pod namespace” command it shows the POD details like weather the POD is deploying state, pending state and cross loop back stage.
 * If the POD deployment successful it shows the containers like 1/3, 2/2/, 3/3 and ready state.
 * If POD Deployment fails it shows like Pending, cross loop back and waiting state.
@@ -2020,53 +2036,58 @@ Continuous Deployment (CD):
    - Continuous Delivery: The pipeline automatically deploys to a staging environment for testing. Manual approval may be required before deploying to production.
    - Continuous Deployment: The pipeline automatically deploys to production without manual intervention after passing all tests.
 ### 10. Environment Provisioning:
-    - Provision necessary infrastructure for deploying the application (e.g., cloud resources, containers).
+- Provision necessary infrastructure for deploying the application (e.g., cloud resources, containers).
 ### 11. Deployment:
-    - Deploy the artifacts to the specified environment.
+- Deploy the artifacts to the specified environment.
 ### 12. Post-Deployment Tests:
-    - Run additional tests in the deployment environment to ensure the application behaves as expected.
+- Run additional tests in the deployment environment to ensure the application behaves as expected.
 ### 13. Monitoring and Metrics:
-    - Monitor the deployed application for performance, errors, and other metrics.
+- Monitor the deployed application for performance, errors, and other metrics.
 ### 14. Rollback (if needed):
-    - Implement a rollback mechanism in case issues are detected post-deployment.
-Jenkins Configuration:
-- Pipeline as Code:
+- Implement a rollback mechanism in case issues are detected post-deployment.
+
+**Jenkins Configuration:**
+- **Pipeline as Code:**
   - Define the CI/CD pipeline using Jenkinsfile, a script written in Groovy that specifies the stages, steps, and conditions of the pipeline.
-- Integration with Version Control:
+- **Integration with Version Control:**
   - Jenkins integrates with version control systems (e.g., Git, GitHub, Bitbucket) to automatically trigger builds when changes are detected.
-- Plugins and Extensions:
+- **Plugins and Extensions:**
   - Jenkins supports a vast ecosystem of plugins for integrating with various tools and technologies, enabling flexibility and extensibility.
-- Artifact Management:
+- **Artifact Management:**
   - Use Jenkins plugins or external artifact repositories (e.g., Nexus, Artifactory) to manage and store artifacts.
-CI/CD pipelines in Jenkins provide a structured and automated approach to software development and deployment, promoting collaboration, consistency, and faster release cycles. The exact configuration of a CI/CD pipeline in Jenkins will depend on the specific needs and requirements of the project.
-Or
-CI/CD means Continuous Integration and Continues Delivery. Continuous Integration means developer commits the code into git, once Developer commit the code an auto build will trigger and it will validate those code and there we can enable some notifications to the developer.
-18.	How did you build those pipelines?
+  - CI/CD pipelines in Jenkins provide a structured and automated approach to software development and deployment, promoting collaboration, consistency, and faster release cycles. The exact configuration of a CI/CD pipeline in Jenkins will depend on the specific needs and requirements of the project.
+
+  `Or`
+  - CI/CD means Continuous Integration and Continues Delivery. Continuous Integration means developer commits the code into git, once Developer commit the code an auto build will trigger and it will validate those code and there we can enable some notifications to the developer.
+### 18.	How did you build those pipelines?
 Ans: Actually we use git lab integration to the Jenkins, already our code is stored in the git lab. And then we configured WebHook with the Jenkins. Whenever we commit any changes in the gitlab it will automatically triggers the Jenkins pipeline build.
-19.	Who write those pipelines in Jenkins?
+### 19.	Who write those pipelines in Jenkins?
 Ans: The creation and maintenance of Jenkins pipelines are typically the responsibility of DevOps engineers, build/release engineers, or individuals with expertise in the CI/CD (Continuous Integration/Continuous Deployment) process. The specific roles may vary between organizations, but here are common roles involved in writing Jenkins pipelines:
-1. DevOps Engineers:
+#### 1. DevOps Engineers:
    - DevOps engineers are responsible for automating and optimizing the software development lifecycle, including building and deploying applications.
    - They design, implement, and maintain CI/CD pipelines using tools like Jenkins.
    - DevOps engineers collaborate with development teams to integrate CI/CD practices into the software delivery process.
-2. Build/Release Engineers:
+#### 2. Build/Release Engineers:
    - Build or release engineers focus on the compilation, packaging, and release of software.
    - They design and configure build systems, create deployment scripts, and manage release processes.
    - These engineers play a crucial role in defining Jenkins pipelines for building, testing, and deploying applications.
-3. CI/CD Specialists:
+#### 3. CI/CD Specialists:
    - Some organizations have specialists or teams dedicated to CI/CD practices.
    - These specialists focus on establishing best practices, creating reusable pipeline templates, and ensuring the overall efficiency of CI/CD processes.
-4. Automation Engineers:
+#### 4. Automation Engineers:
    - Automation engineers are involved in scripting and automating tasks throughout the development lifecycle.
    - They contribute to the automation of testing, deployment, and infrastructure provisioning within Jenkins pipelines.
-5. Software Developers:
+#### 5. Software Developers:
    - Developers may contribute to the Jenkins pipeline configuration, especially for defining steps related to code compilation, unit testing, and other development-focused tasks.
    - Collaboration between developers and operations (DevOps) is a key aspect of modern software development.
-In many organizations, the responsibility for writing Jenkins pipelines is shared among members of cross-functional teams. Collaboration between development and operations teams is a core principle of the DevOps philosophy, aiming to break down silos and promote shared responsibilities.
-Jenkins pipelines are often defined using a Jenkinsfile, which is a script written in Groovy. The individuals responsible for writing these scripts should have knowledge of the software development process, build tools, deployment strategies, and the specific technologies used in the project. They work closely with stakeholders to ensure that the pipelines align with the project's goals and requirements.
-Or
-We write the pipelines
-Ans: Suppose in the pipeline script in the first stage it clones the code from the git repository, In second stage maven builds the code, in the third stage docker build is takes place, in the fourth stage it is going to update the docker image with the kubernetes deployment.
+* In many organizations, the responsibility for writing Jenkins pipelines is shared among members of cross-functional teams. Collaboration between development and operations teams is a core principle of the DevOps philosophy, aiming to break down silos and promote shared responsibilities.
+* Jenkins pipelines are often defined using a Jenkinsfile, which is a script written in Groovy. The individuals responsible for writing these scripts should have knowledge of the software development process, build tools, deployment strategies, and the specific technologies used in the project. They work closely with stakeholders to ensure that the pipelines align with the project's goals and requirements.
+
+`Or`
+
+**We write the pipelines**
+* Ans: Suppose in the pipeline script in the first stage it clones the code from the git repository, In second stage maven builds the code, in the third stage docker build is takes place, in the fourth stage it is going to update the docker image with the kubernetes deployment.
+```groovy
 node {
 // Get Artifactory server instance, defined in the Artifactory Plugin administration page.
 def server = Artifactory.server "SERVER_ID"
@@ -2081,50 +2102,52 @@ rtMaven.tool = "Maven-3.3.9"
 rtMaven.deployer releaseRepo:'libs-release-local', snapshotRepo:'libs-snapshot-local', server: server
 rtMaven.resolver releaseRepo:'libs-release', snapshotRepo:'libs-snapshot', server: server
 }
-
-
 stage('Maven build') {
 buildInfo = rtMaven.run pom: 'maven-example/pom.xml', goals: 'clean install'
 }
 stage('Publish build info') { server.publishBuildInfo buildInfo
 }
 }
-20.	What is the task you are doing today?
+```
+### 20.	What is the task you are doing today?
 Ans: Today Developer creates the JIRA ticket about the issue, in my S3 bucket I have a few issues related to deployment
 Two issues are related to Jenkins and two more issues are related to kubernetes. Here one of the service is unable to access the RDS instance which is in the AWS.
-21.	Write the Terraform file to deploy the S3 bucket in AWS?
-1.	Create S3 bucket module
-For that, create one folder named “S3,” we will have two files: bucket.tf and var.tf.
-2.	Define bucket
-Open bucket.tf and define bucket in that.
+### 21.	Write the Terraform file to deploy the S3 bucket in AWS?
+**1.	Create S3 bucket module**
+* For that, create one folder named “S3,” we will have two files: bucket.tf and var.tf.
+
+**2.	Define bucket**
+* Open bucket.tf and define bucket in that.
 bucket.tf
 resource "aws_s3_bucket" "demos3" { bucket = "${var.bucket_name}"
 acl = "${var.acl_value}"
 }
-3.	Define variables
-In var.tf, we will define variables for the bucket.tf
+
+**3.	Define variables**
+* In var.tf, we will define variables for the bucket.tf
 var.tf
+```hcl
 variable "bucket_name" {} variable "acl_value" {
 default = "private"
 }
+```
 
-
-4.	Add Configuration
-After successfully creating the S3 folder, create a file named main.tf for keeping configuration in our working directory.
+**4.	Add Configuration**
+* After successfully creating the S3 folder, create a file named main.tf for keeping configuration in our working directory.
 main.tf
+```hcl
 provider "aws" {
 access_key= "${var.aws_access_key}" secret_key = "${var.aws_secret_key}" region = "${var.region}"
 }
 module "s3" {
 source = "<path-to-S3-folder>" #bucket name should be unique bucket_name = "<Bucket-name>"
 }
-5.	Add Access key, Secret key, and Region.
-Now we will define variable.tf, where we will enter our access key, secret key, and region.
-
+```
+**5.	Add Access key, Secret key, and Region.**
+* Now we will define variable.tf, where we will enter our access key, secret key, and region.
 
 variable.tf
-
-
+```hcl
 variable "aws_access_key" { default = “<your_access_key>”
 }
 variable "aws_secret_key" { default = “<your_secret_key>”
@@ -2132,103 +2155,128 @@ variable "aws_secret_key" { default = “<your_secret_key>”
 variable "region" {
 default = "region"
 }
+```
+* Run Terraform script in your system.
 
+`1.	terraform init`
 
-Run Terraform script in your system.
-1.	terraform init
+* It is used to initialize the working directory.
+* It will install the required plugins for our code, e.g., AWS S3.
 
-It is used to initialize the working directory.
-It will install the required plugins for our code, e.g., AWS S3.
-2.	terraform plan
-We will use this command for script verification. It will show if there is an error in our configuration.
-3.	terraform apply
-Use terraform apply to create your S3 bucket.
-It will ask you for confirmation before execution; enter yes for confirmation. 4.terraform destroy
-(or) For Destroy the bucket
+`2.	terraform plan`
+* We will use this command for script verification. It will show if there is an error in our configuration.
+
+`3.	terraform apply`
+* Use terraform apply to create your S3 bucket.
+* It will ask you for confirmation before execution; enter yes for confirmation. 4.terraform destroy
+
+`(or)` 
+
+`For Destroy the bucket`
+```hcl
 terraform destroy -auto-approve // if you don’t want to approve manually
 In this Example I am defining the static variable values, so we can also invoke this variables from the variables.tf file as I write above. The below file is main.tf file
 Ans: provider "aws" { region	= "us-west-2"
 access_key = "my-access-key" secret_key = "my-secret-key"
 }
-
-
+```
+```
 resource "aws_s3_bucket" "b" { bucket = "my-tf-test-bucket" tags = {
 Name	= "My bucket" Environment = "Dev"
 }
 
 }
-22.	What other files will be available in the terraform?
+```
+### 22.	What other files will be available in the terraform?
 Ans: In a typical Terraform project, you may find various files and directories used for different purposes. The exact structure can vary based on project requirements, but here are some common files and directories you might encounter:
-1. Main Configuration File (`main.tf`):
-   - The main configuration file where you define your infrastructure resources, providers, variables, and other settings.
-2. Variable Definitions (`variables.tf`):
-   - File containing variable definitions. It is used to declare input variables that can be parameterized and passed into the main configuration.
-3. Output Definitions (`outputs.tf`):
-   - File containing output definitions. It is used to declare output values that can be displayed after Terraform applies the configuration.
-4. Provider Configuration (`provider.tf` or within `main.tf`):
-   - File or section within the main configuration file that specifies the provider details, including the cloud provider or infrastructure backend.
-5. Terraform State File (`terraform.tfstate`):
-   - The state file that keeps track of the current state of your infrastructure. It includes resource IDs, metadata, and other details. It's often stored remotely for collaboration.
-6. Terraform State Backup File (`terraform.tfstate.backup`):
-   - A backup copy of the previous state file. It's created automatically by Terraform during each apply operation.
-7. Terraform Configuration Language Files (`*.tf`):
-   - Additional configuration files with specific purposes (e.g., `networking.tf`, `security.tf`). These files are used to organize and structure the configuration logically.
-8. Modules Directory (`modules/`):
-   - A directory containing reusable modules. Modules encapsulate groups of resources with defined input and output variables, making it easier to manage and share configurations.
-9. Script Files (`*.sh`, `*.ps1`):
-   - Shell or PowerShell scripts used for additional automation or customization that Terraform might not handle directly.
-10. Environment-specific Configuration Files (`prod.tfvars`, `dev.tfvars`):
-    - Configuration files that define specific variable values for different environments. These can be used with the `-var-file` option during `terraform apply`.
-11. .gitignore:
-    - A file specifying which files or directories should be ignored by version control (e.g., `.gitignore` to exclude `terraform.tfstate` from being committed).
-12. Backend Configuration (`backend.tf`):
-    - File specifying the backend configuration, including the backend type (local, remote, S3, Azure Storage, etc.) and connection details.
-13. README.md:
-    - A readme file providing documentation, instructions, or information about the Terraform project.
-14. HCL Formatting Configuration (`.hclfmt` or `.terraformrc`):
-    - Configuration files for specifying how Terraform configuration files should be formatted.
-15. Tests Directory (`test/`):
-    - A directory containing test configurations or scripts for validating the infrastructure.
 
-These are common files and directories, but the actual structure can vary based on project needs and best practices. Additionally, the introduction of features or changes to Terraform might result in new conventions or file structures. Always refer to the Terraform documentation and community guidelines for the latest recommendations.
-Or
-Generally we have bucket.tf , main.tf file, variable.tf file which is used to define the variables, var.tf which is used to define the variable values based on the environment suppose if we have different environments like Dev, Test, Pre-Prod and Prod so we use to define the variable values using var.tf files.
-   23. What is the next step after defining the Terraform file?
+**1. Main Configuration File (`main.tf`):**
+   - The main configuration file where you define your infrastructure resources, providers, variables, and other settings.
+
+**2. Variable Definitions (`variables.tf`):**
+   - File containing variable definitions. It is used to declare input variables that can be parameterized and passed into the main configuration.
+
+**3. Output Definitions (`outputs.tf`):**
+   - File containing output definitions. It is used to declare output values that can be displayed after Terraform applies the configuration.
+
+**4. Provider Configuration (`provider.tf` or within `main.tf`):**
+   - File or section within the main configuration file that specifies the provider details, including the cloud provider or infrastructure backend.
+
+**5. Terraform State File (`terraform.tfstate`):**
+   - The state file that keeps track of the current state of your infrastructure. It includes resource IDs, metadata, and other details. It's often stored remotely for collaboration.
+
+**6. Terraform State Backup File (`terraform.tfstate.backup`):**
+   - A backup copy of the previous state file. It's created automatically by Terraform during each apply operation.
+
+**7. Terraform Configuration Language Files (`*.tf`):**
+   - Additional configuration files with specific purposes (e.g., `networking.tf`, `security.tf`). These files are used to organize and structure the configuration logically.
+
+**8. Modules Directory (`modules/`):**
+   - A directory containing reusable modules. Modules encapsulate groups of resources with defined input and output variables, making it easier to manage and share configurations.
+
+**9. Script Files (`*.sh`, `*.ps1`):**
+   - Shell or PowerShell scripts used for additional automation or customization that Terraform might not handle directly.
+
+**10. Environment-specific Configuration Files (`prod.tfvars`, `dev.tfvars`):**
+   - Configuration files that define specific variable values for different environments. These can be used with the `-var-file` option during `terraform apply`.
+
+**11. .gitignore:**
+   - A file specifying which files or directories should be ignored by version control (e.g., `.gitignore` to exclude `terraform.tfstate` from being committed).
+
+**12. Backend Configuration (`backend.tf`):**
+   - File specifying the backend configuration, including the backend type (local, remote, S3, Azure Storage, etc.) and connection details.
+
+**13. README.md:**
+   - A readme file providing documentation, instructions, or information about the Terraform project.
+
+**14. HCL Formatting Configuration (`.hclfmt` or `.terraformrc`):**
+   - Configuration files for specifying how Terraform configuration files should be formatted.
+
+**15. Tests Directory (`test/`):**
+   - A directory containing test configurations or scripts for validating the infrastructure.
+* These are common files and directories, but the actual structure can vary based on project needs and best practices. Additionally, the introduction of features or changes to Terraform might result in new conventions or file structures. Always refer to the Terraform documentation and community guidelines for the latest recommendations.
+
+`Or`
+
+* Generally we have bucket.tf , main.tf file, variable.tf file which is used to define the variables, var.tf which is used to define the variable values based on the environment suppose if we have different environments like Dev, Test, Pre-Prod and Prod so we use to define the variable values using var.tf files.
+### 23. What is the next step after defining the Terraform file?
 Ans: After defining the Terraform file , we need to initiate the terraform using “terraform init” , “terraform plan”, and “terraform apply“ commands.
-25.	In which location should I use the “terraform init” command?
+### 24.In which location should I use the “terraform init” command?
 Ans: We need to execute the “terraform init“commands wherever the terraform configuration files are located.
-Once we initiate the terraform we need to execute the “terraform plan “command. It will provides some information like what are the resources which we are going to resource.
-Then we need to execute the “terraform apply” command to create the resources in the AWS.
-26.	Why we need to do these many steps to create the S3 bucket? We can directly go and create the S3 bucket directly in AWS?
+* Once we initiate the terraform we need to execute the “terraform plan “command. It will provides some information like what are the resources which we are going to resource.
+* Then we need to execute the “terraform apply” command to create the resources in the AWS.
+### 25.Why we need to do these many steps to create the S3 bucket? We can directly go and create the S3 bucket directly in AWS?
 Ans: Absolutely, you can create an S3 bucket directly in the AWS Management Console without going through a scripted or automated process. The steps I mentioned earlier, which involve using infrastructure-as-code (IaC) tools like Terraform, are part of a broader approach known as Infrastructure as Code. This approach offers several benefits:
-1. Reproducibility:
+#### 1. Reproducibility:
    - IaC allows you to define and version-control your infrastructure. This means you can reproduce the exact same infrastructure in multiple environments, ensuring consistency and reducing the risk of configuration drift.
-2. Automation:
+#### 2. Automation:
    - With IaC tools, you automate the provisioning and management of resources. This can be particularly beneficial in scenarios where you need to set up or tear down infrastructure frequently, such as during development, testing, or continuous integration processes.
-3. Collaboration:
+#### 3. Collaboration:
    - IaC promotes collaboration between development and operations teams. Infrastructure can be defined as code, making it accessible and understandable to both developers and operations professionals. It becomes a part of your version control system, facilitating collaboration and transparency.
-4. Change Management:
+#### 4. Change Management:
    - Changes to your infrastructure can be tracked, reviewed, and tested just like changes to your application code. This helps in managing changes systematically and reduces the chances of introducing errors.
-5. Versioning:
+#### 5. Versioning:
    - IaC tools allow you to version your infrastructure configurations. This is particularly useful for auditing, rolling back changes, and understanding how your infrastructure has evolved over time.
-6. Scalability:
+#### 6. Scalability:
    - For larger and more complex infrastructures, IaC provides a scalable and manageable way to define and deploy resources. Templates can be reused and modified to adapt to changing requirements.
-While creating resources directly in the AWS Management Console is perfectly valid, adopting Infrastructure as Code becomes particularly powerful as your infrastructure becomes more complex or as you need to manage multiple environments consistently. It's a matter of choosing the right tool for the right job based on the needs of your project or organization.
-Or
-yes we can do that, but to making the process automate we do this, we can also do manually but its time taking process. Once we define the file we can use it for multiple times.
-27. You deployed some infra by using terraform, now you want to deploy your application into that infra? Then what should you do?
+* While creating resources directly in the AWS Management Console is perfectly valid, adopting Infrastructure as Code becomes particularly powerful as your infrastructure becomes more complex or as you need to manage multiple environments consistently. It's a matter of choosing the right tool for the right job based on the needs of your project or organization.
+
+`Or`
+
+* yes we can do that, but to making the process automate we do this, we can also do manually but its time taking process. Once we define the file we can use it for multiple times.
+### 26.You deployed some infra by using terraform, now you want to deploy your application into that infra? Then what should you do?
 Ans: Deploying an application onto the infrastructure provisioned with Terraform involves several steps. Below is a high-level guide to help you through the process:
-1. Containerization (Optional):
-a. Containerize Your Application:
+#### 1. Containerization (Optional):
+* **a. Containerize Your Application:**
    - If your application is not already containerized, consider using a containerization tool like Docker. Create a `Dockerfile` to define the application's container image.
-b. Build and Push Docker Image:
+* **b. Build and Push Docker Image:**
    - Build the Docker image for your application.
    - Push the Docker image to a container registry like Amazon ECR (Elastic Container Registry) or Docker Hub.
-2. Infrastructure Provisioning:
-a. Terraform Apply:
+#### 2. Infrastructure Provisioning:
+* **a. Terraform Apply:**
    - If you haven't already applied your Terraform configuration to provision the infrastructure, use the `terraform apply` command to create the necessary resources.
-3. Kubernetes Manifests (If using Kubernetes):
-a. Create Kubernetes Deployment Manifest:
+#### 3. Kubernetes Manifests (If using Kubernetes):
+* **a. Create Kubernetes Deployment Manifest:**
    - Write a Kubernetes Deployment manifest (`deployment.yaml`) specifying details like the container image, replicas, and other configurations.
 ```yaml
 apiVersion: apps/v1
@@ -2249,7 +2297,7 @@ spec:
         - name: my-app-container
           image: <container-image>
 ```
-b. Create Kubernetes Service Manifest (Optional):
+* **b. Create Kubernetes Service Manifest (Optional):**
    - If your application needs to be accessed externally, create a Kubernetes Service manifest (`service.yaml`).
 ```yaml
 apiVersion: v1
@@ -2265,25 +2313,25 @@ spec:
       targetPort: 8080
   type: LoadBalancer
 ```
-4. Deploy Application:
-a. Apply Kubernetes Manifests:
+#### 4. Deploy Application:
+* **a. Apply Kubernetes Manifests:**
    - Use `kubectl apply` to deploy your application to the Kubernetes cluster.
 ```bash
 kubectl apply -f deployment.yaml
 kubectl apply -f service.yaml
 ```
-5. Monitor and Scale:
-a. Monitor Application:
+#### 5. Monitor and Scale:
+* **a. Monitor Application:**
    - Use tools like Kubernetes Dashboard, Prometheus, Grafana, or AWS CloudWatch to monitor your application's performance.
-b. Scale Application (If Needed):
+* **b. Scale Application (If Needed):**
    - Use `kubectl scale` to adjust the number of replicas based on demand.
 ```bash
 kubectl scale deployment my-app-deployment --replicas=5
 ```
-6. Troubleshoot and Update:
-a. Troubleshoot Issues:
+#### 6. Troubleshoot and Update:
+* **a. Troubleshoot Issues:**
    - Monitor logs, investigate any issues, and troubleshoot as needed.
-b. Update Application:
+* **b. Update Application:**
     - If you have new versions of your application, update the Docker image reference in the Kubernetes Deployment manifest and reapply.
 ```yaml
 spec:
@@ -2293,23 +2341,25 @@ spec:
         - name: my-app-container
           image: <new-container-image>
 ```
-c. Reapply Kubernetes Manifests:
+* **c. Reapply Kubernetes Manifests:**
 ```bash
 kubectl apply -f deployment.yaml
 ```
-This is a simplified guide, and actual steps may vary based on your application, infrastructure, and deployment strategy. Adjust the manifests and configurations according to your specific requirements. Additionally, consider using CI/CD pipelines to automate and streamline the deployment process.
-Or
-Generally we never deploy the application by using terraform, we use the terraform for provisioning the infra structure after we deploy the infra or application using declarative pipeline or by using Ansible we can automate.by using Ansible play books and roles we automate the application.
-28	Write the Jenkins pipeline script?
-Ans:	pipeline {
+* This is a simplified guide, and actual steps may vary based on your application, infrastructure, and deployment strategy. Adjust the manifests and configurations according to your specific requirements. Additionally, consider using CI/CD pipelines to automate and streamline the deployment process.
+
+`Or`
+
+* Generally we never deploy the application by using terraform, we use the terraform for provisioning the infra structure after we deploy the infra or application using declarative pipeline or by using Ansible we can automate.by using Ansible play books and roles we automate the application.
+### 28	Write the Jenkins pipeline script?
+Ans:	
+``` groovy
+pipeline {
 Environment {
 Image_name= “ ” Yaml_file= “ ”
 }
 agent{
 
-
 }
-
 
 label ‘docker build’Stages{stage ('git checkout') { steps {
 git branch: master credential Id:
@@ -2340,11 +2390,11 @@ $${namespace-name} ${image}
 }
 }
 }
-
-
-29.	What is agent in Pipeline Script?
+```
+### 29.What is agent in Pipeline Script?
 Ans: In the context of Jenkins Pipeline scripts, an "agent" is a section of the script that specifies where the entire Pipeline, or a specific stage of the Pipeline, will be executed. The `agent` block allows you to define the environment in which your build, test, or deployment steps will run. There are different options for specifying agents in Jenkins Pipeline scripts:
-1. Any Agent:
+
+**1. Any Agent:**
    - Use `agent any` to allow the Jenkins system to allocate any available agent to run the Pipeline. This is a good option when you don't have specific requirements for the agent.
    ```groovy
    pipeline {
@@ -2355,7 +2405,7 @@ Ans: In the context of Jenkins Pipeline scripts, an "agent" is a section of the 
        }
    }
    ```
-2. Docker Agent:
+**2. Docker Agent:**
    - If your application is containerized, you can use a Docker agent to run the Pipeline within a specified Docker image.
    ```groovy
    pipeline {
@@ -2369,7 +2419,7 @@ Ans: In the context of Jenkins Pipeline scripts, an "agent" is a section of the 
        }
    }
    ```
-3. Node Agent:
+**3. Node Agent:**
    - Use a specific Jenkins agent (node) with a label to run the Pipeline. This is useful in scenarios where you have a Jenkins cluster with different types of nodes.
    ```groovy
    pipeline {
@@ -2384,7 +2434,7 @@ Ans: In the context of Jenkins Pipeline scripts, an "agent" is a section of the 
        }
    }
    ```
-4. Custom Workspace:
+**4. Custom Workspace:**
    - Specify a custom workspace for the Pipeline. This is the directory where the Pipeline will run.
    ```groovy
    pipeline {
@@ -2398,7 +2448,7 @@ Ans: In the context of Jenkins Pipeline scripts, an "agent" is a section of the 
        }
    }
    ```
-5. None (Declarative Syntax Only):
+**5. None (Declarative Syntax Only):**
    - In declarative syntax, you can use `agent none` to indicate that the Pipeline does not require a specific agent. This can be useful when you want to run certain stages on different agents.
    ```groovy
    pipeline {
@@ -2423,65 +2473,88 @@ Ans: In the context of Jenkins Pipeline scripts, an "agent" is a section of the 
        }
    }
    ```
-The choice of agent depends on your project's requirements, the tools and dependencies needed for your build, and the available resources in your Jenkins environment. Agents define the execution environment for your Pipeline, and you can customize them based on your specific needs.
-Or
-Here we define in which node or server the particular pipeline execution is going to happen. Actually we use to create a Jenkins nodes there we use to define the node.
-While configuring the Jenkins node, we give the name and label, this label we use at the agent.
-For all stages we define the one agent and also we can define different agents for each stage.
-30.	Have you worked on setting up end to end pipeline from build to release can you explain me what you did?
+* The choice of agent depends on your project's requirements, the tools and dependencies needed for your build, and the available resources in your Jenkins environment. Agents define the execution environment for your Pipeline, and you can customize them based on your specific needs.
+
+`Or`
+
+* Here we define in which node or server the particular pipeline execution is going to happen. Actually we use to create a Jenkins nodes there we use to define the node.
+* While configuring the Jenkins node, we give the name and label, this label we use at the agent.
+* For all stages we define the one agent and also we can define different agents for each stage.
+### 30.	Have you worked on setting up end to end pipeline from build to release can you explain me what you did?
 Ans: Already available
-Or
-first it gets the code from git and in second stage mvn deploy will happen it is going to push the artefacts to nexus. In the next stage we have docker build it is going to create the docker image, then it will push the docker image to docker registery and then we set the docker image to kubernetes deployment using
+
+`Or`
+
+* first it gets the code from git and in second stage mvn deploy will happen it is going to push the artefacts to nexus. In the next stage we have docker build it is going to create the docker image, then it will push the docker image to docker registery and then we set the docker image to kubernetes deployment using
 “kubectl set image image-name deployment-name namespace”. In that we need to use the rolling update strategy.
 * In my current project till development environment developer handles, then they give that version to us. After we deploy that version into the Prod or Pre-prod
-31. What is rolling Update strategy?
+### 31. What is rolling Update strategy?
 Ans: Already available
-Rolling update strategy allows deployment update to the application with one by one PODs, because while deployment is going few PODs are going to unavailable and few PODs are going to create state automatically. Once all the PODs are working fine previous pods will be terminated.
-        32. What are the other types of Deployment strategies in kubernetes?
+* Rolling update strategy allows deployment update to the application with one by one PODs, because while deployment is going few PODs are going to unavailable and few PODs are going to create state automatically. Once all the PODs are working fine previous pods will be terminated.
+### 32. What are the other types of Deployment strategies in kubernetes?
 Ans: Already available
-Or
-Recreate, Blue/Green Deployment and canary deployment strategy
-        33. What is Blue/Green Deployment?
+
+`Or`
+
+* Recreate, Blue/Green Deployment and canary deployment strategy
+### 33. What is Blue/Green Deployment?
 Ans: Already available
-Or
-Here we create the two versions like blue and green. We develop and test the green version once all are fine we divert the traffic to the Green version.
-         34. What is Canary Deployment?
+
+`Or`
+
+* Here we create the two versions like blue and green. We develop and test the green version once all are fine we divert the traffic to the Green version.
+### 34. What is Canary Deployment?
 Ans : Already available
-Or
-It is weightage based deployment strategy, suppose if we have an existing version we divert 50% traffic to the existing version and 50% to new version. Once new version works fine we allowed 100 % traffic to new version respectively.
-35. Do you have any experience with JAVA? 
+
+`Or`
+
+* It is weightage based deployment strategy, suppose if we have an existing version we divert 50% traffic to the existing version and 50% to new version. Once new version works fine we allowed 100 % traffic to new version respectively.
+
+### 35.Do you have any experience with JAVA? 
 Ans: No
-36. To edit all these deployment files which IDE are you using?
+
+### 36. To edit all these deployment files which IDE are you using?
 Ans: I am familiar with Visual Studio 2015, 2017, and 2019, Visual Studio Code IDE and Intellij.
-37. Are you interested to work on Azure?
+
+### 37. Are you interested to work on Azure?
 Ans: yes
-38. What is ARM templates in Azure?
+
+### 38. What is ARM templates in Azure?
 Ans: ARM (Azure Resource Manager) templates in Microsoft Azure are declarative JSON (JavaScript Object Notation) files that define the infrastructure and configuration of Azure resources. ARM templates enable you to provision and manage resources consistently and repeatedly in Azure, using a template-based approach. With ARM templates, you can define the desired state of your Azure resources and deploy them as a group.
 Key characteristics and components of ARM templates include:
-1. Declarative Syntax:
+
+**1. Declarative Syntax:**
    - ARM templates use a declarative syntax, specifying the desired end state of the Azure resources rather than detailing the steps to reach that state. This allows for easier understanding and maintenance of the infrastructure code.
-2. JSON Format:
+
+**2. JSON Format:**
    - Templates are written in JSON, a lightweight data interchange format. JSON is easy to read and write, and it provides a standardized way to represent the structure of resources.
-3. Resource Types:
+
+**3. Resource Types:**
    - ARM templates define various resource types, each representing a specific Azure resource (e.g., virtual machines, storage accounts, databases, networking components).
    - Resources are defined within the `resources` section of the template.
-4. Parameters and Variables:
+
+**4. Parameters and Variables:**
    - Templates can include parameters and variables to make them more flexible and reusable across different deployments.
    - Parameters allow users to provide input values at deployment time, while variables help in defining reusable expressions within the template.
-5. Outputs:
+
+**5. Outputs:**
    - ARM templates can include an `outputs` section to specify values that should be exposed or returned after the deployment. This can be useful for retrieving information about deployed resources.
-6. Nested Templates:
+
+**6. Nested Templates:**
    - Templates can be nested within each other, allowing for modular and reusable designs.
    - Nested templates are particularly useful for breaking down complex deployments into manageable components.
-7. Conditionals and Iteration:
+
+**7. Conditionals and Iteration:**
    - ARM templates support conditions and iteration, allowing you to define logic based on certain conditions or repeat sections of the template.
-8. Azure Resource Manager:
+
+**8. Azure Resource Manager:**
    - The Azure Resource Manager is the service responsible for deploying and managing Azure resources based on ARM templates.
    - It ensures that the resources are provisioned in the correct order and that dependencies are handled.
-9. Azure Portal Integration:
+
+**9. Azure Portal Integration:**
    - ARM templates can be deployed directly from the Azure Portal, making it easy to use and test templates interactively.
    - Templates can also be deployed programmatically using Azure PowerShell, Azure CLI, or through CI/CD pipelines.
-Here's a simple example of an ARM template defining an Azure Storage Account:
+* Here's a simple example of an ARM template defining an Azure Storage Account:
 
 ```json
 {
@@ -2501,64 +2574,83 @@ Here's a simple example of an ARM template defining an Azure Storage Account:
   ]
 }
 ```
-This template defines a Storage Account with specific properties such as name, location, SKU, and kind.
-Or
- ARM templates are similar to CloudFormation, which is used to provision the resources in Azure.
-39. Do you have experience on Azure Portal?
+* This template defines a Storage Account with specific properties such as name, location, SKU, and kind.
+
+`Or`
+ 
+* ARM templates are similar to CloudFormation, which is used to provision the resources in Azure.
+### 39. Do you have experience on Azure Portal?
 Ans: yes,
-Azure Portal provides a comprehensive interface for managing a wide range of cloud services and resources offered by Microsoft Azure. The portal is designed to be user-friendly and allows users to interact with and manage various Azure services. 
-1. Dashboard:
+* Azure Portal provides a comprehensive interface for managing a wide range of cloud services and resources offered by Microsoft Azure. The portal is designed to be user-friendly and allows users to interact with and manage various Azure services. 
+
+**1. Dashboard:**
    - A customizable dashboard where you can pin and arrange tiles to monitor key metrics and resources.
-2. Resource Explorer:
+
+**2. Resource Explorer:**
    - A tool for exploring and managing Azure resources, including the ability to view, edit, and delete resources.
-3. Virtual Machines:
+
+**3. Virtual Machines:**
    - Create, manage, and monitor virtual machines (VMs) running Windows or Linux.
-4. App Services:
+
+**4. App Services:**
    - Deploy, manage, and scale web apps, mobile app backends, and RESTful APIs using Azure App Service.
-5. Azure Kubernetes Service (AKS):
+
+**5. Azure Kubernetes Service (AKS):**
    - Deploy, manage, and scale containerized applications using Kubernetes.
-6. Azure Storage:
+
+**6. Azure Storage:**
    - Manage various types of storage services, including Blob storage, File storage, Table storage, and Queue storage.
-7. Azure Databases:
+
+**7. Azure Databases:**
    - Deploy and manage databases, including Azure SQL Database, Cosmos DB, MySQL, PostgreSQL, and more.
-8. Networking:
+
+**8. Networking:**
    - Configure and manage networking components such as virtual networks, load balancers, VPN gateways, and Azure Traffic Manager.
-9. Azure Active Directory:
+
+**9. Azure Active Directory:**
    - Manage identities and access in the cloud, including user accounts, groups, and applications.
-10. Azure Functions:
+
+**10. Azure Functions:**
     - Build, deploy, and scale serverless functions that respond to events.
-11. Azure DevOps Services:
+
+**11. Azure DevOps Services:**
     - Access Azure DevOps services for source code management, build automation, release management, and more.
-12. Azure Logic Apps:
+
+**12. Azure Logic Apps:**
     - Design and automate workflows that integrate with various services and applications.
-13. Azure Monitor:
+
+**13. Azure Monitor:**
     - Monitor the performance and health of Azure resources, set up alerts, and analyze metrics.
-14. Azure Security Center:
+
+**14. Azure Security Center:**
     - Monitor and improve the security posture of your Azure resources.
-15. Azure Policy:
+
+**15. Azure Policy:**
     - Define and enforce policies across your Azure environment.
-16. Azure Marketplace:
+
+**16. Azure Marketplace:**
     - Discover, try, and deploy third-party solutions and services from the Azure Marketplace.
-17. Azure Subscriptions and Billing:
+
+**17. Azure Subscriptions and Billing:**
     - Manage subscriptions, view usage, and access billing information.
-18. Azure Resource Manager (ARM):
+
+**18. Azure Resource Manager (ARM):**
     - Deploy and manage resources using ARM templates.
-19. Azure Cognitive Services:
+
+**19. Azure Cognitive Services:**
     - Access pre-built AI models and services for vision, speech, language, and more.
-20. Azure Sentinel:
-    - A cloud-native security information and event manager (SIEM) service.
-These are just a few examples, and there are many more services and features available in the Azure Portal. The portal is continually updated with new capabilities, so it's a good idea to explore and stay informed about the latest offerings.
-40. What is your experience on AWS?
+
+**20. Azure Sentinel:**
+- A cloud-native security information and event manager (SIEM) service.
+- These are just a few examples, and there are many more services and features available in the Azure Portal. The portal is continually updated with new capabilities, so it's a good idea to explore and stay informed about the latest offerings.
+### 40. What is your experience on AWS?
 Ans: In AWS cloud I have around 2.5 years of experience, in the services like S3 buckets, EC2 instances, VPCs, ACM certificates, Route 53, Hosted Zones, and CloudFront Distribution and CloudFormation.
-41. Why do we use subnets?
+### 41. Why do we use subnets?
 Ans: Subnet is nothing but range of IP address in a VPC. The Subnets are divide our VPC s in Public and Private IPs.
 Suppose if we want to launch any instance in the public or private we use subnets, here we use to attach the internet gateway to the public subnets if you want to launch instance in public subnets. If you want to launch any instance in a private network we will not attach any internet gateway to the subnet which is in the route table.
+---
 
-
-
-
-
-Virtusa L2 Q&A (Tue 22 Mar 2022 4:30pm – 5pm (IST))
+## Virtusa L2 Q&A (Tue 22 Mar 2022 4:30pm – 5pm (IST))
 
 1.	What is your experience in Jenkins? What is Jenkins pipeline?
 Ans: Using the Jenkins pipeline we can automate the deployment by using the different stages. In one stage we can pull the code from git repository and in the second stage we can build the code to create the artefacts weather it is JAR/WAR files. And next we have testing stage and next we have static source code analysis by using sonarqube and next we have deploy stage etc.
