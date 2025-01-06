@@ -2652,11 +2652,11 @@ Suppose if we want to launch any instance in the public or private we use subnet
 
 ## Virtusa L2 Q&A (Tue 22 Mar 2022 4:30pm – 5pm (IST))
 
-1.	What is your experience in Jenkins? What is Jenkins pipeline?
+### 1.	What is your experience in Jenkins? What is Jenkins pipeline?
 Ans: Using the Jenkins pipeline we can automate the deployment by using the different stages. In one stage we can pull the code from git repository and in the second stage we can build the code to create the artefacts weather it is JAR/WAR files. And next we have testing stage and next we have static source code analysis by using sonarqube and next we have deploy stage etc.
-2.	Do you have experience on Administrating the Jenkins?
+### 2.	Do you have experience on Administrating the Jenkins?
 Ans: Administering Jenkins involves managing its configuration, users, security, plugins, and other aspects to ensure the smooth operation of the CI/CD environment. Below are key areas to focus on when administering Jenkins:
-1. Manage Jenkins:
+#### 1. Manage Jenkins:
    - Configure System:
      - Set up global configurations, such as system properties, Jenkins URL, and email settings.
    - Manage tools and version installations.
@@ -2669,75 +2669,77 @@ Ans: Administering Jenkins involves managing its configuration, users, security,
    - Script Console:
      - Execute Groovy scripts for administrative tasks.
      - Perform maintenance or troubleshooting using scripts.
-2. User Management:
+#### 2. User Management:
    - Create and Manage Users:
      - Add new users and configure their permissions.
      - Set up groups for easier permission management.
    - Authentication and Authorization:
      - Configure authentication methods (e.g., LDAP, Active Directory).
      - Define authorization strategies and matrix-based security.
-3. Job and Build Management:
+#### 3. Job and Build Management:
    - Create and Configure Jobs:
      - Set up and configure build jobs.
      - Use Pipeline or Freestyle project configurations based on requirements.
    - Build History and Logs:
      - Review and manage build history.
      - Access build logs for troubleshooting.
-4. Security:
+#### 4. Security:
    - Access Control:
      - Define who can access Jenkins and what actions they can perform.
      - Set up role-based access control (RBAC).
    - SSL/TLS Configuration:
      - Enable and configure SSL/TLS for secure communication.
-5. Backup and Restore:
+#### 5. Backup and Restore:
    - Backup Jenkins Data:
      - Regularly back up Jenkins configurations, jobs, and user data.
    - Restore Jenkins:
      - Have a plan and process for restoring Jenkins from backup in case of failures.
-6. Monitoring and Logging:
+#### 6. Monitoring and Logging:
    - Jenkins Logs:
      - Monitor Jenkins logs for errors and warnings.
      - Adjust log levels as needed.
    - System Monitoring:
      - Integrate Jenkins with monitoring tools to track system performance.
-7. Updates and Upgrades:
+#### 7. Updates and Upgrades:
    - Jenkins Updates:
      - Regularly check for Jenkins updates.
      - Plan and perform upgrades to benefit from new features and security fixes.
-8. Notification and Reporting:
+#### 8. Notification and Reporting:
    - Configure Email Notifications:
      - Set up email notifications for job status changes.
    - Build Reports and Trends:
      - Use built-in reports and trends to analyze build performance over time.
-9. Maintenance:
+#### 9. Maintenance:
    - Disk Space Management:
      - Monitor and manage disk space usage.
    - Clean Up Old Data:
      - Remove old builds and artifacts to free up space.
-These are general guidelines, and the specific tasks and areas of focus may vary based on your organization's requirements and Jenkins setup. Regular maintenance, monitoring, and staying informed about Jenkins updates are key to effective administration.
-Yes I use to creating the users and providing the access to respective pipelines and securing the Jenkins using global security option these are some of the administrating kind of job that I did in Jenkins.
-3.	What is your experience on build tools like Maven and Gradle?
+     - These are general guidelines, and the specific tasks and areas of focus may vary based on your organization's requirements and Jenkins setup.
+     - Regular maintenance, monitoring, and staying informed about Jenkins updates are key to effective administration.
+     - Yes I use to creating the users and providing the access to respective pipelines and securing the Jenkins using global security option these are some of the administrating kind of job that I did in Jenkins.
+### 3.	What is your experience on build tools like Maven and Gradle?
 Ans: I have around 3 years of experience on Maven, mostly on Maven we compile the code and it will create some artefacts based on the configuration we have defined in the POM.xml file.
 Suppose if we want to create the JAR/WAR files and any plugins then we need to define in pom.xml file
-4.	What is your experience in the Ansible?
+### 4.	What is your experience in the Ansible?
 Ans: I have around 2.5 years of experience on the Ansible like creating the play books, roles to automate the application deployments and to install some packages.
-5.	What are the modules that you used in the automation in Ansible?
+### .	What are the modules that you used in the automation in Ansible?
 Ans: Ansible is an open-source automation tool that uses a simple, human-readable language to define automation tasks. It is designed to be agentless and relies on SSH for remote communication. Ansible organizes its functionality into modules, which are standalone units of work that can be used in playbooks for automation tasks. Here are some common Ansible modules used in automation:
-1. Command Module:
+
+**1. Command Module:**
    - Executes a command on a remote node.
    - Example:
      ```yaml
      - name: Run a command
        command: echo "Hello, Ansible!"
      ```
-2. Shell Module:
+**2. Shell Module:**
    - Similar to the command module but allows running a command with shell features.
    - Example:
      ```yaml
      - name: Run a shell command
        shell: echo "Hello, Ansible!"
      ```
-3. Copy Module:
+**3. Copy Module:**
    - Copies files to remote nodes.
    - Example:
      ```yaml
@@ -2746,7 +2748,7 @@ Ans: Ansible is an open-source automation tool that uses a simple, human-readabl
          src: /path/to/local/file.txt
          dest: /path/on/remote/file.txt
      ```
-4. File Module:
+**4. File Module:**
    - Manages files and directories on remote nodes.
    - Example:
      ```yaml
@@ -2755,7 +2757,7 @@ Ans: Ansible is an open-source automation tool that uses a simple, human-readabl
          path: /path/on/remote/directory
          state: directory
      ```
-5. Service Module:
+**5. Service Module:**
    - Manages services on remote nodes (start, stop, enable, disable).
    - Example:
      ```yaml
@@ -2764,7 +2766,7 @@ Ans: Ansible is an open-source automation tool that uses a simple, human-readabl
          name: apache2
          state: started
      ```
-6. Template Module:
+**6. Template Module:**
    - Templates files to generate dynamic content before copying them to remote nodes.
    - Example:
      ```yaml
@@ -2773,7 +2775,7 @@ Ans: Ansible is an open-source automation tool that uses a simple, human-readabl
          src: /path/to/template.j2
          dest: /path/on/remote/config.conf
      ```
-7. Yum Module:
+**7. Yum Module:**
    - Manages packages on systems using YUM package manager (for Red Hat-based systems).
    - Example:
      ```yaml
@@ -2782,7 +2784,7 @@ Ans: Ansible is an open-source automation tool that uses a simple, human-readabl
          name: httpd
          state: present
      ```
-8. Apt Module:
+**8. Apt Module:**
    - Manages packages on systems using APT package manager (for Debian-based systems).
    - Example:
      ```yaml
@@ -2791,7 +2793,7 @@ Ans: Ansible is an open-source automation tool that uses a simple, human-readabl
          name: apache2
          state: present
      ```
-9. User Module:
+**9. User Module:**
    - Manages user accounts on remote nodes.
    - Example:
      ```yaml
@@ -2801,7 +2803,7 @@ Ans: Ansible is an open-source automation tool that uses a simple, human-readabl
          state: present
      ```
 
-10. Group Module:
+**10. Group Module:**
     - Manages groups on remote nodes.
     - Example:
       ```yaml
@@ -2810,134 +2812,160 @@ Ans: Ansible is an open-source automation tool that uses a simple, human-readabl
           name: developers
           state: present
       ```
-These are just a few examples, and Ansible provides a wide range of modules covering various tasks such as cloud management, network configuration, database management, and more. You can explore the [official Ansible documentation](https://docs.ansible.com/) for a comprehensive list of modules and their usage.
-Or
-In the Automation process I use different kinds of modules like copy module, yum module, SSH module, file module, Ping Module etc.
-6.	What is your experience on the scripting languages like python and shell scripting?
-7.	Tell me about your experience in docker?
+* These are just a few examples, and Ansible provides a wide range of modules covering various tasks such as cloud management, network configuration, database management, and more. You can explore the [official Ansible documentation](https://docs.ansible.com/) for a comprehensive list of modules and their usage.
+
+`Or`
+
+* In the Automation process I use different kinds of modules like copy module, yum module, SSH module, file module, Ping Module etc.
+### 6.	What is your experience on the scripting languages like python and shell scripting?
+### 7.	Tell me about your experience in docker?
 Ans: In docker mostly I use to create a docker file based on the requirement, Once we create the docker image we use to push the docker image into docker registery and while deployment is started it will automatically pull the docker image from docker registery (ECR) and we apply the particular docker image to the kubernetes for deployment by using the rolling update in kubernetes it will automatically set that particular docker image in the kubernetes deployment. Suppose we have a WAR file or JAR files in the nexus repository and we copy those WAR files into the docker image and we define in the docker file using ADD instruction. Here ADD instruction will extract the data from gz file into the container image. We need to reduce the layers in the docker image.
-8.	What are the best practices that you follow to write in a Docker file?
+### 8.	What are the best practices that you follow to write in a Docker file?
 Ans: Writing an effective Dockerfile is crucial for creating efficient and secure Docker images. Here are some best practices to follow when writing Dockerfiles:
-1. Use Official Base Images:
+
+**1. Use Official Base Images:**
    - Start with an official and minimal base image from trusted sources like Docker Hub.
    - Examples include `alpine`, `ubuntu`, or language-specific images like `python:3.8`.
-2. Minimize the Number of Layers:
+#### 2. Minimize the Number of Layers:
    - Use multi-stage builds to reduce the number of layers in the final image.
    - Each instruction in the Dockerfile creates a new layer, and minimizing layers helps with image size and build speed.
-3. Order Instructions by Likelihood of Change:
+#### 3. Order Instructions by Likelihood of Change:
    - Place instructions that are less likely to change at the top to take advantage of Docker's build cache.
    - Instructions that change frequently should be placed towards the bottom of the Dockerfile.
-4. Group Related Instructions:
+#### 4. Group Related Instructions:
    - Group related instructions together to improve readability.
    - For example, install dependencies and copy application code in the same block.
-5. Use COPY Instead of ADD:
+#### 5. Use COPY Instead of ADD:
    - Use `COPY` for copying files into the image rather than `ADD` unless you specifically need `ADD`'s extra features (e.g., remote URLs, tar extraction).
-6. Specify Versions for Base Images and Packages:
+#### 6. Specify Versions for Base Images and Packages:
    - Pin versions for both the base image and any installed packages to ensure reproducibility.
    - Avoid using `latest` as it may lead to unexpected changes.
-7. Clean Up After Each Step:
+#### 7. Clean Up After Each Step:
    - Remove unnecessary files and dependencies after each step to minimize the final image size.
    - Use `RUN apt-get purge -y` and `rm -rf` to remove temporary files and package caches.
-8. Use Non-Root User:
+#### 8. Use Non-Root User:
    - Run your application as a non-root user for improved security.
    - Create a dedicated user with minimal permissions needed for the application.
-9. Set Environment Variables:
+#### 9. Set Environment Variables:
    - Use `ENV` to set environment variables to configure your application.
    - Avoid hardcoding configuration values inside the Dockerfile.
-10. Use Healthchecks:
-    - Implement healthchecks to ensure the containerized application is in a healthy state.
-    - Use `HEALTHCHECK` instruction to define healthcheck commands.
-11. Label Your Images:
-    - Add metadata labels to your images for documentation and identification.
-    - Labels can include version information, maintainer details, and other relevant information.
-12. Keep Secrets Secure:
-    - Avoid hardcoding secrets in the Dockerfile; use environment variables or Docker secrets.
-    - Keep sensitive information secure and do not expose it in the image.
-13. Optimize Dockerfile Order for Caching:
-    - Place frequently changing instructions towards the bottom to leverage Docker's build cache for faster builds.
-    - For example, copy the application code as one of the last steps.
-14. Document Your Dockerfile:
-    - Add comments to explain complex or non-trivial steps in the Dockerfile.
-    - Use a README or inline comments to document the purpose and usage of the Dockerfile.
-15. Test Your Dockerfile:
-    - Regularly test your Dockerfile to ensure that it builds correctly and produces the desired image.
-    - Consider using automated testing tools like [hadolint](https://github.com/hadolint/hadolint) for linting Dockerfiles.
-Adhering to these best practices helps in creating Dockerfiles that are maintainable, secure, and efficient in terms of image size and build performance.
-To write the docker file we use to define the FROM instruction, here we need to define the which docker image needed for our application and mostly we need to select the less size docker image, In docker file we should not install any debugging tools like Vi, curl these will increase the size of the docker image.
-9.	What is Entry Point in docker?
+#### 10. Use Healthchecks:
+   - Implement healthchecks to ensure the containerized application is in a healthy state.
+   - Use `HEALTHCHECK` instruction to define healthcheck commands.
+#### 11. Label Your Images:
+   - Add metadata labels to your images for documentation and identification.
+   - Labels can include version information, maintainer details, and other relevant information.
+#### 12. Keep Secrets Secure:
+   - Avoid hardcoding secrets in the Dockerfile; use environment variables or Docker secrets.
+   - Keep sensitive information secure and do not expose it in the image.
+#### 13. Optimize Dockerfile Order for Caching:
+   - Place frequently changing instructions towards the bottom to leverage Docker's build cache for faster builds.
+   - For example, copy the application code as one of the last steps.
+#### 14. Document Your Dockerfile:
+   - Add comments to explain complex or non-trivial steps in the Dockerfile.
+   - Use a README or inline comments to document the purpose and usage of the Dockerfile.
+#### 15. Test Your Dockerfile:
+   - Regularly test your Dockerfile to ensure that it builds correctly and produces the desired image.
+   - Consider using automated testing tools like [hadolint](https://github.com/hadolint/hadolint) for linting Dockerfiles.
+* Adhering to these best practices helps in creating Dockerfiles that are maintainable, secure, and efficient in terms of image size and build performance.
+* To write the docker file we use to define the FROM instruction, here we need to define the which docker image needed for our application and mostly we need to select the less size docker image, In docker file we should not install any debugging tools like Vi, curl these will increase the size of the docker image.
+### 9.	What is Entry Point in docker?
 Ans: In Entry point we cannot override default command or instruction but we can append the message while using ENTRYPOINT command. But if we use CMD we can override default commands which we defined in the docker file.
-10.	What is Namespace in kubernetes?
+### 10.	What is Namespace in kubernetes?
 Ans: Namespace is a grouping mechanism inside the kubernetes, like PODs Services and volumes those can communicate easily within the Namespace.
 
-11.	What is the difference between State full set and Deployment Template?
+### 11.	What is the difference between State full set and Deployment Template?
 Ans: .
-StatefulSets:
-StatefulSets in Kubernetes are used to manage stateful applications. Stateful applications are those that require stable network identities and persistent storage. Some key characteristics of StatefulSets include:
-1. Stable Network Identity:
+#### StatefulSets:
+* StatefulSets in Kubernetes are used to manage stateful applications. Stateful applications are those that require stable network identities and persistent storage. Some key characteristics of StatefulSets include:
+#### 1. Stable Network Identity:
    - StatefulSets provide stable network identities (hostname) for each pod in the set. Pods have a predictable and stable hostname, which makes it easier to manage and locate them.
-2. Ordered Deployment and Scaling:
+
+**2. Ordered Deployment and Scaling:**
    - Pods in a StatefulSet are deployed in a predictable order, and each pod has a unique ordinal index. This order is maintained during scaling operations.
-3. Persistent Storage:
+#### 3. Persistent Storage:
    - StatefulSets often require persistent storage for their data. Each pod in a StatefulSet is associated with a persistent volume claim that preserves data across pod rescheduling.
-4. Headless Service:
+#### 4. Headless Service:
    - StatefulSets often use a headless service, which means that each pod has its own DNS entry for stable network identity.
-Deployment Templates:
-Deployment in Kubernetes is a resource object used to declare and manage the desired state of applications. A Deployment Template could refer to the template used within a Deployment resource. Here are some key aspects of Deployments:
-1. Desired State Declaration:
+#### Deployment Templates:
+   - Deployment in Kubernetes is a resource object used to declare and manage the desired state of applications. A Deployment Template could refer to the template used within a Deployment resource. Here are some key aspects of Deployments:
+
+  **1. Desired State Declaration:**
    - Deployments allow you to declare the desired state of your application, including the number of replicas, container images, and other configuration settings.
-2. Rolling Updates and Rollbacks:
+
+**2. Rolling Updates and Rollbacks:**
    - Deployments support rolling updates, enabling you to update your application without downtime. If there's an issue, you can perform rollbacks to the previous version.
-3. Pod Template:
+
+**3. Pod Template:**
    - Deployments use a pod template to define the specifications for the pods created by the deployment. This includes container images, environment variables, etc.
-4. Auto-Scaling:
+
+**4. Auto-Scaling:**
    - Deployments can be used in conjunction with Horizontal Pod Autoscalers to automatically adjust the number of replicas based on observed CPU utilization or other custom metrics.
-In summary, StatefulSets are more focused on managing stateful applications with stable network identities and persistent storage, while Deployments are a more general-purpose resource for managing the deployment and scaling of stateless applications. The term "Deployment Template" might refer to the template used within a Deployment resource to define the pod specifications.
-Or
-Deployment: Deployment is a higher level concept it is a component of master node controller manager. It will make sure that replicas can be run based on the desired state. It will automatically manage the replica set.
-Stateful Set: Stateful Set manages the Stateful application, in the state full applications objects are created sequentially like one by one. Once the first POD is completed in the running state and it creates the second POD.
+* In summary, StatefulSets are more focused on managing stateful applications with stable network identities and persistent storage, while Deployments are a more general-purpose resource for managing the deployment and scaling of stateless applications. The term "Deployment Template" might refer to the template used within a Deployment resource to define the pod specifications.
+
+`Or`
+
+**Deployment:** Deployment is a higher level concept it is a component of master node controller manager. It will make sure that replicas can be run based on the desired state. It will automatically manage the replica set.
+
+**Stateful Set:** Stateful Set manages the Stateful application, in the state full applications objects are created sequentially like one by one. Once the first POD is completed in the running state and it creates the second POD.
 And it will be like deployment 0, deployment 1, deployment 2 etc., when we delete any POD it is not going to create with the new name, it creates exact what we created earlier.
-12.	Do you have experience on Terraform? What you have done on the terraform?
+### 12.	Do you have experience on Terraform? What you have done on the terraform?
 Ans: Yes I have experience on terraform, I worked mostly on terraform to automate the services in AWS based on the requirement.
-I use to configure backend using AWS s3 buckets to store the state files. I worked on creating the modules for reusability purpose.
+* I use to configure backend using AWS s3 buckets to store the state files. I worked on creating the modules for reusability purpose.
 Worked on creating the multiple resources as well.
-13.	Tell me about your cloud service experiences?
+### 13.	Tell me about your cloud service experiences?
 Ans: Totally I have 2.5 years of experience on cloud to provisioning the infrastructure resources for front and backend applications.
-For frontend I use to create the CloudFront distribution along with S3 buckets. And then enable WAF to cloud front distribution.
-For backend purpose I use to create API Gateway, lambda function and dynamo DB. Whenever we hit the API Gateway it will call the Lambda Function, and this lambda function will call the dynamo DB table to pull the data and push the data.And I have experience on creating the VPCs, IAM roles, users, and experience on Route 53, and some experience on ACM certificates to create the domains.
-14.	What is the latest automation have you done?
+* For frontend I use to create the CloudFront distribution along with S3 buckets. And then enable WAF to cloud front distribution.
+* For backend purpose I use to create API Gateway, lambda function and dynamo DB. Whenever we hit the API Gateway it will call the Lambda Function, and this lambda function will call the dynamo DB table to pull the data and push the data.
+* And I have experience on creating the VPCs, IAM roles, users, and experience on Route 53, and some experience on ACM certificates to create the domains.
+### 14.	What is the latest automation have you done?
 Ans: For automation I worked on Ansible to automate the application deployments into kubernetes. In Ansible I have created different type of roles like one role belongs to web role, one belongs to app role and DB role for different purpose.
-Using Ansible I use to define the node names in the Ansible Inventory Ex: /etc/host, there we can define the single node or group of nodes where we want to perform the actions.
-In the Roles we have a parameter called task. Mostly we use to define the file module to create a file or directory if it is not existing in the remote location. Then we need to create the config file, kubernetes config file using “kubectl create config” using SSH module, and once we create the config map then we use to set the image with the kubernetes. Using “kubectl set image image-name namespace”. After we setting the image we use to define one more instruction in the same role that is “kubectl rollingupdate namespace image-name”.
-Once we done this we have to configure HPA as well. These roles will be invoke using the playbooks.
-15.	What is your experience on the leading the team?
+* Using Ansible I use to define the node names in the Ansible Inventory Ex: /etc/host, there we can define the single node or group of nodes where we want to perform the actions.
+* In the Roles we have a parameter called task. 
+* Mostly we use to define the file module to create a file or directory if it is not existing in the remote location. 
+* Then we need to create the config file, kubernetes config file using “kubectl create config” using SSH module, and once we create the config map then we use to set the image with the kubernetes. 
+* Using “kubectl set image image-name namespace”. After we setting the image we use to define one more instruction in the same role that is “kubectl rollingupdate namespace image-name”.
+* Once we done this we have to configure HPA as well. These roles will be invoke using the playbooks.
+### 15.	What is your experience on the leading the team?
 Ans: We have around 4-5 members, we share our knowledge each other about existing infrastructure and what we need to achieve and I used to guide the people about kubernetes environment.
-16.	What do you like about DevOps?
+### 16.	What do you like about DevOps?
 Ans: DevOps (Development and Operations) is a set of practices that aims to improve collaboration and communication between software development and IT operations teams. Here are some aspects that people commonly appreciate about DevOps:
-1. Collaboration: DevOps promotes collaboration and communication between traditionally siloed development and operations teams. This collaboration leads to better understanding, shared goals, and faster problem-solving.
-2. Efficiency: By automating manual processes and implementing continuous integration and continuous delivery (CI/CD) pipelines, DevOps improves efficiency in the software development lifecycle. This results in faster development cycles and quicker delivery of software.
-3. Faster Time to Market: DevOps practices enable organizations to release software more frequently and reliably. This acceleration in the development and deployment process allows businesses to respond more quickly to market demands and changes.
-4. Continuous Improvement: DevOps emphasizes a culture of continuous improvement. Teams regularly assess and refine their processes, tools, and workflows to enhance efficiency and deliver higher-quality software.
-5. Automation: DevOps relies heavily on automation to streamline repetitive tasks, reduce errors, and increase consistency. Automation is applied to code deployment, infrastructure provisioning, testing, and other aspects of the development and operations processes.
-6. Increased Stability and Reliability: The implementation of DevOps practices often leads to more stable and reliable systems. Continuous testing and automated deployments help catch and address issues earlier in the development cycle, reducing the likelihood of errors in production.
-7. Cultural Shift: DevOps is not just about tools and processes; it also involves a cultural shift towards collaboration, shared responsibility, and a focus on the end-to-end delivery of value to customers. This cultural transformation fosters a more positive and productive work environment.
-8. Monitoring and Feedback: DevOps practices emphasize monitoring and feedback loops to quickly detect and respond to issues. This proactive approach allows teams to identify and resolve issues before they impact end-users.
-9. Scalability: DevOps practices are scalable and can be applied to various types of projects and organizations, from small startups to large enterprises. The principles and tools can be adapted to fit the specific needs of different teams and industries.
-In summary, what many professionals appreciate about DevOps is its ability to break down traditional barriers, improve collaboration, and deliver software more efficiently, reliably, and quickly. The combination of cultural transformation, automation, and continuous improvement makes DevOps a valuable set of practices in the world of software development and IT operations.
-Or
-DevOps is like user-friendly and we can easily automate everything, suppose developer develops the code, they have a code which is in the artefacts whatever it may be. So we need to deploy those artefacts into kubernetes, and how we can integrate all the tools, weather it is a maven, sonarQube, Docker and Kubernetes.
-Using a DevOps we can easily integrate all these tools in one place and we can deploy our application. It bridges the gap between Dev team and Operations team.
 
+**1. Collaboration:** DevOps promotes collaboration and communication between traditionally siloed development and operations teams. This collaboration leads to better understanding, shared goals, and faster problem-solving.
 
+**2. Efficiency:** By automating manual processes and implementing continuous integration and continuous delivery (CI/CD) pipelines, DevOps improves efficiency in the software development lifecycle. This results in faster development cycles and quicker delivery of software.
 
-HTC Global L1 Q&A Tue 22 Mar 2022 3pm – 3:30pm (IST)
+**3. Faster Time to Market:** DevOps practices enable organizations to release software more frequently and reliably. This acceleration in the development and deployment process allows businesses to respond more quickly to market demands and changes.
+
+**4. Continuous Improvement:** DevOps emphasizes a culture of continuous improvement. Teams regularly assess and refine their processes, tools, and workflows to enhance efficiency and deliver higher-quality software.
+
+**5. Automation:** DevOps relies heavily on automation to streamline repetitive tasks, reduce errors, and increase consistency. Automation is applied to code deployment, infrastructure provisioning, testing, and other aspects of the development and operations processes.
+
+**6. Increased Stability and Reliability:** The implementation of DevOps practices often leads to more stable and reliable systems. Continuous testing and automated deployments help catch and address issues earlier in the development cycle, reducing the likelihood of errors in production.
+
+**7. Cultural Shift:** DevOps is not just about tools and processes; it also involves a cultural shift towards collaboration, shared responsibility, and a focus on the end-to-end delivery of value to customers. This cultural transformation fosters a more positive and productive work environment.
+
+**8. Monitoring and Feedback:** DevOps practices emphasize monitoring and feedback loops to quickly detect and respond to issues. This proactive approach allows teams to identify and resolve issues before they impact end-users.
+
+**9. Scalability:** DevOps practices are scalable and can be applied to various types of projects and organizations, from small startups to large enterprises. The principles and tools can be adapted to fit the specific needs of different teams and industries.
+
+* In summary, what many professionals appreciate about DevOps is its ability to break down traditional barriers, improve collaboration, and deliver software more efficiently, reliably, and quickly. The combination of cultural transformation, automation, and continuous improvement makes DevOps a valuable set of practices in the world of software development and IT operations.
+
+`Or`
+
+* DevOps is like user-friendly and we can easily automate everything, suppose developer develops the code, they have a code which is in the artefacts whatever it may be. So we need to deploy those artefacts into kubernetes, and how we can integrate all the tools, weather it is a maven, sonarQube, Docker and Kubernetes.
+* Using a DevOps we can easily integrate all these tools in one place and we can deploy our application. It bridges the gap between Dev team and Operations team.
+---
+
+## HTC Global L1 Q&A Tue 22 Mar 2022 3pm – 3:30pm (IST)
 	
-1.	Can you give me brief introduction about yourself?
-2.	When did you switch from development to DevOps?
-3.	How good are you in scripting because you are the developer?
-4.	What kind of structure you use to follow in the project start from pushing the code from the repository to till you implement or deploy it can you explain? Or how was your pipeline and deployment structure?
+### 1.	Can you give me brief introduction about yourself?
+### 2.	When did you switch from development to DevOps?
+### 3.	How good are you in scripting because you are the developer?
+### 4.	What kind of structure you use to follow in the project start from pushing the code from the repository to till you implement or deploy it can you explain? Or how was your pipeline and deployment structure?
 Ans: The structure of a project, including the pipeline and deployment structure, can vary based on the specific requirements of the project, the technology stack, and the team's preferences. 
 Project Structure:
-1. Repository Structure:
+#### 1. Repository Structure:
    - Organize your code in a version control system (e.g., Git). A typical repository structure might include:
      ```
      ├── src
@@ -2953,24 +2981,24 @@ Project Structure:
      ├── .gitignore
      ├── README.md
      ```
-2. Code Quality and Style:
+#### 2. Code Quality and Style:
 - Integrate code quality tools (e.g., linters, formatters) into the repository to enforce coding standards. Use tools like ESLint, Prettier for JavaScript, or Flake8 for Python.
-3. Unit Tests and Test Automation:
+#### 3. Unit Tests and Test Automation:
 - Write unit tests for your code and include a testing framework (e.g., Jest, JUnit). Integrate the tests into your CI/CD pipeline to ensure code quality and catch regressions early.
 CI/CD Pipeline Structure:
-4. Continuous Integration (CI) Pipeline:
-   	- Set up a CI pipeline triggered on each code push to the repository.
-  	 - Include steps for:
-     	- Building the application.
-    	 - Running unit tests.
-   	  - Code linting and formatting checks.
-    	 - Generating artifacts.
-5. Artifact Storage:
+#### 4. Continuous Integration (CI) Pipeline:
+- Set up a CI pipeline triggered on each code push to the repository.
+- Include steps for:
+  - Building the application.
+  - Running unit tests.
+  - Code linting and formatting checks.
+  - Generating artifacts.
+#### 5. Artifact Storage:
 - Store build artifacts (e.g., compiled binaries, Docker images) in an artifact repository (e.g., Nexus, Artifactory, Docker Hub).
-6. Containerization (Optional):
+#### 6. Containerization (Optional):
 - If using containers, build Docker images during the CI process. Tag the images with the commit SHA or version number.
 Deployment Structure:
-7. Infrastructure as Code (IaC):
+#### 7. Infrastructure as Code (IaC):
 - Use Infrastructure as Code (IaC) tools (e.g., Terraform, AWS CloudFormation) to define and provision infrastructure. Store IaC scripts in a separate directory.
      ```
      	├── infrastructure
@@ -2981,100 +3009,103 @@ Deployment Structure:
    	  │   │   ├── deployment.yaml
    	  │   │   ├── service.yaml
   	   ```
-8. Configuration Management:
+#### 8. Configuration Management:
 - Manage application configurations separately from code. Use tools like environment variables, config files, or tools like Consul, etcd, or Spring Cloud Config for centralized configuration management.
-9. Continuous Deployment (CD) Pipeline:
+#### 9. Continuous Deployment (CD) Pipeline:
 - Set up a CD pipeline to deploy to staging or production environments. This pipeline is typically triggered manually or automatically after successful completion of the CI pipeline.
-10. Deployment Strategies:
+#### 10. Deployment Strategies:
 - Implement deployment strategies based on your needs (e.g., rolling updates, blue-green deployments).
-    - Use Kubernetes Deployments or Helm charts for managing deployments.
-11. Integration and End-to-End Tests:
+- Use Kubernetes Deployments or Helm charts for managing deployments.
+#### 11. Integration and End-to-End Tests:
 - Include steps for integration tests or end-to-end tests in your deployment pipeline to verify the application's behavior in a real environment.
-12. Monitoring and Observability:
+#### 12. Monitoring and Observability:
 - Integrate monitoring tools (e.g., Prometheus, Grafana) and observability solutions (e.g., Jaeger, ELK stack) to monitor the health and performance of your applications.
-13. Rollback Mechanism:
+#### 13. Rollback Mechanism:
 - Implement a rollback mechanism in case of deployment failures. This could involve reverting to a previous version or quickly fixing issues and redeploying.
-14. Post-Deployment Tasks:
+#### 14. Post-Deployment Tasks:
 - Include steps for post-deployment tasks, such as notifying stakeholders, updating documentation, or triggering additional automated processes.
-Release Management:
-15. Release Branches:
+
+**Release Management:**
+#### 15. Release Branches:
 - Implement a release branching strategy. For example, create release branches for each version to isolate development from stable releases.
-16. Release Tags:
+#### 16. Release Tags:
    - Tag releases in the version control system with semantic versioning (e.g., v1.0.0).
-17. Changelog:
-    	- Maintain a changelog to document changes between releases.
-18. Release Notes:
+#### 17. Changelog:
+   - Maintain a changelog to document changes between releases.
+#### 18. Release Notes:
 - Generate release notes automatically based on changes in the version control system.
 Documentation and Collaboration:
-19. Documentation:
-    - Maintain comprehensive documentation for developers, operators, and other stakeholders. Include information on setting up the development environment, deployment procedures, and troubleshooting guides.
-20. Collaboration Tools:
-    - Use collaboration tools (e.g., Jira, Confluence) to facilitate communication and coordination within the development team.
-Security:
-21. Security Scans:
+#### 19. Documentation:
+  - Maintain comprehensive documentation for developers, operators, and other stakeholders. Include information on setting up the development environment, deployment procedures, and troubleshooting guides.
+#### 20. Collaboration Tools:
+  - Use collaboration tools (e.g., Jira, Confluence) to facilitate communication and coordination within the development team.
+#### Security:
+#### 21. Security Scans:
 - Integrate security scanning tools (e.g., OWASP Dependency-Check) into your CI/CD pipeline to identify vulnerabilities in dependencies.
-22. Secrets Management:
+#### 22. Secrets Management:
 - Manage secrets securely using tools like HashiCorp Vault or Kubernetes Secrets.
-23. Compliance Checks:
+#### 23. Compliance Checks:
 - Implement compliance checks and integrate them into the pipeline to ensure the application adheres to security and regulatory requirements.
-This structure provides a foundation for a robust CI/CD and deployment process. However, it's essential to tailor the structure based on the specific needs and technologies used in your project.
-Or
-Based on the requirement we create the feature branch in git, whenever developer commit code into the branch it will automatically invoke the code and build will trigger automatically based on the git hub web hook
-2.	Do you have experience on any containerization or orchestration technologies in your project?
+- This structure provides a foundation for a robust CI/CD and deployment process. However, it's essential to tailor the structure based on the specific needs and technologies used in your project.
+
+`Or`
+
+* Based on the requirement we create the feature branch in git, whenever developer commit code into the branch it will automatically invoke the code and build will trigger automatically based on the git hub web hook
+### 5.Do you have experience on any containerization or orchestration technologies in your project?
 Ans: I have experience on docker and kubernetes as well, once we build our code we use to develop the artefacts weather it is JAR/WAR. Based on these files we create the custom docker images and we set this image into the kubernetes deployment.
-3.	What kind of deployment strategy you were using?
+### 6.What kind of deployment strategy you were using?
 Ans: Mainly we use Rolling Update strategy in the project, and we have some of the deployment strategies like Recreate, blue green deployment, canary.
-4.	What are the services you are using in the AWS?
+### 7.	What are the services you are using in the AWS?
 Ans: Mostly I interact with some of the services in AWS cloud to provision the frontend and backend purpose.
-For frontend I use cloudFront distribution, s3 buckets and we use to enable the WAF, we enable the domains to the cloudFront distribution using route53
-And I have experience on VPC, EC2, IAM to create the users, roles
-5.	In Route 53 what and all record types you were used?
+* For frontend I use cloudFront distribution, s3 buckets and we use to enable the WAF, we enable the domains to the cloudFront distribution using route53
+* And I have experience on VPC, EC2, IAM to create the users, roles
+### 8.In Route 53 what and all record types you were used?
 Ans: CNAME record, Alias record, Address A, PTR (Pointer) record etc.
 CNAME record maps DNS queries for the name of the current record, such as acme.example.com, to another domain (example.com or example.net) or subdomain (acme.example.com or zenith.example.org).
-6.	How was docker integrated in you project are you using ECS (Elastic Container Service) or any standalone docker or any other tools for containerization?
+### 9.How was docker integrated in you project are you using ECS (Elastic Container Service) or any standalone docker or any other tools for containerization?
 Ans: 
-Docker Integration in Projects:
-1. Docker as a Local Development Environment:
+#### Docker Integration in Projects:
+#### 1. Docker as a Local Development Environment:
    - Developers often use Docker to create a consistent and isolated development environment across different machines. Docker containers encapsulate dependencies, ensuring that the development environment closely mirrors the production environment.
-2. Docker for Application Packaging:
+#### 2. Docker for Application Packaging:
    - Docker is frequently used to package applications and their dependencies into container images. These images are then deployed across various environments, including development, staging, and production.
-3. Docker Compose for Multi-Container Applications:
+#### 3. Docker Compose for Multi-Container Applications:
    - Docker Compose is utilized to define and manage multi-container applications. It allows developers to define a multi-container environment in a single file, making it easier to manage interconnected services.
-4. Container Orchestration:
+#### 4. Container Orchestration:
    - Container orchestration platforms like Kubernetes, Amazon ECS, or Docker Swarm are employed to manage the deployment, scaling, and orchestration of containers in production environments.
-Container Orchestration Options:
-1. Amazon ECS (Elastic Container Service):
+#### Container Orchestration Options:
+#### 1. Amazon ECS (Elastic Container Service):
    - Amazon ECS is a fully managed container orchestration service provided by AWS. It allows you to run containers on a managed cluster of Amazon EC2 instances or use AWS Fargate for serverless container execution.
-2. Kubernetes:
+#### 2. Kubernetes:
    - Kubernetes is an open-source container orchestration platform that automates the deployment, scaling, and management of containerized applications. It has become a widely adopted solution for container orchestration across various cloud providers and on-premises environments.
-3. Docker Swarm:
+#### 3. Docker Swarm:
    - Docker Swarm is a native clustering and orchestration solution for Docker. While it is less feature-rich compared to Kubernetes, Docker Swarm is known for its simplicity and ease of setup.
-4. Stand-Alone Docker Deployments:
+#### 4. Stand-Alone Docker Deployments:
    - In some cases, organizations may choose to deploy Docker containers without a full container orchestration platform, especially for simpler applications or when requirements don't necessitate the complexity of a full orchestrator.
-CI/CD and Docker:
-1. CI/CD Pipeline Integration:
+#### CI/CD and Docker:
+#### 1. CI/CD Pipeline Integration:
    - Docker is often integrated into CI/CD pipelines to build, test, and package applications into Docker images. CI/CD tools like Jenkins, GitLab CI/CD, or GitHub Actions have built-in support for Docker.
-2. Docker Registry:
+#### 2. Docker Registry:
    - Docker images are typically stored in a Docker registry, such as Docker Hub, Amazon ECR, or a self-hosted registry. These registries serve as centralized repositories for Docker images.
-3. Docker Security Scanning:
+#### 3. Docker Security Scanning:
    - Security scanning tools may be integrated into the CI/CD pipeline to identify vulnerabilities in Docker images before deployment.
-Project-Specific Considerations:
-1. Microservices Architecture:
+#### Project-Specific Considerations:
+#### 1. Microservices Architecture:
    - Docker is commonly used in projects following a microservices architecture, where different components of an application are containerized and deployed independently.
-2. DevOps and Infrastructure as Code (IaC):
+#### 2. DevOps and Infrastructure as Code (IaC):
    - Docker is often a crucial component in DevOps practices, enabling Infrastructure as Code (IaC) and allowing for the definition and versioning of infrastructure using containerized services
-3. Serverless Containers:
+#### 3. Serverless Containers:
    - Some projects may leverage serverless container options, such as AWS Fargate, to deploy containers without managing the underlying infrastructure.
-The choice of Docker integration depends on the specific requirements, scale, and preferences of the project and the organization. The tools and platforms selected will be influenced by factors such as ease of use, scalability, and compatibility with existing infrastructure.
-Once we have the docker image we set the docker image to the kubernetes deployment. Then the particular docker image will deploy in the kubernetes.
-I worked on EKS and standalone docker.
-7.	You are well aware of kubernetes right, so did you write the kubernetes manifest?
+- The choice of Docker integration depends on the specific requirements, scale, and preferences of the project and the organization. The tools and platforms selected will be influenced by factors such as ease of use, scalability, and compatibility with existing infrastructure.
+- Once we have the docker image we set the docker image to the kubernetes deployment. Then the particular docker image will deploy in the kubernetes.
+- I worked on EKS and standalone docker.
+### 10.You are well aware of kubernetes right, so did you write the kubernetes manifest?
 Ans: See the Answer in the above.
-8.	What is probes in kubernetes?
+### 11.What is probes in kubernetes?
 Ans: In Kubernetes, probes are mechanisms used to determine the health and readiness of a container within a Pod. There are two main types of probes: liveness probes and readiness probes.
-1. Liveness Probes:
+#### 1. Liveness Probes:
    - A liveness probe determines whether the container is running and healthy. If a liveness probe fails (returns failure status), Kubernetes will restart the container. This is useful for scenarios where the application within the container might encounter issues and needs to be automatically recovered.
-   Example of a liveness probe in a Pod specification:
+   - Example of a liveness probe in a Pod specification:
    ```yaml
    apiVersion: v1
    kind: Pod
@@ -3092,9 +3123,9 @@ Ans: In Kubernetes, probes are mechanisms used to determine the health and readi
          periodSeconds: 3
    ```
    In this example, the liveness probe performs an HTTP GET request to `/healthz` on port 8080. If the response is successful, the container is considered healthy.
-2. Readiness Probes:
+#### 2. Readiness Probes:
    - A readiness probe determines whether the container is ready to serve traffic. If a readiness probe fails, the Pod is removed from the service's load balancer, preventing it from receiving traffic. This is useful during application startup or when there are dependencies that need to be ready before the container can handle requests.
-   Example of a readiness probe in a Pod specification:
+   - Example of a readiness probe in a Pod specification:
    ```yaml
    apiVersion: v1
    kind: Pod
@@ -3111,8 +3142,8 @@ Ans: In Kubernetes, probes are mechanisms used to determine the health and readi
          initialDelaySeconds: 5
          periodSeconds: 5
    ```
-   In this example, the readiness probe checks the `/readiness` endpoint on port 8080. If the endpoint is reachable, the container is considered ready to receive traffic.
-3. Custom Probes:
+   * In this example, the readiness probe checks the `/readiness` endpoint on port 8080. If the endpoint is reachable, the container is considered ready to receive traffic.
+#### 3. Custom Probes:
    - Probes can be configured using different methods, such as HTTP requests, TCP socket checks, or running a command inside the container.
    Example of a TCP socket readiness probe:
    ```yaml
@@ -3122,7 +3153,7 @@ Ans: In Kubernetes, probes are mechanisms used to determine the health and readi
      initialDelaySeconds: 5
      periodSeconds: 5
    ```
-   Example of a command-based liveness probe:
+   * Example of a command-based liveness probe:
    ```yaml
    livenessProbe:
      exec:
@@ -3132,21 +3163,23 @@ Ans: In Kubernetes, probes are mechanisms used to determine the health and readi
      initialDelaySeconds: 2
      periodSeconds: 2
    ```
-Probes are essential for ensuring the reliability and availability of applications in a Kubernetes environment. They allow the system to automatically handle scenarios where containers become unresponsive or need time to initialize before serving traffic.
-Or
- We have readiness probe and liveness probe in kubernetes. Here kubelet uses readiness probe to know whether the container is ready or not to start accepting the traffic.
-The liveness probe does if the particular application is not working in the POD, it will restart the POD.
-9.	What are Taints and Tolerances in kubernetes?
+* Probes are essential for ensuring the reliability and availability of applications in a Kubernetes environment. They allow the system to automatically handle scenarios where containers become unresponsive or need time to initialize before serving traffic.
+
+`Or`
+
+* We have readiness probe and liveness probe in kubernetes. Here kubelet uses readiness probe to know whether the container is ready or not to start accepting the traffic.
+* The liveness probe does if the particular application is not working in the POD, it will restart the POD.
+### 12. What are Taints and Tolerances in kubernetes?
 Ans: In Kubernetes, taints and tolerations are mechanisms used to influence the scheduling of Pods on nodes. They are often used to control which nodes are eligible to run specific workloads.
-Taints:
+#### Taints:
 A taint is a property assigned to a node that repels (or "taints") the node. Nodes can have one or more taints, each with a key, value, and effect. The effect can be one of the following:
-1. NoSchedule:
+#### 1. NoSchedule:
    - Pods without matching tolerations will not be scheduled onto nodes with this taint.
-2. PreferNoSchedule:
+#### 2. PreferNoSchedule:
    - Kubernetes will try not to schedule Pods without matching tolerations onto nodes with this taint. However, it is not guaranteed.
-3. NoExecute:
+#### 3. NoExecute:
    - If a Pod is already running on a node and the node is later tainted with NoExecute, the existing Pods on the node that do not tolerate the taint will be evicted (removed).
-Here is an example of a taint on a node:
+* Here is an example of a taint on a node:
 ```yaml
 apiVersion: v1
 kind: Node
@@ -3158,9 +3191,9 @@ spec:
     value: value1
     effect: NoSchedule
 ```
-Tolerations:
-A toleration is a property specified on a Pod that allows the Pod to tolerate (or "tolerate") the taints on nodes. Tolerations are defined in the Pod's specification.
-Here is an example of a toleration in a Pod:
+#### Tolerations:
+- A toleration is a property specified on a Pod that allows the Pod to tolerate (or "tolerate") the taints on nodes. Tolerations are defined in the Pod's specification.
+- Here is an example of a toleration in a Pod:
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -3176,19 +3209,20 @@ spec:
     value: value1
     effect: NoSchedule
 ```
-In this example, the toleration states that the Pod can be scheduled onto nodes with the taint key1=value1 with the effect NoSchedule.
-Use Cases:
-1. Isolating Nodes:
+- In this example, the toleration states that the Pod can be scheduled onto nodes with the taint key1=value1 with the effect NoSchedule.
+
+`Use Cases:`
+#### 1. Isolating Nodes:
    - Taints can be used to isolate nodes for specific workloads or environments. For example, nodes with specialized hardware may be tainted to ensure that only Pods that require that hardware are scheduled on those nodes.
-2. Eviction Policies:
+#### 2. Eviction Policies:
    - Taints with the NoExecute effect can be used to enforce eviction policies. For instance, if a node is tainted with NoExecute, existing Pods on the node that do not tolerate the taint will be evicted when the taint is applied.
-3. Reserving Nodes for Critical Workloads:
+#### 3. Reserving Nodes for Critical Workloads:
    - Nodes can be tainted to reserve them for critical workloads. Only Pods with tolerations for the specific taint will be scheduled on those nodes.
-Taints and tolerations provide flexibility and control over the placement of workloads in a Kubernetes cluster, allowing administrators to customize the node selection criteria based on various factors.
-Taints and tolerances are work together to make sure that no PODs are scheduled on the nodes until it has matching the toleration. We need to define the tolerances if want to run the PODs in the particular node.
-10.	If I say node is tainted for a particular kind of POD you want to run that POD on that node for that what you were do? Usually master node does not allow to run any POD apart from master components so I want to run a log collection or garbage collection POD on that? How will you resolve it?
+- Taints and tolerations provide flexibility and control over the placement of workloads in a Kubernetes cluster, allowing administrators to customize the node selection criteria based on various factors.
+- Taints and tolerances are work together to make sure that no PODs are scheduled on the nodes until it has matching the toleration. We need to define the tolerances if want to run the PODs in the particular node.
+### 13.	If I say node is tainted for a particular kind of POD you want to run that POD on that node for that what you were do? Usually master node does not allow to run any POD apart from master components so I want to run a log collection or garbage collection POD on that? How will you resolve it?
 Ans: In Kubernetes, if a node is tainted and you want to run a specific Pod on that node, you need to use tolerations in the Pod's specification. Tolerations specify that a Pod can tolerate certain taints on nodes, allowing the Pod to be scheduled on nodes with matching taints.
-Here is an example of how you can set up a toleration to allow a Pod to run on a node that has a specific taint:
+- Here is an example of how you can set up a toleration to allow a Pod to run on a node that has a specific taint:
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -3208,22 +3242,29 @@ In this example:
 - `key`: The key of the taint on the node.
 - `operator`: The operator used for matching. In this case, it is set to `Equal`.
 - `value`: The value of the taint on the node.
-- `effect`: The effect of the taint. If it's `NoSchedule`, it means that the Pod can be scheduled on nodes with this taint.
-The toleration in the Pod's specification tells Kubernetes that this Pod can tolerate nodes with the specified taint.
-Additionally, you mentioned that master nodes typically do not allow user workloads. This is correct by default, as the master node is usually reserved for control plane components. To run workloads on the master node, you need to remove or modify the taint on the master node. However, it's important to be cautious about running user workloads on master nodes, as it can impact the stability and performance of the control plane components.
-If you need to run log collection or garbage collection Pods on the master node, you might consider removing or modifying the taint on the master node to allow user workloads. However, carefully assess the impact on the control plane components and ensure that the master node has sufficient resources to handle both control plane and user workloads.
-Or
-For that we need to define the tolerations in the manifest file.
-11.	Have you written any Jenkins script?
+- `effect`: The effect of the taint. 
+- If it's `NoSchedule`, it means that the Pod can be scheduled on nodes with this taint.
+- The toleration in the Pod's specification tells Kubernetes that this Pod can tolerate nodes with the specified taint.
+- Additionally, you mentioned that master nodes typically do not allow user workloads. 
+- This is correct by default, as the master node is usually reserved for control plane components.
+- To run workloads on the master node, you need to remove or modify the taint on the master node. 
+- However, it's important to be cautious about running user workloads on master nodes, as it can impact the stability and performance of the control plane components.
+- If you need to run log collection or garbage collection Pods on the master node, you might consider removing or modifying the taint on the master node to allow user workloads. 
+- However, carefully assess the impact on the control plane components and ensure that the master node has sufficient resources to handle both control plane and user workloads.
+
+`Or`
+
+- For that we need to define the tolerations in the manifest file.
+#### 14. Have you written any Jenkins script?
 Ans: In Jenkins, both Scripted Pipelines and Declarative Pipelines are ways to define continuous delivery pipelines as code. They provide a way to express the build process and define the steps that should be executed in a Jenkins pipeline. However, they have different syntaxes and approaches.
-		Scripted Pipelines:
-	1. Syntax:
+#### Scripted Pipelines:
+#### 1. Syntax:
    - Scripted Pipelines use a Groovy-based DSL (Domain-Specific Language) to define the build process. The syntax is more flexible and allows for more complex scripting.
-	2. Imperative Approach:
+#### 2. Imperative Approach:
    - Scripted Pipelines follow an imperative or scripted approach, where the pipeline script is a series of scripted steps written in Groovy. You have more control over the flow and can use standard programming constructs like loops and conditionals.
-	3. Flexibility:
+#### 3. Flexibility:
    - Offers more flexibility and power as it allows the use of any Groovy code. This is useful when you need to perform advanced logic or integrate with external systems within your pipeline.
-	4. Example Scripted Pipeline:
+#### 4. Example Scripted Pipeline:
    ```groovy
    node {
        stage('Build') {
@@ -3241,15 +3282,15 @@ Ans: In Jenkins, both Scripted Pipelines and Declarative Pipelines are ways to d
    }
    ```
 
-Declarative Pipelines:
-1. Syntax:
+#### Declarative Pipelines:
+#### 1. Syntax:
    - Declarative Pipelines use a more structured and concise syntax defined by a declarative domain-specific language. It's designed to be simpler and easier to read.
-2. Declarative Approach:
+#### 2. Declarative Approach:
    - Follows a declarative approach where the pipeline is defined as a set of stages and steps. It's more focused on what should be done rather than how it should be done.
-3. Simplicity:
+#### 3. Simplicity:
    - Provides a simplified syntax that is easier to read and understand, especially for those who are not familiar with scripting languages. It is a good choice for less complex build processes.
 
-4. Example Declarative Pipeline:
+#### 4. Example Declarative Pipeline:
    ```groovy
    pipeline {
        agent any
@@ -3275,41 +3316,49 @@ Declarative Pipelines:
        }
    }
    ```
-Choosing Between Scripted and Declarative Pipelines:
-- Complexity:
+#### Choosing Between Scripted and Declarative Pipelines:
+#### - Complexity:
   - Use Scripted Pipelines if your build process is highly complex and requires intricate logic. Scripted Pipelines offer more flexibility for advanced scripting.
-- Readability:
+#### - Readability:
   - Use Declarative Pipelines if you prioritize readability and simplicity. Declarative Pipelines provide a more straightforward syntax, making it easier to understand at a glance.
-- Skill Set:
+#### - Skill Set:
   - Consider the expertise of your team. If your team is more comfortable with Groovy scripting, Scripted Pipelines might be a natural choice. If you have a mix of skills or non-programmers, Declarative Pipelines could be more accessible.
-- Migration:
+#### - Migration:
   - If you have existing Scripted Pipelines and want to migrate to Declarative Pipelines gradually, you can incorporate Declarative Pipeline syntax into existing Scripted Pipelines or rewrite them incrementally.
-Ultimately, the choice between Scripted and Declarative Pipelines depends on the specific requirements of your project, the complexity of your build process, and the skill set of your team. Both options have their strengths, and Jenkins supports using either or a combination of both in a single pipeline.
-Or
-I have experience on creating the Jenkins pipeline weather it is a declarative or scripted pipeline.
-12.	How good are you in Terraform?
+- Ultimately, the choice between Scripted and Declarative Pipelines depends on the specific requirements of your project, the complexity of your build process, and the skill set of your team. Both options have their strengths, and Jenkins supports using either or a combination of both in a single pipeline.
+
+`Or`
+
+- I have experience on creating the Jenkins pipeline weather it is a declarative or scripted pipeline.
+### 15. How good are you in Terraform?
 Ans: I have experience on Terraform used to provision the services and configuring backend.
-13.	What are the provisioners in terraform?
+### 16.	What are the provisioners in terraform?
 Ans: Already available above
-(Or) Provisioners can be used to execute or run the tasks in remote machines or local machines
+
+`(Or)`
+* Provisioners can be used to execute or run the tasks in remote machines or local machines
 We have two types of provisioners 1. Local Exec 2. Remote Exec
 Local exec will execute script or command on the machine from where we are executing the terraform command.
-Suppose it will execute in local machine or laptop
+- Suppose it will execute in local machine or laptop
 Remote exec will execute a command on the ec2 instance that is launched with terraform.
-14.	What is the backend in terraform?
+### 17.	What is the backend in terraform?
 Ans: Already available 
-Or
-Backend can be used to store the state file in a remote location, for suppose it is like AWS s3 or Azure storage, here it will store the state file in the remote location.
-15.	Where do you store the state file in terraform?
-Ans: We mostly stored the state file in AWS S3 bucket, we can define the folder in s3 bucket or we can directly store the file.
-16.	Can two people edit the state file at the same time in terraform?
-Ans: Editing the Terraform state file concurrently is generally not recommended and can lead to issues. Terraform state is used to maintain the current state of infrastructure, and simultaneous edits by multiple users can result in conflicts, data corruption, or unintended changes. Terraform expects to be the sole manager of the state file to maintain consistency and prevent conflicting updates.
 
-If two people attempt to apply changes to the same infrastructure simultaneously, there is a risk of race conditions, where one person's changes may overwrite the other's. This can result in unpredictable and potentially incorrect infrastructure deployments.
-To address this, Terraform provides features to help manage state in a collaborative environment:
-1. Remote Backends:
+`Or`
+
+- Backend can be used to store the state file in a remote location, for suppose it is like AWS s3 or Azure storage, here it will store the state file in the remote location.
+### 18.	Where do you store the state file in terraform?
+Ans: We mostly stored the state file in AWS S3 bucket, we can define the folder in s3 bucket or we can directly store the file.
+### 19.	Can two people edit the state file at the same time in terraform?
+Ans: Editing the Terraform state file concurrently is generally not recommended and can lead to issues. 
+- Terraform state is used to maintain the current state of infrastructure, and simultaneous edits by multiple users can result in conflicts, data corruption, or unintended changes. 
+- Terraform expects to be the sole manager of the state file to maintain consistency and prevent conflicting updates.
+- If two people attempt to apply changes to the same infrastructure simultaneously, there is a risk of race conditions, where one person's changes may overwrite the other's. 
+- This can result in unpredictable and potentially incorrect infrastructure deployments.
+- To address this, Terraform provides features to help manage state in a collaborative environment:
+#### 1. Remote Backends:
    - Using a remote backend, such as AWS S3, Azure Storage, or Terraform Cloud, allows for centralized storage of the state file. Each collaborator can pull the latest state, make changes locally, and then push the changes back to the remote backend. This helps avoid conflicts and ensures that Terraform manages the state consistently.
-2. Locking:
+#### 2. Locking:
    - Terraform supports state file locking mechanisms to prevent concurrent modifications. Locking ensures that only one user at a time can apply changes to the infrastructure. This is particularly important when using remote backends.
    Example (Locking in AWS S3 Backend):
    ```hcl
@@ -3324,42 +3373,51 @@ To address this, Terraform provides features to help manage state in a collabora
    }
    ```
    - The `dynamodb_table` setting in the example specifies the name of an Amazon DynamoDB table that Terraform uses for locking. This ensures that only one user can acquire a lock on the state file at a time.
-3. Terraform Cloud/Enterprise:
+#### 3. Terraform Cloud/Enterprise:
    - Terraform Cloud and Terraform Enterprise provide built-in collaboration features, including locking and version control integration. These platforms are designed to facilitate collaboration in large teams by managing state and preventing concurrent modifications.
-When working collaboratively, it's crucial to establish communication and coordination among team members. Following best practices, such as using remote backends and enabling locking mechanisms, helps maintain the integrity of the Terraform state and ensures a consistent and reliable infrastructure deployment process.
-No, It is not possible, if any person executing Apply or Plan command it will apply the lock for that state file. Once it is release then the other person can able to do the actions.
-17.	When is the Lock starts and end in the state file in terraform?
+- When working collaboratively, it's crucial to establish communication and coordination among team members. Following best practices, such as using remote backends and enabling locking mechanisms, helps maintain the integrity of the Terraform state and ensures a consistent and reliable infrastructure deployment process.
+
+`Or`
+
+- No, It is not possible, if any person executing Apply or Plan command it will apply the lock for that state file. Once it is release then the other person can able to do the actions.
+### 20. When is the Lock starts and end in the state file in terraform?
 Ans: In Terraform, the concept of locking is crucial to prevent concurrent modifications to the state file by multiple users or processes. The lock ensures that only one user or process can apply changes to the infrastructure at a time, avoiding conflicts and ensuring consistency. Here's a general overview of when locking starts and ends in the Terraform state lifecycle:
-1. Lock Acquisition (Start of Locking):
-1. Initialization (`terraform init`):
+#### 1. Lock Acquisition (Start of Locking):
+`1. Initialization (`terraform init`):`
    - When you initialize a Terraform configuration using the `terraform init` command, Terraform sets up the necessary infrastructure, including configuring the backend. The backend configuration may include settings for state file locking.
-2. Apply or Plan Execution (`terraform apply` or `terraform plan`):
+
+`2. Apply or Plan Execution `(`terraform apply` or `terraform plan`):
    - When you execute a Terraform plan (`terraform plan`) or apply (`terraform apply`), Terraform checks for the existence of a lock on the state file before proceeding. If no lock is currently held, the process attempts to acquire the lock.
-3. Lock Backend (Remote Backend):
+
+`3. Lock Backend (Remote Backend):`
    - If you are using a remote backend (e.g., S3, Azure Storage, Terraform Cloud), Terraform communicates with the backend to acquire a lock. The backend may use mechanisms such as file locks, database records, or distributed coordination systems (e.g., DynamoDB for AWS S3 backend) to implement locking.
-4. Local Lock File (Local Backend):
+
+`4. Local Lock File (Local Backend):`
    - If you are using a local backend (local file system), Terraform creates a lock file on the local file system to prevent concurrent modifications. This is less suitable for collaboration but still enforces a form of locking.
-2. Lock Release (End of Locking):
-1. Apply or Plan Completion:
+#### 2. Lock Release (End of Locking):
+
+`1. Apply or Plan Completion:`
    - After completing the execution of `terraform apply` or `terraform plan`, Terraform releases the lock. This can occur when the process finishes successfully or encounters an error.
-2. Unlock Backend (Remote Backend):
+
+`2. Unlock Backend (Remote Backend):`
    - In the case of a remote backend, the backend releases the lock, making it available for other Terraform processes.
-3. Delete Lock File (Local Backend):
+
+`3. Delete Lock File (Local Backend):`
    - For a local backend, Terraform deletes the lock file on the local file system.
-Considerations:
-- Explicit Unlocking:
+#### Considerations:
+#### - Explicit Unlocking:
   - If the Terraform process is interrupted or terminates unexpectedly, the lock may persist. In such cases, it's essential to explicitly unlock the state, either by completing or aborting the Terraform process, or by using specific commands like `terraform force-unlock`.
-- Backend-Specific Locking:
+#### - Backend-Specific Locking:
   - The specific mechanisms and behaviors related to locking depend on the type of backend used. For example, remote backends like AWS S3 may use DynamoDB for locking, while other backends may use their own mechanisms.
-- Concurrency Limits:
+#### - Concurrency Limits:
   - While locking prevents concurrent modifications to the same state file, it does not prevent parallelism across different state files or different workspaces in Terraform Cloud/Enterprise.
-Locking in Terraform is designed to ensure the integrity of the state file and prevent conflicts. Understanding when locking starts and ends helps users coordinate and collaborate effectively when working on shared infrastructure.
-As soon as we start the operation weather it is apply or Plan command it will lock and later the operations are done the lock will be end.
-18.	Where do you define the state of the lock?
+* Locking in Terraform is designed to ensure the integrity of the state file and prevent conflicts. Understanding when locking starts and ends helps users coordinate and collaborate effectively when working on shared infrastructure.
+* As soon as we start the operation weather it is apply or Plan command it will lock and later the operations are done the lock will be end.
+### 21. Where do you define the state of the lock?
 Ans: In Terraform, the configuration for state locking is typically defined within the backend configuration block. The backend configuration specifies where the Terraform state file is stored and can include settings related to state locking. Different backends may have specific configurations for implementing locking.
 Here's an example of how to define the state lock settings for various backends:
-1. AWS S3 Backend with DynamoDB Locking:
-For an AWS S3 backend with DynamoDB for locking, you can configure the backend as follows:
+#### 1. AWS S3 Backend with DynamoDB Locking:
+- For an AWS S3 backend with DynamoDB for locking, you can configure the backend as follows:
 
 ```hcl
 terraform {
@@ -3373,7 +3431,7 @@ terraform {
 }
 ```
 In this example, the `dynamodb_table` setting specifies the name of the DynamoDB table that Terraform will use for locking.
-2. Azure Storage Backend:
+#### 2. Azure Storage Backend:
 For an Azure Storage backend, you can configure the backend with an additional `storage_account_name` and `container_name`. Note that Azure Storage automatically handles locking without specific configuration.
 ```hcl
 terraform {
@@ -3386,7 +3444,7 @@ terraform {
 }
 ```
 In this example, Azure Storage automatically provides the necessary locking mechanisms.
-3. Terraform Cloud Backend:
+#### 3. Terraform Cloud Backend:
 For Terraform Cloud, you specify the organization and workspace within the backend configuration. Terraform Cloud handles the locking internally.
 
 ```hcl
@@ -3400,8 +3458,8 @@ terraform {
 }
 ```
 In this example, Terraform Cloud manages the state file and locking in a collaborative environment.
-4. Local Backend:
-If you are using a local backend, you can specify a local file path, and Terraform will create a lock file in the same directory.
+#### 4. Local Backend:
+- If you are using a local backend, you can specify a local file path, and Terraform will create a lock file in the same directory.
 ```hcl
 terraform {
   backend "local" {
@@ -3409,43 +3467,46 @@ terraform {
   }
 }
 ```
-For local backends, Terraform creates a lock file in the specified path to prevent concurrent modifications.
-It's essential to refer to the documentation for the specific backend you are using to understand how it handles state locking and any additional configuration options related to locking. The choice of backend depends on factors such as collaboration requirements, infrastructure scale, and the desired features for state management.
- For this lock we use dynamo DB, it is going to support locking concept in the backend we define the dynamo DB table name to access the lock.
-19.	How comfortable are you in Git?
+- For local backends, Terraform creates a lock file in the specified path to prevent concurrent modifications.
+- It's essential to refer to the documentation for the specific backend you are using to understand how it handles state locking and any additional configuration options related to locking. 
+- The choice of backend depends on factors such as collaboration requirements, infrastructure scale, and the desired features for state management.
+ - For this lock we use dynamo DB, it is going to support locking concept in the backend we define the dynamo DB table name to access the lock.
+### 22. How comfortable are you in Git?
 Ans:
-20.	What is git cherry-pick?
-Ans: `git cherry-pick` is a Git command that allows you to apply a specific commit from one branch to another. It enables you to select a single commit from one branch's history and apply it onto another branch. This can be useful when you want to selectively bring changes from one branch to another without merging the entire branch.
-Here's a basic usage example:
+### 23.	What is git cherry-pick?
+Ans: `git cherry-pick` is a Git command that allows you to apply a specific commit from one branch to another. 
+- It enables you to select a single commit from one branch's history and apply it onto another branch. 
+- This can be useful when you want to selectively bring changes from one branch to another without merging the entire branch.
+- Here's a basic usage example:
 ```bash
 # Switch to the branch where you want to apply the commit
 git checkout <destination-branch>
 # Cherry-pick the specific commit from another branch
 git cherry-pick <commit-hash>
 ```
-In this example:
+#### In this example:
 - `<destination-branch>` is the branch where you want to apply the changes.
 - `<commit-hash>` is the hash of the commit you want to cherry-pick from another branch.
-Key Points:
-1. Selecting Commits:
+#### Key Points:
+#### 1. Selecting Commits:
    - You can cherry-pick multiple commits by providing multiple commit hashes. Git will apply them one by one in the order specified.
    ```bash
    git cherry-pick <commit-hash-1> <commit-hash-2> <commit-hash-3>
    ```
-2. Conflict Resolution:
+#### 2. Conflict Resolution:
    - If there are conflicts during the cherry-pick process (e.g., changes in the destination branch that conflict with changes in the cherry-picked commit), Git will mark the file as conflicted, and you will need to resolve the conflicts manually.
    ```bash
    # Resolve conflicts in the conflicted files
    git add <conflicted-file>
    git cherry-pick --continue
    ```
-3. Cherry-pick Range:
+####3. Cherry-pick Range:
    - You can cherry-pick a range of commits using the commit range notation.
    ```bash
    git cherry-pick <start-commit>^..<end-commit>
    ```
-   This command will cherry-pick all the commits from `start-commit` to `end-commit`.
-4. Cherry-pick vs. Merge:
+   - This command will cherry-pick all the commits from `start-commit` to `end-commit`.
+#### 4. Cherry-pick vs. Merge:
    - Cherry-picking is different from merging. While merging combines the entire branch history, cherry-picking allows you to bring individual commits.
    ```bash
    # Example of merging branches
@@ -3455,22 +3516,19 @@ Key Points:
    git checkout <destination-branch>
    git cherry-pick <commit-hash>
    ```
-5. Cherry-pick Revert:
+#### 5. Cherry-pick Revert:
    - If you want to undo a previous cherry-pick, you can use `git cherry-pick --abort`.
    ```bash
    git cherry-pick --abort
   ```
-Cherry-picking is a powerful but manual process, and it should be used carefully, especially when cherry-picking commits that modify the same code areas as existing changes in the destination branch. Always review the changes and resolve any conflicts that may arise during the cherry-pick process.
-Cherry-picking in git means choosing a commit from one branch and applying it to another branch.
-Cherry-picking is just like rebasing, it is mainly used if you don’t want to merge the whole branch and you want some of the commits.
-21.	What is git merge?
+- Cherry-picking is a powerful but manual process, and it should be used carefully, especially when cherry-picking commits that modify the same code areas as existing changes in the destination branch. Always review the changes and resolve any conflicts that may arise during the cherry-pick process.
+- Cherry-picking in git means choosing a commit from one branch and applying it to another branch.
+- Cherry-picking is just like rebasing, it is mainly used if you don’t want to merge the whole branch and you want some of the commits.
+### 24.	What is git merge?
 Ans: Already available
 (Or) Git merge is a command which is used to join two or more development histories or branches together. git merge is used to combine two branches.
-
-
-
-
-Virtusa L1 Q&A (Wed 16 Mar 2022 3:30pm – 4pm (IST)
+---
+## Virtusa L1 Q&A (Wed 16 Mar 2022 3:30pm – 4pm (IST)
 1.	Tell about yourself?
 2.	Do you have experience on Jenkins?
 3.	How strong you are in Jenkins?
