@@ -6,12 +6,12 @@
 
 ## Virtusa L3 Q&A Mon 28 Mar 2022 6:30pm – 7pm (IST)
 
-## 1.	What kind of script did you used to interact with data base?
-## 2.	How did you do the script for interaction with the databases?
-## 3.	What kind of problems that you had with terraform work around you?
+### 1.	What kind of script did you used to interact with data base?
+### 2.	How did you do the script for interaction with the databases?
+### 3.	What kind of problems that you had with terraform work around you?
 Ans: common challenges that users might face when working with Terraform and potential workarounds:
 ## 1. State Management:
-   - Challenge: Managing Terraform state across teams or multiple environments can be challenging.
+   * `Challenge`: Managing Terraform state across teams or multiple environments can be challenging.
    - Workaround: Use remote backends (e.g., AWS S3, Azure Storage) for centralized state management. Use workspaces for environment-specific configurations.
 ## 2. Dependency Ordering:
    - Challenge: Managing dependencies between resources and ensuring they are created or updated in the correct order.
