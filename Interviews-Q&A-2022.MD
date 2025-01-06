@@ -3529,300 +3529,311 @@ Ans: Already available
 (Or) Git merge is a command which is used to join two or more development histories or branches together. git merge is used to combine two branches.
 ---
 ## Virtusa L1 Q&A (Wed 16 Mar 2022 3:30pm – 4pm (IST)
-1.	Tell about yourself?
-2.	Do you have experience on Jenkins?
-3.	How strong you are in Jenkins?
-4.	Have you Done LDAP configuration on Jenkins?
+### 1.	Tell about yourself?
+### 2.	Do you have experience on Jenkins?
+### 3.	How strong you are in Jenkins?
+### 4.	Have you Done LDAP configuration on Jenkins?
 Ans: Configuring LDAP (Lightweight Directory Access Protocol) on Jenkins allows you to integrate Jenkins with your LDAP server for authentication and user management. Here are the general steps to configure LDAP on Jenkins:
-1. Install LDAP Plugin:
+#### 1. Install LDAP Plugin:
    - If you haven't already, you need to install the "LDAP" plugin in Jenkins.
      - Navigate to "Jenkins" > "Manage Jenkins" > "Manage Plugins."
      - Go to the "Available" tab and search for "LDAP."
      - Select the "LDAP" plugin and click "Install without restart."
-2. Configure LDAP in Jenkins:
+#### 2. Configure LDAP in Jenkins:
    - After installing the LDAP plugin, go to "Jenkins" > "Manage Jenkins" > "Configure Global Security."
    - Under the "Security Realm" section, select "LDAP" from the dropdown.
-3. Configure LDAP Server:
+#### 3. Configure LDAP Server:
    - In the "Server" section, click "Add LDAP" to configure your LDAP server.
    - Provide the LDAP server details:
      - Server: The hostname or IP address of your LDAP server.
      - Port: The port number for LDAP (default is 389).
      - TSL: Enable this option if your LDAP server uses SSL (LDAPS, default port is 636).
-4. Configure Manager DN and Password:
+#### 4. Configure Manager DN and Password:
    - In the "Manager DN" and "Password" section, provide the DN (Distinguished Name) and password of a user with read access to the LDAP server. This user is typically used by Jenkins to search for user information.
    - Example:
      - Manager DN: `cn=admin,dc=example,dc=com`
      - Password:`<password>`
-5. Configure User Search:
+#### 5. Configure User Search:
    - In the "User Search" section, provide the base DN for user searches and the filter for locating user entries.
    - Example:
      - User Search Base: `ou=people,dc=example,dc=com`
      - User Search Filter: `(uid={0})`
-6. Test Connection:
+#### 6. Test Connection:
    - Click the "Test Connection" button to ensure that Jenkins can connect to the LDAP server successfully.
-7. Save Configuration:
+#### 7. Save Configuration:
    - Click "Save" at the bottom of the page to apply the LDAP configuration.
-8. Test Authentication:
+#### 8. Test Authentication:
    - Log out of Jenkins and attempt to log in using an LDAP user's credentials to verify that LDAP authentication is working.
-By configuring LDAP on Jenkins, you enable user authentication against your LDAP server, and Jenkins can import user information from LDAP for managing permissions and groups within Jenkins.
-Note: The exact LDAP configuration may vary based on your LDAP server and organizational structure. Refer to your LDAP server's documentation for specific details about configuring LDAP with your server.
-5.	Suppose I have a Jenkin instance, I want to give the access only to Jenkins instance in my entire organization how you will achieve this?
+- By configuring LDAP on Jenkins, you enable user authentication against your LDAP server, and Jenkins can import user information from LDAP for managing permissions and groups within Jenkins.
+
+`Note:` The exact LDAP configuration may vary based on your LDAP server and organizational structure. 
+- Refer to your LDAP server's documentation for specific details about configuring LDAP with your server.
+#### 5.	Suppose I have a Jenkin instance, I want to give the access only to Jenkins instance in my entire organization how you will achieve this?
 Ans: To restrict access to your Jenkins instance so that it is accessible only within your organization, you can implement network-level restrictions and authentication mechanisms. Here are the steps you can take:
-1. Network-Level Restrictions:
-   - Firewall Rules:
-     - Configure firewall rules to restrict incoming traffic to the Jenkins server. Allow access only from IP ranges or subnets used within your organization.
-     - Deny access from external IP addresses.
-2. Jenkins Security Configuration:
-   - Bind Jenkins to Specific IP/Hostname:
-     - Configure Jenkins to bind to a specific IP address or hostname. This helps in preventing unintended exposure on multiple interfaces.
-     - Edit the Jenkins configuration file (`JENKINS_HOME/jenkins.xml` or `/etc/default/jenkins` on Linux) and set the `--httpListenAddress` parameter to the desired IP address.
-     ```xml
-     <arguments>--httpListenAddress=YOUR_INTERNAL_IP</arguments>
-     ```
-   - Jenkins URL Configuration:
-     - Configure the Jenkins URL in the Jenkins system configuration to match the internal URL used within your organization. Go to "Jenkins" > "Manage Jenkins" > "Configure System" and set the "Jenkins URL" accordingly.
-3. Authentication and Authorization:
-   - Security Realm:
-     - Choose an appropriate security realm in Jenkins to control user authentication.
-     - If your organization uses LDAP, configure Jenkins to authenticate users against your LDAP server.
-     - Navigate to "Jenkins" > "Manage Jenkins" > "Configure Global Security" and choose the appropriate security realm (e.g., LDAP).
-4. Update Jenkins Access URLs:
+#### 1. Network-Level Restrictions:
+   ####  Firewall Rules:
+- Configure firewall rules to restrict incoming traffic to the Jenkins server. Allow access only from IP ranges or subnets used within your organization.
+- Deny access from external IP addresses.
+#### 2. Jenkins Security Configuration:
+   #### Bind Jenkins to Specific IP/Hostname:
+- Configure Jenkins to bind to a specific IP address or hostname. This helps in preventing unintended exposure on multiple interfaces.
+- Edit the Jenkins configuration file (`JENKINS_HOME/jenkins.xml` or `/etc/default/jenkins` on Linux) and set the `--httpListenAddress` parameter to the desired IP address.
+  ```xml
+  <arguments>--httpListenAddress=YOUR_INTERNAL_IP</arguments>
+  ```
+   ####  Jenkins URL Configuration:
+  - Configure the Jenkins URL in the Jenkins system configuration to match the internal URL used within your organization. Go to "Jenkins" > "Manage Jenkins" > "Configure System" and set the "Jenkins URL" accordingly.
+#### 3. Authentication and Authorization:
+   ####  Security Realm:
+- Choose an appropriate security realm in Jenkins to control user authentication.
+- If your organization uses LDAP, configure Jenkins to authenticate users against your LDAP server.
+- Navigate to "Jenkins" > "Manage Jenkins" > "Configure Global Security" and choose the appropriate security realm (e.g., LDAP).
+#### 4. Update Jenkins Access URLs:
    - Ensure that any URLs or links pointing to Jenkins within your organization use the internal URL (configured in Jenkins) rather than external URLs.
-5. Regularly Monitor and Audit:
+#### 5. Regularly Monitor and Audit:
    - Periodically review and update firewall rules, Jenkins configurations, and access policies to ensure they align with organizational security policies.
    - Regularly monitor Jenkins logs and access logs for any unusual activities.
 
-6. Consider Additional Security Measures:
+#### 6. Consider Additional Security Measures:
    - If applicable, consider using VPNs or other network-level security measures to restrict access further.
    - Configure Jenkins to use HTTPS to encrypt communication between clients and the Jenkins server.
-By implementing these measures, you can significantly restrict access to your Jenkins instance, ensuring that it is accessible only within your organization's network and by authorized users. Always follow security best practices and consider the specific requirements and policies of your organization.
-6.	Suppose I have Jenkins instance and I have group of deployment jobs like some (Ex:150 jobs)Build jobs and deployment job and promotion jobs and lot of categories are available, so I want to have deployment job access to only the particular deployment team how will you achieve this?
+- By implementing these measures, you can significantly restrict access to your Jenkins instance, ensuring that it is accessible only within your organization's network and by authorized users. Always follow security best practices and consider the specific requirements and policies of your organization.
+#### 6.	Suppose I have Jenkins instance and I have group of deployment jobs like some (Ex:150 jobs)Build jobs and deployment job and promotion jobs and lot of categories are available, so I want to have deployment job access to only the particular deployment team how will you achieve this?
 Ans: To restrict access to specific deployment jobs in Jenkins and ensure that only the designated deployment team has permission to execute those jobs, you can use Jenkins' built-in security features and job-level authorization. Here's a step-by-step guide:
-1. Enable Security in Jenkins:
+#### 1. Enable Security in Jenkins:
    - Navigate to "Jenkins" > "Manage Jenkins" > "Configure Global Security."
    - Check the "Enable Security" option.
-2. Configure Security Realm:
+#### 2. Configure Security Realm:
    - Choose the appropriate security realm based on your organization's authentication mechanism. Common options include:
      - Jenkins Own User Database: For local user management.
      - LDAP: If your organization uses LDAP for authentication.
-3. Manage Users:
+#### 3. Manage Users:
    - Create user accounts for members of the deployment team. You can manage users under "Jenkins" > "Manage Jenkins" > "Manage Users."
-4. Manage Groups:
+#### 4. Manage Groups:
    - Create a group specifically for the deployment team. Under "Manage Jenkins" > "Manage Users," click on a user, and you can assign them to a group.
    - Create a new group named, for example, "DeploymentTeam."
-5. Configure Job Authorization:
+#### 5. Configure Job Authorization:
    - For each deployment job, navigate to the job configuration page ("JobName" > "Configure").
    - Under the "Build Authorization" section, select "Project-based Matrix Authorization Strategy."
    - Add the "DeploymentTeam" group with the necessary permissions (e.g., "Build," "Cancel," "Read") for that specific job.
-6. Matrix Authorization Strategy:
+#### 6. Matrix Authorization Strategy:
    - Under "Jenkins" > "Manage Jenkins" > "Configure Global Security," select "Matrix-based security" in the "Authorization" section.
    - Add the "DeploymentTeam" group to the matrix and assign the necessary permissions for overall job management.
-7. Job Visibility:
+#### 7. Job Visibility:
    - If you want to restrict visibility of jobs to the deployment team, consider using the "Job Restrictions" plugin or other folder-based approaches.
-8. Test Access:
+#### 8. Test Access:
    - Log in with a user from the deployment team and verify that they can access and execute the deployment jobs.
-Additional Tips:
+#### Additional Tips:
 - Use Job DSL or Configuration as Code:
   - If you have a large number of jobs to manage, consider using Job DSL or Configuration as Code (JCasC) to define job configurations in code. This allows you to version control job configurations and manage them more efficiently.
 - Job Templates:
   - Create job templates with shared configurations and permissions. Then, create instances of these templates for specific deployment tasks.
-By following these steps, you can implement a fine-grained access control mechanism, ensuring that only members of the deployment team have permission to execute the designated deployment jobs in Jenkins. Adjust the configuration based on your specific requirements and security policies.
-7.	What are the list of items you will see in the Manage Jenkins Option?
+- By following these steps, you can implement a fine-grained access control mechanism, ensuring that only members of the deployment team have permission to execute the designated deployment jobs in Jenkins. Adjust the configuration based on your specific requirements and security policies.
+### 7.	What are the list of items you will see in the Manage Jenkins Option?
 Ans: The "Manage Jenkins" option in Jenkins provides access to various administrative and configuration settings for the Jenkins instance. The list of items available under "Manage Jenkins" may vary based on the plugins installed and the version of Jenkins, but here are common items you might find:
-1. Configure System:
+#### 1. Configure System:
    - Global configurations for Jenkins, including system-wide settings and plugin configurations.
-2. Manage Plugins:
+#### 2. Manage Plugins:
    - Install, update, and manage Jenkins plugins. You can also view information about installed plugins and check for updates.
-3. Manage Nodes and Clouds:
+#### 3. Manage Nodes and Clouds:
    - Configure and manage Jenkins nodes (agents) and cloud configurations for cloud-based Jenkins deployments.
-
-4. Global Tool Configuration:
+#### 4. Global Tool Configuration:
    - Configure and manage global tools used by Jenkins jobs, such as JDK installations, Git installations, Maven installations, etc.
-5. Script Console:
+#### 5. Script Console:
    - Execute Groovy scripts directly on the Jenkins server. This can be used for administrative tasks and troubleshooting.
-6. System Information:
+#### 6. System Information:
    - View information about the Jenkins environment, including Java system properties, environment variables, and system properties.
-7. Load Statistics:
+#### 7. Load Statistics:
    - Monitor load statistics of Jenkins, including the number of executors in use, system load, and more.
-8. Usage Statistics:
+#### 8. Usage Statistics:
    - Opt-in to share anonymous usage statistics with the Jenkins project. This helps the Jenkins community understand how Jenkins is being used.
-9. Jenkins CLI:
+#### 9. Jenkins CLI:
    - Access the Jenkins Command Line Interface (CLI) for performing various administrative tasks from the command line.
-10. Plugin Manager:
-    - View and manage installed plugins, including checking for updates, installing, and uninstalling plugins.
-11. Security Configuration:
-    - Configure global security settings, including authentication, authorization, and security realm configurations.
-12. Reload Configuration from Disk:
-    - Reload the Jenkins configuration from the disk. Useful after manually editing the Jenkins configuration files.
-13. System Log:
-    - View the system log to monitor Jenkins logs, including information about job executions, errors, and other system events.
-14. ThinBackup:
-    - If the ThinBackup plugin is installed, you can use this option to perform manual or scheduled backups of Jenkins configuration.
-15. Build Queue:
-    - View and manage the Jenkins build queue, including details about queued builds and their status.
-These items provide administrators with the tools and configurations needed to manage, configure, and monitor the Jenkins instance. Keep in mind that additional items may be present based on the plugins installed in your Jenkins environment.
-8.	Have you worked on Master and slave node configuration?
+#### 10. Plugin Manager:
+   - View and manage installed plugins, including checking for updates, installing, and uninstalling plugins.
+#### 11. Security Configuration:
+   - Configure global security settings, including authentication, authorization, and security realm configurations.
+#### 12. Reload Configuration from Disk:
+   - Reload the Jenkins configuration from the disk. Useful after manually editing the Jenkins configuration files.
+#### 13. System Log:
+   - View the system log to monitor Jenkins logs, including information about job executions, errors, and other system events.
+#### 14. ThinBackup:
+   - If the ThinBackup plugin is installed, you can use this option to perform manual or scheduled backups of Jenkins configuration.
+#### 15. Build Queue:
+   - View and manage the Jenkins build queue, including details about queued builds and their status.
+- These items provide administrators with the tools and configurations needed to manage, configure, and monitor the Jenkins instance. Keep in mind that additional items may be present based on the plugins installed in your Jenkins environment.
+### 8.	Have you worked on Master and slave node configuration?
 Ans: Already available
-9.	I have a slave node configuration already, Can we increase the executors for the particular Slave?
+### 9.	I have a slave node configuration already, Can we increase the executors for the particular Slave?
 Ans: Yes, you can increase the number of executors for a specific Jenkins slave (agent). Executors represent the number of concurrent build jobs that a node can handle. Here's how you can increase the number of executors for a Jenkins slave:
-1. Access Jenkins Master:
+#### 1. Access Jenkins Master:
    - Log in to the Jenkins master server.
-2. Navigate to Node Configuration:
+#### 2. Navigate to Node Configuration:
    - Go to "Manage Jenkins" > "Manage Nodes and Clouds."
-3. Select the Target Node:
+#### 3. Select the Target Node:
    - Find and select the node (slave) for which you want to increase the number of executors.
-4. Configure Node:
+#### 4. Configure Node:
    - Click on the node's name to access its configuration page.
-5. Adjust Executors:
+#### 5. Adjust Executors:
    - In the node configuration page, find the "# of executors" field.
    - Increase the number to the desired value. This value represents the maximum number of concurrent builds the node can handle.
-6. Save Changes:
+#### 6. Save Changes:
    - Save the changes to apply the new configuration.
-7. Restart the Node (if necessary):
+#### 7. Restart the Node (if necessary):
    - In some cases, changes to the number of executors may require restarting the Jenkins agent. If you notice that the changes are not taking effect, restart the Jenkins agent on the slave machine.
-By increasing the number of executors for a Jenkins slave, you allow it to handle a higher number of concurrent builds, which can be useful for improving build throughput and efficiency. Keep in mind that the total number of executors across all nodes contributes to the overall capacity of your Jenkins environment.
-Adjust the number of executors based on the resources available on the slave machine and the workload it is expected to handle. Additionally, be mindful of the overall capacity of your Jenkins master and the potential impact on system resources.
-Or
-go to manage-Jenkins🡪manage nodes🡪click on node🡪click on configure🡪here we have an option called no.of executer in the configuration page we give the desired number of executers.
-10.	Suppose in my Jenkins instance I have a product, one of the job got hanged you are unable stop, without restarting the Jenkins how will you kill the job?
+- By increasing the number of executors for a Jenkins slave, you allow it to handle a higher number of concurrent builds, which can be useful for improving build throughput and efficiency. Keep in mind that the total number of executors across all nodes contributes to the overall capacity of your Jenkins environment.
+- Adjust the number of executors based on the resources available on the slave machine and the workload it is expected to handle. Additionally, be mindful of the overall capacity of your Jenkins master and the potential impact on system resources.
+
+`Or`
+
+- go to manage-Jenkins🡪manage nodes🡪click on node🡪click on configure🡪here we have an option called no.of executer in the configuration page we give the desired number of executers.
+### 10.	Suppose in my Jenkins instance I have a product, one of the job got hanged you are unable stop, without restarting the Jenkins how will you kill the job?
 Ans: If a Jenkins job is hanging and you are unable to stop it through the Jenkins web interface or if the job is unresponsive, you can attempt to terminate the hanging process from the command line using the Jenkins CLI (Command Line Interface). The Jenkins CLI allows you to interact with Jenkins from the command line.
-Here are the steps to forcefully terminate a hanging Jenkins job using the CLI:
-1. Get Jenkins CLI:
+- Here are the steps to forcefully terminate a hanging Jenkins job using the CLI:
+#### 1. Get Jenkins CLI:
    - Ensure that you have the Jenkins CLI installed on your machine. You can download the CLI JAR file from the following URL (replace `<jenkins-url>` with your Jenkins URL):
      https://<jenkins-url>/jnlpJars/jenkins-cli.jar
-2. Open a Terminal or Command Prompt:
+#### 2. Open a Terminal or Command Prompt:
    - Open a terminal or command prompt on your local machine.
-3. Navigate to the Directory with Jenkins CLI:
+#### 3. Navigate to the Directory with Jenkins CLI:
    - Navigate to the directory where you downloaded the Jenkins CLI JAR file.
-4. Execute the CLI Command:
+#### 4. Execute the CLI Command:
    - Use the following command to stop the hanging build:
      java -jar jenkins-cli.jar -s http://<jenkins-url>/ stop-build <job-name> <build-number>
      - Replace `<jenkins-url>` with the actual URL of your Jenkins instance.
      - Replace `<job-name>` with the name of the hanging job.
      - Replace `<build-number>` with the build number of the hanging build.
 
-5. Check the Result:
+#### 5. Check the Result:
    - The CLI command will attempt to stop the specified build. Check the output for any error messages or confirmation of the termination.
-Keep in mind that forcefully terminating a build using the CLI may have side effects, and it's generally recommended to understand the consequences before doing so. If the build termination does not work as expected or if the issue persists, you might need to consider restarting the Jenkins instance.
-Additionally, always ensure that you have the necessary permissions to stop builds using the CLI, and use this approach cautiously. If the problem of hanging builds persists, it's important to investigate the root cause to prevent recurrence.
-Or
- Go to "Manage Jenkins" > "Script Console" and run a script: Jenkins .instance.getItemByFullName("JobName")
+- Keep in mind that forcefully terminating a build using the CLI may have side effects, and it's generally recommended to understand the consequences before doing so. If the build termination does not work as expected or if the issue persists, you might need to consider restarting the Jenkins instance.
+- Additionally, always ensure that you have the necessary permissions to stop builds using the CLI, and use this approach cautiously. If the problem of hanging builds persists, it's important to investigate the root cause to prevent recurrence.
+
+`Or`
+
+ - Go to "Manage Jenkins" > "Script Console" and run a script: Jenkins .instance.getItemByFullName("JobName")
 .getBuildByNumber(JobNumber)
 .finish(hudson.model.Result.ABORTED, new java.io.IOException("Aborting build"));
-11.	What is the functionality of safe restart? 
-	Ans: The "Safe Restart" functionality in Jenkins provides a way to gracefully restart the Jenkins instance without abruptly terminating running builds or interrupting ongoing activities. This feature is designed to minimize disruptions to the CI/CD pipeline and ensure that active jobs and processes are given the opportunity to complete before the restart.
+### 11.	What is the functionality of safe restart? 
+A: The "Safe Restart" functionality in Jenkins provides a way to gracefully restart the Jenkins instance without abruptly terminating running builds or interrupting ongoing activities. This feature is designed to minimize disruptions to the CI/CD pipeline and ensure that active jobs and processes are given the opportunity to complete before the restart.
 
-	Here's how the Safe Restart functionality works:
+ - Here's how the Safe Restart functionality works:
 
-1. Initiating Safe Restart:
+#### 1. Initiating Safe Restart:
    - When you trigger a Safe Restart, Jenkins enters a mode where it stops accepting new builds and waits for all currently running builds and activities to complete.
-2. Completing Running Builds:
+#### 2. Completing Running Builds:
    - Jenkins allows the ongoing builds and activities to finish before initiating the restart. This ensures that builds in progress are not abruptly terminated.
-3. Disabling New Builds:
+#### 3. Disabling New Builds:
    - During the Safe Restart process, Jenkins stops accepting new build requests. This prevents new jobs from starting, allowing the system to stabilize before the restart.
-4. Waiting for Quiet Period:
+#### 4. Waiting for Quiet Period:
    - Jenkins waits for a defined "quiet period" during which no builds are running. The quiet period is a configurable duration during which Jenkins waits for any pending builds to start.
-5. Restarting Jenkins:
+#### 5. Restarting Jenkins:
    - After the quiet period, Jenkins proceeds with the actual restart. The Jenkins master process is stopped and then restarted.
-6. Resuming Normal Operations:
+#### 6. Resuming Normal Operations:
    - Once the restart is complete, Jenkins resumes normal operations, and users can start new builds and jobs.
-	The Safe Restart functionality is particularly useful in production environments where it's crucial to avoid interruptions to critical CI/CD processes. It allows Jenkins administrators to perform necessary maintenance or apply configuration changes without causing disruptions to ongoing work.
-To initiate a Safe Restart:
+	- The Safe Restart functionality is particularly useful in production environments where it's crucial to avoid interruptions to critical CI/CD processes. It allows Jenkins administrators to perform necessary maintenance or apply configuration changes without causing disruptions to ongoing work.
+#### To initiate a Safe Restart:
 - Navigate to "Manage Jenkins" > "Reload Configuration from Disk" in the Jenkins web interface.
 - Click on the "Safe Restart" button.
-It's important to note that while Safe Restart is a useful feature, it may not be suitable for all situations. Some maintenance tasks or configuration changes might require a full restart of Jenkins. Always review the specific requirements of your Jenkins instance and pipeline to determine the appropriate restart strategy.
-Or
-If you are using the Jenkins dashboard in a web browser, restart Jenkins by entering the appropriate URL. Using the default restart URL forces Jenkins to restart without waiting for any builds to complete:
+- It's important to note that while Safe Restart is a useful feature, it may not be suitable for all situations. Some maintenance tasks or configuration changes might require a full restart of Jenkins. Always review the specific requirements of your Jenkins instance and pipeline to determine the appropriate restart strategy.
+
+`Or`
+
+- If you are using the Jenkins dashboard in a web browser, restart Jenkins by entering the appropriate URL. Using the default restart URL forces Jenkins to restart without waiting for any builds to complete:
 🡪http://localhost:8080/restart
-To complete all current running jobs before the restart, use the safe restart option. New jobs will queue up and run after the restart is complete:
+- To complete all current running jobs before the restart, use the safe restart option. New jobs will queue up and run after the restart is complete:
 🡪http://localhost:8080/safeRestart
-Restart Jenkins via Safe Restart Plugin
-Go to Manage-Jenkins🡪Manage-Plugins🡪Under the Available tab, search for "safe restart" and check the box next to the Safe Restart plugin name🡪 Click the Install without restart button to add the plugin🡪 once the plugin is installed, return to your dashboard. There is now a Restart Safely link on the left-hand side🡪 clicking the link initiates a safe restart of Jenkins. You need to confirm the restart by clicking the Yes button:
-12.	Suppose I have master node ‘n’ no of slaves configured to the master node. One of the slave got disconnected all of sudden what and all trouble shoot you will make on that slave?
+- Restart Jenkins via Safe Restart Plugin
+- Go to Manage-Jenkins🡪Manage-Plugins🡪Under the Available tab, search for "safe restart" and check the box next to the Safe Restart plugin name🡪 Click the Install without restart button to add the plugin🡪 once the plugin is installed, return to your dashboard. There is now a Restart Safely link on the left-hand side🡪 clicking the link initiates a safe restart of Jenkins. You need to confirm the restart by clicking the Yes button:
+### 12.	Suppose I have master node ‘n’ no of slaves configured to the master node. One of the slave got disconnected all of sudden what and all trouble shoot you will make on that slave?
 Ans: When a Jenkins slave node gets disconnected suddenly, it can be due to various reasons such as network issues, node unavailability, or problems with the Jenkins agent running on the slave. Here are some troubleshooting steps you can take to identify and resolve the issue:
-1. Check Node Status in Jenkins:
+#### 1. Check Node Status in Jenkins:
    - In the Jenkins web interface, go to "Manage Jenkins" > "Manage Nodes and Clouds."
    - Look for the disconnected node in the list and check its status and information.
-2. Review Jenkins Agent Logs:
+#### 2. Review Jenkins Agent Logs:
    - On the slave machine, check the Jenkins agent logs for any error messages or information about the disconnection.
    - The logs are typically located in the Jenkins agent's workspace directory. Look for files like `jenkins-slave.err.log` or `jenkins-slave.out.log`.
-3. Verify Network Connectivity:
+#### 3. Verify Network Connectivity:
    - Ensure that there are no network issues between the Jenkins master and the slave machine.
    - Verify that the slave machine is reachable from the Jenkins master.
-4. Check Jenkins Agent Configuration:
+#### 4. Check Jenkins Agent Configuration:
    - Review the configuration of the Jenkins agent on the slave.
    - Ensure that the agent is configured with the correct Jenkins master URL and authentication information.
    - Verify that the agent is using the correct JNLP (Java Network Launch Protocol) port.
-5. Restart Jenkins Agent:
+#### 5. Restart Jenkins Agent:
    - Restart the Jenkins agent process on the slave machine.
    - This can be done by stopping and restarting the agent using the command or script used to launch it.
-6. Check Node Availability:
+#### 6. Check Node Availability:
    - Ensure that the slave machine is up and running.
    - Check if there are any resource-related issues on the slave machine (e.g., disk space, memory, etc.).
-7. Review Jenkins Master Logs:
+#### 7. Review Jenkins Master Logs:
    - Check the logs on the Jenkins master for any error messages related to the disconnected node.
    - Look for information about why the node was marked as disconnected.
 
-8. Update Jenkins Agent:
+#### 8. Update Jenkins Agent:
    - Ensure that you are using the latest version of the Jenkins agent. Upgrading to the latest version may resolve known issues.
-9. Review Security Settings:
+#### 9. Review Security Settings:
    - Check the security settings on both the master and slave nodes to ensure that they match and allow communication.
-10. Temporary Firewall or Proxy Issues:
-    - If the slave machine is behind a firewall or proxy, temporary network issues with those components could lead to disconnection.
-11. Validate Jenkins URL:
-    - Confirm that the Jenkins master URL configured on the slave matches the actual URL of the Jenkins master.
-12. Update Java Version:
-    - Ensure that the Java version on the slave machine is supported by Jenkins. Upgrading Java to a supported version might resolve compatibility issues.
-After performing these troubleshooting steps, you should have a better understanding of the reason for the disconnection and be able to take corrective actions. If the issue persists, further investigation may be needed, and consulting Jenkins logs and documentation specific to your setup can provide additional insights.
-Or
-Generally we have an authorized keys such as SSH keys in between master node and slave node. So we configure the keys from master to slave then only we get the connection between master and slave. Here we need to check those keys weather the keys are available or not in that location (Ex: /etc/SSH), in authorized keys we should check the public key weather it is correct or not that we created in master.
-If someone deletes the key the master slave connection got disconnected.
+#### 10. Temporary Firewall or Proxy Issues:
+   - If the slave machine is behind a firewall or proxy, temporary network issues with those components could lead to disconnection.
+#### 11. Validate Jenkins URL:
+   - Confirm that the Jenkins master URL configured on the slave matches the actual URL of the Jenkins master.
+#### 12. Update Java Version:
+- Ensure that the Java version on the slave machine is supported by Jenkins. Upgrading Java to a supported version might resolve compatibility issues.
+* After performing these troubleshooting steps, you should have a better understanding of the reason for the disconnection and be able to take corrective actions. If the issue persists, further investigation may be needed, and consulting Jenkins logs and documentation specific to your setup can provide additional insights.
 
-13.	What and all notifications categories have you done so far in Jenkins or list of notifications you set it in the Jenkins? External Notification
+`Or`
+
+- Generally we have an authorized keys such as SSH keys in between master node and slave node. So we configure the keys from master to slave then only we get the connection between master and slave. Here we need to check those keys weather the keys are available or not in that location (Ex: /etc/SSH), in authorized keys we should check the public key weather it is correct or not that we created in master.
+- If someone deletes the key the master slave connection got disconnected.
+
+### 13.	What and all notifications categories have you done so far in Jenkins or list of notifications you set it in the Jenkins? External Notification
 Ans: In Jenkins, notifications are a crucial aspect of keeping stakeholders informed about the status of builds, jobs, and the overall CI/CD pipeline. Jenkins provides various notification mechanisms, and external notification plugins can be integrated to extend the notification capabilities. Here are common notification categories and methods used in Jenkins:
-Jenkins Core Notifications:
-1. Email Notifications:
+#### Jenkins Core Notifications:
+#### 1. Email Notifications:
    - Jenkins can send email notifications to inform users about build results.
    - Configurable for individual jobs or globally in the Jenkins system configuration.
-2. Build Status Badge:
+#### 2. Build Status Badge:
    - Jenkins can generate status badges that can be embedded in external websites to display the build status visually.
-3. Console Output:
+#### 3. Console Output:
    - Build console output provides information about the progress of builds and can be used for debugging.
-4. Jenkins Log:
+#### 4. Jenkins Log:
    - System logs in Jenkins capture information about various events, including build status changes.
 External Notification Plugins:
-5. Slack Integration:
+#### 5. Slack Integration:
    - Jenkins can send notifications to Slack channels using the Jenkins Slack plugin.
    - Notifications can include build status, console output, and more.
-6. Microsoft Teams Integration:
+#### 6. Microsoft Teams Integration:
    - Jenkins can integrate with Microsoft Teams for sending build notifications using the Jenkins Teams plugin.
-7. HipChat Integration:
+#### 7. HipChat Integration:
    - Jenkins can send notifications to HipChat rooms using the Jenkins HipChat plugin.
-8. Webhooks:
+#### 8. Webhooks:
    - Jenkins can trigger external services through webhooks.
    - External systems, such as chat platforms or custom APIs, can be notified when builds complete.
-9. Jira Integration:
+#### 9. Jira Integration:
    - Jenkins can update Jira issues with build information using the Jenkins Jira plugin.
    - Notifications can be sent to Jira when builds fail or succeed.
-10. IRC Integration:
-    - Jenkins can send notifications to IRC channels using the Jenkins IRC plugin.
-11. Custom Script Execution:
-    - Jenkins can execute custom scripts or commands as a post-build step to trigger external notifications.
-Pipeline-Specific Notifications:
+#### 10. IRC Integration:
+   - Jenkins can send notifications to IRC channels using the Jenkins IRC plugin.
+#### 11. Custom Script Execution:
+   - Jenkins can execute custom scripts or commands as a post-build step to trigger external notifications.
+#### Pipeline-Specific Notifications:
 
-12. Pipeline Notification Steps:
-    - Jenkins Pipelines allow for customized notifications using steps like `emailext`, `slackSend`, and others.
-13. Pipeline Status Notifications:
-    - Pipelines can use `catchError` and `post` conditions to selectively trigger notifications based on build results.
-14. Pipeline Input Step:
-    - Interactive pipeline steps, such as `input`, can be used to pause execution and wait for user input before proceeding, with optional notifications.
-These notifications help keep development teams, stakeholders, and automated systems informed about the status and progress of builds. Configuring a combination of these notifications ensures that relevant parties are promptly informed about build failures, successes, and other important events in the CI/CD pipeline.
-Or
-Event notifications, suppose build success and fails in Jenkins and creating the object and call the services. Based on s3 event run the lambda function script. Add the object in s3 and delete the s3 object. While we Crete the SNS topic we give the email ID. So that we can get email notifications regarding the event.
-14.	Do you have hands on experience on creating the Jenkins dsl script and pipeline script? Suppose if you want to do the automate set for deployment have done the pipeline script?
+#### 12. Pipeline Notification Steps:
+- Jenkins Pipelines allow for customized notifications using steps like `emailext`, `slackSend`, and others.
+#### 13. Pipeline Status Notifications:
+- Pipelines can use `catchError` and `post` conditions to selectively trigger notifications based on build results.
+#### 14. Pipeline Input Step:
+- Interactive pipeline steps, such as `input`, can be used to pause execution and wait for user input before proceeding, with optional notifications.
+- These notifications help keep development teams, stakeholders, and automated systems informed about the status and progress of builds. Configuring a combination of these notifications ensures that relevant parties are promptly informed about build failures, successes, and other important events in the CI/CD pipeline.
+
+`Or`
+
+- Event notifications, suppose build success and fails in Jenkins and creating the object and call the services. Based on s3 event run the lambda function script. Add the object in s3 and delete the s3 object. While we Crete the SNS topic we give the email ID. So that we can get email notifications regarding the event.
+### 14.	Do you have hands on experience on creating the Jenkins dsl script and pipeline script? Suppose if you want to do the automate set for deployment have done the pipeline script?
 Ans: I don't have personal hands-on experience, but I can guide you on how to create Jenkins DSL (Domain Specific Language) scripts and Jenkins Pipeline scripts for automating deployment. Jenkins DSL is used to define jobs and configurations programmatically, while Jenkins Pipeline is a suite of plugins that supports implementing and integrating continuous delivery pipelines into Jenkins.
-Jenkins DSL Script for Automating Deployment:
-The Jenkins DSL script is typically written in Groovy. Below is a simplified example DSL script that defines a Freestyle project job to deploy an application:
+#### Jenkins DSL Script for Automating Deployment:
+- The Jenkins DSL script is typically written in Groovy. Below is a simplified example DSL script that defines a Freestyle project job to deploy an application:
 ```groovy
 job('DeployAppJob') {
     description('Automated deployment job')
@@ -3904,14 +3915,15 @@ pipeline {
     }
 }
 ```
-In this example, replace the SCM, build, and deploy steps with your specific configurations and scripts. The `./deploy.sh` script is a placeholder for your deployment script.
-These are basic examples, and the actual DSL or Pipeline script would need to be customized based on your specific deployment requirements, such as target environments, deployment tools, and any additional steps needed in your deployment process.
-Or
-We need explain him about declarative and scripted pipelines
-15.	Can we make a call in the pipeline template for another Jenkins job? Suppose I have a job name called B can I call the Job B from Job A.?
+- In this example, replace the SCM, build, and deploy steps with your specific configurations and scripts. The `./deploy.sh` script is a placeholder for your deployment script.
+- These are basic examples, and the actual DSL or Pipeline script would need to be customized based on your specific deployment requirements, such as target environments, deployment tools, and any additional steps needed in your deployment process.
+
+`Or`
+- We need explain him about declarative and scripted pipelines
+### 15.	Can we make a call in the pipeline template for another Jenkins job? Suppose I have a job name called B can I call the Job B from Job A.?
 Ans: Yes, you can trigger another Jenkins job from within a Jenkins Pipeline script or DSL script. This is commonly done using the `build` step in a scripted pipeline or the `build` directive in a declarative pipeline.
-Here's an example of how you can trigger Job B from Job A:
-Scripted Pipeline Example:
+- Here's an example of how you can trigger Job B from Job A:
+#### Scripted Pipeline Example:
 ```groovy
 node {
     // Your Job A steps here
@@ -3964,93 +3976,95 @@ In these examples:
 Make sure to replace `'JobB'` with the actual name of your downstream job, and customize the parameters according to your job requirements. This approach allows you to create a sequence of Jenkins jobs that are triggered one after the other as part of your CI/CD pipeline.
 Or
 By using trigger parameterized pipeline we can interact with one job to another job.
-16.	How will you configure the job in the pipeline?
-17.	What and all build tools did you used so far?
-	Ans: maven and Gradle
-18.	How will you configure the Maven into the Jenkins?
-	Ans: Configuring Maven in Jenkins involves setting up Jenkins to recognize and use Maven for building and managing Java projects. Here are the steps to configure Maven in Jenkins:
-Prerequisites:
+### 16.	How will you configure the job in the pipeline?
+### 17.	What and all build tools did you used so far?
+Ans: maven and Gradle
+### 18.	How will you configure the Maven into the Jenkins?
+Ans: Configuring Maven in Jenkins involves setting up Jenkins to recognize and use Maven for building and managing Java projects. Here are the steps to configure Maven in Jenkins:
+#### Prerequisites:
 - Ensure that Maven is installed on the machine where Jenkins is running.
-Jenkins Global Configuration:
-1. Open Jenkins Dashboard:
+#### Jenkins Global Configuration:
+#### 1. Open Jenkins Dashboard:
    - Log in to your Jenkins instance.
-2. Navigate to Global Tool Configuration:
+#### 2. Navigate to Global Tool Configuration:
    - Click on "Manage Jenkins" in the left-hand menu.
    - Select "Global Tool Configuration."
-3. Configure Maven:
+#### 3. Configure Maven:
    - Scroll down to the "Maven" section.
    - Click on "Maven installations..."
    - Click on "Add Maven" to add a new Maven installation.
-4. Provide Maven Installation Details:
+#### 4. Provide Maven Installation Details:
    - Enter a name for the Maven installation.
    - Select the Maven version to install.
    - Specify the MAVEN_HOME directory or let Jenkins install it automatically.
    ![Jenkins Maven Configuration](https://i.imgur.com/KSmPiJb.png)
-5. Save the Configuration:
+####c5. Save the Configuration:
    - Click "Save" to save the Maven configuration.
-Configure Maven in Jenkins Job:
-Now that Maven is configured globally, you can use it in individual Jenkins jobs.
+##### Configure Maven in Jenkins Job:
+- Now that Maven is configured globally, you can use it in individual Jenkins jobs.
 
-1. Create or Open Jenkins Job:
+#### 1. Create or Open Jenkins Job:
    - Create a new Jenkins job or open an existing one.
-2. Configure Build Section:
+#### . Configure Build Section:
    - In the job configuration, find the "Build" section.
-3. Add Build Step:
+#### 3. Add Build Step:
    - Click on "Add build step" and select "Invoke top-level Maven targets."
-4. Provide Maven Goals:
+#### 4. Provide Maven Goals:
    - Enter the Maven goals (e.g., `clean install`) that you want to execute during the build.
    ![Jenkins Maven Build Step](https://i.imgur.com/ZDx3OVs.png)
-5. Save the Job Configuration:
+#### 5. Save the Job Configuration:
    - Save the Jenkins job configuration.
-Additional Maven Configuration Options
+- Additional Maven Configuration Options
 - Configure Maven Repositories:
   - In the Maven build step, you can specify additional Maven repositories if needed.
 - Configure Maven Options:
   - In the Maven build step, you can provide additional Maven options.
 - Use Maven Wrapper:
   - 	Alternatively, you can configure your project to use the Maven Wrapper, and Jenkins will automatically use it during the build.
-By following these steps, you've configured Jenkins to use Maven for building your Java projects. Jenkins will now use the specified Maven installation and execute the defined Maven goals during the build process. Adjust the configuration based on the requirements of your specific projects and build processes.
-Or
-Ans: manage-Jenkins🡪global tool configuration🡪Add the maven path
-19.	In the Jenkins how will you create the MAVEN jobs?
-Ans: we install the Maven plugin in the Jenkins
-20.	Can we create the Maven under the Free Style Project?
-	Ans: In Jenkins, the term "FreeStyle Project" refers to a traditional and flexible type of project that allows users to configure build steps using a graphical interface. In a FreeStyle Project, you have the flexibility to define build steps, post-build actions, and other configurations.
-	If you want to build a Maven project in Jenkins under a FreeStyle Project, you can achieve this by configuring the build steps to execute Maven commands. Here are the general steps:
+* By following these steps, you've configured Jenkins to use Maven for building your Java projects. Jenkins will now use the specified Maven installation and execute the defined Maven goals during the build process. Adjust the configuration based on the requirements of your specific projects and build processes.
 
-	1. Create a FreeStyle Project:
+`Or`
+
+Ans: manage-Jenkins🡪global tool configuration🡪Add the maven path
+### 19.	In the Jenkins how will you create the MAVEN jobs?
+Ans: we install the Maven plugin in the Jenkins
+### 20.	Can we create the Maven under the Free Style Project?
+Ans: In Jenkins, the term "FreeStyle Project" refers to a traditional and flexible type of project that allows users to configure build steps using a graphical interface. In a FreeStyle Project, you have the flexibility to define build steps, post-build actions, and other configurations.
+- If you want to build a Maven project in Jenkins under a FreeStyle Project, you can achieve this by configuring the build steps to execute Maven commands. Here are the general steps:
+
+#### 1. Create a FreeStyle Project:
    - Open Jenkins and click on "New Item" to create a new project.
    - Choose "Freestyle project" as the project type and provide a name.
-2. Configure Source Code Management (Optional):
+#### 2. Configure Source Code Management (Optional):
    - If your Maven project is version-controlled, configure the appropriate Source Code Management (SCM) settings.
-3. Configure Build Steps:
+#### 3. Configure Build Steps:
    - Scroll down to the "Build" section and click on "Add build step."
    - Choose "Invoke top-level Maven targets" from the dropdown list.
-4. Specify Maven Goals:
+#### 4. Specify Maven Goals:
    - In the "Goals" field, specify the Maven goals you want to execute, such as clean install.
-5. Save the Configuration:
+#### 5. Save the Configuration:
    - Save the project configuration.
-6. Build Now:
+#### 6. Build Now:
    - Go back to the main dashboard, select your project, and click on "Build Now" to trigger the build.
-	This configuration allows you to run Maven goals as part of your FreeStyle Project. Jenkins will execute the specified Maven goals, such as clean install, during the build process.
-	While FreeStyle Projects offer flexibility, note that Jenkins also supports pipeline-based projects (Jenkins Pipeline), which allows you to define your entire build and deployment process as code using a Jenkinsfile. Jenkins Pipeline is particularly powerful for complex and continuous delivery scenarios.
-	If your Maven project has a `pom.xml` file in its root directory, Jenkins will automatically recognize it as a Maven project and allow you to specify Maven goals in the build configuration.
-Keep in mind that Jenkins configurations may vary based on your Jenkins version and plugins installed, so adjust the steps accordingly.
-21.	What is the difference between free style and Maven project?
+   - This configuration allows you to run Maven goals as part of your FreeStyle Project. Jenkins will execute the specified Maven goals, such as clean install, during the build process.
+- While FreeStyle Projects offer flexibility, note that Jenkins also supports pipeline-based projects (Jenkins Pipeline), which allows you to define your entire build and deployment process as code using a Jenkinsfile. Jenkins Pipeline is particularly powerful for complex and continuous delivery scenarios.
+- If your Maven project has a `pom.xml` file in its root directory, Jenkins will automatically recognize it as a Maven project and allow you to specify Maven goals in the build configuration.
+- Keep in mind that Jenkins configurations may vary based on your Jenkins version and plugins installed, so adjust the steps accordingly.
+### 21.	What is the difference between free style and Maven project?
 Ans: A Free-Style project is a project that can incorporate almost any type of build. While a maven project you can only build maven projects, the Free-Style project is the more "generic" form of a project.
-A maven project is a project that will analyze the pom.xml file in greater detail and produce a project that's geared towards the targets that are invoked.
-You can execute shell/dos scripts, invoke ant, and a lot more.
-Majority of the plugins are written to use the free-style project. The maven module is limited in that it can't invoke a shell script, or anything else just the maven targets.
-22.	Do you have a docker experience?
+- A maven project is a project that will analyze the pom.xml file in greater detail and produce a project that's geared towards the targets that are invoked.
+- You can execute shell/dos scripts, invoke ant, and a lot more.
+- Majority of the plugins are written to use the free-style project. The maven module is limited in that it can't invoke a shell script, or anything else just the maven targets.
+### 22.	Do you have a docker experience?
 Ans: yes
-23.	What and all docker commands you have used so far?
+#### 23.	What and all docker commands you have used so far?
 Ans: docker pull, docker run, docker push, docker build, docker rmi, docker ps
-24.	What is the purpose of docker pull command? 
+### 24.	What is the purpose of docker pull command? 
 Ans: Pulls an image from a registry.
-25.	I have an image running on the container can we delete that image from the running container?
+### 25.	I have an image running on the container can we delete that image from the running container?
 Ans: No, you cannot directly delete an image from a running container. Docker images and containers operate independently. The image is used to create a container, and once the container is running, it is an instance of that image.
 If you want to delete an image, you typically need to follow these steps:
-1. Stop and Remove Containers:
+#### 1. Stop and Remove Containers:
    - If there are containers based on the image you want to delete, you need to stop and remove those containers first.
      ```bash
      # Stop the running container
@@ -4058,14 +4072,14 @@ If you want to delete an image, you typically need to follow these steps:
      # Remove the stopped container
      docker rm <container_id_or_name>
      ```
-2. Delete the Image:
+#### 2. Delete the Image:
    - Once the containers are removed, you can delete the image using the `docker rmi` command.
      ```bash
      docker rmi <image_id_or_name>
      ```
-Keep in mind that you cannot delete an image if there are existing containers based on it. Deleting the image will also remove its history, layers, and any other associated information.
-If you want to avoid conflicts when trying to delete an image, it's a good practice to stop and remove any containers that are using the image before attempting to delete the image itself.
-Here's a brief overview of the commands:
+- Keep in mind that you cannot delete an image if there are existing containers based on it. Deleting the image will also remove its history, layers, and any other associated information.
+- If you want to avoid conflicts when trying to delete an image, it's a good practice to stop and remove any containers that are using the image before attempting to delete the image itself.
+- Here's a brief overview of the commands:
 
 - To stop a running container:
   ```bash
@@ -4080,21 +4094,22 @@ Here's a brief overview of the commands:
   docker rmi <image_id_or_name>
   ```
 Replace `<container_id_or_name>` and `<image_id_or_name>` with the actual ID or name of the container or image you want to work with.
-Or
-We can’t delete the docker image that already running as a container. Here the container uses that image so that we can’t delete the image.
-If no container uses that image then only we can delete that image.
-26.	How strong you are in AWS cloud?
-27.	Suppose I have 50-60 pipeline templates, will you able to understanding the piece of code and starts creating a new job based on what they written?
+
+`Or`
+
+- We can’t delete the docker image that already running as a container. Here the container uses that image so that we can’t delete the image.
+- If no container uses that image then only we can delete that image.
+### 26.	How strong you are in AWS cloud?
+### 27.	Suppose I have 50-60 pipeline templates, will you able to understanding the piece of code and starts creating a new job based on what they written?
 Ans: yes
-28.	As a DevOps engineer what is your current nature of job role and what are the day to day activities?
-29.	Which tool you are using to track the application?
+### 28.	As a DevOps engineer what is your current nature of job role and what are the day to day activities?
+### 29.	Which tool you are using to track the application?
 Ans: JIRA
-30.	Did you interact with the clients directly regarding any requirements to the Project?
+### 30.	Did you interact with the clients directly regarding any requirements to the Project?
 
+---
 
-
-
-Wipro interview L1 Q&A (02-03-2022)
+## Wipro interview L1 Q&A (02-03-2022)
 
 1.	What is your skill set?
 	Ans: DevOps engineers possess a diverse set of skills that bridge the gap between software development and IT operations. This role involves collaboration between development, operations, and other stakeholders to enhance the efficiency, reliability, and speed of software delivery. Here are key skills typically associated with a DevOps engineer:
