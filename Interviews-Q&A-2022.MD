@@ -3,78 +3,79 @@
 ## Total interview rounds given: 8
 ## Cleared interview rounds: 5
 ## No. of pages reviewed: 0
+---
 
 ## Virtusa L3 Q&A Mon 28 Mar 2022 6:30pm – 7pm (IST)
 
 ### 1.	What kind of script did you used to interact with data base?
 ### 2.	How did you do the script for interaction with the databases?
 ### 3.	What kind of problems that you had with terraform work around you?
-Ans: common challenges that users might face when working with Terraform and potential workarounds:
-## 1. State Management:
-   * `Challenge`: Managing Terraform state across teams or multiple environments can be challenging.
-   - Workaround: Use remote backends (e.g., AWS S3, Azure Storage) for centralized state management. Use workspaces for environment-specific configurations.
-## 2. Dependency Ordering:
-   - Challenge: Managing dependencies between resources and ensuring they are created or updated in the correct order.
-   - Workaround: Use `depends_on` and `terraform graph` to visualize dependencies. Terraform usually handles this automatically, but understanding resource dependencies is crucial.
-## 3. Reproducibility:
-   - Challenge: Ensuring reproducibility of infrastructure across different environments.
-   - Workaround: Use variables and modules to parameterize configurations. Maintain consistent versions of Terraform and provider plugins.
-## 4. Provider Updates:
-   - Challenge: Provider updates may introduce breaking changes or new features.
-   - Workaround: Monitor provider release notes, test updates in a non-production environment, and pin provider versions in your Terraform configuration.
-## 5. Sensitive Data:
-   - Challenge: Managing sensitive data such as API keys or passwords in Terraform configurations.
-   - Workaround: Use environment variables or systems like HashiCorp Vault to manage sensitive data securely. Avoid hardcoding sensitive information in Terraform files.
-## 6. Resource Deletion Confirmation:
-   - Challenge: Terraform does not prompt for confirmation before destroying resources.
-   - Workaround: Use the `-target` option to selectively destroy resources or use `-auto-approve` with caution. Terraform `0.15` introduces a confirm option (`-input=false` to disable) for destructive operations.
-## 7. Limited Looping and Iteration:
-   - Challenge: Terraform traditionally had limited support for looping and iteration.
-   - Workaround: Use modules and `count` or `for_each` for resource iteration. Terraform 0.12 introduced more advanced iteration capabilities.
-## 8. Plugin Compatibility:
-   - Challenge: Some third-party plugins may not be immediately compatible with the latest Terraform versions.
-   - Workaround: Check for updated versions of plugins and provider compatibility before upgrading Terraform. Contribute to or request updates from plugin maintainers.
-## 9. Parallelism Issues:
-   - Challenge: Terraform's parallel execution can lead to race conditions or conflicts in some scenarios.
-   - Workaround: Set appropriate parallelism limits (`-parallelism`) or use `-target` to limit the scope of operations.
-## 10. Learning Curve:
-    - Challenge: Learning Terraform and keeping up with updates can be daunting for newcomers.
-    - Workaround: Invest time in learning Terraform best practices, attend training sessions, and leverage documentation. Engage with the Terraform community for support.
+Ans: common challenges that users might face when working with Terraform and potential `Workaround`s:
+### 1. State Management:
+   - `Challenge`: Managing Terraform state across teams or multiple environments can be challenging.
+   - ``Workaround``: Use remote backends (e.g., AWS S3, Azure Storage) for centralized state management. Use workspaces for environment-specific configurations.
+### 2. Dependency Ordering:
+   - `Challenge`: Managing dependencies between resources and ensuring they are created or updated in the correct order.
+   - `Workaround`: Use `depends_on` and `terraform graph` to visualize dependencies. Terraform usually handles this automatically, but understanding resource dependencies is crucial.
+### 3. Reproducibility:
+   - `Challenge`: Ensuring reproducibility of infrastructure across different environments.
+   - `Workaround`: Use variables and modules to parameterize configurations. Maintain consistent versions of Terraform and provider plugins.
+### 4. Provider Updates:
+   - `Challenge`: Provider updates may introduce breaking changes or new features.
+   - `Workaround`: Monitor provider release notes, test updates in a non-production environment, and pin provider versions in your Terraform configuration.
+### 5. Sensitive Data:
+   - `Challenge`: Managing sensitive data such as API keys or passwords in Terraform configurations.
+   - `Workaround`: Use environment variables or systems like HashiCorp Vault to manage sensitive data securely. Avoid hardcoding sensitive information in Terraform files.
+### 6. Resource Deletion Confirmation:
+   - `Challenge`: Terraform does not prompt for confirmation before destroying resources.
+   - `Workaround`: Use the `-target` option to selectively destroy resources or use `-auto-approve` with caution. Terraform `0.15` introduces a confirm option (`-input=false` to disable) for destructive operations.
+### 7. Limited Looping and Iteration:
+   - `Challenge`: Terraform traditionally had limited support for looping and iteration.
+   - `Workaround`: Use modules and `count` or `for_each` for resource iteration. Terraform 0.12 introduced more advanced iteration capabilities.
+### 8. Plugin Compatibility:
+   - `Challenge`: Some third-party plugins may not be immediately compatible with the latest Terraform versions.
+   - `Workaround`: Check for updated versions of plugins and provider compatibility before upgrading Terraform. Contribute to or request updates from plugin maintainers.
+### 9. Parallelism Issues:
+   - `Challenge`: Terraform's parallel execution can lead to race conditions or conflicts in some scenarios.
+   - `Workaround`: Set appropriate parallelism limits (`-parallelism`) or use `-target` to limit the scope of operations.
+### 10. Learning Curve:
+    - `Challenge`: Learning Terraform and keeping up with updates can be daunting for newcomers.
+    - `Workaround`: Invest time in learning Terraform best practices, attend training sessions, and leverage documentation. Engage with the Terraform community for support.
 Always refer to the official Terraform documentation and release notes for the most up-to-date information on best practices and potential workarounds for specific challenges.
-## 4.	As a developer, how did you make the switch from writing code and running applications to automate them?
+### 4.	As a developer, how did you make the switch from writing code and running applications to automate them?
 Ans: 
-1. Understand the Basics of Infrastructure:
+### 1. Understand the Basics of Infrastructure:
    - Familiarize yourself with basic infrastructure concepts, such as networking, servers, and cloud services. Understand the components of a typical IT environment.
-2. Learn Automation Tools:
+### 2. Learn Automation Tools:
    - Start by learning automation tools like Ansible, Puppet, or Chef. These tools help automate the configuration and management of servers.
-3. Explore Containerization:
+### 3. Explore Containerization:
    - Learn about containerization technologies like Docker. Understand how containers work and their advantages in terms of consistency and portability.
-4. Get Hands-On with Orchestration:
+### 4. Get Hands-On with Orchestration:
    - Explore orchestration tools like Kubernetes, which automate the deployment, scaling, and management of containerized applications.
-5. Embrace Infrastructure as Code (IaC):
+### 5. Embrace Infrastructure as Code (IaC):
    - Learn about Infrastructure as Code (IaC) principles. Tools like Terraform, AWS CloudFormation, or Azure Resource Manager enable you to define and manage infrastructure using code.
-6. Start Small:
+### 6. Start Small:
    - Begin by automating simple tasks or processes. Gradually increase complexity as you gain confidence and understanding.
-7. Read Documentation and Tutorials:
+### 7. Read Documentation and Tutorials:
    - Read documentation and follow tutorials for the tools and technologies you're working with. Many cloud providers and automation tools provide extensive documentation and learning resources.
-8. Join the Community:
+### 8. Join the Community:
    - Engage with the community through forums, online communities, and social media. Discuss challenges, ask questions, and learn from others who have made similar transitions.
-9. Collaborate with Operations Teams:
+###  9. Collaborate with Operations Teams:
    - Collaborate with operations or infrastructure teams in your organization. Gain insights into their workflows and challenges. This collaboration can help bridge the gap between development and operations.
-10. Continuous Learning:
+### 10. Continuous Learning:
     - Automation and infrastructure technologies are continuously evolving. Stay informed about new tools, features, and best practices. Attend conferences, webinars, and workshops to stay updated.
-11. Test and Validate:
+### 11. Test and Validate:
     - Test your automation scripts in non-production environments before applying them in production. Validate that changes have the desired impact and do not introduce unexpected issues.
-12. Understand Security Implications:
+### 12. Understand Security Implications:
     - Consider the security implications of automation. Understand best practices for securing infrastructure as code and automation scripts.
-13. Version Control:
+### 13. Version Control:
     - Use version control systems (e.g., Git) to manage your automation code. This ensures versioning, collaboration, and the ability to roll back changes if needed.
-14. Monitor and Troubleshoot:
+### 14. Monitor and Troubleshoot:
     - Learn how to monitor automated processes and troubleshoot issues. Understand logging, monitoring tools, and debugging techniques.
-15. Document Your Code:
+### 15. Document Your Code:
     - Document your automation code and processes. This is crucial for knowledge sharing, onboarding new team members, and ensuring that others can understand and maintain the code.
 Remember that transitioning to automation is an ongoing process, and continuous learning and adaptation are key. Leverage your coding skills as a developer to create efficient, scalable, and maintainable automation solutions.
-5.	We very much focus on we code for everything so what kind of code did use for configuration of code specifically run Jenkins and Jenkins jobs in the pipeline?
+### 5.	We very much focus on we code for everything so what kind of code did use for configuration of code specifically run Jenkins and Jenkins jobs in the pipeline?
 Ans: In Jenkins, pipeline configuration is typically done using a domain-specific language called "Pipeline DSL" or "Jenkinsfile." Jenkinsfiles are written in Groovy, a scripting language for the Java Virtual Machine (JVM). These files define the entire build and deployment process, including stages, steps, and configurations.
 Here is a basic example of a Jenkinsfile for a simple pipeline:
 ```groovy
@@ -143,10 +144,10 @@ pipeline {
 ```
 This example assumes you have Maven installed on your Jenkins agent, and you may need to adjust it based on your project's specific build and deployment requirements.
 It's important to note that Jenkinsfiles are stored with your version control system (e.g., Git), making your pipeline configuration versioned and reproducible.
-6.	Have you done any automation of creation of Jenkins job themselves?
+### 6.	Have you done any automation of creation of Jenkins job themselves?
 Ans: Yes, automating the creation of Jenkins jobs is a common practice and can be achieved using various methods. Here are a few approaches:
 
-1. Job DSL Plugin:
+### 1. Job DSL Plugin:
    - The [Job DSL Plugin](https://plugins.jenkins.io/job-dsl/) allows you to define jobs using a DSL (Domain Specific Language). You can write Groovy scripts to create and configure jobs programmatically.
 
    Example Job DSL script:
@@ -159,7 +160,7 @@ Ans: Yes, automating the creation of Jenkins jobs is a common practice and can b
        }
    }
    ```
-2. Pipeline DSL:
+### 2. Pipeline DSL:
    - Jenkins supports defining entire pipelines as code using the Jenkinsfile (Pipeline DSL). This includes defining stages, steps, and configurations within a version-controlled file.
 
    Example Jenkinsfile:
@@ -186,7 +187,7 @@ Ans: Yes, automating the creation of Jenkins jobs is a common practice and can b
        }
    }
    ```
-3. Jenkins Job Builder:
+### 3. Jenkins Job Builder:
    - Jenkins Job Builder is an external tool that allows job definitions to be kept in human-readable YAML or JSON files. It provides a way to define jobs outside of Jenkins and then push those definitions into Jenkins.
    Example Jenkins Job Builder YAML:
    ```yaml
@@ -195,7 +196,7 @@ Ans: Yes, automating the creation of Jenkins jobs is a common practice and can b
        builders:
          - shell: 'echo "Hello from Jenkins Job Builder!"'
    ```
-4. Configuration as Code (JCasC):
+### 4. Configuration as Code (JCasC):
    - The [Configuration as Code (JCasC)](https://plugins.jenkins.io/configuration-as-code/) plugin allows you to define and manage Jenkins configurations using YAML files.
    Example JCasC YAML:
    ```yaml
@@ -209,15 +210,15 @@ Ans: Yes, automating the creation of Jenkins jobs is a common practice and can b
            }
    ```
 These approaches enable you to treat Jenkins job configurations as code, making it easier to version, review, and automate job creation. They are particularly useful for teams practicing Infrastructure as Code (IaC) principles. Choose the approach that aligns with your team's preferences and workflows.
-7.	Where are you pushing your docker images weather you are pushing into registery or Nexus artifactory?
+### 7.	Where are you pushing your docker images weather you are pushing into registery or Nexus artifactory?
 Ans: When building and packaging Docker images, they are typically pushed to container registries. Popular container registries include:
-1. Docker Hub:
+### 1. Docker Hub:
    - Docker Hub is a public container registry hosted by Docker. It is widely used for storing and sharing Docker images. You can push your images to Docker Hub, and they can be made public or private.
    Example push to Docker Hub:
    ```bash
    docker push username/repository:tag
    ```
-2. Amazon Elastic Container Registry (ECR):
+### 2. Amazon Elastic Container Registry (ECR):
    - Amazon ECR is a fully managed Docker container registry that makes it easy for developers to store, manage, and deploy Docker container images on AWS. It's commonly used when deploying applications on Amazon ECS or Amazon EKS.
    Example push to Amazon ECR:
    ```bash
@@ -225,14 +226,14 @@ Ans: When building and packaging Docker images, they are typically pushed to con
    docker tag image-id <account-id>.dkr.ecr.<region>.amazonaws.com/repository:tag
    docker push <account-id>.dkr.ecr.<region>.amazonaws.com/repository:tag
    ```
-3. Google Container Registry (GCR):
+### 3. Google Container Registry (GCR):
    - Google Container Registry is a private Docker registry hosted on Google Cloud Platform. It integrates seamlessly with other Google Cloud services.
    Example push to GCR:
    ```bash
    docker tag image-id gcr.io/project-id/repository:tag
    docker push gcr.io/project-id/repository:tag
    ```
-4. Azure Container Registry (ACR):
+### 4. Azure Container Registry (ACR):
    - Azure Container Registry is a private Docker container registry hosted on Azure. It's commonly used when deploying containers on Azure Kubernetes Service (AKS) or other Azure services.
    Example push to ACR:
    ```bash
@@ -240,7 +241,7 @@ Ans: When building and packaging Docker images, they are typically pushed to con
    docker tag image-id registryname.azurecr.io/repository:tag
    docker push registryname.azurecr.io/repository:tag
    ```
-5. Nexus Repository (Sonatype):
+### 5. Nexus Repository (Sonatype):
    - Nexus Repository Manager is a popular artifact repository that can also serve as a Docker registry. It allows you to store and manage Docker images along with other artifacts.
    Example push to Nexus Repository:
    ```bash
@@ -248,12 +249,12 @@ Ans: When building and packaging Docker images, they are typically pushed to con
    docker push repository-url/repository:tag
    ```
 Choose a container registry based on your infrastructure, deployment environment, and security requirements. Private registries like ECR, GCR, ACR, and Nexus Repository are often preferred for sensitive or proprietary images.
-Or
-Ans: ECR, Nexus repo
+* `Or`
+* Ans: ECR, Nexus repo
 
-8.	How you are interacting with nexus?
+### 8.	How you are interacting with nexus?
 Ans: Interacting with Nexus Repository Manager can be done using various tools and methods. Here are some common ways to interact with Nexus:
-1. Using Maven:
+### 1. Using Maven:
    - Nexus is commonly used as a Maven repository. You can configure your Maven build to deploy and retrieve artifacts from Nexus.
    Example Maven settings.xml configuration:
    ```xml
@@ -269,7 +270,7 @@ Ans: Interacting with Nexus Repository Manager can be done using various tools a
    ```bash
    mvn deploy
    ```
-2. Using Gradle:
+### 2. Using Gradle:
    - Similar to Maven, you can configure Gradle builds to interact with Nexus for artifact deployment and retrieval.
    Example Gradle build.gradle configuration:
    ```groovy
@@ -287,7 +288,7 @@ Ans: Interacting with Nexus Repository Manager can be done using various tools a
    ```bash
    gradle publish
    ```
-3. Using Docker:
+### 3. Using Docker:
    - Nexus can also be used as a Docker registry. You can push and pull Docker images to and from Nexus.
    Example Docker login to Nexus:
    ```bash
@@ -298,25 +299,25 @@ Ans: Interacting with Nexus Repository Manager can be done using various tools a
    docker tag your-image your-nexus-repo/your-image:tag
    docker push your-nexus-repo/your-image:tag
    ```
-4. Using Nexus UI:
+### 4. Using Nexus UI:
    - Nexus Repository Manager provides a web-based user interface that allows you to manually manage and browse artifacts. You can upload, download, and organize artifacts using the UI.
    Access Nexus UI by navigating to its URL (e.g., `http://your-nexus-repo`).
-5. Using Nexus REST API:
+### 5. Using Nexus REST API:
    - Nexus provides a REST API that allows programmatic interaction with the repository. You can use tools like cURL, HTTPie, or programming languages (e.g., Python, Java) to interact with Nexus programmatically.
    Example cURL command to upload an artifact:
    ```bash
    curl -v -u your-username:your-password --upload-file your-artifact.jar http://your-nexus-repo/repository/maven-releases/com/example/artifact/1.0.0/artifact-1.0.0.jar
    ```
 
-Ensure that you have the necessary permissions and credentials to interact with Nexus. It's common practice to store sensitive information like passwords securely, such as using environment variables or encrypted files.
+* Ensure that you have the necessary permissions and credentials to interact with Nexus. It's common practice to store sensitive information like passwords securely, such as using environment variables or encrypted files.
 Or
-Generally, we use to push the artefacts to the Nexus weather it is JAR/WAR files. These artefacts will be available for all developers for the deployment purpose once we push the artefacts to the nexus, then we can use these artefacts in our deployment.
-It is a shared resource we just have access to push the artefacts to the nexus. I didn’t get a chance to manage nexus repository.
-9.	Have you used helm before to do automate the deployment?
+* Generally, we use to push the artefacts to the Nexus weather it is JAR/WAR files. These artefacts will be available for all developers for the deployment purpose once we push the artefacts to the nexus, then we can use these artefacts in our deployment.
+* It is a shared resource we just have access to push the artefacts to the nexus. I didn’t get a chance to manage nexus repository.
+### 9.	Have you used helm before to do automate the deployment?
 Ans: Actually we didn’t use helm, may be in future we are going to use helm. Helm is like a package manager without helm kubernetes become quite complex for usage of services volumes and PODs.
-10.	How do you manage all the kubernetes deployment? When you are interacting with kubernetes lot of times we need to build the files?
+### 10.	How do you manage all the kubernetes deployment? When you are interacting with kubernetes lot of times we need to build the files?
 Ans: Managing Kubernetes deployments involves defining the desired state of your applications and infrastructure using Kubernetes manifests, and then using various tools and processes to apply, update, and monitor these configurations. Here's a general approach to managing Kubernetes deployments:
-1. Use Kubernetes Manifests:
+### 1. Use Kubernetes Manifests:
    - Define your application's deployment, services, config maps, secrets, and other resources using Kubernetes manifests written in YAML or JSON. These files declare the desired state of your applications.
    Example Deployment YAML:
    ```yaml
@@ -338,11 +339,11 @@ Ans: Managing Kubernetes deployments involves defining the desired state of your
          - name: myapp-container
            image: myapp:latest
    ```
-2. Version Control:
+### 2. Version Control:
    - Store your Kubernetes manifests in a version control system (e.g., Git). This allows you to track changes, collaborate with others, and maintain a history of configurations.
-3. Continuous Integration (CI):
+### 3. Continuous Integration (CI):
    - Integrate Kubernetes manifests into your CI/CD pipelines. Whenever there's a code change, have CI automatically build and push container images, and then deploy the updated manifests to the Kubernetes cluster.
-4. Helm Charts:
+### 4. Helm Charts:
    - Consider using Helm, a Kubernetes package manager. Helm allows you to define, install, and upgrade even the most complex Kubernetes applications using Helm charts. Helm charts provide a way to package applications with their dependencies and deploy them consistently.
    Example Helm Chart:
    ```yaml
@@ -352,9 +353,9 @@ Ans: Managing Kubernetes deployments involves defining the desired state of your
    version: 1.0.0
    ...
    ```
-5. GitOps:
+### 5. GitOps:
    - Adopt GitOps practices where your Kubernetes manifests are stored in a Git repository. Changes to the Git repository trigger automated deployments to the Kubernetes cluster. Tools like Argo CD or Flux can facilitate GitOps workflows.
-6. Kustomize:
+### 6. Kustomize:
    - Use `kubectl` with Kustomize to customize and parameterize your manifests. Kustomize allows you to overlay patches on your base manifests based on different environments or configurations.
 
    Example Kustomization file:
@@ -366,27 +367,27 @@ Ans: Managing Kubernetes deployments involves defining the desired state of your
    - service.yaml
    ...
    ```
-7. Secret Management:
+### 7. Secret Management:
    - Use Kubernetes Secrets for sensitive information, and consider using tools like Sealed Secrets or external secret management solutions for improved security.
-8. Monitoring and Observability:
+### 8. Monitoring and Observability:
    - Implement monitoring and observability solutions for your Kubernetes cluster and applications. Tools like Prometheus, Grafana, and Kubernetes-native monitoring solutions help ensure your applications are running as expected.
-9. Rolling Updates and Rollbacks:
+### 9. Rolling Updates and Rollbacks:
    - When updating applications, perform rolling updates to minimize downtime. Kubernetes supports rolling updates out of the box. Ensure you have a rollback strategy in case of issues.
-10. Infrastructure as Code (IaC):
+### 10. Infrastructure as Code (IaC):
     - If you are using Infrastructure as Code (IaC) tools like Terraform to provision your Kubernetes clusters, integrate your cluster provisioning and application deployment processes.
-11. CI/CD Operators:
+### 11. CI/CD Operators:
     - Consider using CI/CD operators like Jenkins Operator or Tekton Operator to manage your CI/CD pipelines as Kubernetes resources.
-12. Cluster Configurations:
+### 12. Cluster Configurations:
     - Use tools like `kubectl` or Kubernetes management platforms to interact with and configure your Kubernetes clusters. Tools like Rancher or Kubernetes Dashboard can provide a graphical interface for managing clusters.
 By following these practices, you can establish a robust and automated workflow for managing Kubernetes deployments, making it easier to scale, update, and maintain your applications in a Kubernetes environment.
 
-11.	Where do you store these manifest files?
+### 11.	Where do you store these manifest files?
 Ans: Storing Kubernetes manifest files is an important aspect of managing Kubernetes configurations efficiently. Here are common practices for storing these files:
-1. Version Control System (VCS):
+### 1. Version Control System (VCS):
    - Store Kubernetes manifest files in a version control system (VCS) such as Git. This allows you to track changes, collaborate with team members, and roll back to previous versions if needed. Create a dedicated repository for your Kubernetes configurations.
-2. Separate Repositories:
+### 2. Separate Repositories:
    - Consider organizing your Kubernetes manifests into separate repositories based on different environments (e.g., development, staging, production) or logical divisions (e.g., microservices). This helps maintain clarity and prevents unnecessary coupling between configurations.
-3. Directory Structure:
+### 3. Directory Structure:
    - Organize manifest files within the repository with a clear directory structure. For example:
      ```
      ├── manifests
@@ -400,7 +401,7 @@ Ans: Storing Kubernetes manifest files is an important aspect of managing Kubern
      │   │   ├── deployment.yaml
      │   │   ├── service.yaml
      ```
-4. Helm Charts:
+### 4. Helm Charts:
    - If you use Helm for managing Kubernetes applications, store your Helm charts alongside your manifest files. Helm charts are a collection of pre-configured Kubernetes resources packaged together. The directory structure might look like:
      ```
      ├── charts
@@ -410,35 +411,35 @@ Ans: Storing Kubernetes manifest files is an important aspect of managing Kubern
      │   │   │   ├── deployment.yaml
      │   │   │   ├── service.yaml
      ```
-5. GitOps Repositories:
+### 5. GitOps Repositories:
    - In a GitOps workflow, where the desired state of the cluster is declared in a Git repository, all Kubernetes manifests are stored in that repository. Changes to the repository trigger automated deployments to the Kubernetes cluster.
-6. Kustomize Bases and Overlays:
+### 6. Kustomize Bases and Overlays:
    - If you use Kustomize for customization and parameterization, organize your files into "bases" and "overlays." The "bases" contain common configurations, while "overlays" contain environment-specific or application-specific customizations.
-7. Secrets Management:
+### 7. Secrets Management:
    - Manage sensitive information separately using Kubernetes Secrets. Avoid storing sensitive data directly in manifest files, especially if the files are stored in a public version control repository.
-8. Documentation:
+### 8. Documentation:
    - Include documentation within the repository to describe the purpose of each manifest file, how to use them, and any dependencies. This documentation can be in the form of README files or inline comments within the manifests.
-9. Pipeline Integration:
+### 9. Pipeline Integration:
    - Integrate your version control repository with your CI/CD pipelines. Automate the process of deploying changes to Kubernetes clusters when changes are pushed to the repository.
-By following these practices, you can maintain a well-organized and versioned set of Kubernetes manifest files, making it easier to manage configurations across different environments and collaborate with team members.
+* By following these practices, you can maintain a well-organized and versioned set of Kubernetes manifest files, making it easier to manage configurations across different environments and collaborate with team members.
 (Or)
-We used to store these files in the GitHub.
+* We used to store these files in the GitHub.
+---
 
+## Genpact L2 Q&A Mon 28 Mar 2022 3pm – 4pm (IST)
 
-Genpact L2 Q&A Mon 28 Mar 2022 3pm – 4pm (IST)
-
-1.	What all you did in Linux?
-2.	How to resolve the stale file handle in Linux machine?
+### 1.	What all you did in Linux?
+### 2.	How to resolve the stale file handle in Linux machine?
 Ans: "Stale file handle" is an error in Linux that typically occurs when a process or system attempts to access a file or directory that was previously mounted or accessed, but the handle to that file or directory is no longer valid. This can happen for various reasons, such as a network failure, unmounting, or a change in the underlying filesystem.
 Here are some steps you can take to resolve the "stale file handle" issue:
-1. Remount the Filesystem:
+### 1. Remount the Filesystem:
    - If the stale file handle error is related to a networked filesystem (e.g., NFS), you can try remounting the filesystem.
    ```bash
    sudo umount /path/to/mounted/directory
    sudo mount -a
    ```
    This unmounts and remounts the filesystem specified in `/etc/fstab`.
-2. Check NFS Services:
+### 2. Check NFS Services:
    - If you are using NFS, make sure that the NFS services on both the server and client are running. Restart the services if necessary.
    ```bash
    # On the NFS server
@@ -446,26 +447,26 @@ Here are some steps you can take to resolve the "stale file handle" issue:
    # On the NFS client
    sudo systemctl restart nfs-client
    ```
-3. Clear NFS Cache:
+### 3. Clear NFS Cache:
    - NFS clients may cache information about mounted directories. Clear the NFS cache on the client side.
    ```bash
    sudo nfsstat -c
    ```
-4. Unmount and Remount:
+### 4. Unmount and Remount:
    - If the stale file handle error is related to a local filesystem, unmount and remount the filesystem.
 
    ```bash
    sudo umount /path/to/mounted/directory
    sudo mount /path/to/mounted/directory
    ```
-5. Check Network Connectivity:
+### 5. Check Network Connectivity:
    - Ensure that there is a stable network connection between the client and server, especially in the case of networked filesystems.
-6. Check Disk Health:
+### 6. Check Disk Health:
    - If the issue persists, it's a good idea to check the health of the underlying storage device. Use tools like `fsck` to check and repair the filesystem.
    ```bash
    sudo fsck /dev/sdX
    ```
-7. Reboot the System:
+### 7. Reboot the System:
    - If none of the above steps resolves the issue, consider rebooting the system. This can help clear any lingering file handle issues.
    ```bash
    sudo reboot
@@ -473,60 +474,78 @@ Here are some steps you can take to resolve the "stale file handle" issue:
 Note:
 - Make sure to replace `/path/to/mounted/directory` with the actual path to the mounted directory or the mounted device.
 If the problem persists after trying these steps, it may indicate a more complex issue with the filesystem, network, or storage system. In such cases, it might be necessary to investigate further or seek assistance from system administrators or support channels.
-Or
-1.	Try to umount the partition.
+* `Or`
+### 1.	Try to umount the partition.
 [root@ngelinux samba]# umount /NGEI/NGEEXL2/MDM/ngeaix208/interfaces umount.nfs: /NGEI/NGEEXL2/MDM/ngeaix208/interfaces: device is busy umount.nfs: /NGEI/NGEEXL2/MDM/ngeaix208/interfaces: device is busy
 [root@ngelinux samba]#
-2.	Try to check the processes using this partition.
+### 2.	Try to check the processes using this partition.
 [root@ngelinux samba]# fuser -cu /NGEI/NGEEXL2/MDM/ngeaix208/interfaces Cannot stat /NGEI/NGEEXL2/MDM/ngeaix208/interfaces: Stale file handle Cannot stat /NGEI/NGEEXL2/MDM/ngeaix208/interfaces: Stale file handle Cannot stat /NGEI/NGEEXL2/MDM/ngeaix208/interfaces: Stale file handle Cannot stat file /proc/21665/fd/24: Stale file handle
-3.	Now umount the partition in lazy way to clear up the stale handles.
+### 3.	Now umount the partition in lazy way to clear up the stale handles.
 [root@ngelinux samba]# umount -l /NGEI/NGEEXL2/MDM/ngeaix208/interfaces
-4.	Mount the partition back.
+### 4.	Mount the partition back.
 [root@ngelinux samba]# mount /NGEI/NGEEXL2/MDM/ngeaix208/interfaces [root@ngelinux samba]# df -h /NGEI/NGEEXL2/MDM/ngeaix208/interfaces Filesystem	Size Used Avail Use% Mounted on ngeaix208:/NGEexl2/products/interfaces
 10G 2.0G 7.6G 21% /NGEI/NGEEXL2/MDM/ngeaix208/interfaces
-3.	Can you tell me the NFS configuration?
-Step 1: The first thing we need to do is install the NFS server package, which is available from the main repositories. Use the appropriate command below to install the software on your system.
-On Ubuntu, Linux Mint, and other Debian-based distros:
+### 3.	Can you tell me the NFS configuration?
+* **Step 1**: The first thing we need to do is install the NFS server package, which is available from the main repositories. Use the appropriate command below to install the software on your system.
+* On Ubuntu, Linux Mint, and other Debian-based distros:
+```
 $ sudo apt install nfs-kernel-server
-On Fedora, CentOS, AlmaLinux, and other RHEL-based distros:
+```
+* On Fedora, CentOS, AlmaLinux, and other RHEL-based distros:
+```
 $ sudo dnf install nfs-utils
-Step2: Next, ensure that the NFS service is running and will start automatically on subsequent machine boots.
+```
+* **Step2**: Next, ensure that the NFS service is running and will start automatically on subsequent machine boots.
+```
 $ sudo systemctl enable --now nfs-server
-Step3: If you don’t already have a directory created that you want to share out, it’s time to create one now. For this example, we’ll store our NFS share as
+```
+* **Step3**: If you don’t already have a directory created that you want to share out, it’s time to create one now. For this example, we’ll store our NFS share as
 /media/nfs.
+```
 $ sudo mkdir -p /media/nfs
-Step 4: Next, we will edit the /etc/exports configuration file. Here, you can configure which directories you’re sharing and who can access them. You can also set specific permissions for the shares to further limit access. Use nano or your favorite text editor to open the file.
+```
+* **Step 4**: Next, we will edit the /etc/exports configuration file. Here, you can configure which directories you’re sharing and who can access them. You can also set specific permissions for the shares to further limit access. Use nano or your favorite text editor to open the file.
+```
 $ sudo nano /etc/exports
-Step 5: In the file, each share gets its own line. That line begins with the location of the share on the server machine. Across from that, you can list the hostname of an accepted client, if is available in the server’s hosts file, or an IP or range of IPs. Directly behind the IP address, place the rules for the share in a set of parenthesis. Altogether, it should look something like this:
+```
+* **Step 5**: In the file, each share gets its own line. That line begins with the location of the share on the server machine. Across from that, you can list the hostname of an accepted client, if is available in the server’s hosts file, or an IP or range of IPs. Directly behind the IP address, place the rules for the share in a set of parenthesis. Altogether, it should look something like this:
+```
 /media/nfs	192.168.1.0/24(rw,sync,no_subtree_check)
-You can include as many shares as you like, provided each has its own line. You can also include more than one hostname or IP in each line and assign them different permissions. For example:
+```
+* You can include as many shares as you like, provided each has its own line. You can also include more than one hostname or IP in each line and assign them different permissions. For example:
 /media/nfs
 192.168.1.112(rw,sync,no_subtree_check) 192.168.1.121(ro,sync,no_subtree_check)
-In the second instance, each of those machines could view and read from the share, but only the computer at 192.168.1.112 could write to it.
-Step 6: There are plenty more options that you can choose from to configure how the server handles you share for each guest. Here is a complete breakdown of what’s available, but the above configuration will suffice for most generic scenarios.
-ro – specifies that the directory may only be mounted as read only rw – grants both read and write permissions on the directory
-no_root_squash – is an extremely dangerous option that allows remote root users the same privilege as the root user of the host machine
-subtree_check – specifies that, in the case of a directory is exported instead of an entire filesystem, the host should verify the location of files and directories on the host filesystem
-no_subtree_check – specifies that the host should not check the location of the files being accessed within the host filesystem
-sync – this just ensures that the host keeps any changes uploaded to the shared directory in sync
-async – ignores synchronization checks in favor of increased speed
-Step 7: Once you have everything set up the way you want, save and exit the file. Then, execute the exportfs command to load your new exports configuration.
+* In the second instance, each of those machines could view and read from the share, but only the computer at 192.168.1.112 could write to it.
+* **Step 6**: There are plenty more options that you can choose from to configure how the server handles you share for each guest. Here is a complete breakdown of what’s available, but the above configuration will suffice for most generic scenarios.
+* `ro` – specifies that the directory may only be mounted as read only rw – grants both read and write permissions on the directory
+* `no_root_squash` – is an extremely dangerous option that allows remote root users the same privilege as the root user of the host machine
+* `subtree_check` – specifies that, in the case of a directory is exported instead of an entire filesystem, the host should verify the location of files and directories on the host filesystem
+* `no_subtree_check` – specifies that the host should not check the location of the files being accessed within the host filesystem
+* `sync` – this just ensures that the host keeps any changes uploaded to the shared directory in sync
+* `async` – ignores synchronization checks in favor of increased speed
+* **Step 7**: Once you have everything set up the way you want, save and exit the file. Then, execute the exportfs command to load your new exports configuration.
+```
 $ sudo exportfs -arv
 exporting 192.168.1.0/24:/media/nfs
-Your share is now accessible from the client machines that you configured in your
+```
+* Your share is now accessible from the client machines that you configured in your
 /etc/exports file. See the next section for instructions on connecting to the NFS share.
-Connect to NFS server from client machine(s)
-This section of the guide will show how to use a client machine to connect to the NFS share that we have configured in the previous section.
-Step 1: The first thing we need to do is install the appropriate NFS packages on our system. Use the appropriate command below to install it with your system’s package manager.
-On Ubuntu, Linux Mint, and other Debian-based distros:
-
+### Connect to NFS server from client machine(s)
+* This section of the guide will show how to use a client machine to connect to the NFS share that we have configured in the previous section.
+* **Step 1**: The first thing we need to do is install the appropriate NFS packages on our system. Use the appropriate command below to install it with your system’s package manager.
+* On Ubuntu, Linux Mint, and other Debian-based distros:
+```
 $ sudo apt install nfs-common
-On Fedora, CentOS, AlmaLinux, and other RHEL-based distros:
-
+```
+* On Fedora, CentOS, AlmaLinux, and other RHEL-based distros:
+```
 $ sudo dnf install nfs-utils
-Step 2: With the package installed, you’ll be able to mount the NFS share(s). So, to try it out, pick a directory to mount to, and run the mount command as root privileges to mount the networked share. We are specifying the IP of the NFS server in this command, which happens to be 192.168.1.110.
+```
+* **Step 2**: With the package installed, you’ll be able to mount the NFS share(s). So, to try it out, pick a directory to mount to, and run the mount command as root privileges to mount the networked share. We are specifying the IP of the NFS server in this command, which happens to be 192.168.1.110.
+```
 $ sudo mount -t nfs4 192.168.1.110:/media/nfs /media/share
-Step 3: Provided the mount succeeded, you’ll be able to access your shared files in the directory where you mounted them. For a more permanent solution, you can add the share to your client’s /etc/fstab file. The overall syntax looks a lot like the command that you just used to mount your share. Start with the location of the share on your network. Follow that with where the share is to be mounted.
+```
+* **Step 3**: Provided the mount succeeded, you’ll be able to access your shared files in the directory where you mounted them. For a more permanent solution, you can add the share to your client’s /etc/fstab file. The overall syntax looks a lot like the command that you just used to mount your share. Start with the location of the share on your network. Follow that with where the share is to be mounted.
 The filesystem type here is nfs4. The options are up to you, but using the defaults and allowing user access are pretty common for non-sensitive shares. The end result should look a bit like the example below.
 192.168.1.110:/media/nfs /media/share nfs4	defaults,user,exec	0 0
 If you aren’t certain if the share will always be available on the client, add noauto to the list of options to prevent your system from trying to mount it automatically.
@@ -534,29 +553,31 @@ If you aren’t certain if the share will always be available on the client, add
 192.168.1.110:/media/nfs /media/share nfs4
 defaults,user,exec,noauto	0 0
 
-Step 4: To execute the fstab you just edited, run the following mount command.
+* **Step 4**: To execute the fstab you just edited, run the following mount command.
+```
 $ sudo mount -a
+```
 Your share should be mounted exactly where you specified.
-4.	What should I do if I want to allow all the servers to access my NFS server?
+### 4.	What should I do if I want to allow all the servers to access my NFS server?
 Ans: To grant access to NFS clients, we’ll need to define an export file. The file is typically located at /etc/exports edit the /etc/exports file in a text editor, and add one of the following three directives. All the directives below use the options rw, which enables both read and write, sync, which writes changes to disk before allowing users to access the modified file, and no_subtree_check, which means NFS doesn’t check if each subdirectory is accessible to the user.
 
-To enable access to a single client
+* To enable access to a single client
 /mnt/myshareddir{clientIP}(rw,sync,no_subtree_check)
-To enable access to several clients
+* To enable access to several clients
 /mnt/myshareddir
 {clientIP1}(rw,sync,no_subtree_check){clientIP-2}(...){clientIP-3}(...)
-To enable access to an entire subnet
+* To enable access to an entire subnet
 /mnt/myshareddir {subnetIP}/{subnetMask}(rw,sync,no_subtree_check)
-5.	What is root squash in Linux?
+### 5.	What is root squash in Linux?
 Ans: Root squash, also known as "root_squash," is a security feature in NFS (Network File System) configurations that restricts the superuser (root) privileges when accessing NFS-mounted directories on the server. The primary purpose of root squash is to enhance security by preventing the root user on a client machine from having unrestricted access to files on an NFS server.
 When root squash is enabled, the NFS server maps requests from the root user on the client to a non-privileged user (usually the "nobody" user) on the server. This prevents the root user from having full control over files and directories on the NFS-mounted filesystem, mitigating potential security risks.
 Here's a brief overview of root squash and its impact on NFS:
-1. Without Root Squash:
+### 1. Without Root Squash:
    - If root squash is not enabled (disabled), the root user on the client machine has full root-level access on the NFS server. This can lead to security concerns, as it allows unrestricted access to files and directories.
-2. With Root Squash:
+### 2. With Root Squash:
    - When root squash is enabled, the NFS server treats requests from the root user on the client as if they are coming from a non-privileged user. The server typically maps these requests to the UID (User ID) of the "nobody" user or another non-privileged user specified in the configuration.
    - The server ensures that the root user's capabilities are limited, preventing potential security risks associated with uncontrolled access to files and directories.
-Configuring Root Squash:
+### Configuring Root Squash:
 Root squash is configured on the NFS server side in the `/etc/exports` file. An example entry might look like this:
 ```plaintext
 /shared_directory  client_ip(rw,sync,no_subtree_check,root_squash)
@@ -571,12 +592,12 @@ After modifying the `/etc/exports` file, restart the NFS server for the changes 
 ```bash
 sudo systemctl restart nfs-kernel-server
 ```
-It's important to carefully consider the security implications of root squash based on the specific requirements and security policies of your NFS environment. Root squash is a common practice in NFS configurations to minimize the risks associated with unrestricted root access.
-Or
-no_root_squash – Allows root users on client computers to have root access on the server.
-6.	What is your current NFS version?
+* It's important to carefully consider the security implications of root squash based on the specific requirements and security policies of your NFS environment. Root squash is a common practice in NFS configurations to minimize the risks associated with unrestricted root access.
+* `Or`
+* `no_root_squash` – Allows root users on client computers to have root access on the server.
+### 6.	What is your current NFS version?
 Ans: 4.1
-7.	There are around 10 servers, I want to login to each server and print the red hat version write the script?
+### 7.	There are around 10 servers, I want to login to each server and print the red hat version write the script?
 Ans: Certainly! You can create a simple shell script to log in to each server and print the Red Hat version. Below is an example of a Bash script that uses `ssh` to connect to multiple servers and execute a command:
 ```bash
 #!/bin/bash
@@ -600,54 +621,60 @@ Save this script to a file (e.g., `check_redhat_version.sh`), make it executable
 ```bash
 ./check_redhat_version.sh
 ```
-Ensure that your SSH key is set up for passwordless login, or you will be prompted for a password for each server. Adjust the script as needed based on your specific environment and authentication setup.
-8.	How do you restart the service in Linux?
+* Ensure that your SSH key is set up for passwordless login, or you will be prompted for a password for each server. Adjust the script as needed based on your specific environment and authentication setup.
+### 8.	How do you restart the service in Linux?
 Ans: By using “systemctl restart service-name”
-Using service command (SysVinit-based systems):
-For older systems that use the service command, you can use the following syntax:
+* Using service command (SysVinit-based systems):
+* For older systems that use the service command, you can use the following syntax:
+```
 sudo service service_name restart
-Again, replace service_name with the actual name of the service. For example, to restart the Apache HTTP server:
+```
+* Again, replace service_name with the actual name of the service. For example, to restart the Apache HTTP server:
+```
 sudo service apache2 restart
-9.	How do you restart the container?
+```
+### 9.	How do you restart the container?
 Ans: By using “docker restart container-id”
-10.	Is it possible to restart the container with the systemctl without using docker restart?
+### 10.	Is it possible to restart the container with the systemctl without using docker restart?
 Ans: No, you cannot use systemctl to restart a Docker container directly. systemctl is a Linux command used for controlling the systemd system and service manager, and it's typically used to manage system services in the context of the host operating system. Docker containers, on the other hand, are isolated environments with their own file systems and processes.
-11.	How to list all the running services on Linux machine?
+### 11.	How to list all the running services on Linux machine?
 Ans: To list all the running services on a Linux machine, you can use the `systemctl` command, which is the standard command for controlling the systemd system and service manager. Here are some common commands:
-1. List all running services:
+### 1. List all running services:
    ```bash
    systemctl list-units --type=service --state=running
    ```
-2. List all services (including inactive ones):
+### 2. List all services (including inactive ones):
    ```bash
    systemctl list-units --type=service --all
    ```
-3. List all services with more detailed information:
+### 3. List all services with more detailed information:
    ```bash
    systemctl list-units --type=service --all -l
    ```
-4. List all services with their status and whether they are enabled or disabled:
+### 4. List all services with their status and whether they are enabled or disabled:
    ```bash
    systemctl list-unit-files --type=service
    ```
-These commands will provide information about the services, including their names, statuses, and other relevant details. Note that some distributions may use different init systems (e.g., SysVinit, Upstart), and the commands might vary. However, most modern Linux distributions use systemd.
-If your system is using a different init system, you may need to use commands specific to that system. For example, on systems using SysVinit, you might use commands like `service` or `chkconfig`.
-Or
+* These commands will provide information about the services, including their names, statuses, and other relevant details. Note that some distributions may use different init systems (e.g., SysVinit, Upstart), and the commands might vary. However, most modern Linux distributions use systemd.
+* If your system is using a different init system, you may need to use commands specific to that system. For example, on systems using SysVinit, you might use commands like `service` or `chkconfig`.
+* `Or`
+```
 service --status-all
-12.	What is SonarQube?
+```
+### 12.	What is SonarQube?
 Ans: SonarQube is an open-source platform for continuous inspection of code quality. It is designed to analyze and measure the technical debt in code by checking for code smells, security vulnerabilities, and bugs. SonarQube provides a centralized platform for managing and improving the quality of code in a software project.
-Key features of SonarQube include:
-1. Code Quality Metrics: SonarQube calculates various metrics to assess code quality, such as code duplication, complexity, and adherence to coding standards. It provides insights into the overall health of the codebase.
-2. Static Code Analysis: SonarQube performs static code analysis to identify issues and weaknesses in the code without actually executing it. It can catch potential bugs, security vulnerabilities, and other code smells during the development process.
-3. Integration with Build Tools: SonarQube seamlessly integrates with popular build tools such as Apache Maven, Gradle, and Ant. This allows for the automated analysis of code quality as part of the build process.
-4. Support for Multiple Languages: SonarQube supports a wide range of programming languages, including Java, C#, JavaScript, Python, Ruby, and more. This makes it versatile and applicable to projects with diverse technology stacks.
-5. Dashboard and Reporting: SonarQube provides a web-based dashboard that displays an overview of code quality metrics. It also generates detailed reports, helping development teams and project managers make informed decisions about code improvements.
-6. Security Vulnerability Detection: SonarQube includes security-focused plugins to identify and report security vulnerabilities in the code. This helps in addressing security concerns early in the development lifecycle.
-7. Continuous Inspection: SonarQube supports continuous inspection, allowing developers to receive feedback on code quality in real-time. This promotes a proactive approach to addressing issues during development rather than discovering them later in the software development lifecycle.
-SonarQube is widely used in the software development industry to maintain and enhance the quality of code, reduce technical debt, and facilitate collaboration among development teams. It is particularly valuable in large and complex projects where code quality and maintainability are critical factors.
-13.	What is Qualys?
+#### Key features of SonarQube include:
+* **1. Code Quality Metrics**: SonarQube calculates various metrics to assess code quality, such as code duplication, complexity, and adherence to coding standards. It provides insights into the overall health of the codebase.
+* **2. Static Code Analysis**: SonarQube performs static code analysis to identify issues and weaknesses in the code without actually executing it. It can catch potential bugs, security vulnerabilities, and other code smells during the development process.
+* **3. Integration with Build Tools**: SonarQube seamlessly integrates with popular build tools such as Apache Maven, Gradle, and Ant. This allows for the automated analysis of code quality as part of the build process.
+* **4. Support for Multiple Languages**: SonarQube supports a wide range of programming languages, including Java, C#, JavaScript, Python, Ruby, and more. This makes it versatile and applicable to projects with diverse technology stacks.
+* **5. Dashboard and Reporting**: SonarQube provides a web-based dashboard that displays an overview of code quality metrics. It also generates detailed reports, helping development teams and project managers make informed decisions about code improvements.
+* **6. Security Vulnerability Detection**: SonarQube includes security-focused plugins to identify and report security vulnerabilities in the code. This helps in addressing security concerns early in the development lifecycle.
+* **7. Continuous Inspection**: SonarQube supports continuous inspection, allowing developers to receive feedback on code quality in real-time. This promotes a proactive approach to addressing issues during development rather than discovering them later in the software development lifecycle.
+* SonarQube is widely used in the software development industry to maintain and enhance the quality of code, reduce technical debt, and facilitate collaboration among development teams. It is particularly valuable in large and complex projects where code quality and maintainability are critical factors.
+### 13.	What is Qualys?
 Ans: Qualys is a cloud-based security and compliance platform that provides a range of solutions for vulnerability management, policy compliance, and web application security. It is designed to help organizations identify, prioritize, and remediate security vulnerabilities and compliance issues across their IT infrastructure.
-Key features and offerings of Qualys include:
+#### Key features and offerings of Qualys include:
 1. Vulnerability Management: Qualys Vulnerability Management helps organizations discover and prioritize vulnerabilities in their network, systems, and applications. It provides continuous monitoring, assessment, and reporting to help businesses stay informed about potential security risks.
 2. Policy Compliance: Qualys Policy Compliance assists in ensuring that systems and applications adhere to security policies and regulatory requirements. It helps organizations assess compliance with industry standards and frameworks, such as PCI DSS, HIPAA, and GDPR.
 3. Web Application Security: Qualys Web Application Scanning (WAS) focuses on identifying and addressing security vulnerabilities in web applications. It performs dynamic analysis to discover potential threats and provides guidance on how to mitigate them.
