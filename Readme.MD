@@ -1,4 +1,4 @@
-3. What kind of problems that you had with terraform work around you?
+# 3. What kind of problems that you had with terraform work around you?
 Ans: common challenges that users might face when working with Terraform and potential workarounds:
 ## 1. State Management:
    ??? - Challenge: Managing Terraform state across teams or multiple environments can be challenging.
