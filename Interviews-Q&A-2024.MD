@@ -1478,39 +1478,51 @@ terraform output
 Ans: To establish a connection from Terraform to Azure, you need to authenticate Terraform with your Azure account or service principal. 
 
 Here’s a detailed guide to set this up:
-________________________________________
-1. Azure Provider Configuration
-The Terraform AzureRM provider requires authentication details to interact with Azure resources. The following methods are supported for authentication:
+
+#### 1. Azure Provider Configuration
+- The Terraform AzureRM provider requires authentication details to interact with Azure resources. 
+- The following methods are supported for authentication:
 •	Azure CLI
 •	Service Principal with Client Secret
 •	Managed Identity (for use within Azure resources)
-________________________________________
-2. Authentication Methods
-Method 1: Using Azure CLI
-1.	Login to Azure: Run the Azure CLI login command:
+
+#### 2. Authentication Methods
+
+**Method 1: Using Azure CLI***
+
+**1.	Login to Azure:** Run the Azure CLI login command:
+```
 az login
-If you have multiple subscriptions, set the active subscription:
+```
+- If you have multiple subscriptions, set the active subscription:
+```
 az account set --subscription "SUBSCRIPTION_ID"
-2.	Configure the Terraform Provider: Add the Azure provider block in your providers.tf:
+```
+**2.	Configure the Terraform Provider:** Add the Azure provider block in your providers.tf:
+```
 provider "azurerm" {
   features {}
 }
-Terraform automatically uses the credentials from az login.
-________________________________________
-Method 2: Using a Service Principal with Client Secret
-1.	Create a Service Principal:
+```
+- Terraform automatically uses the credentials from az login.
+
+#### Method 2: Using a Service Principal with Client Secret
+#### 1.	Create a Service Principal:
+```
 az ad sp create-for-rbac --name "terraform-sp" --role Contributor --scopes /subscriptions/<SUBSCRIPTION_ID>
-The output includes details like the appId (client ID), password (client secret), and tenant.
-Example Output:
-json
-Copy code
+```
+- The output includes details like the appId (client ID), password (client secret), and tenant.
+#### Example Output:
+```
 {
   "appId": "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "displayName": "terraform-sp",
   "password": "xxxxxxxxxxxxxxx",
   "tenant": "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 }
-2.	Configure the Provider: Update the providers.tf with the service principal details:
+```
+#### 2.	Configure the Provider: Update the providers.tf with the service principal details:
+```hcl
 provider "azurerm" {
   features {}
 
@@ -1519,7 +1531,9 @@ provider "azurerm" {
   client_id       = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
   client_secret   = "xxxxxxxxxxxxxxx"
 }
-3.	Use Environment Variables (Optional): Store the credentials in environment variables instead of hardcoding them:
+```
+#### 3.	Use Environment Variables (Optional): Store the credentials in environment variables instead of hardcoding them:
+```
 export ARM_CLIENT_ID="xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 export ARM_CLIENT_SECRET="xxxxxxxxxxxxxxx"
 export ARM_TENANT_ID="xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -1528,40 +1542,57 @@ Modify the provider block to use the environment variables:
 provider "azurerm" {
   features {}
 }
-________________________________________
-Method 3: Using a Managed Identity
-If Terraform is running from an Azure resource like a VM or Azure DevOps, you can use its Managed Identity for authentication.
-1.	Enable a Managed Identity:
-o	Assign a System-assigned or User-assigned Managed Identity to the Azure resource.
-o	Grant the Managed Identity the necessary permissions (e.g., Contributor role).
-2.	Configure the Provider:
+```
+
+#### Method 3: Using a Managed Identity
+- If Terraform is running from an Azure resource like a VM or Azure DevOps, you can use its Managed Identity for authentication.
+#### 1.	Enable a Managed Identity:
+- Assign a System-assigned or User-assigned Managed Identity to the Azure resource.
+- Grant the Managed Identity the necessary permissions (e.g., Contributor role).
+#### 2.	Configure the Provider:
+```hcl
 provider "azurerm" {
   features {}
   use_msi = true
 }
-________________________________________
-3. Verify the Connection
-1.	Initialize Terraform: Run the initialization command to ensure the provider configuration works:
-terraform init
-2.	Test with a Sample Plan: Use a simple resource to verify connectivity:
+```
+
+#### 3. Verify the Connection
+
+**1.	Initialize Terraform:** Run the initialization command to ensure the provider configuration works:
+ 
+```
+ terraform init
+```
+**2.Test with a Sample Plan:** Use a simple resource to verify connectivity:
+```
 resource "azurerm_resource_group" "example" {
   name     = "example-resource-group"
   location = "East US"
 }
-Plan the deployment:
-terraform plan
-________________________________________
-4. Troubleshooting Common Issues
-1.	Authentication Error: Ensure your credentials or service principal details are correct. For Azure CLI authentication, check:
-az account show
-2.	Insufficient Permissions: Verify the assigned roles to the service principal or Managed Identity. The service principal must have the Contributor role at the required scope (subscription, resource group, etc.).
-3.	Subscription Issues: If multiple subscriptions are available, ensure the correct one is set using:
-az account set --subscription "SUBSCRIPTION_ID"
+```
+#### Plan the deployment:
 
-5.	What is the service principle in azure?
-Ans: A Service Principal in Azure is a security identity used by applications, scripts, or services to access Azure resources. It is an Azure Active Directory (AAD) application that acts as a "service account" with limited permissions to interact with Azure APIs. Service Principals are essential for enabling automated tools like Terraform, Ansible, or custom applications to securely manage resources.
-________________________________________
-Why Use a Service Principal?
+```
+terraform plan
+```
+
+#### 4. Troubleshooting Common Issues
+**1.	Authentication Error:** Ensure your credentials or service principal details are correct. For Azure CLI authentication, check:
+`az account show`
+
+**2.	Insufficient Permissions:** Verify the assigned roles to the service principal or Managed Identity. The service principal must have the Contributor role at the required scope (subscription, resource group, etc.).
+
+**3.	Subscription Issues:** If multiple subscriptions are available, ensure the correct one is set using:
+```
+az account set --subscription "SUBSCRIPTION_ID"
+```
+#### 5.	What is the service principle in azure?
+Ans: A Service Principal in Azure is a security identity used by applications, scripts, or services to access Azure resources.
+
+It is an Azure Active Directory (AAD) application that acts as a "service account" with limited permissions to interact with Azure APIs. Service Principals are essential for enabling automated tools like Terraform, Ansible, or custom applications to securely manage resources.
+
+#### Why Use a Service Principal?
 •	Automation: It enables non-interactive processes, such as CI/CD pipelines, to authenticate and interact with Azure.
 •	Least Privilege: Permissions can be scoped to specific resources, following the principle of least privilege.
 •	Security: Avoids using personal credentials for automated tasks.
