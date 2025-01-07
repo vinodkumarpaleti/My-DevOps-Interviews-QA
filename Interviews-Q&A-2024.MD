@@ -927,18 +927,21 @@ kubectl get rolebindings --namespace <NAMESPACE>
 kubectl get clusterrolebindings
 ```
 
-7. Best Practices
-1.	Principle of Least Privilege:
-o	Assign minimal permissions required for each role.
-2.	Use Azure AD Groups:
-o	Assign roles to groups instead of individual users for easier management.
-3.	Audit RBAC Configurations:
-o	Regularly review roles and bindings to ensure they align with organizational policies.
-4.	Use Managed Identities:
-o	For service-to-service communication, use Azure-managed identities with Kubernetes RBAC.
-________________________________________
-Example Use Case: Read-Only Access to Pods
-Step 1: Create a Role (read-only-pods.yaml):
+#### 7. Best Practices
+#### 1.	Principle of Least Privilege:
+- Assign minimal permissions required for each role.
+#### 2.	Use Azure AD Groups:
+- Assign roles to groups instead of individual users for easier management.
+#### 3.	Audit RBAC Configurations:
+- Regularly review roles and bindings to ensure they align with organizational policies.
+#### 4.	Use Managed Identities:
+- For service-to-service communication, use Azure-managed identities with Kubernetes RBAC.
+
+#### Example Use Case: Read-Only Access to Pods
+
+**Step 1: Create a Role (read-only-pods.yaml):**
+
+```
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
@@ -948,8 +951,10 @@ rules:
 - apiGroups: [""]
   resources: ["pods"]
   verbs: ["get", "list"]
-Step 2: Create a RoleBinding (read-only-binding.yaml):
+ ```
+**Step 2: Create a RoleBinding (read-only-binding.yaml):**
 
+```
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
@@ -963,40 +968,44 @@ roleRef:
   kind: Role
   name: read-only-pods
   apiGroup: rbac.authorization.k8s.io
-Apply the Configuration:
-
+```
+- Apply the Configuration:
+```
 kubectl apply -f read-only-pods.yaml
 kubectl apply -f read-only-binding.yaml
-
-12.	What is the concept of Workspace in terraform?Why we need this?
+```
+### 12.	What is the concept of Workspace in terraform?Why we need this?
 Ans: Available
-13.	Can we use Ansible in azure devops?
+### 13.	Can we use Ansible in azure devops?
 Ans: Yes, you can use Ansible in Azure DevOps for automation, configuration management, and deployment. Azure DevOps integrates seamlessly with Ansible, enabling you to use Ansible playbooks, roles, and tasks as part of your pipelines.
-Here’s a comprehensive guide:
-________________________________________
-1. Use Cases for Ansible in Azure DevOps
-•	Automating infrastructure provisioning (e.g., virtual machines, storage, networks).
-•	Deploying applications to Azure or on-premises systems.
-•	Managing configurations for cloud and hybrid environments.
-•	Orchestrating complex workflows that include multiple systems.
-________________________________________
-2. Methods to Integrate Ansible in Azure DevOps
-a. Install Ansible on an Azure DevOps Agent
-You can run Ansible commands on self-hosted or Microsoft-hosted agents:
-1.	Self-hosted Agent:
-o	Install Ansible on the self-hosted agent (e.g., on a Linux VM).
-o	Use the agent in your Azure DevOps pipeline.
-2.	Microsoft-hosted Agent:
-o	Include Ansible installation as a step in the pipeline.
-o	Example (for Ubuntu):
+#### Here’s a comprehensive guide:
+
+#### 1. Use Cases for Ansible in Azure DevOps
+- Automating infrastructure provisioning (e.g., virtual machines, storage, networks).
+- Deploying applications to Azure or on-premises systems.
+- Managing configurations for cloud and hybrid environments.
+- Orchestrating complex workflows that include multiple systems.
+
+#### 2. Methods to Integrate Ansible in Azure DevOps
+#### a. Install Ansible on an Azure DevOps Agent
+- You can run Ansible commands on self-hosted or Microsoft-hosted agents:
+#### 1.	Self-hosted Agent:
+- Install Ansible on the self-hosted agent (e.g., on a Linux VM).
+- Use the agent in your Azure DevOps pipeline.
+#### 2.	Microsoft-hosted Agent:
+- Include Ansible installation as a step in the pipeline.
+- Example (for Ubuntu):
+```
 sudo apt update
 sudo apt install -y ansible
-b. Use an Azure DevOps Extension
-The Ansible Extension for Azure DevOps provides pre-built tasks to execute Ansible playbooks directly from pipelines. Install the extension from the Azure DevOps Marketplace.
-________________________________________
-3. Steps to Integrate Ansible in Azure DevOps
-a. Create an Ansible Playbook
-Create a playbook for the task you want to automate. Example: Deploying an Azure Virtual Machine.
+```
+#### b. Use an Azure DevOps Extension
+- The Ansible Extension for Azure DevOps provides pre-built tasks to execute Ansible playbooks directly from pipelines. Install the extension from the Azure DevOps Marketplace.
+
+#### 3. Steps to Integrate Ansible in Azure DevOps
+#### a. Create an Ansible Playbook
+- Create a playbook for the task you want to automate. Example: Deploying an Azure Virtual Machine.
+```
 - name: Create Azure Virtual Machine
   hosts: localhost
   tasks:
@@ -1011,13 +1020,17 @@ Create a playbook for the task you want to automate. Example: Deploying an Azure
         vm_size: Standard_B1s
         admin_username: azureuser
         admin_password: Password1234!
-b. Store the Playbook
-•	Store the playbook in your source code repository (e.g., GitHub, Azure Repos).
-c. Create an Azure DevOps Pipeline
+   ```
+#### b. Store the Playbook
+- Store the playbook in your source code repository (e.g., GitHub, Azure Repos).
+#### c. Create an Azure DevOps Pipeline
 1.	Go to Azure DevOps > Pipelines > Create Pipeline.
 2.	Choose your source repository (e.g., GitHub, Azure Repos).
 3.	Define the pipeline YAML file.
-Example Pipeline:
+
+#### Example Pipeline:
+
+```pipeline
 trigger:
 - main
 
@@ -1038,38 +1051,44 @@ steps:
 - script: |
     ansible-playbook -i localhost, playbook.yml
   displayName: 'Run Ansible Playbook'
-d. Secure Credentials
-•	Use Azure Key Vault or pipeline secrets for storing sensitive information (e.g., Azure credentials).
-•	Authenticate Ansible with Azure using a Service Principal or Managed Identity.
-________________________________________
-4. Using the Ansible Extension
-If you install the Ansible extension from the Azure DevOps Marketplace:
+  ```
+#### d. Secure Credentials
+- Use Azure Key Vault or pipeline secrets for storing sensitive information (e.g., Azure credentials).
+- Authenticate Ansible with Azure using a Service Principal or Managed Identity.
+
+#### 4. Using the Ansible Extension
+- If you install the Ansible extension from the Azure DevOps Marketplace:
 1.	Add the "Run Ansible Playbook" task to your pipeline.
 2.	Configure the task:
-o	Playbook Path: Path to the playbook file.
-o	Inventory File: Specify the inventory file (e.g., hosts).
-o	Extra Arguments: Add any additional Ansible command-line options.
-________________________________________
-5. Authenticating Ansible with Azure
-To use Ansible with Azure, set up authentication via a Service Principal or Managed Identity:
-Service Principal:
-1.	Create a Service Principal:
+- Playbook Path: Path to the playbook file.
+- Inventory File: Specify the inventory file (e.g., hosts).
+- Extra Arguments: Add any additional Ansible command-line options.
+
+#### 5. Authenticating Ansible with Azure
+- To use Ansible with Azure, set up authentication via a Service Principal or Managed Identity:
+#### Service Principal:
+#### 1.	Create a Service Principal:
+```
 az ad sp create-for-rbac --name myApp --role Contributor --scopes /subscriptions/<subscription-id>
-Save the output (appId, password, tenant).
-2.	Configure Environment Variables: Add these variables in the pipeline:
-o	AZURE_SUBSCRIPTION_ID
-o	AZURE_CLIENT_ID
-o	AZURE_SECRET
-o	AZURE_TENANT
-3.	Use these credentials in the playbook.
-________________________________________
-6. Monitor and Debug
-•	Use the pipeline logs to monitor Ansible execution.
-•	Enable verbose logging in Ansible by adding the -vvv flag to the playbook command:
+```
+#### Save the output (appId, password, tenant).
+#### 2.	Configure Environment Variables: Add these variables in the pipeline:
+- AZURE_SUBSCRIPTION_ID
+- AZURE_CLIENT_ID
+- AZURE_SECRET
+- AZURE_TENANT
+#### 3.	Use these credentials in the playbook.
+
+#### 6. Monitor and Debug
+- Use the pipeline logs to monitor Ansible execution.
+- Enable verbose logging in Ansible by adding the -vvv flag to the playbook command:
+```
 ansible-playbook -i localhost, playbook.yml -vvv
-________________________________________
-Example Use Case: Deploy a Web App to Azure
-Pipeline YAML:
+```
+
+#### Example Use Case: Deploy a Web App to Azure
+#### Pipeline YAML:
+```
 trigger:
 - main
 
@@ -1091,40 +1110,49 @@ steps:
     AZURE_SECRET: $(AZURE_SECRET)
     AZURE_TENANT: $(AZURE_TENANT)
   displayName: 'Run Ansible Playbook'
-________________________________________
-Advantages of Using Ansible with Azure DevOps
-•	Centralized CI/CD pipelines with automation via Ansible.
-•	Easy integration with other Azure DevOps tasks and extensions.
-•	Enhanced scalability for multi-environment management.
-14.	Do you have experience with incident management service?
+  ```
+
+#### Advantages of Using Ansible with Azure DevOps
+- Centralized CI/CD pipelines with automation via Ansible.
+- Easy integration with other Azure DevOps tasks and extensions.
+- Enhanced scalability for multi-environment management.
+#### 14.	Do you have experience with incident management service?
 Ans: Available
-15.	Do you have experience in patch managent using ansible?
-Ans: Yes, I have experience in patch management using Ansible, which involves automating the process of applying updates and security patches to servers or infrastructure. Ansible is particularly well-suited for this task due to its agentless architecture and declarative YAML playbooks. Here's a detailed guide:
-________________________________________
-Patch Management Workflow with Ansible
-1.	Inventory Setup:
-o	Define the systems you want to patch in the Ansible inventory file (e.g., Linux, Windows servers).
-o	Example (inventory.ini):
-ini
- [webservers]
+#### 15.	Do you have experience in patch managent using ansible?
+Ans: Yes, I have experience in patch management using Ansible, which involves automating the process of applying updates and security patches to servers or infrastructure. 
+
+Ansible is particularly well-suited for this task due to its agentless architecture and declarative YAML playbooks. Here's a detailed guide:
+
+#### Patch Management Workflow with Ansible
+#### 1.	Inventory Setup:
+- Define the systems you want to patch in the Ansible inventory file (e.g., Linux, Windows servers).
+- Example (inventory.ini):
+```
+
+[webservers]
 web1.example.com
 web2.example.com
+```
 
+```
 [databases]
 db1.example.com
 db2.example.com
-2.	Create a Playbook:
-o	Write a playbook to update the operating system and apply security patches.
-o	Customize it for different OS types (e.g., Ubuntu, RHEL, CentOS, Windows).
-3.	Test the Playbook:
-o	Run the playbook in a staging or test environment before applying it to production.
-4.	Schedule or Trigger Patching:
-o	Use Ansible Tower (or AWX) or a CI/CD tool like Azure DevOps to schedule patch management jobs.
-5.	Verify Post-Patching:
-o	Check for system reboots, service restarts, and logs to ensure patching was successful.
-________________________________________
-Patch Management for Linux Servers
-Example Playbook: Patch and Reboot for RHEL/CentOS
+```
+#### 2.	Create a Playbook:
+- Write a playbook to update the operating system and apply security patches.
+- Customize it for different OS types (e.g., Ubuntu, RHEL, CentOS, Windows).
+#### 3.	Test the Playbook:
+- Run the playbook in a staging or test environment before applying it to production.
+#### 4.	Schedule or Trigger Patching:
+- Use Ansible Tower (or AWX) or a CI/CD tool like Azure DevOps to schedule patch management jobs.
+#### 5.	Verify Post-Patching:
+- Check for system reboots, service restarts, and logs to ensure patching was successful.
+
+#### Patch Management for Linux Servers
+#### Example Playbook: Patch and Reboot for RHEL/CentOS
+
+```
 - name: Patch and update RHEL/CentOS servers
   hosts: all
   become: true
@@ -1142,7 +1170,10 @@ Example Playbook: Patch and Reboot for RHEL/CentOS
     - name: Reboot the server if required
       reboot:
       when: reboot_required.rc == 1
-For Ubuntu/Debian:
+  ```
+`For Ubuntu/Debian:`
+
+```
 - name: Patch and update Ubuntu/Debian servers
   hosts: all
   become: true
@@ -1156,9 +1187,12 @@ For Ubuntu/Debian:
       reboot:
         msg: "Reboot initiated by Ansible for patching"
       when: ansible_facts['os_family'] == 'Debian'
-________________________________________
-Patch Management for Windows Servers
-Example Playbook: Patch Windows and Reboot
+  ```
+
+#### Patch Management for Windows Servers
+#### Example Playbook: Patch Windows and Reboot
+
+```
 - name: Patch and update Windows servers
   hosts: windows
   tasks:
@@ -1167,9 +1201,9 @@ Example Playbook: Patch Windows and Reboot
         category_names:
           - SecurityUpdates
         reboot: yes
-Inventory File for Windows:
-ini
-Copy code
+ ```
+#### Inventory File for Windows:
+```
 [windows]
 win1.example.com
 win2.example.com
@@ -1179,119 +1213,131 @@ ansible_user=Administrator
 ansible_password=yourpassword
 ansible_connection=winrm
 ansible_port=5986
-________________________________________
-Using Ansible with Scheduling Tools
-1.	Ansible Tower/AWX:
-o	Schedule patching jobs to run regularly (e.g., weekly or monthly).
-o	Use workflows to orchestrate patches across environments (dev, staging, production).
-2.	CI/CD Tools:
-o	Integrate Ansible with tools like Azure DevOps, Jenkins, or GitLab to trigger patching during deployment pipelines.
-________________________________________
-Logging and Reporting
-•	Enable Detailed Logs: Use Ansible's verbosity (-vvv) to get detailed logs during patching.
-•	Store Logs in Centralized Systems: Forward logs to a logging solution like ELK Stack or Azure Monitor for auditing and compliance.
-________________________________________
-Best Practices for Patch Management Using Ansible
-1.	Create Separate Inventories:
-o	Separate inventory groups for different environments (e.g., dev, prod).
-2.	Dry Runs:
-o	Use Ansible's --check mode to simulate patching before actual execution.
-3.	Exclude Critical Systems:
-o	Use --limit or tags to exclude sensitive systems from bulk updates.
-4.	Backup and Rollback:
-o	Ensure you have backups and a rollback plan before patching critical systems.
-5.	Reboot Management:
-o	Identify if a reboot is required post-patching using tools like needs-restarting.
-________________________________________
-Common Issues and Troubleshooting
-1.	Patching Fails on Certain Nodes:
-o	Check connectivity or authentication issues in the Ansible inventory file.
-2.	Reboots During Play Execution:
-o	Use Ansible meta: reset_connection to handle reboots gracefully.
-3.	Service Downtime:
-o	Add tasks to ensure critical services are restarted post-patch.
+```
 
+#### Using Ansible with Scheduling Tools
+**1.	Ansible Tower/AWX:**
+- Schedule patching jobs to run regularly (e.g., weekly or monthly).
+- Use workflows to orchestrate patches across environments (dev, staging, production).
 
+**2.	CI/CD Tools:**
+- Integrate Ansible with tools like Azure DevOps, Jenkins, or GitLab to trigger patching during deployment pipelines.
 
-Future soft India Pvt Ltd(PWC) L1 Q&A Fri 29 Nov 2024, 11:20AM-12:00PM
+#### Logging and Reporting
+- Enable Detailed Logs: Use Ansible's verbosity (-vvv) to get detailed logs during patching.
+- Store Logs in Centralized Systems: Forward logs to a logging solution like ELK Stack or Azure Monitor for auditing and compliance.
 
-1.	Could you explain what are the things you are working?
-2.	Do you have experience in Azure devops?
+#### Best Practices for Patch Management Using Ansible
+**1.	Create Separate Inventories:**
+- Separate inventory groups for different environments (e.g., dev, prod).
+
+**2.	Dry Runs:**
+- Use Ansible's --check mode to simulate patching before actual execution.
+
+**3.	Exclude Critical Systems:**
+- Use --limit or tags to exclude sensitive systems from bulk updates.
+
+**4.	Backup and Rollback:**
+- Ensure you have backups and a rollback plan before patching critical systems.
+
+**5.	Reboot Management:**
+- Identify if a reboot is required post-patching using tools like needs-restarting.
+
+#### Common Issues and Troubleshooting
+**1.	Patching Fails on Certain Nodes:**
+- Check connectivity or authentication issues in the Ansible inventory file.
+
+**2.	Reboots During Play Execution:**
+- Use Ansible meta: reset_connection to handle reboots gracefully.
+**3.	Service Downtime:**
+- Add tasks to ensure critical services are restarted post-patch.
+
+---
+
+## Future soft India Pvt Ltd(PWC) L1 Q&A Fri 29 Nov 2024, 11:20AM-12:00PM
+
+### 1.	Could you explain what are the things you are working?
+### 2.	Do you have experience in Azure devops?
 Ans: Yes, I have experience with Azure DevOps, a powerful platform for managing DevOps workflows, including continuous integration (CI), continuous delivery (CD), infrastructure as code (IaC), and project management. 
-________________________________________
-Azure DevOps Experience Overview
+
+#### Azure DevOps Experience Overview
 1. Core Services in Azure DevOps
-•	Azure Repos:
-o	Managing Git repositories for version control.
-o	Setting up branching strategies (e.g., GitFlow, trunk-based development).
-o	Code reviews with pull requests and branch policies.
-•	Azure Pipelines:
-o	Building CI/CD pipelines for various applications (e.g., .NET, Java, Python).
-o	Automating builds, tests, and deployments to environments (e.g., Azure, AWS, Kubernetes).
-o	Using YAML pipelines for IaC workflows.
-•	Azure Artifacts:
-o	Managing NuGet, Maven, npm, and Python package feeds.
-o	Storing and versioning build artifacts.
-•	Azure Boards:
-o	Managing work items (Epics, Features, User Stories, Tasks, Bugs).
-o	Customizing workflows to align with Agile, Scrum, or Kanban methodologies.
-•	Azure Test Plans:
-o	Implementing test management, automated testing, and manual exploratory testing.
-________________________________________
-2. Pipelines and Automation
-•	Creating and maintaining pipelines for:
-o	Microservices: Deploying containerized applications to AKS, EKS, or other Kubernetes clusters.
-o	Serverless Applications: Deploying to Azure Functions, AWS Lambda, or Google Cloud Functions.
-o	Infrastructure Automation: Using Terraform, ARM templates, or Bicep for IaC deployments.
-•	Integrating pipelines with third-party tools (e.g., Jenkins, Ansible, SonarQube).
-________________________________________
-3. Integration with Azure Services
-•	Deploying to Azure App Services, AKS, VMs, Logic Apps, and Azure SQL Database.
-•	Monitoring applications using Azure Monitor, Application Insights, and Log Analytics.
-•	Securing pipelines with Azure Key Vault for managing secrets and credentials.
-________________________________________
-4. Advanced Practices
-•	RBAC (Role-Based Access Control):
-o	Configuring security permissions for Azure DevOps projects.
-•	Service Connections:
-o	Setting up integrations with external services (e.g., AWS, Docker, Kubernetes).
-•	Templates and Reusability:
-o	Creating pipeline templates and task groups for consistency.
-________________________________________
-Common Use Cases I Can Help With
-1.	End-to-End CI/CD Setup:
-o	Automate build and release pipelines for web applications, mobile apps, or microservices.
-2.	Infrastructure Deployment:
-o	Provision and configure cloud resources with IaC tools like Terraform.
-3.	Monitoring and Feedback Loops:
-o	Integrate automated monitoring and alerting into pipelines.
-4.	Multi-Cloud Deployments:
-o	Deploy applications across Azure, AWS, and GCP using Azure Pipelines.
-5.	Customizing Workflows:
-o	Implement custom workflows in Azure Boards tailored to your team’s methodology.
-3.	In order to provision the infrastructure in Azure what are the steps you follow?
+#### Azure Repos:
+- Managing Git repositories for version control.
+- Setting up branching strategies (e.g., GitFlow, trunk-based development).
+- Code reviews with pull requests and branch policies.
+#### Azure Pipelines:
+- Building CI/CD pipelines for various applications (e.g., .NET, Java, Python).
+- Automating builds, tests, and deployments to environments (e.g., Azure, AWS, Kubernetes).
+- Using YAML pipelines for IaC workflows.
+#### Azure Artifacts:
+- Managing NuGet, Maven, npm, and Python package feeds.
+- Storing and versioning build artifacts.
+#### Azure Boards:
+- Managing work items (Epics, Features, User Stories, Tasks, Bugs).
+- Customizing workflows to align with Agile, Scrum, or Kanban methodologies.
+#### Azure Test Plans:
+- Implementing test management, automated testing, and manual exploratory testing.
+
+#### 2. Pipelines and Automation
+#### Creating and maintaining pipelines for:
+**Microservices:** Deploying containerized applications to AKS, EKS, or other Kubernetes clusters.
+
+**Serverless Applications:** Deploying to Azure Functions, AWS Lambda, or Google Cloud Functions.
+
+**Infrastructure Automation:** Using Terraform, ARM templates, or Bicep for IaC deployments.
+- Integrating pipelines with third-party tools (e.g., Jenkins, Ansible, SonarQube).
+
+#### 3. Integration with Azure Services
+- Deploying to Azure App Services, AKS, VMs, Logic Apps, and Azure SQL Database.
+- Monitoring applications using Azure Monitor, Application Insights, and Log Analytics.
+- Securing pipelines with Azure Key Vault for managing secrets and credentials.
+
+#### 4. Advanced Practices
+#### RBAC (Role-Based Access Control):
+- Configuring security permissions for Azure DevOps projects.
+#### Service Connections:
+- Setting up integrations with external services (e.g., AWS, Docker, Kubernetes).
+#### Templates and Reusability:
+- Creating pipeline templates and task groups for consistency.
+
+#### Common Use Cases I Can Help With
+#### 1.	End-to-End CI/CD Setup:
+- Automate build and release pipelines for web applications, mobile apps, or microservices.
+#### 2.	Infrastructure Deployment:
+- Provision and configure cloud resources with IaC tools like Terraform.
+#### 3.	Monitoring and Feedback Loops:
+- Integrate automated monitoring and alerting into pipelines.
+#### 4.	Multi-Cloud Deployments:
+- Deploy applications across Azure, AWS, and GCP using Azure Pipelines.
+#### 5.	Customizing Workflows:
+- Implement custom workflows in Azure Boards tailored to your team’s methodology.
+### 3.	In order to provision the infrastructure in Azure what are the steps you follow?
 Ans: Provisioning infrastructure in Azure using Terraform involves a series of steps to ensure a secure, efficient, and repeatable process. 
-________________________________________
-1. Prerequisites
-•	Install Terraform:
-o	Download and install Terraform from the official website.
-•	Azure CLI:
-o	Install the Azure CLI and log in:
-az login
-•	Azure Subscription:
-o	Ensure you have access to an Azure subscription with appropriate permissions (Contributor or Owner).
-________________________________________
-2. Create a Terraform Configuration
-•	Define your infrastructure as code using Terraform configuration files (.tf files).
-Example Directory Structure:
+
+#### 1. Prerequisites
+#### Install Terraform:
+- Download and install Terraform from the official website.
+#### Azure CLI:
+- Install the Azure CLI and log in:
+- az login
+#### Azure Subscription:
+- Ensure you have access to an Azure subscription with appropriate permissions (Contributor or Owner).
+
+#### 2. Create a Terraform Configuration
+- Define your infrastructure as code using Terraform configuration files (.tf files).
+#### Example Directory Structure:
+```
 terraform/
 ├── main.tf          # Core infrastructure resources
 ├── variables.tf     # Input variables
 ├── outputs.tf       # Outputs for use post-deployment
 ├── providers.tf     # Azure provider configuration
-________________________________________
-3. Configure the Azure Provider
-Create a providers.tf file to authenticate Terraform with Azure.
+```
+
+#### 3. Configure the Azure Provider
+- Create a providers.tf file to authenticate Terraform with Azure.
+```hcl
 provider "azurerm" {
   features {}
 }
@@ -1304,10 +1350,13 @@ terraform {
     }
   }
 }
-________________________________________
-4. Define Infrastructure Resources
-In the main.tf file, define the Azure resources you want to provision.
-Example: Provision a Resource Group and Virtual Network
+```
+
+#### 4. Define Infrastructure Resources
+- In the main.tf file, define the Azure resources you want to provision.
+
+`Example:` Provision a Resource Group and Virtual Network
+```hcl
 resource "azurerm_resource_group" "example" {
   name     = "example-resource-group"
   location = "East US"
@@ -1319,9 +1368,11 @@ resource "azurerm_virtual_network" "example" {
   resource_group_name = azurerm_resource_group.example.name
   address_space       = ["10.0.0.0/16"]
 }
-________________________________________
-5. Use Variables for Dynamic Configuration
-In the variables.tf file, define input variables to make the configuration reusable.
+```
+
+#### 5. Use Variables for Dynamic Configuration
+- In the variables.tf file, define input variables to make the configuration reusable.
+```
 variable "location" {
   default = "East US"
 }
@@ -1334,39 +1385,54 @@ resource "azurerm_resource_group" "example" {
   name     = var.resource_group_name
   location = var.location
 }
-________________________________________
-6. Outputs for Useful Information
-In the outputs.tf file, define outputs to provide useful information after deployment.
+```
+
+#### 6. Outputs for Useful Information
+- In the outputs.tf file, define outputs to provide useful information after deployment.
+```hcl
 output "resource_group_name" {
   value = azurerm_resource_group.example.name
 }
-________________________________________
-7. Initialize Terraform
-Initialize Terraform to download the required providers.
+```
+
+### 7. Initialize Terraform
+- Initialize Terraform to download the required providers.
+```
 terraform init
-________________________________________
-8. Plan the Infrastructure
-Generate an execution plan to review what Terraform will create, update, or destroy.
+```
+
+#### 8. Plan the Infrastructure
+- Generate an execution plan to review what Terraform will create, update, or destroy.
+```hcl
 terraform plan
-________________________________________
-9. Apply the Configuration
-Deploy the infrastructure using the apply command. Terraform will prompt for confirmation.
+```
+
+#### 9. Apply the Configuration
+- Deploy the infrastructure using the apply command. Terraform will prompt for confirmation.
+```
 terraform apply
-If you want to automate this step without manual confirmation:
+```
+- If you want to automate this step without manual confirmation:
+```hcl
 terraform apply -auto-approve
-________________________________________
-10. Verify the Infrastructure
-•	Verify the resources are created in the Azure Portal or using the Azure CLI:
+```
+#### 10. Verify the Infrastructure
+- Verify the resources are created in the Azure Portal or using the Azure CLI:
+```
 az resource list --resource-group example-resource-group
-________________________________________
-11. Destroy the Infrastructure (Optional)
-To clean up resources, use the destroy command.
+```
+
+#### 11. Destroy the Infrastructure (Optional)
+- To clean up resources, use the destroy command.
+```hcl
 terraform destroy
-________________________________________
-Best Practices
-1.	State Management:
-o	Use remote state storage with Azure Storage for collaboration.
-o	Configure backend in providers.tf:
+```
+
+#### Best Practices
+#### 1.	State Management:
+- Use remote state storage with Azure Storage for collaboration.
+- Configure backend in providers.tf:
+```hcl
 terraform {
   backend "azurerm" {
     resource_group_name  = "terraform-state"
@@ -1375,30 +1441,43 @@ terraform {
     key                  = "terraform.tfstate"
   }
 }
-2.	Version Control:
-o	Store Terraform files in a Git repository for version control.
-3.	Modules:
-o	Use Terraform modules to encapsulate reusable components.
-4.	Secrets Management:
-o	Store sensitive data like Azure credentials in Azure Key Vault or environment variables.
-________________________________________
-Sample Terraform Workflow
-1.	Clone the Terraform repository:
+```
+#### 2.	Version Control:
+- Store Terraform files in a Git repository for version control.
+#### 3.	Modules:
+- Use Terraform modules to encapsulate reusable components.
+#### 4.	Secrets Management:
+- Store sensitive data like Azure credentials in Azure Key Vault or environment variables.
+
+#### Sample Terraform Workflow
+#### 1.	Clone the Terraform repository:
+```
 git clone https://github.com/your-repo/terraform-config.git
 cd terraform-config
-2.	Initialize Terraform:
+```
+#### 2.	Initialize Terraform:
+```
 terraform init
-3.	Customize variables in a terraform.tfvars file:
+```
+#### 3.	Customize variables in a terraform.tfvars file:
+```
 location = "West US"
 resource_group_name = "custom-resource-group"
-4.	Plan and apply the configuration:
+```
+#### 4.	Plan and apply the configuration:
+``` 
 terraform plan
 terraform apply
-5.	Verify and use outputs:
-terraform output
+```
 
-4.	How to establish the connection from terraform to Azure?
-Ans: To establish a connection from Terraform to Azure, you need to authenticate Terraform with your Azure account or service principal. Here’s a detailed guide to set this up:
+#### 5.	Verify and use outputs:
+```
+terraform output
+```
+### 4.	How to establish the connection from terraform to Azure?
+Ans: To establish a connection from Terraform to Azure, you need to authenticate Terraform with your Azure account or service principal. 
+
+Here’s a detailed guide to set this up:
 ________________________________________
 1. Azure Provider Configuration
 The Terraform AzureRM provider requires authentication details to interact with Azure resources. The following methods are supported for authentication:
