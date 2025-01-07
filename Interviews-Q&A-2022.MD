@@ -4111,9 +4111,9 @@ Ans: JIRA
 
 ## Wipro interview L1 Q&A (02-03-2022)
 
-1.	What is your skill set?
-	Ans: DevOps engineers possess a diverse set of skills that bridge the gap between software development and IT operations. This role involves collaboration between development, operations, and other stakeholders to enhance the efficiency, reliability, and speed of software delivery. Here are key skills typically associated with a DevOps engineer:
-  			  1. Infrastructure as Code (IaC):
+### 1.	What is your skill set?
+Ans: DevOps engineers possess a diverse set of skills that bridge the gap between software development and IT operations. This role involves collaboration between development, operations, and other stakeholders to enhance the efficiency, reliability, and speed of software delivery. Here are key skills typically associated with a DevOps engineer:
+    1. Infrastructure as Code (IaC):
    - Proficiency in tools like Terraform, Ansible, or CloudFormation to automate infrastructure provisioning and configuration.
     2. Configuration Management:
    - Experience with configuration management tools such as Puppet, Chef, or Ansible to manage and maintain server configurations.
