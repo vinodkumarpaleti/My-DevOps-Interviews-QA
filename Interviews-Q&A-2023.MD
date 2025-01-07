@@ -1,17 +1,19 @@
-My DevOps Engineer Interviews Q&A-2023
+# My DevOps Engineer Interviews Q&A-2023
 
-Total interview rounds given: 4
-Cleared interview rounds: 0
-No. of pages reviewed: 0
+## Total interview rounds given: 4
+## Cleared interview rounds: 0
+## No. of pages reviewed: 0
 
-BirlaSoft L1 Q&A Tue 12 Dec 2023 11:30am – 12pm (IST)
-1.	How to build the project from Gradle?
-Building a project in Gradle involves using the gradle command and specifying the desired tasks. Gradle tasks are defined in the build.gradle file in your project directory. Here are the basic steps to build a project using Gradle:
-Navigate to Project Directory:
+## BirlaSoft L1 Q&A Tue 12 Dec 2023 11:30am – 12pm (IST)
+### 1.	How to build the project from Gradle?
+Ans: Building a project in Gradle involves using the gradle command and specifying the desired tasks. Gradle tasks are defined in the build.gradle file in your project directory. Here are the basic steps to build a project using Gradle:
+
+- `Navigate to Project Directory:`
 Open a terminal or command prompt and navigate to the directory where your Gradle project is located.
 Create a Build Script:
 Ensure that your project has a build.gradle file. This file defines the project's configuration and tasks.
 Example build.gradle:
+```groovy
 plugins {
     id 'java'
 }
@@ -22,63 +24,103 @@ repositories {
 dependencies {
     implementation 'com.google.guava:guava:30.1-jre'
 }
-In this example, a simple Java project is configured with the Guava library.
-Run Gradle Build:
-Execute the gradle build command to build the project. This command triggers the build process and executes tasks specified in the build script.
+```
+) In this example, a simple Java project is configured with the Guava library.
+
+**Run Gradle Build:**
+
+- Execute the gradle build command to build the project. This command triggers the build process and executes tasks specified in the build script.
+```
 gradle build
-This command will download dependencies, compile source code, run tests, and create artifacts such as JAR files.
-View Build Output:
-Gradle will generate build outputs in the build directory of your project. Common artifacts include JAR files, test reports, and other build-related files.
-Customize Tasks:
-You can customize the build process by adding or modifying tasks in the build.gradle file. Gradle provides a flexible and powerful DSL for defining tasks and configuring various aspects of the build.
-Example task customization:
+```
+- This command will download dependencies, compile source code, run tests, and create artifacts such as JAR files.
+
+`View Build Output:`
+
+- Gradle will generate build outputs in the build directory of your project. 
+- Common artifacts include JAR files, test reports, and other build-related files.
+
+**Customize Tasks:**
+
+* You can customize the build process by adding or modifying tasks in the build.gradle file. Gradle provides a flexible and powerful DSL for defining tasks and configuring various aspects of the build.
+- Example task customization:
+```
 task myCustomTask {
     doLast {
         println 'Executing my custom task'
     }
 }
-Run your custom task with:
+```
+- Run your custom task with:
+```
 gradle myCustomTask
-Other Common Commands:
-gradle clean: Cleans the build directory.
-gradle test: Runs tests.
-gradle tasks: Displays a list of available tasks.
-Remember that you can use Gradle Wrapper (gradlew or gradlew.bat on Windows) instead of the globally installed Gradle. The wrapper ensures that the correct version of Gradle is used for your project, which can be particularly useful in collaborative environments.
-./gradlew build  # On Unix/Linux
-gradlew.bat build  # On Windows
-These are basic steps to build a project using Gradle. Gradle offers extensive capabilities for building, testing, and managing dependencies, making it suitable for a wide range of projects.
-2. How to copy the file from one Linux machine to another machine?
+```
+**Other Common Commands:**
+
+`gradle clean:` Cleans the build directory.
+
+`gradle test:` Runs tests.
+
+`gradle tasks:` Displays a list of available tasks.
+
+* Remember that you can use Gradle Wrapper (gradlew or gradlew.bat on Windows) instead of the globally installed Gradle. 
+* The wrapper ensures that the correct version of Gradle is used for your project, which can be particularly useful in collaborative environments.
+
+**./gradlew build**  # On Unix/Linux
+
+**gradlew.bat build** # On Windows
+* These are basic steps to build a project using Gradle. Gradle offers extensive capabilities for building, testing, and managing dependencies, making it suitable for a wide range of projects.
+### 2. How to copy the file from one Linux machine to another machine?
 Ans: There are several ways to transfer files from one Linux machine to another. Here are some common methods:
-SCP (Secure Copy):
+### SCP (Secure Copy):
+```
 Syntax: scp [options] source destination
-Example: scp file.txt user@remote_machine:/path/to/destination/
-This command uses SSH to securely copy files between machines.
-SFTP (Secure File Transfer Protocol):
-You can use an interactive SFTP session or use the sftp command.
-Example: sftp user@remote_machine
-Once connected, use put to upload files and get to download them.
-Rsync:
-Rsync is a powerful and versatile file synchronization tool.
+```
+- `Example:` 
+```
+scp file.txt user@remote_machine:/path/to/destination/
+```
+* This command uses SSH to securely copy files between machines.
+#### SFTP (Secure File Transfer Protocol):
+* You can use an interactive SFTP session or use the sftp command.
+Example: 
+
+```
+sftp user@remote_machine
+```
+* Once connected, use put to upload files and get to download them.
+#### Rsync:
+- Rsync is a powerful and versatile file synchronization tool.
+```
 Syntax: rsync [options] source destination
-Example: rsync -avz /path/to/source/ user@remote_machine:/path/to/destination/
-Rsync only transfers the differences between the source and destination, making it efficient for large files and directories.
-FTP (File Transfer Protocol):
-If you have an FTP server set up on the remote machine, you can use an FTP client like ftp or lftp.
-Example (using lftp): lftp -u user,password -e "put file.txt; quit" ftp://remote_machine
-Netcat (nc):
-You can use nc to transfer files over the network.
-On the receiving machine, run: nc -l -p 1234 > received_file
-On the sending machine, run: nc remote_machine_ip 1234 < local_file
-This method lacks encryption, so it's better suited for trusted networks.
-Choose the method that best suits your needs and the security requirements of your network. Keep in mind that for secure transfers over untrusted networks, SCP and SFTP are generally recommended due to their use of SSH for encryption.
-3. Suppose 10.0.0.0/16 how many ips are available?
+```
+`Example:` 
+```
+rsync -avz /path/to/source/ user@remote_machine:/path/to/destination/
+```
+- Rsync only transfers the differences between the source and destination, making it efficient for large files and directories.
+#### FTP (File Transfer Protocol):
+- If you have an FTP server set up on the remote machine, you can use an FTP client like ftp or lftp.
+
+`Example (using lftp):` 
+```
+lftp -u user,password -e "put file.txt; quit" ftp://remote_machine
+```
+#### Netcat (nc):
+- You can use nc to transfer files over the network.
+- On the receiving machine, run: nc -l -p 1234 > received_file
+- On the sending machine, run: nc remote_machine_ip 1234 < local_file
+- This method lacks encryption, so it's better suited for trusted networks.
+- Choose the method that best suits your needs and the security requirements of your network. Keep in mind that for secure transfers over untrusted networks, SCP and SFTP are generally recommended due to their use of SSH for encryption.
+#### 3. Suppose 10.0.0.0/16 how many ips are available?
 Ans: 65,536
-4. What is terraform life cycle?
-In Terraform, the lifecycle configuration determines when and how certain actions are performed during the execution of Terraform commands. The lifecycle block can be used within a resource block to customize its behavior. The most common settings in the lifecycle block include:
-Create Before Destroy:
-create_before_destroy is a boolean parameter that, when set to true, creates a new resource before destroying the old one during an update. This can be useful for minimizing downtime when updating certain resources.
+#### 4. What is terraform life cycle?
+* In Terraform, the lifecycle configuration determines when and how certain actions are performed during the execution of Terraform commands. The lifecycle block can be used within a resource block to customize its behavior. The most common settings in the lifecycle block include:
+#### Create Before Destroy:
+* create_before_destroy is a boolean parameter that, when set to true, creates a new resource before destroying the old one during an update. This can be useful for minimizing downtime when updating certain resources.
+```hcl
 resource "aws_instance" "example" {
-  # ... other resource configurations ...
+  <!---other resource configurations --->
 
   lifecycle {
     create_before_destroy = true
@@ -115,12 +157,15 @@ resource "aws_instance" "example" {
     create_timeout = "10m"
  }
 }
-These are some of the commonly used configurations in the lifecycle block. You can use these settings to control the behavior of Terraform resources during the planning and execution phases. Customize the lifecycle settings based on your specific requirements and constraints.
-5. What is k8s architecture?
+```
+* These are some of the commonly used configurations in the lifecycle block. 
+* You can use these settings to control the behavior of Terraform resources during the planning and execution phases. 
+* Customize the lifecycle settings based on your specific requirements and constraints.
+### 5. What is k8s architecture?
 
-6. What is node port, cluster Ip?
+### 6. What is node port, cluster Ip?
 Ans: In the context of Kubernetes, `NodePort` and `ClusterIP` are types of services used to expose applications running in the cluster to the external world or to other components within the cluster. These services define how the applications can be accessed and what type of network configuration is used.
-1. NodePort:
+#### 1. NodePort:
    - `NodePort` is a service type in Kubernetes that exposes a service on each node's IP address at a static port. This means that the service is accessible externally at `<NodeIP>:<NodePort>`.
    Example Service Definition with NodePort:
    ```yaml
@@ -136,10 +181,10 @@ Ans: In the context of Kubernetes, `NodePort` and `ClusterIP` are types of servi
      selector:
        app: my-app
    ```
-   In this example, the service named `my-service` is exposed on each node's IP address at a static port (NodePort), and traffic to that port is directed to the pods matching the label `app: my-app`.
-   Accessing the service externally: `<NodeIP>:<NodePort>`.
-   Keep in mind that using `NodePort` may expose your service externally, but it might not be suitable for production environments due to security concerns.
-2. ClusterIP:
+   * In this example, the service named `my-service` is exposed on each node's IP address at a static port (NodePort), and traffic to that port is directed to the pods matching the label `app: my-app`.
+   * Accessing the service externally: `<NodeIP>:<NodePort>`.
+   * Keep in mind that using `NodePort` may expose your service externally, but it might not be suitable for production environments due to security concerns.
+#### 2. ClusterIP:
    - `ClusterIP` is the default service type in Kubernetes. It exposes a service on a cluster-internal IP address. This type of service is accessible only from within the cluster.
    Example Service Definition with ClusterIP:
    ```yaml
@@ -155,28 +200,30 @@ Ans: In the context of Kubernetes, `NodePort` and `ClusterIP` are types of servi
      selector:
        app: my-app
    ```
-   In this example, the service named `my-service` is assigned an internal ClusterIP, and it routes traffic to the pods matching the label `app: my-app`. This service is accessible only from within the cluster.
-   Accessing the service internally: `<ClusterIP>:<Port>`.
-These service types are fundamental to exposing and accessing applications in Kubernetes, and the choice between `NodePort` and `ClusterIP` depends on whether you need external access or if the service is intended for internal communication within the cluster. In many cases, especially in production environments, additional tools like an Ingress controller or LoadBalancer service may be used for more sophisticated routing and external access scenarios.
-7. What are the Jenkins pipeline steps?
+   * In this example, the service named `my-service` is assigned an internal ClusterIP, and it routes traffic to the pods matching the label `app: my-app`. This service is accessible only from within the cluster.
+   * Accessing the service internally: `<ClusterIP>:<Port>`.
+* These service types are fundamental to exposing and accessing applications in Kubernetes, and the choice between `NodePort` and `ClusterIP` depends on whether you need external access or if the service is intended for internal communication within the cluster. In many cases, especially in production environments, additional tools like an Ingress controller or LoadBalancer service may be used for more sophisticated routing and external access scenarios.
+### 7. What are the Jenkins pipeline steps?
 Ans: In Jenkins, a Pipeline is a series of automated steps that allow you to define a continuous delivery (CD) or continuous integration (CI) process. Each step in a Jenkins Pipeline represents a single task or a group of related tasks that contribute to the overall build, test, and deployment process. The steps in a Jenkins Pipeline are defined using a domain-specific language called Declarative Pipeline DSL or Scripted Pipeline DSL.
 Here are common steps used in Jenkins Pipeline:
-Declarative Pipeline Steps:
-1. pipeline:
+
+**Declarative Pipeline Steps:**
+
+**1. pipeline:**
    - Defines the entire Jenkins Pipeline.
    ```groovy
    pipeline {
        // Pipeline stages and steps go here
    }
    ```
-2. agent:
+**2. agent:**
    - Specifies where the pipeline will be executed (on which node).
    ```groovy
    pipeline {
        agent any
    }
    ```
-3. stages:
+**3. stages:**
    - Defines a block for grouping stages in the pipeline.
    ```groovy
    pipeline {
@@ -185,7 +232,7 @@ Declarative Pipeline Steps:
        }
    }
    ```
-4. stage:
+**4. stage:**
    - Defines an individual stage within the pipeline.
    ```groovy
    pipeline {
@@ -196,7 +243,7 @@ Declarative Pipeline Steps:
        }
    }
    ```
-5. steps:
+**5. steps:**
    - Specifies the steps to be executed within a stage.
    ```groovy
    pipeline {
@@ -209,7 +256,7 @@ Declarative Pipeline Steps:
        }
    }
    ```
-6. script:
+**6. script:**
    - Allows execution of arbitrary Pipeline script code.
    ```groovy
    pipeline {
@@ -224,7 +271,7 @@ Declarative Pipeline Steps:
        }
    }
    ```
-7. input:
+**7. input:**
    - Pauses the pipeline and allows human intervention.
    ```groovy
    pipeline {
@@ -237,7 +284,7 @@ Declarative Pipeline Steps:
        }
    }
    ```
-8. post:
+**8. post:**
    - Defines actions to be taken after the pipeline completes.
    ```groovy
    pipeline {
@@ -251,8 +298,8 @@ Declarative Pipeline Steps:
        }
    }
    ```
-Scripted Pipeline Steps:
-Scripted Pipeline uses a more imperative scripting syntax, and the steps are defined directly in the script. Here's an example:
+#### Scripted Pipeline Steps:
+- Scripted Pipeline uses a more imperative scripting syntax, and the steps are defined directly in the script. Here's an example:
 ```groovy
 node {
     stage('Build') {
@@ -266,11 +313,12 @@ node {
     }
 }
 ```
-In this example, each `stage` block represents a stage in the pipeline, and the `node` block specifies where the pipeline should be executed.
-These are just a few examples, and Jenkins Pipeline provides a wide range of built-in steps and plugins to perform various tasks in the CI/CD process. The choice of steps depends on the specific requirements of your build and deployment process.
-8. What are the branching strategies have you used?
+- In this example, each `stage` block represents a stage in the pipeline, and the `node` block specifies where the pipeline should be executed.
+- These are just a few examples, and Jenkins Pipeline provides a wide range of built-in steps and plugins to perform various tasks in the CI/CD process. The choice of steps depends on the specific requirements of your build and deployment process.
+#### 8. What are the branching strategies have you used?
 Ans: Already available
-9. Write the shell script for adding two numbers?
+#### 9. Write the shell script for adding two numbers?
+```
 #!/bin/bash
 # Prompt user for input
 echo "Enter the first number: "
@@ -281,9 +329,12 @@ read num2
 sum=$((num1 + num2))
 # Display the result
 echo "The sum of $num1 and $num2 is: $sum"
-10. What are the manifest files have you used?
-Ans: In the context of Kubernetes, manifest files are YAML or JSON files that describe the desired state of the resources in a Kubernetes cluster. These files are used to define and configure Kubernetes objects such as Deployments, Services, Pods, ConfigMaps, and more. Here are some common manifest files used in Kubernetes:
-1. Deployment:
+```
+### 10. What are the manifest files have you used?
+Ans: In the context of Kubernetes, manifest files are YAML or JSON files that describe the desired state of the resources in a Kubernetes cluster. 
+
+These files are used to define and configure Kubernetes objects such as Deployments, Services, Pods, ConfigMaps, and more. Here are some common manifest files used in Kubernetes:
+#### 1. Deployment:
    - A Deployment represents a declarative update to applications, allowing you to describe the desired state for a set of replica Pods.
    Example `deployment.yaml`:
    ```yaml
@@ -305,7 +356,7 @@ Ans: In the context of Kubernetes, manifest files are YAML or JSON files that de
          - name: my-container
            image: my-app-image:latest
    ```
-2. Service:
+#### 2. Service:
    - A Service defines a set of Pods and a policy for accessing them. It provides an abstraction for network connectivity to a set of Pods.
    Example `service.yaml`:
    ```yaml
@@ -321,7 +372,7 @@ Ans: In the context of Kubernetes, manifest files are YAML or JSON files that de
        port: 80
        targetPort: 8080
    ```
-3. ConfigMap:
+#### 3. ConfigMap:
    - A ConfigMap is used to inject configuration data into applications. It can be used to store key-value pairs, configuration files, or environment variables.
    Example `configmap.yaml`:
    ```yaml
@@ -333,7 +384,7 @@ Ans: In the context of Kubernetes, manifest files are YAML or JSON files that de
      APP_ENV: production
      DATABASE_URL: "jdbc:mysql://db-server:3306/mydb"
    ```
-4. Secret:
+#### 4. Secret:
    - A Secret is similar to a ConfigMap but is specifically designed to store sensitive information such as passwords or API keys.
    Example `secret.yaml`:
    ```yaml
@@ -346,7 +397,7 @@ Ans: In the context of Kubernetes, manifest files are YAML or JSON files that de
      username: base64-encoded-username
      password: base64-encoded-password
    ```
-5. PersistentVolume (PV) and PersistentVolumeClaim (PVC):
+#### 5. PersistentVolume (PV) and PersistentVolumeClaim (PVC):
    - PV and PVC are used for defining persistent storage in Kubernetes. PV represents a physical storage resource, and PVC is a request for that storage by a user or application.
    Example `persistentvolume.yaml`:
    ```yaml
@@ -375,8 +426,9 @@ Ans: In the context of Kubernetes, manifest files are YAML or JSON files that de
        requests:
          storage: 1Gi
    ```
-These are just a few examples, and there are many other types of Kubernetes manifest files, each serving a specific purpose in defining and configuring resources within the cluster. The actual manifest files used depend on the requirements of the applications and services being deployed.
-11. Write the terraform file to provision the VPC?
+* These are just a few examples, and there are many other types of Kubernetes manifest files, each serving a specific purpose in defining and configuring resources within the cluster. 
+* The actual manifest files used depend on the requirements of the applications and services being deployed.
+#### 11. Write the terraform file to provision the VPC?
 Ans: To provision a Virtual Private Cloud (VPC) using Terraform, you can use the following example. This Terraform configuration creates a simple VPC with a specified CIDR block, subnets, route tables, and an internet gateway for public internet access.
 Save the following code in a file with a `.tf` extension (e.g., `main.tf`), and then run `terraform init` and `terraform apply` to apply the configuration.
 ```hcl
@@ -448,17 +500,17 @@ output "vpc_id" {
   value = aws_vpc.my_vpc.id
 }
 ```
-This Terraform configuration:
+#### This Terraform configuration:
 - Creates a VPC with a CIDR block of `10.0.0.0/16`.
 - Creates a public subnet with CIDR block `10.0.1.0/24` and associates it with a route table that has a route to the internet via an internet gateway.
 - Creates a private subnet with CIDR block `10.0.2.0/24`.
 - Creates an internet gateway and associates it with the VPC.
 - Associates the public subnet with the public route table.
 - Outputs the VPC ID.
-Make sure to customize the region, availability zones, CIDR blocks, and other parameters according to your requirements. Always follow best practices and security considerations when designing your VPC.
+* Make sure to customize the region, availability zones, CIDR blocks, and other parameters according to your requirements. Always follow best practices and security considerations when designing your VPC.
+---
 
-
-Wipro L1 Q&A (07 Dec 2023)
+## Wipro L1 Q&A (07 Dec 2023)
 1.	What is Linux boot process?
 Ans: The Linux boot process is a sequence of steps that the operating system follows to initialize the system and prepare it for user interaction. Here is an overview of the typical Linux boot process:
 1. BIOS/UEFI:
