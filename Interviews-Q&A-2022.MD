@@ -956,7 +956,8 @@ o	lookup retrieves a value from a map given its key.
 o	element retrieves a single element from a list.
 ### 23.	Difference between for each and count in terraform?
 Ans: In Terraform, both `for_each` and `count` are used to create multiple instances of a resource or module, but they operate in different ways and have distinct use cases. Here's a breakdown of the differences between `for_each` and `count`:
-`count`:
+#### count:
+
 1. Use Case:
    - `count` is used when you want to create a fixed number of identical resource instances based on an integer value.
 2. Syntax:
@@ -972,7 +973,9 @@ Ans: In Terraform, both `for_each` and `count` are used to create multiple insta
    - The instances created with `count` are accessed using their indices (e.g., `aws_instance.example[0]`, `aws_instance.example[1]`, etc.).
 4. Dynamic Block:
    - `count` can be used within dynamic blocks for more advanced use cases.
-`for_each`:
+
+**for_each**
+
 1. Use Case:
    - `for_each` is used when you want to create instances based on a set of unique keys (strings or other objects) rather than a numeric index.
 2. Syntax:
@@ -991,11 +994,11 @@ Ans: In Terraform, both `for_each` and `count` are used to create multiple insta
    - Instances created with `for_each` are accessed using their unique keys (e.g., `aws_instance.example["instance1"]`, `aws_instance.example["instance2"]`, etc.).
 4. Dynamic Block:
    - `for_each` can also be used within dynamic blocks.
- Key Considerations:
+ **Key Considerations:**
 - Use `count` when the number of instances is known and fixed, and they are mostly identical.
 - Use `for_each` when the instances are uniquely identified by keys, and you want to dynamically manage the set of instances.
 - `for_each` is generally more flexible and expressive, allowing you to work with non-numeric keys.
-Example Use Cases:
+**Example Use Cases:**
 - Count Example:
   - Creating a fixed number of identical web servers: `count = 3`
 - For_each Example:
@@ -4212,25 +4215,25 @@ Ans: Already available
 ### 4.	If I want to apply a policy on master branch, a developer can’t do direct commit to the master branch via pull request only we can commit how to enable this kind of configuration?
 Ans: In GitLab, you can enforce policies on the master branch to prevent direct commits and require changes to be made through merge requests (MRs). This is often done to ensure code review and collaboration on the main branch. Here's how you can configure this in GitLab:
 #### 1. Protected Branch:
- - You can protect the master branch to enforce certain policies. Protected branches can't be force-pushed or deleted, and changes must go through MRs. To protect the master branch:
- - 1. Go to your project in GitLab.
- - 2. Navigate to **"Settings" > "Repository" > "Branches."**
- - 3. Find the master branch and click on the "Protect" button
- #### 2. Push Rules:
- - GitLab allows you to define push rules, which are applied to all pushes to the repository. You can use push rules to enforce additional restrictions, such as preventing direct pushes to specific branches. To configure push rules:
- - 1. Go to your project in GitLab.
- - 2. Navigate to "Settings" > "Repository" > "Push Rules."
- - 3. Under "Branch Name," set a rule to prevent developers from pushing directly     to the master branch.
+- You can protect the master branch to enforce certain policies. Protected branches can't be force-pushed or deleted, and changes must go through MRs. To protect the master branch:
+     1. Go to your project in GitLab.
+     2. Navigate to **"Settings" > "Repository" > "Branches."**
+     3. Find the master branch and click on the "Protect" button
+#### 2. Push Rules:
+- GitLab allows you to define push rules, which are applied to all pushes to the repository. You can use push rules to enforce additional restrictions, such as preventing direct pushes to specific branches. To configure push rules:
+    1. Go to your project in GitLab.
+    2. Navigate to "Settings" > "Repository" > "Push Rules."
+    3. Under "Branch Name," set a rule to prevent developers from pushing directly     to the master branch.
 #### 3. Merge Request Approval:
-   - You can configure MR approvals to require a certain number of approvals before changes can be merged into the master branch.
-   - 1. Go to your project in GitLab.
-   - 2. Navigate to "Settings" > "General" > "Merge Request."
-   - 3. Under "Merge request (MR) approvals," configure the "Approvals required" settings.
+- You can configure MR approvals to require a certain number of approvals before changes can be merged into the master branch.
+    1. Go to your project in GitLab.
+    2. Navigate to "Settings" > "General" > "Merge Request."
+    3. Under "Merge request (MR) approvals," configure the "Approvals required" settings.
 #### 4. Code Owners:
-   - GitLab has a feature called "Code Owners" that allows you to define individuals or groups responsible for code in specific areas of the repository. This can be used to ensure that certain people or teams review changes to the master branch.
-   - 1. Go to your project in GitLab.
-   - 2. Navigate to "Settings" > "General" > "Merge Request."
-   - 3. Under "Code Owners," configure the rules for code ownership.
+- GitLab has a feature called "Code Owners" that allows you to define individuals or groups responsible for code in specific areas of the repository. This can be used to ensure that certain people or teams review changes to the master branch.
+     1. Go to your project in GitLab.
+     2. Navigate to "Settings" > "General" > "Merge Request."
+     3. Under "Code Owners," configure the rules for code ownership.
 #### 5. Pipeline Checks:
    - You can configure your CI/CD pipeline to run specific checks before allowing an MR to be merged. For example, you can require that all tests pass before merging.
 #### 6. Webhooks and Services:
