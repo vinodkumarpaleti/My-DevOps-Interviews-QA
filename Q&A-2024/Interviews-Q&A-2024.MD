@@ -1,8 +1,11 @@
 # My DevOps Engineer Interviews Q&A-2024
+---
 
 ## Total Interview rounds Given: 47
 ## Cleared interview rounds: 12
 ## No.of pages reviewed: 0
+
+---
 		
 ## Royal Cyber.Inc L2 Q&A Thu Dec 26, 2024 7:30pm – 8pm (IST)
 
@@ -2692,17 +2695,20 @@ For example, use the private DNS name mydbserver.privatelink.database.windows.ne
 - By using Azure Private Endpoints with Private Link, you can ensure that all connections to your Azure Database are routed through a private IP within your Azure Virtual Network. 
 - This setup improves security, performance, and compliance by preventing public internet traffic and providing secure access to your database.
 
-```
+---
  				
 ## CognitivZenTechnologies(Clovertex) L2 Q&A Tue 14  Nov 2024 ,05:00Pm – 05:45pm
 
 ### 1.	What are the services have you used in AWS?
 Ans: Already available
-2.	Write a shellscript to find a specific string and print the string?
-Ans: Here's a shell script to find a specific string within a file and print the matching lines containing that string. This script uses grep, a common tool for pattern matching in Unix/Linux environments.
-Shell Script: find_string.sh
-bash
-Copy code
+### 2.	Write a shellscript to find a specific string and print the string?
+Ans: Here's a shell script to find a specific string within a file and print the matching lines containing that string. 
+- This script uses grep, a common tool for pattern matching in Unix/Linux environments.
+
+`Shell Script: find_string.sh`
+
+```bash
+
 #!/bin/bash
 
 # Check if the correct number of arguments is provided
@@ -2730,165 +2736,201 @@ if [ $? -ne 0 ]; then
 else
     echo "Search completed."
 fi
-Explanation
-1.	Arguments: The script accepts two arguments:
-o	$1: The filename in which to search.
-o	$2: The string to search for.
-2.	File Existence Check: It verifies that the file exists. If not, it exits with an error message.
-3.	Grep Command: It uses the grep command with the -n option to show the line numbers where the string appears.
-4.	Error Handling: If grep does not find the string, it notifies the user. Otherwise, it prints each matching line.
-Usage Example
-bash
-Copy code
+```
+
+`Explanation`
+
+**1. Arguments:** The script accepts two arguments:
+- $1: The filename in which to search.
+- $2: The string to search for.
+
+**2. File Existence Check:** It verifies that the file exists. If not, it exits with an error message.
+
+**3. Grep Command:** It uses the grep command with the -n option to show the line numbers where the string appears.
+
+**4.Error Handling:** If grep does not find the string, it notifies the user. Otherwise, it prints each matching line.
+
+```bash
 ./find_string.sh sample.txt "search_term"
-This command will output all lines in sample.txt that contain search_term, along with line numbers.
-3.	How to get the images from ECR?
+```
+- This command will output all lines in sample.txt that contain search_term, along with line numbers.
+### 3.	How to get the images from ECR?
 Ans: To retrieve images from Amazon Elastic Container Registry (ECR), you can follow these steps:
 Prerequisites
-1.	AWS CLI: Make sure you have the AWS CLI installed and configured with appropriate permissions.
-2.	Docker: Docker must be installed to pull images from ECR.
-Steps to Pull an Image from ECR
-1.	Authenticate Docker to ECR:
-o	Use the AWS CLI to authenticate Docker with the ECR registry. This command logs Docker in to your specified ECR registry by providing it a temporary authentication token.
-bash
-Copy code
-aws ecr get-login-password --region <your-region> | docker login --username AWS --password-stdin <aws_account_id>.dkr.ecr.<your-region>.amazonaws.com
-o	Replace <your-region> with the AWS region (e.g., us-west-2).
-o	Replace <aws_account_id> with your 12-digit AWS account ID.
-2.	Pull the Image:
-o	Once authenticated, you can pull the image using Docker. The ECR image URI format is as follows:
-bash
-Copy code
-docker pull <aws_account_id>.dkr.ecr.<your-region>.amazonaws.com/<repository-name>:<tag>
-o	Replace <repository-name> with the name of your ECR repository and <tag> with the image tag (e.g., latest).
-o	Example:
-bash
-Copy code
-docker pull 123456789012.dkr.ecr.us-west-2.amazonaws.com/my-repo:latest
-3.	Run the Image (Optional):
-o	After pulling the image, you can run it using Docker:
-bash
-Copy code
-docker run -d <aws_account_id>.dkr.ecr.<your-region>.amazonaws.com/<repository-name>:<tag>
-Example Workflow
-Assume:
-•	AWS region: us-west-2
-•	AWS account ID: 123456789012
-•	Repository name: my-repo
-•	Tag: latest
-1.	Authenticate Docker:
-bash
-Copy code
-aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 123456789012.dkr.ecr.us-west-2.amazonaws.com
-2.	Pull the image:
-bash
-Copy code
-docker pull 123456789012.dkr.ecr.us-west-2.amazonaws.com/my-repo:latest
-3.	(Optional) Run the image:
-bash
-Copy code
-docker run -d 123456789012.dkr.ecr.us-west-2.amazonaws.com/my-repo:latest
-This allows you to access your ECR images locally.
 
-4.	How to attach additional volume EC2 machine?
+**1.AWS CLI:** Make sure you have the AWS CLI installed and configured with appropriate permissions.
+
+**2.Docker:** Docker must be installed to pull images from ECR.
+
+#### Steps to Pull an Image from ECR
+
+**1.Authenticate Docker to ECR:**
+
+- Use the AWS CLI to authenticate Docker with the ECR registry. This command logs Docker in to your specified ECR registry by providing it a temporary authentication token.
+```bash
+aws ecr get-login-password --region <your-region> | docker login --username AWS --password-stdin <aws_account_id>.dkr.ecr.<your-region>.amazonaws.com
+```
+- Replace <your-region> with the AWS region (e.g., us-west-2).
+- Replace <aws_account_id> with your 12-digit AWS account ID.
+#### 2.	Pull the Image:
+- Once authenticated, you can pull the image using Docker. The ECR image URI format is as follows:
+
+```bash
+docker pull <aws_account_id>.dkr.ecr.<your-region>.amazonaws.com/<repository-name>:<tag>
+```
+- Replace <repository-name> with the name of your ECR repository and <tag> with the image tag (e.g., latest).
+- Example:
+
+```bash
+docker pull 123456789012.dkr.ecr.us-west-2.amazonaws.com/my-repo:latest
+```
+#### 3.	Run the Image (Optional):
+- After pulling the image, you can run it using Docker:
+
+```bash
+docker run -d <aws_account_id>.dkr.ecr.<your-region>.amazonaws.com/<repository-name>:<tag>
+```
+- Example Workflow
+
+`Assume:`
+
+`•	AWS region:` us-west-2
+
+`•	AWS account ID:` 123456789012
+
+`•	Repository name:` my-repo
+
+`•	Tag:` latest
+
+#### 1.	Authenticate Docker:
+```bash
+aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 123456789012.dkr.ecr.us-west-2.amazonaws.com
+```
+#### 2.	Pull the image:
+
+```bash
+docker pull 123456789012.dkr.ecr.us-west-2.amazonaws.com/my-repo:latest
+```
+#### 3.	(Optional) Run the image:
+
+```bash
+docker run -d 123456789012.dkr.ecr.us-west-2.amazonaws.com/my-repo:latest
+```
+- This allows you to access your ECR images locally.
+
+### 4.	How to attach additional volume EC2 machine?
 Ans: To attach an additional volume to an EC2 instance, follow these steps. This will help if you need to add storage to your instance or separate data storage from the instance’s root volume.
-Step 1: Create an EBS Volume
-1.	Open the Amazon EC2 Console:
-o	Go to the EC2 console.
-2.	Create a New Volume:
-o	In the left sidebar, select Elastic Block Store > Volumes.
-o	Click Create Volume and choose the required options:
-	Volume Type: Choose the type (e.g., General Purpose SSD, Provisioned IOPS SSD).
-	Size: Define the size of the volume.
-	Availability Zone: Select the same availability zone as your EC2 instance; an EBS volume must be in the same zone as the instance to be attached.
-3.	Create the Volume.
-Step 2: Attach the Volume to an EC2 Instance
-1.	Select the Created Volume:
-o	Once created, find the volume in the Volumes list, select it, and click Actions > Attach Volume.
-2.	Attach to EC2 Instance:
-o	In the Instance field, choose the EC2 instance you want to attach the volume to.
-o	The Device Name will automatically populate (e.g., /dev/xvdf). Make a note of this, as it will be used later.
-o	Click Attach.
-5.	How to attach additional volume EC2 machine?
-To attach an EBS volume to an EC2 instance using the AWS CLI, follow these steps:
-Prerequisites:
+#### Step 1: Create an EBS Volume
+
+#### 1.	Open the Amazon EC2 Console:
+- Go to the EC2 console.
+#### 2.	Create a New Volume:
+- In the left sidebar, select Elastic Block Store > Volumes.
+- Click Create Volume and choose the required options:
+
+  `Volume Type:` Choose the type (e.g., General Purpose SSD, Provisioned IOPS SSD).
+
+   `Size:` Define the size of the volume.
+
+   `Availability Zone: `Select the same availability zone as your EC2 instance; an EBS volume must be in the same zone as the instance to be attached.
+#### 3.	Create the Volume.
+#### Step 2: Attach the Volume to an EC2 Instance
+#### 1.	Select the Created Volume:
+- Once created, find the volume in the Volumes list, select it, and click Actions > Attach Volume.
+#### 2.	Attach to EC2 Instance:
+- In the Instance field, choose the EC2 instance you want to attach the volume to.
+- The Device Name will automatically populate (e.g., /dev/xvdf). Make a note of this, as it will be used later.
+- Click Attach.
+### 5.	How to attach additional volume EC2 machine?
+- To attach an EBS volume to an EC2 instance using the AWS CLI, follow these steps:
+#### Prerequisites:
 1.	AWS CLI installed and configured on your local machine or EC2 instance.
 2.	IAM permissions: Ensure your user/role has permissions to manage EBS volumes and EC2 instances (ec2:AttachVolume, ec2:DescribeInstances, ec2:DescribeVolumes).
-Steps to Attach an EBS Volume to EC2 Using AWS CLI:
-Step 1: Create an EBS Volume (If Not Already Created)
-If you haven't already created the EBS volume, use the following AWS CLI command to create a new volume.
-bash
-Copy code
+#### Steps to Attach an EBS Volume to EC2 Using AWS CLI:
+#### Step 1: Create an EBS Volume (If Not Already Created)
+- If you haven't already created the EBS volume, use the following AWS CLI command to create a new volume.
+```bash
 aws ec2 create-volume --size <size-in-GB> --volume-type <volume-type> --availability-zone <az> --region <region>
-•	Replace <size-in-GB> with the desired size for the volume.
-•	Replace <volume-type> with your preferred volume type (e.g., gp2, io1, st1).
-•	Replace <az> with the availability zone where your EC2 instance is located (e.g., us-east-1a).
-•	Replace <region> with the AWS region (e.g., us-east-1).
-Example:
-bash
-Copy code
+```
+- Replace <size-in-GB> with the desired size for the volume.
+- Replace <volume-type> with your preferred volume type (e.g., gp2, io1, st1).
+- Replace <az> with the availability zone where your EC2 instance is located (e.g., us-east-1a).
+ Replace <region> with the AWS region (e.g., us-east-1).
+
+`Example:`
+
+```bash
 aws ec2 create-volume --size 10 --volume-type gp2 --availability-zone us-east-1a --region us-east-1
-This will return a JSON output with the volume ID. Take note of the VolumeId (e.g., vol-0abcd1234efgh5678).
-Step 2: Attach the EBS Volume to Your EC2 Instance
-Use the aws ec2 attach-volume command to attach the volume to an EC2 instance.
-bash
-Copy code
+```
+- This will return a JSON output with the volume ID. Take note of the VolumeId (e.g., vol-0abcd1234efgh5678).
+#### Step 2: Attach the EBS Volume to Your EC2 Instance
+- Use the aws ec2 attach-volume command to attach the volume to an EC2 instance.
+
+```bash
 aws ec2 attach-volume --volume-id <volume-id> --instance-id <instance-id> --device <device-name> --region <region>
-•	Replace <volume-id> with the ID of the volume you want to attach (e.g., vol-0abcd1234efgh5678).
-•	Replace <instance-id> with the ID of the EC2 instance to which you want to attach the volume (e.g., i-0abcd1234efgh5678).
-•	Replace <device-name> with the device name (e.g., /dev/sdf or /dev/xvdf).
-•	Replace <region> with the AWS region (e.g., us-east-1).
-Example:
-bash
-Copy code
+```
+- Replace <volume-id> with the ID of the volume you want to attach (e.g., vol-0abcd1234efgh5678).
+- Replace <instance-id> with the ID of the EC2 instance to which you want to attach the volume (e.g., i-0abcd1234efgh5678).
+- Replace <device-name> with the device name (e.g., /dev/sdf or /dev/xvdf).
+- Replace <region> with the AWS region (e.g., us-east-1).
+
+`Example:`
+
+```bash
 aws ec2 attach-volume --volume-id vol-0abcd1234efgh5678 --instance-id i-0abcd1234efgh5678 --device /dev/sdf --region us-east-1
-This command will attach the EBS volume to the EC2 instance. The device name (/dev/sdf or /dev/xvdf) can be used to refer to the volume on the EC2 instance.
-Step 3: Verify the Volume is Attached
-To check if the volume is successfully attached to the EC2 instance, use the following command:
-bash
-Copy code
+```
+- This command will attach the EBS volume to the EC2 instance. The device name (/dev/sdf or /dev/xvdf) can be used to refer to the volume on the EC2 instance.
+#### Step 3: Verify the Volume is Attached
+- To check if the volume is successfully attached to the EC2 instance, use the following command:
+
+```bash
 aws ec2 describe-volumes --volume-id <volume-id> --region <region>
-Example:
-bash
-Copy code
+```
+
+`Example:`
+
+```bash
 aws ec2 describe-volumes --volume-id vol-0abcd1234efgh5678 --region us-east-1
-This will return a JSON object showing the details of the volume, including its attachment status and instance.
-Step 4: Connect to the EC2 Instance and Mount the Volume
-Once the volume is attached, SSH into your EC2 instance and mount the volume.
-1.	SSH into the EC2 instance:
-bash
-Copy code
+```
+- This will return a JSON object showing the details of the volume, including its attachment status and instance.
+#### Step 4: Connect to the EC2 Instance and Mount the Volume
+- Once the volume is attached, SSH into your EC2 instance and mount the volume.
+#### 1.	SSH into the EC2 instance:
+```bash
 ssh -i path_to_your_key.pem ec2-user@<instance-public-ip>
-2.	Check if the Volume is Attached:
-bash
-Copy code
+```
+#### 2.	Check if the Volume is Attached:
+
+```bash
 lsblk
-You should see the attached volume listed (e.g., /dev/xvdf or /dev/sdf).
-3.	Format the Volume (If Not Already Formatted):
-bash
-Copy code
+```
+- You should see the attached volume listed (e.g., /dev/xvdf or /dev/sdf).
+#### 3.	Format the Volume (If Not Already Formatted):
+```bash
 sudo mkfs -t ext4 /dev/xvdf
-4.	Create a Mount Point:
-bash
-Copy code
+```
+#### 4.	Create a Mount Point:
+```bash
 sudo mkdir /data
-5.	Mount the Volume:
-bash
-Copy code
+```
+#### 5.	Mount the Volume:
+```bash
 sudo mount /dev/xvdf /data
-6.	Verify the Volume is Mounted:
-bash
-Copy code
+```
+#### 6.	Verify the Volume is Mounted:
+```bash
 df -h
-If you'd like the volume to mount automatically on boot, you'll need to modify the /etc/fstab file (as mentioned in the earlier steps).
-Final Notes:
-•	Make sure the availability zone of the volume matches the EC2 instance’s availability zone.
-•	You can attach multiple volumes to the same EC2 instance, and each can be used as additional storage or for different purposes (e.g., separate data, logs, etc.).
-6.	What is VPC end points?
+```
+- If you'd like the volume to mount automatically on boot, you'll need to modify the /etc/fstab file (as mentioned in the earlier steps).
+
+#### Final Notes:
+- Make sure the availability zone of the volume matches the EC2 instance’s availability zone.
+- You can attach multiple volumes to the same EC2 instance, and each can be used as additional storage or for different purposes (e.g., separate data, logs, etc.).
+### 6.	What is VPC end points?
 Ans: Already available
-7.	What are the subnets?
+### 7.	What are the subnets?
 Ans: Already available
-8.	What kind of resources do we launch into the private subnets?
+### 8.	What kind of resources do we launch into the private subnets?
 Ans: In a typical cloud infrastructure, resources launched into private subnets are typically those that should not be directly accessible from the public internet. These resources are intended to be part of a more secure, isolated environment and often interact with resources in public subnets through a bastion host, NAT gateways, or load balancers.
 Common Resources to Launch in Private Subnets:
 1.	Databases:
