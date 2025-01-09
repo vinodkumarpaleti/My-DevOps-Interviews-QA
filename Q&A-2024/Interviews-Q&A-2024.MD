@@ -8179,211 +8179,243 @@ Ans: Working with data pipelines involves designing, building, monitoring, and m
 `o ETL:` Transform data before loading into storage.
 
 `o ELT:` Load raw data first and transform later within the data warehouse.
-d. Data Storage
-•	Store processed data in:
-o	Relational Databases (if the data is structured and transactional).
-o	Data Warehouses for analytics.
-o	Data Lakes for unstructured or semi-structured data.
-e. Data Consumption
-•	Expose the data through APIs, dashboards, or reports.
-•	Use tools like Tableau, Power BI, or Python libraries (Matplotlib, Seaborn) for visualization.
-________________________________________
+#### d. Data Storage
+#### Store processed data in:
+- Relational Databases (if the data is structured and transactional).
+- Data Warehouses for analytics.
+- Data Lakes for unstructured or semi-structured data.
+#### e. Data Consumption
+- Expose the data through APIs, dashboards, or reports.
+- Use tools like Tableau, Power BI, or Python libraries (Matplotlib, Seaborn) for visualization.
+
 5. Automating and Orchestrating Pipelines
 Use orchestration tools to automate workflows and manage dependencies:
-•	Apache Airflow: Define workflows as Directed Acyclic Graphs (DAGs) for scheduled tasks.
-•	Prefect: Offers similar orchestration capabilities with a simpler API.
-•	Kubernetes: Automate containerized pipelines with jobs or cron jobs.
-________________________________________
+
+`• Apache Airflow:` Define workflows as Directed Acyclic Graphs (DAGs) for scheduled tasks.
+
+`• Prefect:` Offers similar orchestration capabilities with a simpler API.
+
+`• Kubernetes:` Automate containerized pipelines with jobs or cron jobs.
+
 6. Monitoring and Logging
-•	Set up logging and alerts to monitor pipeline performance and detect failures.
-•	Use monitoring tools like Prometheus and Grafana for metrics and alerts.
-•	Implement retry logic or error handling mechanisms to recover from failures.
+- Set up logging and alerts to monitor pipeline performance and detect failures.
+- Use monitoring tools like Prometheus and Grafana for metrics and alerts.
+- Implement retry logic or error handling mechanisms to recover from failures.
 ________________________________________
 7. Best Practices
-•	Modular Design: Break pipelines into reusable components.
-•	Scalability: Use distributed processing tools like Apache Spark for large datasets.
-•	Data Validation: Validate data at each stage to ensure accuracy and quality.
-•	Version Control: Use version control (Git) for pipeline scripts and configurations.
-•	Security: Secure sensitive data with encryption and access controls.
-•	Documentation: Document pipeline stages, data schemas, and workflows.
-________________________________________
+
+`• Modular Design:` Break pipelines into reusable components.
+
+`• Scalability:` Use distributed processing tools like Apache Spark for large datasets.
+
+`• Data Validation:` Validate data at each stage to ensure accuracy and quality.
+
+`• Version Control:` Use version control (Git) for pipeline scripts and configurations.
+
+`• Security:` Secure sensitive data with encryption and access controls.
+
+`• Documentation:` Document pipeline stages, data schemas, and workflows.
+
 8. Example Data Pipeline (Real-World Use Case)
-Objective: Build a pipeline to analyze e-commerce transactions.
-Step 1: Ingest Data
-•	Source: Online transaction logs (JSON format) via Kafka.
-•	Ingestion Tool: Use Kafka consumers to collect logs.
-Step 2: Process Data
-•	Parse JSON logs, clean missing values, and enrich with customer data.
-•	Tool: Use Python (Pandas) or Apache Spark for transformation.
-Step 3: Store Data
-•	Store raw logs in Amazon S3 (data lake).
-•	Store cleaned and transformed data in Snowflake (data warehouse).
-Step 4: Analyze Data
-•	Create dashboards using Power BI or Tableau to analyze transaction trends.
-Step 5: Automate
-•	Orchestrate pipeline using Apache Airflow.
-•	Schedule pipeline to run hourly for real-time insights.
-________________________________________
+
+**Objective:** Build a pipeline to analyze e-commerce transactions.
+#### Step 1: Ingest Data
+
+`• Source:` Online transaction logs (JSON format) via Kafka.
+
+`• Ingestion Tool:` Use Kafka consumers to collect logs.
+
+#### Step 2: Process Data
+- Parse JSON logs, clean missing values, and enrich with customer data.
+
+`• Tool:` Use Python (Pandas) or Apache Spark for transformation.
+#### Step 3: Store Data
+- Store raw logs in Amazon S3 (data lake).
+- Store cleaned and transformed data in Snowflake (data warehouse).
+#### Step 4: Analyze Data
+- Create dashboards using Power BI or Tableau to analyze transaction trends.
+#### Step 5: Automate
+- Orchestrate pipeline using Apache Airflow.
+- Schedule pipeline to run hourly for real-time insights.
+
 9. Challenges and Solutions
-•	Large Data Volumes: Use distributed systems like Spark or Hadoop.
-•	Pipeline Failures: Implement retry mechanisms and logging for diagnostics.
-•	Latency in Streaming Pipelines: Optimize processing logic and use caching.
-________________________________________
-Conclusion
+
+`• Large Data Volumes:` Use distributed systems like Spark or Hadoop.
+
+`• Pipeline Failures:` Implement retry mechanisms and logging for diagnostics.
+
+`• Latency in Streaming Pipelines: `Optimize processing logic and use caching.
+
+#### Conclusion
 Data pipelines are critical for modern data-driven applications, enabling seamless data flow across systems. By leveraging the right tools, adhering to best practices, and automating processes, you can build robust, scalable, and efficient pipelines for diverse use cases.
 
-TataElxsi (Epiroc) L1 Q&A (09-10-2024)
-1.	Which IAC tool you are using and explain it?
+---
+
+## TataElxsi (Epiroc) L1 Q&A (09-10-2024)
+
+### 1.	Which IAC tool you are using and explain it?
 Ans: Terraform
-2.	Difference between monolithic and microservice architecture?
+### 2.	Difference between monolithic and microservice architecture?
 Ans: Already available
-3.	What is Azure data factory?
+### 3.	What is Azure data factory?
 Ans: Azure Data Factory (ADF) is a cloud-based data integration service provided by Microsoft Azure. It allows you to create, manage, and orchestrate data workflows, enabling the efficient movement and transformation of data between various data stores and services. ADF is particularly useful for Extract, Transform, Load (ETL) and Extract, Load, Transform (ELT) processes in modern data engineering and analytics.
-________________________________________
-Key Features of Azure Data Factory
-1.	Data Integration:
-o	Connects to a wide range of on-premises and cloud-based data sources, including Azure services (Blob Storage, Data Lake, SQL Database) and external sources (Amazon S3, Salesforce, etc.).
-o	Supports over 90+ connectors for seamless data movement.
-2.	Orchestration:
-o	Orchestrates complex workflows, including conditional logic and iterative loops.
-o	Supports event-driven triggers and scheduled pipelines.
-3.	Data Transformation:
-o	Offers Mapping Data Flows for visual, code-free data transformations.
-o	Supports custom transformations using Azure Databricks, HDInsight, and Azure Functions.
-4.	Scalability:
-o	Scales dynamically based on the size and complexity of data processing tasks.
-o	Utilizes Azure's robust infrastructure for high performance.
-5.	Hybrid Data Movement:
-o	Supports both cloud-based and on-premises data sources using the Self-hosted Integration Runtime, allowing seamless hybrid data movement.
-6.	Monitoring and Management:
-o	Provides detailed logs, monitoring dashboards, and alerting mechanisms to track pipeline runs and performance.
-________________________________________
-Core Components of Azure Data Factory
-1.	Pipeline:
-o	A pipeline is a logical grouping of activities that perform a unit of work. Activities can include data movement, transformation, and control flow.
-2.	Activities:
-o	Tasks within a pipeline, such as:
-	Data Movement Activities: Copying data from one location to another.
-	Data Transformation Activities: Transforming data using Data Flow, Databricks, or other compute resources.
-3.	Datasets:
-o	Represents data structures within a data store. For example, a dataset can point to a table in a database or a file in a storage account.
-4.	Linked Services:
-o	Represents the connection information to data stores or compute resources. Think of it as a configuration for connecting to your data sources/destinations.
-5.	Triggers:
-o	Used to execute pipelines automatically based on specific schedules, events, or data availability.
-6.	Integration Runtime (IR):
-o	The compute infrastructure used to perform activities like data movement or transformation. Types of IR:
-	Azure Integration Runtime: For cloud data movement and transformations.
-	Self-hosted Integration Runtime: For on-premises or hybrid data sources.
-________________________________________
-Common Use Cases
-1.	ETL and ELT Pipelines:
-o	Extract data from multiple sources, transform it using tools like Databricks or Data Flows, and load it into a destination like Azure Data Warehouse.
-2.	Data Migration:
-o	Move data from on-premises systems to Azure for cloud modernization.
-3.	Data Lake Population:
-o	Collect raw data from various sources and load it into an Azure Data Lake for further analysis.
-4.	Data Processing for Analytics:
-o	Process and prepare data for reporting and analytics using tools like Power BI or Azure Synapse.
-5.	Event-Driven Pipelines:
-o	Trigger pipelines based on events, such as file uploads to Blob Storage.
-________________________________________
-Benefits of Azure Data Factory
-1.	Code-Free Development:
-o	Allows users to build workflows using a graphical interface, reducing the need for complex coding.
-2.	Scalable and Reliable:
-o	Handles data of any size and complexity with Azure's scalability and resilience.
-3.	Cost-Effective:
-o	Pay-as-you-go pricing ensures you only pay for what you use.
-4.	Seamless Integration:
-o	Works seamlessly with other Azure services, enabling end-to-end data engineering and analytics.
-5.	Global Reach:
-o	Supports data movement across regions, making it ideal for globally distributed systems.
-________________________________________
-Example Workflow in Azure Data Factory
-Scenario: Move sales data from an on-premises SQL Server to an Azure Data Warehouse and apply transformations.
-1.	Create a Pipeline:
-o	Add a data movement activity to copy data from SQL Server to Blob Storage.
-o	Use Data Flow or Azure Databricks for transformations.
-o	Load transformed data into Azure Synapse Analytics (SQL Data Warehouse).
-2.	Configure Linked Services:
-o	Set up linked services for the on-premises SQL Server, Blob Storage, and Synapse Analytics.
-3.	Run the Pipeline:
-o	Schedule the pipeline to run nightly using a trigger.
-4.	Monitor and Optimize:
-o	Monitor pipeline runs in the ADF dashboard and optimize based on performance metrics.
-________________________________________
-Comparison with Other Tools
-Feature	Azure Data Factory	AWS Glue	Apache Airflow
-Cloud Integration	Excellent	Good	Limited (plugins)
-GUI for Workflows	Yes	Limited	No
-Managed Service	Yes	Yes	No
-Hybrid Data Movement	Yes (with IR)	Limited	Yes
-Real-time Data Processing	Limited (batch)	Yes (with Kinesis)	Yes (customized)
-________________________________________
-Conclusion
-Azure Data Factory is a powerful and flexible tool for building and managing data workflows. Its hybrid capabilities, seamless integration with Azure services, and robust orchestration make it ideal for modern data engineering tasks. Whether you're building simple ETL pipelines or complex data integration workflows, ADF provides the tools and scalability you need.
-4.	What is your role in your current project?
+
+#### Key Features of Azure Data Factory
+#### 1.	Data Integration:
+- Connects to a wide range of on-premises and cloud-based data sources, including Azure services (Blob Storage, Data Lake, SQL Database) and external sources (Amazon S3, Salesforce, etc.).
+- Supports over 90+ connectors for seamless data movement.
+#### 2.	Orchestration:
+- Orchestrates complex workflows, including conditional logic and iterative loops.
+- Supports event-driven triggers and scheduled pipelines.
+#### 3.	Data Transformation:
+- Offers Mapping Data Flows for visual, code-free data transformations.
+- Supports custom transformations using Azure Databricks, HDInsight, and Azure Functions.
+#### 4.	Scalability:
+- Scales dynamically based on the size and complexity of data processing tasks.
+- Utilizes Azure's robust infrastructure for high performance.
+#### 5.	Hybrid Data Movement:
+- Supports both cloud-based and on-premises data sources using the Self-hosted Integration Runtime, allowing seamless hybrid data movement.
+#### 6.	Monitoring and Management:
+- Provides detailed logs, monitoring dashboards, and alerting mechanisms to track pipeline runs and performance.
+
+#### Core Components of Azure Data Factory
+#### 1.	Pipeline:
+- A pipeline is a logical grouping of activities that perform a unit of work. Activities can include data movement, transformation, and control flow.
+#### 2.	Activities:
+- Tasks within a pipeline, such as:
+
+**Data Movement Activities:** Copying data from one location to another.
+
+**Data Transformation Activities:** Transforming data using Data Flow, Databricks, or other compute resources.
+
+#### 3.	Datasets:
+- Represents data structures within a data store. For example, a dataset can point to a table in a database or a file in a storage account.
+#### 4.	Linked Services:
+- Represents the connection information to data stores or compute resources. Think of it as a configuration for connecting to your data sources/destinations.
+#### 5.	Triggers:
+- Used to execute pipelines automatically based on specific schedules, events, or data availability.
+#### 6.	Integration Runtime (IR):
+- The compute infrastructure used to perform activities like data movement or transformation. Types of IR:
+
+**Azure Integration Runtime:** For cloud data movement and transformations.
+
+**Self-hosted Integration Runtime:** For on-premises or hybrid data sources.
+
+#### Common Use Cases
+
+#### 1.	ETL and ELT Pipelines:
+- Extract data from multiple sources, transform it using tools like Databricks or Data Flows, and load it into a destination like Azure Data Warehouse.
+#### 2.	Data Migration:
+- Move data from on-premises systems to Azure for cloud modernization.
+#### 3.	Data Lake Population:
+- Collect raw data from various sources and load it into an Azure Data Lake for further analysis.
+#### 4.	Data Processing for Analytics:
+- Process and prepare data for reporting and analytics using tools like Power BI or Azure Synapse.
+#### 5.	Event-Driven Pipelines:
+- Trigger pipelines based on events, such as file uploads to Blob Storage.
+
+#### Benefits of Azure Data Factory
+#### 1.	Code-Free Development:
+- Allows users to build workflows using a graphical interface, reducing the need for complex coding.
+#### 2.	Scalable and Reliable:
+- Handles data of any size and complexity with Azure's scalability and resilience.
+#### 3.	Cost-Effective:
+- Pay-as-you-go pricing ensures you only pay for what you use.
+#### 4.	Seamless Integration:
+- Works seamlessly with other Azure services, enabling end-to-end data engineering and analytics.
+#### 5.	Global Reach:
+- Supports data movement across regions, making it ideal for globally distributed systems.
+
+#### Example Workflow in Azure Data Factory
+
+`Scenario:` Move sales data from an on-premises SQL Server to an Azure Data Warehouse and apply transformations.
+
+#### 1.	Create a Pipeline:
+- Add a data movement activity to copy data from SQL Server to Blob Storage.
+- Use Data Flow or Azure Databricks for transformations.
+- Load transformed data into Azure Synapse Analytics (SQL Data Warehouse).
+#### 2.	Configure Linked Services:
+- Set up linked services for the on-premises SQL Server, Blob Storage, and Synapse Analytics.
+#### 3.	Run the Pipeline:
+- Schedule the pipeline to run nightly using a trigger.
+#### 4.	Monitor and Optimize:
+- Monitor pipeline runs in the ADF dashboard and optimize based on performance metrics.
+
+- Comparison with Other Tools
+- Feature	Azure Data Factory	AWS Glue	Apache Airflow
+- Cloud Integration	Excellent	Good	Limited (plugins)
+- GUI for Workflows	Yes	Limited	No
+- Managed Service	Yes	Yes	No
+- Hybrid Data Movement	Yes (with IR)	Limited	Yes
+- Real-time Data Processing	Limited (batch)	Yes (with Kinesis)	Yes (customized)
+
+#### Conclusion
+- Azure Data Factory is a powerful and flexible tool for building and managing data workflows. Its hybrid capabilities, seamless integration with Azure services, and robust orchestration make it ideal for modern data engineering tasks. Whether you're building simple ETL pipelines or complex data integration workflows, ADF provides the tools and scalability you need.
+### 4.	What is your role in your current project?
 Ans: 
-5.	How do you automate the deployment?
+### 5.	How do you automate the deployment?
 Ans: Already available
-6.	Explain jenkins pipeline workflow in your project?
+### 6.	Explain jenkins pipeline workflow in your project?
 Ans: explain your project workflow
-7.	what is ARM templates?
+### 7.	what is ARM templates?
 Ans: Already available in 2022 Q&A doc, Q.No:38
-8.	How do you deploy the application in AKS?
+### 8.	How do you deploy the application in AKS?
 Ans: Deploying an application in Azure Kubernetes Service (AKS) involves multiple steps, from creating a Kubernetes cluster to configuring and deploying the application. Here's a comprehensive guide:
-________________________________________
-Steps to Deploy an Application in AKS
-1. Prerequisites
-•	Azure CLI: Install and configure it for your Azure account.
-•	kubectl: Install to interact with your Kubernetes cluster.
-•	Docker: Install if you need to build container images.
-•	A working Azure subscription.
-2. Set Up the AKS Cluster
-1.	Create a Resource Group:
-bash
-Copy code
+
+#### Steps to Deploy an Application in AKS
+#### 1. Prerequisites
+
+`• Azure CLI:` Install and configure it for your Azure account.
+
+`• kubectl:` Install to interact with your Kubernetes cluster.
+
+`• Docker:` Install if you need to build container images.
+
+- A working Azure subscription.
+#### 2. Set Up the AKS Cluster
+#### 1.	Create a Resource Group:
+```bash
 az group create --name myResourceGroup --location eastus
-2.	Create the AKS Cluster:
-bash
-Copy code
+```
+#### 2.	Create the AKS Cluster:
+```bash
 az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 2 --enable-addons monitoring --generate-ssh-keys
-3.	Connect to the Cluster:
-bash
-Copy code
+```
+#### 3.	Connect to the Cluster:
+```bash
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
-This command configures kubectl to use your AKS cluster.
-3. Build and Push the Application Image
-1.	Write the Dockerfile (if not already done):
-dockerfile
-Copy code
+```
+- This command configures kubectl to use your AKS cluster.
+#### 3. Build and Push the Application Image
+#### 1.	Write the Dockerfile (if not already done):
+```dockerfile
 FROM node:14
 WORKDIR /app
 COPY . .
 RUN npm install
 CMD ["npm", "start"]
-2.	Build the Docker Image:
-bash
-Copy code
+```
+#### 2.	Build the Docker Image:
+```bash
 docker build -t myregistry.azurecr.io/myapp:latest .
-3.	Push the Image to Azure Container Registry (ACR):
-o	Create ACR (if not already created):
-bash
+```
+#### 3.	Push the Image to Azure Container Registry (ACR):
+- Create ACR (if not already created):
+```bash
 Copy code
 az acr create --resource-group myResourceGroup --name myRegistryName --sku Basic
-o	Login to ACR:
-bash
-Copy code
+```
+- Login to ACR:
+```bash
 az acr login --name myRegistryName
-o	Push the Image:
-bash
-Copy code
+```
+- Push the Image:
+```bash
 docker push myregistry.azurecr.io/myapp:latest
-4. Prepare Kubernetes Manifest Files
-1.	Deployment YAML:
-yaml
-Copy code
+```
+#### 4. Prepare Kubernetes Manifest Files
+#### 1.	Deployment YAML:
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -8403,9 +8435,9 @@ spec:
         image: myregistry.azurecr.io/myapp:latest
         ports:
         - containerPort: 80
-2.	Service YAML (for exposing the application):
-yaml
-Copy code
+```
+#### 2.	Service YAML (for exposing the application):
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -8418,44 +8450,45 @@ spec:
   - protocol: TCP
     port: 80
     targetPort: 80
-5. Deploy the Application
-1.	Apply the Deployment:
-bash
-Copy code
+```
+#### 5. Deploy the Application
+#### 1.	Apply the Deployment:
+```bash
 kubectl apply -f deployment.yaml
-2.	Apply the Service:
-bash
-Copy code
+```
+#### 2.	Apply the Service:
+```bash
 kubectl apply -f service.yaml
-3.	Verify the Deployment:
-bash
-Copy code
+```
+#### 3.	Verify the Deployment:
+```bash
 kubectl get pods
-4.	Verify the Service:
-bash
-Copy code
+```
+#### 4.	Verify the Service:
+```bash
 kubectl get service my-app-service
-Look for the external IP under the EXTERNAL-IP column. Use this to access your application.
-________________________________________
-6. Monitor and Scale the Application
-1.	Monitor the Pods:
-bash
-Copy code
+```
+- Look for the external IP under the EXTERNAL-IP column. Use this to access your application.
+
+#### 6. Monitor and Scale the Application
+#### 1.	Monitor the Pods:
+```bash
 kubectl logs <pod-name>
-2.	Scale the Deployment:
-bash
-Copy code
+```
+#### 2.	Scale the Deployment:
+```bash
 kubectl scale deployment my-app --replicas=5
-3.	Check Cluster Status:
-bash
+```
+#### 3.	Check Cluster Status:
+```bash
 Copy code
 kubectl get nodes
-________________________________________
-7. Automate Deployment with CI/CD
-Integrate the AKS deployment with a CI/CD pipeline using tools like Azure DevOps, GitHub Actions, or Jenkins.
-Example Azure DevOps YAML Pipeline:
-yaml
-Copy code
+```
+
+#### 7. Automate Deployment with CI/CD
+- Integrate the AKS deployment with a CI/CD pipeline using tools like Azure DevOps, GitHub Actions, or Jenkins.
+#### Example Azure DevOps YAML Pipeline:
+```yaml
 trigger:
   branches:
     include:
@@ -8477,36 +8510,50 @@ steps:
     kubectl apply -f deployment.yaml
     kubectl apply -f service.yaml
   displayName: 'Deploy to AKS'
-________________________________________
-8. Common Troubleshooting
-1.	Pods Stuck in CrashLoopBackOff:
-o	Check logs: kubectl logs <pod-name>
-o	Verify image configuration and environment variables.
-2.	Service Not Accessible:
-o	Check service: kubectl get service my-app-service
-o	Ensure the LoadBalancer has an external IP assigned.
-3.	Scaling Issues:
-o	Check resource limits and cluster capacity: kubectl describe nodes.
-________________________________________
-This workflow covers everything from setting up an AKS cluster to deploying and managing applications, with automation options for scaling and CI/CD integration.
-9.	Explain the team structure in your project?
+```
+
+#### 8. Common Troubleshooting
+#### 1.	Pods Stuck in CrashLoopBackOff:
+
+`o	Check logs:` kubectl logs <pod-name>
+
+- Verify image configuration and environment variables.
+#### 2.	Service Not Accessible:
+- Check service: kubectl get service my-app-service
+- Ensure the LoadBalancer has an external IP assigned.
+#### 3.	Scaling Issues:
+- Check resource limits and cluster capacity: kubectl describe nodes.
+
+- This workflow covers everything from setting up an AKS cluster to deploying and managing applications, with automation options for scaling and CI/CD integration.
+### 9.	Explain the team structure in your project?
 Ans: The team structure in a DevOps-oriented project is designed to promote collaboration between development, operations, and other stakeholders while ensuring efficient delivery and operations of software systems. Here's how a typical team structure might look, based on real-world practices:
-________________________________________
-1. Core Team Roles
-1.	Development Team:
-o	Responsible for writing and maintaining the application code.
-o	Roles include:
-	Backend Developers: Focus on server-side logic, APIs, and databases.
-	Frontend Developers: Work on the user interface (UI) and user experience (UX).
-	Full-Stack Developers: Handle both backend and frontend tasks.
-o	Tools used: GitHub/GitLab, IDEs, unit testing frameworks.
-2.	DevOps Team:
-o	Ensures seamless integration, deployment, and monitoring of applications.
-o	Roles include:
-	CI/CD Engineers: Manage pipelines and automate deployments.
-	Cloud Engineers: Handle infrastructure provisioning and maintenance (e.g., AWS, Azure, GCP).
-	Site Reliability Engineers (SREs): Focus on system availability and performance.
-o	Tools used: Jenkins, Terraform, Kubernetes, Prometheus.
+
+#### 1. Core Team Roles
+#### 1.	Development Team:
+
+- Responsible for writing and maintaining the application code.
+#### Roles include:
+
+**Backend Developers:** Focus on server-side logic, APIs, and databases.
+
+**rontend Developers:** Work on the user interface (UI) and user experience (UX).
+
+**Full-Stack Developers:** Handle both backend and frontend tasks.
+
+**Tools used:** GitHub/GitLab, IDEs, unit testing frameworks.
+
+#### 2.	DevOps Team:
+- Ensures seamless integration, deployment, and monitoring of applications.
+#### Roles include:
+
+**CI/CD Engineers:** Manage pipelines and automate deployments.
+
+**Cloud Engineers:** Handle infrastructure provisioning and maintenance (e.g., AWS, Azure, GCP).
+
+**Site Reliability Engineers (SREs):** Focus on system availability and performance.
+
+`o	Tools used:` Jenkins, Terraform, Kubernetes, Prometheus.
+
 3.	Operations Team:
 o	Manages production environments, ensuring system reliability and uptime.
 o	Roles include:
