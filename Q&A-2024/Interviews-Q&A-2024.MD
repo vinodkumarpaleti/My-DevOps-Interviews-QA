@@ -5357,62 +5357,79 @@ This will create both the Deployment and the ClusterIP Service in your Kubernete
 Ans: Already available
 ### 2.	What is git sqush?
 Ans: Git squash is the process of combining multiple commit entries into a single commit. This is commonly done to clean up the commit history before pushing changes to a shared repository, or when you want to combine all your changes into one, often for clarity or to simplify the history.
-Here’s how you can squash commits in Git:
+#### Here’s how you can squash commits in Git:
 
-1. Squash with Interactive Rebase
-The most common way to squash commits is using git rebase -i (interactive rebase). This allows you to combine multiple commits into one.
+#### 1. Squash with Interactive Rebase
+- The most common way to squash commits is using git rebase -i (interactive rebase). This allows you to combine multiple commits into one.
 
-Steps to squash commits:
-Start an Interactive Rebase:
-Identify how many commits you want to squash. For example, if you want to squash the last 3 commits, use:
+#### Steps to squash commits:
+#### Start an Interactive Rebase:
+- Identify how many commits you want to squash. For example, if you want to squash the last 3 commits, use:
+
+```
 git rebase -i HEAD~3
-Choose which commits to squash:
+```
+#### Choose which commits to squash:
 
-In the editor that opens, you'll see a list of the last 3 commits (or however many you specified). It will look something like this:
-pick f1a2b3c Commit 1
-pick d4e5f6g Commit 2
-pick h7i8j9k Commit 3
-Change the word pick to squash (or s for short) for the commits you want to squash into the first one:
-pick f1a2b3c Commit 1
-squash d4e5f6g Commit 2
-squash h7i8j9k Commit 3
-Save and Close the Editor:
+- In the editor that opens, you'll see a list of the last 3 commits (or however many you specified). It will look something like this:
+- pick f1a2b3c Commit 1
+- pick d4e5f6g Commit 2
+- pick h7i8j9k Commit 3
+#### Change the word pick to squash (or s for short) for the commits you want to squash into the first one:
+- pick f1a2b3c Commit 1
+- squash d4e5f6g Commit 2
+- squash h7i8j9k Commit 3
+#### Save and Close the Editor:
 
-After modifying the commit list, save and close the editor (e.g., in Vim, you would press :wq to save and quit).
-Edit the Commit Message:
+- After modifying the commit list, save and close the editor (e.g., in Vim, you would press :wq to save and quit).
+#### Edit the Commit Message:
 
-After squashing, Git will open a new editor to combine the commit messages. You can edit this message to reflect the changes from all the squashed commits, or just keep the one from the first commit.
-Once you're done editing the commit message, save and close the editor.
-Complete the Rebase:
+- After squashing, Git will open a new editor to combine the commit messages. 
+- You can edit this message to reflect the changes from all the squashed commits, or just keep the one from the first commit.
+- Once you're done editing the commit message, save and close the editor.
+#### Complete the Rebase:
 
-If there are no conflicts, Git will finish the rebase and squash the commits into one. You can confirm with:
+- If there are no conflicts, Git will finish the rebase and squash the commits into one. You can confirm with:
+```
 git log
-Push Changes (if necessary):
+```
+#### Push Changes (if necessary):
 
-If you’ve already pushed the commits to a remote branch, you’ll need to force push the squashed commit to overwrite the remote history:
+- If you’ve already pushed the commits to a remote branch, you’ll need to force push the squashed commit to overwrite the remote history:
+
+```
 git push origin branch-name --force
-Warning: Be careful when using --force as it can rewrite history on the remote repository, which may cause issues for collaborators. Consider using --force-with-lease to prevent overwriting others' changes:
-
+```
+**Warning:** Be careful when using --force as it can rewrite history on the remote repository, which may cause issues for collaborators. Consider using --force-with-lease to prevent overwriting others' changes:
+```
 git push origin branch-name --force-with-lease
-2. Squash While Merging a Pull Request
-If you are using a platform like GitHub or GitLab, you can squash commits when merging a pull request. Here’s how:
-When reviewing a pull request, select the option to Squash and Merge (in GitHub, this is available in the merge button dropdown).
-This will combine all commits in the pull request into one single commit before merging it into the main branch.
-Why Squash Commits?
-Cleaner History: Squashing commits helps keep the Git history clean by combining many small, often irrelevant commits (e.g., typo fixes, minor adjustments) into a single, more meaningful commit.
-Easier to Review: For pull requests, squashing makes it easier for reviewers to see the overall change rather than getting bogged down by a series of small, incremental commits.
-Revertability: With squashed commits, it’s easier to revert a change because it’s a single commit instead of multiple ones.
-Common Git Squash Commands Summary:
-git rebase -i HEAD~n: Start interactive rebase on the last n commits.
-pick: Keep the commit.
-squash or s: Squash the commit into the previous one.
---force or --force-with-lease: Push changes after rewriting history.
+```
+#### 2. Squash While Merging a Pull Request
+- If you are using a platform like GitHub or GitLab, you can squash commits when merging a pull request. Here’s how:
+- When reviewing a pull request, select the option to Squash and Merge (in GitHub, this is available in the merge button dropdown).
+- This will combine all commits in the pull request into one single commit before merging it into the main branch.
+#### Why Squash Commits?
+
+**Cleaner History:** Squashing commits helps keep the Git history clean by combining many small, often irrelevant commits (e.g., typo fixes, minor adjustments) into a single, more meaningful commit.
+
+**Easier to Review:** For pull requests, squashing makes it easier for reviewers to see the overall change rather than getting bogged down by a series of small, incremental commits.
+
+**Revertability:** With squashed commits, it’s easier to revert a change because it’s a single commit instead of multiple ones.
+#### Common Git Squash Commands Summary:
+
+- git rebase -i HEAD~n: Start interactive rebase on the last n commits.
+
+`pick:` Keep the commit.
+
+`squash or s:` Squash the commit into the previous one.
+
+- --force or --force-with-lease: Push changes after rewriting history.
 Let me know if you'd like further clarification or run into any issues while squashing commits!
-3.	Explain the overview of EKS?
-Ans: ### Overview of Amazon EKS (Elastic Kubernetes Service)
-Amazon Elastic Kubernetes Service (EKS) is a managed Kubernetes service provided by AWS that simplifies the deployment, management, and scaling of containerized applications using Kubernetes, an open-source container orchestration platform. EKS abstracts much of the complexity involved in setting up and running Kubernetes clusters, making it easier for developers and operations teams to focus on building and scaling applications, rather than managing the underlying infrastructure.
-Here’s a comprehensive overview of Amazon EKS:
----
+#### 3.	Explain the overview of EKS?
+Ans: Overview of Amazon EKS (Elastic Kubernetes Service)
+- Amazon Elastic Kubernetes Service (EKS) is a managed Kubernetes service provided by AWS that simplifies the deployment, management, and scaling of containerized applications using Kubernetes, an open-source container orchestration platform. EKS abstracts much of the complexity involved in setting up and running Kubernetes clusters, making it easier for developers and operations teams to focus on building and scaling applications, rather than managing the underlying infrastructure.
+- Here’s a comprehensive overview of Amazon EKS:
+
 ### Key Features of EKS:
 
 1. **Fully Managed Kubernetes Control Plane:**
@@ -5451,7 +5468,6 @@ Here’s a comprehensive overview of Amazon EKS:
 8. **EKS Anywhere (for On-Premise Deployments):**
    - EKS Anywhere allows you to create and run Kubernetes clusters on your own infrastructure (on-premises or in another cloud) with EKS managing the lifecycle, helping you maintain a consistent Kubernetes experience across environments.
 
----
 
 ### Key Benefits of Using EKS:
 
@@ -5470,7 +5486,6 @@ Here’s a comprehensive overview of Amazon EKS:
 5. **Cost Efficiency:**
    - With EKS, you only pay for the control plane and the resources you use (e.g., EC2 or Fargate). Additionally, you can optimize costs by using EC2 Spot Instances and autoscaling to only use resources as needed.
 
----
 
 ### EKS Architecture:
 
@@ -5483,7 +5498,6 @@ Here’s a comprehensive overview of Amazon EKS:
 3. **Networking:**
    - EKS clusters use VPC for networking. Pods can communicate with each other and with other services within the VPC, and external traffic can be routed via Elastic Load Balancers.
 
----
 
 ### Use Cases for EKS:
 
@@ -5492,19 +5506,21 @@ Here’s a comprehensive overview of Amazon EKS:
 - **Big Data and Machine Learning:** EKS can handle large-scale data processing workloads, making it suitable for big data applications and machine learning model deployment.
 - **Hybrid and Multi-Cloud Deployments:** Running Kubernetes workloads across on-premises environments and AWS using hybrid or multi-cloud strategies.
 
----
 
 ### Conclusion:
 Amazon EKS is a fully managed, scalable, and secure Kubernetes service that allows developers to easily deploy, manage, and scale containerized applications on AWS. By abstracting the complexities of Kubernetes cluster management, EKS simplifies the process of running containers at scale, while offering deep integration with other AWS services, security features, and cost-optimization options. Whether you’re running microservices, big data applications, or hybrid workloads, EKS is a powerful platform for container orchestration in the cloud.
 
 Let me know if you need further clarification or more details on specific features!
-4.	How to list the running PODs in Kubernetes?
-Ans: kubectl get pods //current namespace
-    kubectl get pods --all-namespaces   //All namespaces
-   kubectl get pods -n <namespace-name>    //specific namespace
-5.	Write the Jenkins pipeline?
+### 4.	How to list the running PODs in Kubernetes?
+Ans: 
+```
+kubectl get pods //current namespace
+kubectl get pods --all-namespaces   //All namespaces
+kubectl get pods -n <namespace-name>    //specific namespace
+```
+### 5.	Write the Jenkins pipeline?
 Ans: Already available
-6.	Difference between maven install and maven package?
+### 6.	Difference between maven install and maven package?
 Ans: In Maven, both `mvn install` and `mvn package` are commonly used commands in the build lifecycle of a project, but they serve different purposes in the process of building and managing your project. Here's a breakdown of the difference between them:
 
 ### 1. **`mvn package`**
@@ -5578,7 +5594,7 @@ So in summary, `mvn install` is essentially `mvn package` followed by the instal
 - Use `mvn install` when you want to **build**, **package**, and **install** the artifact into your local Maven repository so it can be used by other projects.
 
 Let me know if you'd like any further clarification!
-7.	How to get the list arguments in shell script?
+### 7.	How to get the list arguments in shell script?
 Ans: In a shell script, you can access the list of arguments passed to the script using special variables that refer to the command-line arguments. These arguments are typically accessed in positional parameters, such as `$1`, `$2`, `$3`, etc., where each number corresponds to the argument passed.
 
 Here’s an overview of how to handle command-line arguments in a shell script:
@@ -5842,67 +5858,67 @@ Ans: Integrating **SonarQube** with **Jenkins** enables you to automatically ana
 
 ### Conclusion:
 By following these steps, you can integrate SonarQube into your Jenkins pipeline to automatically analyze your codebase for quality and security issues. This integration allows for continuous feedback and quality control throughout your development lifecycle.
-10.	How can you use the sonarqube in your project?
+### 10.	How can you use the sonarqube in your project?
 Ans: SonarQube is a powerful tool for static code analysis, helping ensure code quality, security, and maintainability in your projects. It can be integrated into your development workflow, including CI/CD pipelines, to automate code quality checks.
-________________________________________
-Steps to Use SonarQube in a Project
-1. Set Up SonarQube
-•	Install SonarQube:
-o	Use a Docker container:
-bash
-Copy code
+
+#### Steps to Use SonarQube in a Project
+#### 1. Set Up SonarQube
+- Install SonarQube:
+- Use a Docker container:
+```bash
 docker run -d --name sonarqube -p 9000:9000 sonarqube:lts
+```
 o	Or download it from SonarQube's official site and install it manually.
 •	Access SonarQube:
-o	Open http://<server-ip>:9000 in a browser.
-o	Default credentials: admin / admin.
-•	Create a Project:
-o	Go to the Projects tab in SonarQube.
-o	Create a new project and generate a unique token for it.
-________________________________________
-2. Install and Configure SonarScanner
-•	Download SonarScanner:
-o	Install from SonarScanner's official site.
-•	Configure SonarScanner: Update the sonar-scanner.properties file with your SonarQube server details:
-properties
-Copy code
+- Open http://<server-ip>:9000 in a browser.
+- Default credentials: admin / admin.
+- Create a Project:
+- Go to the Projects tab in SonarQube.
+- Create a new project and generate a unique token for it.
+
+#### 2. Install and Configure SonarScanner
+#### Download SonarScanner:
+- Install from SonarScanner's official site.
+- Configure SonarScanner: Update the sonar-scanner.properties file with your SonarQube server details:
+
+```
 sonar.host.url=http://<sonarqube-server-ip>:9000
 sonar.login=<generated-token>
-________________________________________
-3. Add SonarQube Configuration to Your Project
-•	Add a Configuration File (sonar-project.properties): Place this file in the root of your project:
-properties
-Copy code
+```
+
+#### 3. Add SonarQube Configuration to Your Project
+- Add a Configuration File (sonar-project.properties): Place this file in the root of your project:
+```
 sonar.projectKey=my-project
 sonar.projectName=My Project
 sonar.projectVersion=1.0
 sonar.sources=src
 sonar.language=java
 sonar.sourceEncoding=UTF-8
-________________________________________
-4. Run SonarScanner
-•	Navigate to your project directory and execute:
-bash
-Copy code
+```
+#### 4. Run SonarScanner
+- Navigate to your project directory and execute:
+```bash
 sonar-scanner
-•	The results will be sent to the SonarQube server, and you can view them on the dashboard.
-________________________________________
-5. Integrate SonarQube in CI/CD Pipelines
+```
+- The results will be sent to the SonarQube server, and you can view them on the dashboard.
+
+#### 5. Integrate SonarQube in CI/CD Pipelines
 To automate code analysis during builds, integrate SonarQube with tools like Jenkins, GitHub Actions, Azure DevOps, or GitLab CI/CD.
-•	Jenkins Integration:
+#### Jenkins Integration:
 1.	Install the SonarQube Scanner Plugin.
 2.	Configure SonarQube in Manage Jenkins > Configure System.
 3.	Add a build step in your pipeline to run SonarScanner:
-sh
-Copy code
+
+```sh
 sonar-scanner \
   -Dsonar.projectKey=my-project \
   -Dsonar.sources=src \
   -Dsonar.host.url=http://<sonarqube-server-ip>:9000 \
   -Dsonar.login=<generated-token>
-•	GitHub Actions Integration: Add a step in your GitHub Actions workflow:
-yaml
-Copy code
+```
+- GitHub Actions Integration: Add a step in your GitHub Actions workflow:
+```yaml
 - name: SonarQube Scan
   run: |
     sonar-scanner \
@@ -5910,92 +5926,120 @@ Copy code
       -Dsonar.sources=src \
       -Dsonar.host.url=http://<sonarqube-server-ip>:9000 \
       -Dsonar.login=${{ secrets.SONARQUBE_TOKEN }}
-________________________________________
-6. Analyze Results
-•	After running the scanner, view the results in the SonarQube dashboard.
-•	Check for:
-o	Code smells
-o	Bugs
-o	Vulnerabilities
-o	Test coverage (if integrated with test reports)
-________________________________________
-7. Apply Fixes
-•	Address the issues reported by SonarQube.
-•	Rescan to ensure quality is improved.
-________________________________________
-Benefits of Using SonarQube
+```
+#### 6. Analyze Results
+- After running the scanner, view the results in the SonarQube dashboard.
+- Check for:
+- Code smells
+- Bugs
+- Vulnerabilities
+- Test coverage (if integrated with test reports)
+
+#### 7. Apply Fixes
+- Address the issues reported by SonarQube.
+- Rescan to ensure quality is improved.
+
+#### Benefits of Using SonarQube
 1.	Improves Code Quality: Identifies bugs, vulnerabilities, and code smells.
 2.	Enforces Standards: Helps maintain consistent coding standards.
 3.	Automated Feedback: Integrates into CI/CD for real-time feedback.
 4.	Supports Multiple Languages: Works with Java, Python, JavaScript, and more.
 5.	Customizable Rules: Tailor quality gates and rules to your project.
-11.	What are the advantages with cloud platform(AWS, Azure, GCP)?
+### 11.	What are the advantages with cloud platform(AWS, Azure, GCP)?
 Ans: Cloud platforms like AWS (Amazon Web Services), Azure, and GCP (Google Cloud Platform) offer numerous advantages that help businesses enhance scalability, flexibility, cost-efficiency, and innovation. Below are the primary benefits of using these platforms:
-________________________________________
-1. Scalability
-•	On-Demand Resources: Instantly scale up or down based on demand, ensuring optimal resource utilization.
-•	Global Reach: Deploy applications across multiple regions worldwide for better performance and reliability.
-•	Auto-scaling: Automatically adjust compute and storage resources to meet workload requirements.
-________________________________________
-2. Cost Efficiency
-•	Pay-as-You-Go: Pay only for the resources you use, avoiding upfront capital expenses.
-•	Reserved Pricing and Savings Plans: Commit to long-term usage for discounts (e.g., AWS Reserved Instances, Azure Reserved VM Instances).
-•	Cost Monitoring: Tools like AWS Cost Explorer, Azure Cost Management, and GCP Billing Reports help optimize expenses.
-________________________________________
-3. Flexibility and Agility
-•	Wide Range of Services: Access to compute, storage, databases, machine learning, analytics, and IoT services under one platform.
-•	Rapid Deployment: Launch and manage resources in minutes.
-•	Hybrid and Multi-Cloud Support: Integrate on-premises infrastructure with the cloud (e.g., Azure Arc, AWS Outposts, GCP Anthos).
-________________________________________
-4. High Availability and Reliability
-•	Redundancy: Built-in replication across regions ensures minimal downtime.
-•	Disaster Recovery: Services like AWS Backup, Azure Site Recovery, and GCP Disaster Recovery help with business continuity.
-•	SLAs (Service Level Agreements): Industry-leading uptime guarantees (typically 99.9% or higher).
-________________________________________
-5. Enhanced Security
-•	Compliance: Cloud platforms comply with major standards like GDPR, HIPAA, SOC, and PCI-DSS.
-•	Built-in Security Tools:
-o	AWS: IAM, AWS Shield, AWS WAF
-o	Azure: Azure AD, Defender for Cloud
-o	GCP: IAM, Security Command Center
-•	Encryption: Data is encrypted at rest and in transit.
-•	Network Security: Tools like Virtual Private Cloud (VPC), NSGs (Network Security Groups), and firewalls ensure secure communication.
-________________________________________
-6. Innovation with Advanced Technologies
-•	AI and Machine Learning: Prebuilt models and tools like AWS SageMaker, Azure AI, and GCP AI Platform.
-•	Big Data Analytics: Process and analyze massive datasets with services like AWS EMR, Azure Synapse Analytics, and BigQuery.
-•	Serverless Computing: Focus on code, not infrastructure, with services like AWS Lambda, Azure Functions, and GCP Cloud Functions.
-________________________________________
-7. Developer and DevOps Tools
-•	CI/CD Pipelines: Build, test, and deploy with tools like AWS CodePipeline, Azure DevOps, and GCP Cloud Build.
-•	Container Orchestration: Manage containerized applications with Kubernetes (EKS, AKS, GKE).
-•	Infrastructure as Code (IaC): Automate infrastructure provisioning using Terraform, CloudFormation, ARM Templates, or GCP Deployment Manager.
-________________________________________
-8. Global Network Infrastructure
-•	Content Delivery Networks: Faster content delivery with services like AWS CloudFront, Azure CDN, and Cloud CDN.
-•	Edge Computing: Deploy applications closer to users for reduced latency (e.g., AWS Wavelength, Azure Edge Zones, GCP Edge Cloud).
-________________________________________
-9. Collaboration and Integration
-•	Unified Ecosystem: Seamless integration with popular tools and frameworks (e.g., GitHub, Jenkins, Docker).
-•	Collaboration Tools: Services like AWS WorkSpaces, Azure Virtual Desktop, and Google Workspace enhance team productivity.
-________________________________________
-10. Sustainability
-•	Energy Efficiency: Cloud platforms invest in renewable energy and optimize infrastructure to reduce carbon footprints.
-•	Sustainability Programs:
-o	AWS: Carbon-neutral by 2030.
-o	Azure: Carbon-negative by 2030.
-o	GCP: Carbon-neutral since 2007.
-________________________________________
-When to Choose AWS, Azure, or GCP?
-Feature	AWS	Azure	GCP
-Market Leader	Most mature, with the largest service portfolio.	Best for hybrid cloud and enterprise integration.	Best for big data and analytics.
-Compute Services	EC2, Lambda	Virtual Machines, Azure Functions	Compute Engine, Cloud Functions
-Ease of Use	Developer-friendly	Enterprise-focused	AI/ML and data-driven workflows
-Pricing	Flexible	Enterprise discounts	Cost-effective for analytics
-Hybrid Cloud	AWS Outposts	Azure Arc	GCP Anthos
-________________________________________
+
+#### 1. Scalability
+`•	On-Demand Resources:` Instantly scale up or down based on demand, ensuring optimal resource utilization.
+
+`•	Global Reach:` Deploy applications across multiple regions worldwide for better performance and reliability.
+
+`•	Auto-scaling:` Automatically adjust compute and storage resources to meet workload requirements.
+
+#### 2. Cost Efficiency
+`•	Pay-as-You-Go:` Pay only for the resources you use, avoiding upfront capital expenses.
+
+`•	Reserved Pricing and Savings Plans:` Commit to long-term usage for discounts (e.g., AWS Reserved Instances, Azure Reserved VM Instances).
+
+`•	Cost Monitoring:` Tools like AWS Cost Explorer, Azure Cost Management, and GCP Billing Reports help optimize expenses.
+
+#### 3. Flexibility and Agility
+`•	Wide Range of Services:` Access to compute, storage, databases, machine learning, analytics, and IoT services under one platform.
+
+`•	Rapid Deployment:` Launch and manage resources in minutes.
+
+`•	Hybrid and Multi-Cloud Support:` Integrate on-premises infrastructure with the cloud (e.g., Azure Arc, AWS Outposts, GCP Anthos).
+
+#### 4. High Availability and Reliability
+`•	Redundancy:` Built-in replication across regions ensures minimal downtime.
+
+`•	Disaster Recovery:` Services like AWS Backup, Azure Site Recovery, and GCP Disaster Recovery help with business continuity.
+
+`•	SLAs (Service Level Agreements):` Industry-leading uptime guarantees (typically 99.9% or higher).
+
+#### 5. Enhanced Security
+`•	Compliance:` Cloud platforms comply with major standards like GDPR, HIPAA, SOC, and PCI-DSS.
+#### Built-in Security Tools:
+
+`o AWS:` IAM, AWS Shield, AWS WAF
+
+`o Azure:` Azure AD, Defender for Cloud
+
+`o GCP:` IAM, Security Command Center
+
+`• Encryption:` Data is encrypted at rest and in transit.
+
+`• Network Security:` Tools like Virtual Private Cloud (VPC), NSGs (Network Security Groups), and firewalls ensure secure communication.
+
+#### 6. Innovation with Advanced Technologies
+
+`•	AI and Machine Learning:` Prebuilt models and tools like AWS SageMaker, Azure AI, and GCP AI Platform.
+
+`•	Big Data Analytics:` Process and analyze massive datasets with services like AWS EMR, Azure Synapse Analytics, and BigQuery.
+
+`•	Serverless Computing:` Focus on code, not infrastructure, with services like AWS Lambda, Azure Functions, and GCP Cloud Functions.
+
+#### 7. Developer and DevOps Tools
+
+`• CI/CD Pipelines:` Build, test, and deploy with tools like AWS CodePipeline, Azure DevOps, and GCP Cloud Build.
+
+`• Container Orchestration:` Manage containerized applications with Kubernetes (EKS, AKS, GKE).
+
+`• Infrastructure as Code (IaC):` Automate infrastructure provisioning using Terraform, CloudFormation, ARM Templates, or GCP Deployment Manager.
+
+#### 8. Global Network Infrastructure
+`• Content Delivery Networks:` Faster content delivery with services like AWS CloudFront, Azure CDN, and Cloud CDN.
+
+`• Edge Computing:` Deploy applications closer to users for reduced latency (e.g., AWS Wavelength, Azure Edge Zones, GCP Edge Cloud).
+
+#### 9. Collaboration and Integration
+
+`• Unified Ecosystem:` Seamless integration with popular tools and frameworks (e.g., GitHub, Jenkins, Docker).
+
+`• Collaboration Tools:` Services like AWS WorkSpaces, Azure Virtual Desktop, and Google Workspace enhance team productivity.
+
+#### 10. Sustainability
+
+` Energy Efficiency:` Cloud platforms invest in renewable energy and optimize infrastructure to reduce carbon footprints.
+
+` Sustainability Programs:`
+
+` AWS:` Carbon-neutral by 2030.
+
+` Azure:` Carbon-negative by 2030.
+
+` GCP:` Carbon-neutral since 2007.
+
+#### When to Choose AWS, Azure, or GCP?
+
+#### Feature	AWS	Azure	GCP
+- Market Leader	Most mature, with the largest service portfolio.	Best for hybrid cloud and enterprise integration.	Best for big data and analytics.
+- Compute Services	EC2, Lambda	Virtual Machines, Azure Functions	Compute Engine, Cloud Functions
+- Ease of Use	Developer-friendly	Enterprise-focused	AI/ML and data-driven workflows
+- Pricing	Flexible	Enterprise discounts	Cost-effective for analytics
+- Hybrid Cloud	AWS Outposts	Azure Arc	GCP Anthos
+
 By leveraging cloud platforms, businesses can improve operational efficiency, innovate faster, and scale to meet market demands. Let me know if you need more detailed comparisons or use cases!
-12.	How to secure the Jenkins?
+### 12.	How to secure the Jenkins?
 Ans: Securing Jenkins is a critical part of maintaining a safe and reliable CI/CD pipeline. Since Jenkins is typically used to automate software builds, tests, deployments, and other critical workflows, it can become a potential target for malicious activity if not properly secured. Here are several strategies to secure Jenkins effectively:
 ### 1. **Enable Security in Jenkins**
 By default, Jenkins allows everyone to access and configure it, which is a security risk. You need to enable security to restrict access.
@@ -6039,14 +6083,14 @@ By default, Jenkins communicates over HTTP, which means that credentials and oth
 ### 4. **Limit Admin Access**
 Only allow trusted users to have **admin** access to Jenkins. You should restrict the number of users with full administrative privileges to reduce the risk of abuse or mistakes.
 
-Steps:
+#### Steps:
 - Go to **Manage Jenkins** > **Configure Global Security** and set up appropriate user roles using **Matrix-based security** or **Role-based Strategy** plugins.
 - Ensure that only a few trusted users have **Overall/Administer** permissions.
 
 ### 5. **Enable CSRF Protection**
 Cross-Site Request Forgery (CSRF) attacks can cause users to execute unwanted actions. Jenkins supports CSRF protection, and it should be enabled by default.
 
-Steps to verify CSRF protection:
+#### Steps to verify CSRF protection:
 1. Go to **Manage Jenkins** > **Configure Global Security**.
 2. Ensure that the **Prevent Cross Site Request Forgery exploits** box is checked.
 
@@ -6061,7 +6105,7 @@ There are several Jenkins plugins that can help enhance security. Some key ones 
 ### 7. **Enable Two-Factor Authentication (2FA)**
 Enabling **two-factor authentication (2FA)** for Jenkins can significantly enhance its security by requiring users to provide two forms of authentication.
 
-Steps to enable 2FA:
+#### Steps to enable 2FA:
 1. Install the **Google Authenticator Plugin** or **Auth0 Plugin** in Jenkins.
 2. Configure the plugin in **Manage Jenkins** > **Configure Global Security**.
 3. Require users to configure two-factor authentication for added security.
@@ -6093,7 +6137,7 @@ Be cautious with the content of your Jenkins jobs and build scripts. Here are a 
 ### 11. **Backup Jenkins Regularly**
 Regular backups of Jenkins configurations, jobs, build histories, and plugins are critical to recover in case of failure or security incidents.
 
-Steps to back up Jenkins:
+#### Steps to back up Jenkins:
 1. You can manually back up the `$JENKINS_HOME` directory (the default directory for Jenkins data).
 2. Use plugins like **ThinBackup** or **Backup Plugin** to schedule regular backups of your Jenkins configuration.
 
@@ -6122,7 +6166,7 @@ Securing Jenkins requires a combination of best practices, configuration setting
 6. Regularly **update Jenkins** and its plugins to fix security vulnerabilities.
 
 By applying these security measures, you can significantly reduce the attack surface of your Jenkins installation and protect your CI/CD pipeline from unauthorized access or malicious actions.
-13.	How to troubleshoot the POD if it is failed in kuberenetes?
+### 13.	How to troubleshoot the POD if it is failed in kuberenetes?
 Ans: When a Pod fails in Kubernetes, it's important to diagnose the issue quickly to identify and fix the root cause. Kubernetes provides several tools and commands to help troubleshoot Pods effectively. Here’s a comprehensive guide on how to troubleshoot a failed Pod in Kubernetes:
 
 ### 1. **Check Pod Status**
@@ -6526,88 +6570,111 @@ spec:
 ```
 In this Deployment, the secret will be available both as an environment variable and as a mounted file in `/etc/secret`.
 
-Mphasis L1 Q&A (17-10-2024)
-1.	What are the different modules have you used in Ansible?
+---
+
+## Mphasis L1 Q&A (17-10-2024)
+
+### 1.	What are the different modules have you used in Ansible?
 Ans: Already available
-2.	How to find exit status in linux?
+### 2.	How to find exit status in linux?
 Ans: 
-•	To find the exit status in linux we use special variable “$?”
-•	Any exit status of “0” means the command was successful.
-•	Any non-zero value indicates an error  or abnormal termination.
-Ex: ls    # ls – command runs successfully
+- To find the exit status in linux we use special variable “$?”
+- Any exit status of “0” means the command was successful.
+- Any non-zero value indicates an error  or abnormal termination.
+`Ex:` 
+```
+ls    # ls – command runs successfully
 	echo $?    # exit status is 0, indicating succes
 Ex: ls <non-existing-file> (It says no such file or directory)
        echo $?  # exit status is 2, indicating error
-3.	Output range command?
+```
+### 3.	Output range command?
  Ans: - name: Loop through a range of numbers
+```
   debug:
     msg: "{{ item }}"
   loop: "{{ range(0, 5) | list }}"
-4.	How to see the list of users in linux? Which file it is?
+```
+### 4.	How to see the list of users in linux? Which file it is?
 Ans: 1. View the /etc/passwd File
-The /etc/passwd file contains information about all users on the system, including system and service accounts. To view all users:
-bash
+- The /etc/passwd file contains information about all users on the system, including system and service accounts. To view all users:
+```bash
 Copy code
 cat /etc/passwd
-The output will display details like:
-ruby
-Copy code
+```
+- The output will display details like:
+
+```ruby
 root:x:0:0:root:/root:/bin/bash
 daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
-...
-Here, each line represents a user and follows this format:
-makefile
-Copy code
+```
+- Here, each line represents a user and follows this format:
+
+```makefile
 username:x:user_id:group_id:comment:home_directory:shell
-To extract just the usernames:
-bash
-Copy code
+```
+- To extract just the usernames:
+
+```bash
 cut -d: -f1 /etc/passwd
-2. List Users with getent
-The getent command can be used to retrieve user account information from the passwd database (which may include users from network services like LDAP in addition to local users):
-bash
-Copy code
+```
+#### 2. List Users with getent
+- The getent command can be used to retrieve user account information from the passwd database (which may include users from network services like LDAP in addition to local users):
+```bash
 getent passwd
-To display only the usernames:
-bash
-Copy code
+```
+- To display only the usernames:
+```bash
 getent passwd | cut -d: -f1
-5.	How to find OS version in linux?
-Ans: cat /proc/cpuinfo
+```
+### 5.	How to find OS version in linux?
+Ans: 
+```
+cat /proc/cpuinfo
 cat /proc/meminfo
-6.	How to check the process in linux?
-Ans: ps
+```
+### 6.	How to check the process in linux?
+Ans: 
+```
+ps
 Top
-7.	What is sed command?
+```
+### 7.	What is sed command?
 Ans: The sed (short for stream editor) command is a powerful tool used in Unix/Linux systems for processing and transforming text in files or streams. It is typically used for performing basic text transformations, such as search and replace, inserting or deleting lines, and modifying text in various ways.
 Basic Syntax:
-bash
+```bash
 Copy code
 sed [options] 'command' file
-Where:
-•	command: The operation you want to perform on the input text (like s for substitution, d for delete, etc.).
-•	file: The input file to be processed (if you're not using a pipeline).
-•	Options allow you to modify how sed behaves, e.g., -i for in-place editing.
-Key sed Operations
+```
+#### Where:
+
+`• command:` The operation you want to perform on the input text (like s for substitution, d for delete, etc.).
+
+`• file: `The input file to be processed (if you're not using a pipeline).
+
+- Options allow you to modify how sed behaves, e.g., -i for in-place editing.
+#### Key sed Operations
 1.	Substitute (s): Replace text in the input.
-bash
+```bash
 Copy code
 sed 's/pattern/replacement/' filename
-o	This command will replace the first occurrence of pattern with replacement on each line.
-o	Example:
-bash
+```
+- This command will replace the first occurrence of pattern with replacement on each line.
+- Example:
+```bash
 Copy code
 sed 's/hello/world/' file.txt
-This will replace the first occurrence of "hello" with "world" in each line of file.txt.
-o	To replace all occurrences of pattern in each line:
-bash
-Copy code
+```
+- This will replace the first occurrence of "hello" with "world" in each line of file.txt.
+- To replace all occurrences of pattern in each line:
+```bash
 sed 's/pattern/replacement/g' filename
-o	To replace only the N-th occurrence of pattern:
-bash
-Copy code
+```
+- To replace only the N-th occurrence of pattern:
+```bash
 sed 's/pattern/replacement/N' filename
-Where N is the number of occurrences to replace.
+```
+- Where N is the number of occurrences to replace.
 2.	In-place Editing (-i): Modify the file directly without redirecting the output to a new file.
 bash
 Copy code
