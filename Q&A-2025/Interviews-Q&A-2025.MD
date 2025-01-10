@@ -7,6 +7,413 @@
 
 ---
 
+---
+
+## Cognizent L1 Q&A Fri Jan 10, 2025 3pm – 4pm (IST)
+
+### Role: AWS DevOps Engineer
+
+### 1. What are the day to day activities and how you use github as a SCM?
+### 2. Suppose you commited two changes in git after sometime you identify that some vulnarabulity in first commit and latest commit has not any vulnarabulity and need to remove the commit history as well so how to resolve this issue? 
+Ans: To resolve the issue where you want to remove a vulnerability introduced in the first commit, but retain the changes in the latest commit, you can follow these steps using `git rebase` or `git reset`. Here's a detailed approach:
+
+### Step-by-step solution:
+
+1. **Identify the commit history**:
+   First, use `git log` to identify the commits and their hash values (commit IDs). This will help you pinpoint which commits you need to modify or remove.
+   ```bash
+   git log --oneline
+   ```
+
+2. **Start an interactive rebase**:
+   You'll want to rebase your branch to a point before the first vulnerable commit (let's assume it's the second commit).
+   ```bash
+   git rebase -i <commit-hash-before-first-vulnerable-commit>
+   ```
+
+3. **Edit the rebase file**:
+   In the interactive rebase editor, you’ll see something like this:
+   ```
+   pick <commit-hash1> First commit (vulnerable)
+   pick <commit-hash2> Latest commit (non-vulnerable)
+   ```
+   Change `pick` to `drop` next to the commit that contains the vulnerability (the first commit):
+   ```
+   drop <commit-hash1> First commit (vulnerable)
+   pick <commit-hash2> Latest commit (non-vulnerable)
+   ```
+
+4. **Complete the rebase**:
+   After editing, save and close the editor. Git will reapply the changes from the second commit onward, effectively removing the vulnerable commit.
+
+5. **Resolve any conflicts (if any)**:
+   If there are merge conflicts, Git will pause the rebase and ask you to resolve them. Resolve the conflicts and then continue the rebase with:
+   ```bash
+   git rebase --continue
+   ```
+
+6. **Force-push the changes (if already pushed to a remote)**:
+   If the commits have already been pushed to a remote repository, you will need to force-push the changes to update the history on the remote.
+   ```bash
+   git push origin <branch-name> --force
+   ```
+
+### Important notes:
+- **Rewriting history:** This approach rewrites commit history, so make sure you inform your team if
+
+### 3. What is the approach to onboard the new jenkins pipeline? or how to create the new jenkins pipeline?
+Ans: Already available
+### 4. Have you onboarded any nodejs application?
+### 5. In single CI jenkins pipeline i want to create a two nodejs application artifacts based on its versions how to do that?
+Ans: 
+To create two Node.js application artifacts in a single Jenkins pipeline based on their versions, you can set up your Jenkins pipeline with separate build steps for each Node.js application. Here’s how you can do it:
+
+### Assumptions:
+- You have two separate Node.js applications, each in its own directory.
+- You want to generate separate artifacts (e.g., `.tar.gz`, `.zip`, `.tgz`, or a similar archive) for each application, based on its version.
+
+### High-level Steps:
+1. **Prepare the pipeline stages**:
+   - Checkout the code for both Node.js applications.
+   - Build and package each application separately.
+   - Tag or version the artifacts appropriately (based on the application's version).
+   - Store or upload the generated artifacts.
+
+### Example Jenkinsfile
+
+Here's an example `Jenkinsfile` that defines a pipeline for two Node.js applications, `app1` and `app2`, and generates separate artifacts for each based on their respective versions.
+
+```groovy
+pipeline {
+    agent any
+    
+    environment {
+        // Define environment variables (optional)
+        NODEJS_HOME = tool name: 'NodeJS', type: 'Tool'
+    }
+
+    stages {
+        stage('Checkout Code') {
+            steps {
+                // Checkout both repositories or directories
+                checkout scm
+            }
+        }
+
+        stage('Build App 1') {
+            steps {
+                script {
+                    dir('app1') {
+                        // Navigate to app1 directory
+                        echo 'Building App 1...'
+                        
+                        // Install dependencies
+                        sh 'npm install'
+                        
+                        // Generate versioned artifact for app1
+                        def app1_version = readFile('package.json') // Read version from package.json
+                        app1_version = sh(script: "jq -r .version package.json", returnStdout: true).trim()
+                        
+                        echo "Building artifact for app1 version: ${app1_version}"
+                        
+                        // Create artifact (e.g., .tar.gz)
+                        sh "tar -czf app1-${app1_version}.tgz ."
+                        
+                        // Optionally, archive the artifact in Jenkins
+                        archiveArtifacts artifacts: "app1/app1-${app1_version}.tgz", allowEmptyArchive: true
+                    }
+                }
+            }
+        }
+
+        stage('Build App 2') {
+            steps {
+                script {
+                    dir('app2') {
+                        // Navigate to app2 directory
+                        echo 'Building App 2...'
+                        
+                        // Install dependencies
+                        sh 'npm install'
+                        
+                        // Generate versioned artifact for app2
+                        def app2_version = readFile('package.json') // Read version from package.json
+                        app2_version = sh(script: "jq -r .version package.json", returnStdout: true).trim()
+                        
+                        echo "Building artifact for app2 version: ${app2_version}"
+                        
+                        // Create artifact (e.g., .tar.gz)
+                        sh "tar -czf app2-${app2_version}.tgz ."
+                        
+                        // Optionally, archive the artifact in Jenkins
+                        archiveArtifacts artifacts: "app2/app2-${app2_version}.tgz", allowEmptyArchive: true
+                    }
+                }
+            }
+        }
+
+        stage('Post-build Actions') {
+            steps {
+                echo 'All applications built successfully.'
+            }
+        }
+    }
+}
+```
+
+### Explanation of the `Jenkinsfile`:
+
+1. **Checkout Code**: This step checks out the repository containing both Node.js applications. If the applications are in different repositories, you can use multiple `checkout scm` commands or use a multi-repository setup.
+   
+2. **Build App 1**:
+   - In this step, the pipeline enters the directory for `app1`.
+   - It installs the dependencies (`npm install`).
+   - It reads the version from `package.json` using `jq` (a lightweight command-line JSON processor).
+   - It generates a `.tgz` artifact named with the version extracted from `package.json`.
+   - The artifact is archived in Jenkins using `archiveArtifacts`.
+
+3. **Build App 2**: Similar to `app1`, this step handles building the second Node.js application (`app2`), extracting its version, and creating an artifact.
+
+4. **Post-build Actions**: You can add any additional steps here, like notifying teams or triggering further actions, like uploading the artifacts to a repository.
+
+### Notes:
+- **Version extraction**: The pipeline uses the `jq` command to extract the version from the `package.json` file. Ensure you have `jq` installed on the Jenkins agent, or modify the script to use another method to extract the version.
+- **Artifact generation**: The example uses `tar` to create `.tgz` files, but you can change this to generate any type of artifact you need, like `.zip`, `.tar`, or even Docker images.
+- **Multiple repositories**: If the two Node.js applications are in different repositories, you'll need to configure them accordingly in the Jenkinsfile.
+
+This approach allows you to build, version, and archive each Node.js application artifact independently within a single Jenkins pipeline. Let me know if you need further customizations or clarifications!
+### 6. In kubernetes how the deployment and service integrate at the backend? How it redirects to the POD?
+Ans: In Kubernetes, **Deployments** and **Services** work together to manage and expose your application. The **Deployment** manages the pods and ensures that the desired number of replicas are running, while the **Service** acts as a load balancer that routes traffic to the appropriate pod(s). Let's break down how they integrate and how the traffic is directed to the pod.
+
+### 1. **Kubernetes Deployment**:
+   - A **Deployment** is a controller that manages the state of application pods, ensuring that the correct number of replicas (copies of the application) are running and that they are updated properly when changes are made.
+   - The Deployment creates pods based on the template defined in the configuration.
+   - It maintains the desired state of the application (e.g., the number of replicas) and handles scaling, rolling updates, and rollbacks.
+
+### 2. **Kubernetes Service**:
+   - A **Service** in Kubernetes is an abstraction that defines a logical set of pods and enables network access to them.
+   - It is responsible for exposing the pods running in the cluster to external or internal clients. It provides a stable IP address and DNS name to access the pods.
+   - A Service typically has a **selector** that matches the pods based on labels and directs the traffic to them.
+   - It can expose different types of ports and protocols, and the most common types are **ClusterIP**, **NodePort**, **LoadBalancer**, and **ExternalName**.
+
+### How the **Deployment** and **Service** Work Together:
+
+1. **Pod Creation by Deployment**:
+   - When you create a **Deployment**, you define a **pod template**. This template includes the container image, environment variables, ports, etc.
+   - The Deployment controller creates a set of pods that match this template.
+   - Each pod will get an IP address within the Kubernetes cluster, but the IP addresses of individual pods are dynamic and may change over time, especially when pods are rescheduled or updated.
+
+2. **Service Creation**:
+   - You create a **Service** to provide stable access to the pods that are created by the Deployment.
+   - The Service uses a **selector** to match the pods. The selector matches the pods based on labels assigned to them.
+   - The Service itself gets a stable IP address and a DNS name (e.g., `my-service.default.svc.cluster.local`).
+   - When a request is made to the Service's IP address or DNS name, the Service forwards that request to one of the pods that match its selector.
+
+3. **How the Service Redirects Traffic to the Pod**:
+   - When a client sends a request to the Service, the Service acts as a proxy and forwards the request to one of the backend pods.
+   - The Service uses an internal mechanism known as **kube-proxy**, which runs on each node in the cluster. `kube-proxy` ensures that the traffic is routed to the right pod and handles load balancing between pods.
+   - The routing happens at the network layer, with kube-proxy managing iptables rules or using IPVS (IP Virtual Server) for directing traffic to the correct pod.
+   - **Load balancing**: If the Service is backed by multiple pods (e.g., for scalability), the Service distributes traffic across the pods based on a round-robin or random selection.
+
+### Example:
+
+Let’s say you have a **Deployment** that manages two replicas of a Node.js app and a **Service** to expose them.
+
+#### 1. **Deployment Definition** (`deployment.yaml`):
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - name: node-app
+        image: node-app:latest
+        ports:
+        - containerPort: 8080
+```
+
+#### 2. **Service Definition** (`service.yaml`):
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-app-service
+spec:
+  selector:
+    app: my-app  # This matches the label on the pods created by the Deployment
+  ports:
+    - protocol: TCP
+      port: 80        # External port exposed by the Service
+      targetPort: 8080 # Port on the pod to forward traffic to
+  type: ClusterIP     # The Service is accessible within the cluster
+```
+
+#### Explanation:
+1. **Deployment** (`my-app`) creates two pods (each running the `node-app` container).
+2. **Service** (`my-app-service`) selects pods with the label `app: my-app` and exposes port 80, forwarding traffic to port 8080 on the pods.
+3. When a request is made to `my-app-service`, Kubernetes' **kube-proxy** manages the routing and forwards the traffic to one of the pods running the `node-app`, effectively load balancing between the pods.
+
+### How Traffic Flows:
+1. The client (or other services within the cluster) sends a request to `my-app-service` (on port 80).
+2. The Kubernetes Service receives the request and uses its selector to identify the available pods (those that match the `app: my-app` label).
+3. The Service forwards the request to one of the matching pods (using round-robin or random load balancing).
+4. The chosen pod handles the request and sends a response back through the Service, which then returns the response to the client.
+
+### Types of Services in Kubernetes:
+- **ClusterIP**: Exposes the Service only inside the cluster. This is the default type.
+- **NodePort**: Exposes the Service on a static port on each node in the cluster, which can be accessed externally.
+- **LoadBalancer**: Exposes the Service externally using a cloud provider’s load balancer (requires a cloud environment like AWS, GCP, etc.).
+- **ExternalName**: Maps the Service to an external DNS name, useful for accessing resources outside the cluster.
+
+In summary:
+- **Deployment**: Ensures the desired state of the application (e.g., number of replicas) by managing pods.
+- **Service**: Provides a stable endpoint to access the pods and balances traffic between them, even if the pod IP addresses change over time.
+
+This combination ensures that your applications are scalable and reliable, with traffic properly routed to the available pods. Let me know if you'd like more details!
+### 7.How node effinity works in kubernetes?
+Ans: 
+**Node Affinity** in Kubernetes is a set of rules that allows you to control which nodes your pods are scheduled on based on labels assigned to those nodes. It is part of the **Scheduling** mechanism and is used to ensure that your pods are deployed on specific nodes or types of nodes.
+
+There are two types of node affinity:
+
+### 1. **RequiredDuringSchedulingIgnoredDuringExecution**:
+   - This type of node affinity specifies hard constraints. If the affinity rules are not met, the pod will not be scheduled on any node.
+   - This is used when you want to **force** a pod to be scheduled on nodes that meet specific criteria (e.g., certain hardware requirements, geographic location).
+   - **Example**:
+     ```yaml
+     affinity:
+       nodeAffinity:
+         requiredDuringSchedulingIgnoredDuringExecution:
+           nodeSelectorTerms:
+             - matchExpressions:
+                 - key: "kubernetes.io/e2e-storage"
+                   operator: In
+                   values:
+                     - "true"
+     ```
+
+     In this case, the pod will only be scheduled on nodes that have the label `kubernetes.io/e2e-storage=true`.
+
+### 2. **PreferredDuringSchedulingIgnoredDuringExecution**:
+   - This type of node affinity specifies soft constraints. Kubernetes will try to schedule the pod on a node that meets the conditions, but if no suitable nodes are available, it will schedule the pod on another node.
+   - It's useful when you want to **prefer** certain nodes but not enforce strict rules.
+   - **Example**:
+     ```yaml
+     affinity:
+       nodeAffinity:
+         preferredDuringSchedulingIgnoredDuringExecution:
+           - weight: 1
+             preference:
+               matchExpressions:
+                 - key: "kubernetes.io/zone"
+                   operator: In
+                   values:
+                     - "us-west1-b"
+     ```
+
+     This example prefers nodes in the `us-west1-b` zone, but it's not mandatory.
+
+### Key Points:
+- **Node Affinity** is specified under the `affinity` section in the pod spec.
+- You can combine multiple **nodeSelectorTerms** and use **matchExpressions** to define more complex rules.
+- **Required** affinity is enforced strictly, while **Preferred** affinity gives Kubernetes the flexibility to place pods on other nodes if needed.
+
+Node affinity helps in organizing workloads based on node capabilities, such as CPU type, hardware, region, or other node-specific labels.
+### 8. How to troubleshoot if the POD not reachable?
+Ans: Already available
+### 9. If one of the node is not connecting to the kubernetes control plan how to trobleshoot that?
+Ans: If a node is not connecting to the Kubernetes control plane (master node), it indicates there is an issue with communication between the **node** and the **control plane**. To troubleshoot this, follow these steps:
+
+### 1. **Check the Node's Status**:
+   - Run the following command to see the status of all nodes:
+     ```bash
+     kubectl get nodes
+     ```
+   - If the node is in a `NotReady` or `Unknown` state, this indicates a problem with the node’s connectivity or configuration.
+
+### 2. **Verify the Node’s Network Connectivity**:
+   - Ensure that the node can reach the Kubernetes control plane (API server). Use `ping` or `curl` to verify connectivity:
+     ```bash
+     ping <control-plane-ip>
+     curl <control-plane-ip>:6443
+     ```
+   - If the control plane is behind a firewall or cloud security group, verify that the necessary ports (e.g., 6443 for the API server) are open.
+
+### 3. **Check Kubelet Logs on the Node**:
+   - The **kubelet** is responsible for maintaining communication with the control plane. If the node is not connecting, check the kubelet logs for errors.
+     ```bash
+     journalctl -u kubelet -f
+     ```
+   - Look for error messages related to communication with the API server or issues with authentication.
+
+### 4. **Check the Kubelet Configuration**:
+   - The kubelet must be properly configured to communicate with the control plane. Ensure the kubelet's configuration file (`/etc/kubernetes/kubelet.conf`) contains the correct API server address and authentication credentials.
+   - You can also check the kubelet's command-line arguments for correct configuration:
+     ```bash
+     ps aux | grep kubelet
+     ```
+
+### 5. **Verify the Certificates**:
+   - Kubernetes uses certificates for secure communication between nodes and the control plane. If the certificates are expired or misconfigured, the node may not be able to authenticate with the control plane.
+   - Check for certificate issues in the kubelet logs or by verifying the expiration dates of the certificates:
+     ```bash
+     openssl x509 -in /etc/kubernetes/pki/kubelet.crt -noout -enddate
+     ```
+
+### 6. **Check the Node’s Docker or Container Runtime**:
+   - If you're using **Docker** as the container runtime, verify that Docker is running on the node:
+     ```bash
+     systemctl status docker
+     ```
+   - Similarly, if you’re using another container runtime (like containerd), check its status.
+
+### 7. **Check API Server Logs**:
+   - If the node is still unable to connect, check the API server logs for any potential issues. You can view the logs on the control plane node:
+     ```bash
+     journalctl -u kube-apiserver -f
+     ```
+
+### 8. **Rejoin the Node to the Cluster**:
+   - If you've checked the above steps and everything seems to be in order but the node is still not connecting, you may try to rejoin the node to the cluster. On the node, run:
+     ```bash
+     kubeadm reset
+     kubeadm join <control-plane-ip>:6443 --token <token> --discovery-token-ca-cert-hash sha256:<hash>
+     ```
+   - The token and hash can be found in the logs or generated from the control plane node.
+
+### 9. **Check Cloud Provider or Infrastructure Configuration**:
+   - If your Kubernetes setup is running on a cloud provider or virtualized environment, verify that there are no issues with network security rules, such as VPC settings, firewall rules, or network policies that could be blocking communication.
+
+### 10. **Verify the Node’s Time Sync**:
+   - Ensure that the node’s clock is synchronized with the control plane’s clock. Time discrepancies can cause authentication issues (e.g., due to expired certificates or tokens).
+   - You can check the system time using:
+     ```bash
+     date
+     ```
+   - Install and use **NTP** (Network Time Protocol) to sync time if necessary:
+     ```bash
+     sudo apt install ntp
+     sudo systemctl restart ntp
+     ```
+
+### Summary:
+To troubleshoot a node not connecting to the Kubernetes control plane:
+- Check node status and logs (`kubectl get nodes`, `journalctl -u kubelet`).
+- Verify network connectivity to the control plane and open ports.
+- Ensure kubelet and API server certificates are valid.
+- Check the container runtime (Docker or containerd).
+- Rejoin the node if necessary, and verify cloud infrastructure configurations.
+
 
 ---
 ## Qentelli L1 Q&A Wed Jan 8, 2025 2pm – 2:30pm (GMT+5:30)
