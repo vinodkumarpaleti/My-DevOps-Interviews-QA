@@ -168,7 +168,7 @@ resource "aws_instance" "example" {
 
 Ans: 
 
-![K8S Architecture](My-DevOps-Interview-Q&A-Wiki/Q&A-2023/Images/k8s-Arch.jpg "This is a kubernetes architecture")
+![K8S Architecture](Q&A-2023/Images/k8s-Arch.jpg "This is a kubernetes architecture")
 
 
 ### 6. What is node port, cluster Ip?
