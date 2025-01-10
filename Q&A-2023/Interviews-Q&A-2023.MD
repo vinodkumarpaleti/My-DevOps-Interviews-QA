@@ -168,11 +168,11 @@ resource "aws_instance" "example" {
 
 Ans: 
 
-![K8S Architecture](https://github.com/vinodkumarpaleti/My-DevOps-Interviews-QA/blob/master/Q%26A-2023/Images/k8s-Arch.jpg "This is a kubernetes architecture")
+
 
 ---
 
-![Local Image](images/k8s-Arch.jpg "This is a local image")
+![Local Image](./images/k8s-Arch.jpg "This is a local image")
 
 
 ### 6. What is node port, cluster Ip?
