@@ -166,6 +166,11 @@ resource "aws_instance" "example" {
 * Customize the lifecycle settings based on your specific requirements and constraints.
 ### 5. What is k8s architecture?
 
+Ans: 
+
+![K8S Architecture](My-DevOps-Interview-Q&A-Wiki/Q&A-2023/Images/k8s-Arch.jpg "This is a kubernetes architecture")
+
+
 ### 6. What is node port, cluster Ip?
 Ans: In the context of Kubernetes, `NodePort` and `ClusterIP` are types of services used to expose applications running in the cluster to the external world or to other components within the cluster. These services define how the applications can be accessed and what type of network configuration is used.
 #### 1. NodePort:
