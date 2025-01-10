@@ -172,7 +172,7 @@ Ans:
 
 ---
 
-![Local Image](Q\&A-2023/Images/k8s-Arch.jpg "This is a local image")
+![Local Image](images/k8s-Arch.jpg "This is a local image")
 
 
 ### 6. What is node port, cluster Ip?
