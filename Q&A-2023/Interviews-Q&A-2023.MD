@@ -167,12 +167,9 @@ resource "aws_instance" "example" {
 ### 5. What is k8s architecture?
 
 Ans: 
+-
 
-
-
----
-
-![Local Image](./images/k8s-Arch.jpg "This is a local image")
+![Kubernetes Architecture](./Images/k8s-Arch.jpg "This is kubernetes Architecture")
 
 
 ### 6. What is node port, cluster Ip?
