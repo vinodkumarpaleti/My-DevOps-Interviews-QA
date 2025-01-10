@@ -170,6 +170,10 @@ Ans:
 
 ![K8S Architecture](https://github.com/vinodkumarpaleti/My-DevOps-Interviews-QA/blob/master/Q%26A-2023/Images/k8s-Arch.jpg "This is a kubernetes architecture")
 
+---
+
+![Local Image](C:\Vinod-Workspace\My-DevOps-Interview-Q&A-Wiki\Q&A-2023\Images\k8s-Arch.jpg "This is a local image")
+
 
 ### 6. What is node port, cluster Ip?
 Ans: In the context of Kubernetes, `NodePort` and `ClusterIP` are types of services used to expose applications running in the cluster to the external world or to other components within the cluster. These services define how the applications can be accessed and what type of network configuration is used.
