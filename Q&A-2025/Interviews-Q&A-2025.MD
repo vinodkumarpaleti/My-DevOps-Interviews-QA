@@ -9,6 +9,165 @@
 
 ---
 
+## Qentelli (Client) L2 Q&A Fri Jan 10, 2025 8pm – 8:30pm (IST)
+
+### Role: AWS DevOps Engineer
+
+### 1. What is your day to activities in your project?
+### 2. If you face any issues in your project how would you fix that and what is your approach?
+Ans: When facing issues in a project, a systematic approach helps to resolve them effectively and minimize disruptions. Here's my strategy for identifying, analyzing, and resolving problems in a project:
+
+---
+
+### **1. Immediate Response to Issues**
+#### **A. Acknowledge the Problem**
+- **Identify and Document:** Gather all the details about the issue (description, timestamp, affected systems, users).
+- **Classify:** Determine the type (technical issue, process bottleneck, resource constraint, etc.) and severity (critical, high, medium, low).
+
+#### **B. Mitigate Immediate Impact**
+- Apply a temporary fix (e.g., restarting a service, disabling a faulty feature) to reduce the immediate consequences while investigating.
+
+---
+
+### **2. Investigative Approach**
+#### **A. Root Cause Analysis**
+- **Reproduce the Issue:** Attempt to recreate the problem in a controlled environment.
+- **Collect Logs/Data:**
+  - Use monitoring tools (e.g., CloudWatch, Azure Monitor) to identify anomalies.
+  - Review application and system logs for errors.
+- **Analyze Recent Changes:** Check recent deployments, configuration updates, or code changes that might have caused the issue.
+
+#### **B. Collaborate with Stakeholders**
+- Involve relevant team members (developers, QA, operations) for multi-perspective troubleshooting.
+- Escalate to third-party vendors or external teams if needed.
+
+---
+
+### **3. Implementing a Solution**
+#### **A. Short-Term Fix (Workaround)**
+- **Objective:** Mitigate the issue without a full resolution (e.g., throttling traffic, reverting to a stable version).
+- **Example:** If a cloud resource exceeds its quota, scale down the load or request a quota increase.
+
+#### **B. Long-Term Resolution**
+1. **Technical Issues:**
+   - Debug the application using logs or debugging tools.
+   - Write and test code patches or configuration changes.
+2. **Infrastructure Issues:**
+   - Use IaC tools like Terraform to fix misconfigurations.
+   - Scale infrastructure or optimize resource usage.
+3. **Process Issues:**
+   - Update workflows or introduce new tools to resolve bottlenecks.
+4. **Documentation Gaps:**
+   - Update or create documentation for clarity.
+
+#### **C. Validation**
+- Test the solution in a staging environment.
+- Run automated tests to ensure no regressions.
+- Monitor the system after deployment.
+
+---
+
+### **4. Post-Fix Actions**
+#### **A. Communicate**
+- Provide a clear summary to stakeholders:
+  - What caused the issue?
+  - How it was fixed?
+  - Steps taken to prevent recurrence.
+#### **B. Preventative Measures**
+- Add monitoring or alerts for early detection of similar issues.
+- Implement automation for repetitive tasks to reduce human error.
+- Conduct a post-mortem to analyze and document lessons learned.
+
+---
+
+### **5. Example Scenarios**
+#### **Scenario 1: Jenkins Build Pipeline Failing**
+- **Issue:** Jenkins job fails due to a missing environment variable.
+- **Steps:**
+  - Review logs to identify the missing variable.
+  - Add the variable to the Jenkins configuration.
+  - Test the pipeline and ensure it completes successfully.
+- **Preventative Measure:** Introduce a pre-check script in the pipeline.
+
+#### **Scenario 2: AWS DynamoDB Latency Spikes**
+- **Issue:** Latency increases due to insufficient read capacity.
+- **Steps:**
+  - Analyze metrics in AWS CloudWatch.
+  - Enable auto-scaling for the DynamoDB table.
+  - Optimize the query structure.
+- **Preventative Measure:** Set up alerts for capacity thresholds.
+
+---
+
+Would you like detailed steps (COMOFF) for a specific tool or type of issue?
+### 3. What is your experiance in kubernates (AKS or EKS)?
+### 4. How did you do the upgrades in kubernetes? what is process?
+### 5. What is your experiance in scripting?
+### 6. What is your experiance in automation?
+### 7. How to handle the tickets and how did you give the solution?
+Ans: Handling tickets efficiently and providing effective solutions are critical in roles such as support, operations, or DevOps. Here's a structured approach:
+
+---
+
+### **1. Understanding the Ticket Lifecycle**
+- **New Ticket Received:** Acknowledge the ticket to let the requester know it's being worked on.
+- **Categorization:** Classify the ticket based on priority (urgent, high, medium, low) and type (bug, feature request, incident, etc.).
+- **Assignment:** If not your responsibility, reassign to the appropriate team or individual.
+
+---
+
+### **2. Step-by-Step Approach to Handle Tickets**
+
+#### **A. Analyze the Ticket**
+- **Read the Description:** Ensure you fully understand the problem or request.
+- **Reproduce the Issue:** If it's a bug or incident, try to replicate the problem to identify its root cause.
+- **Gather Logs and Data:** Collect necessary details like logs, error messages, timestamps, or environment configurations.
+
+#### **B. Investigate the Root Cause**
+- Use monitoring tools like **CloudWatch**, **Datadog**, or **Splunk** to check system health.
+- Refer to knowledge bases, documentation, or past resolved tickets for similar issues.
+- Collaborate with other teams if needed (e.g., networking, database, or application teams).
+
+#### **C. Provide a Solution**
+1. **Quick Fix (if required):** Implement a workaround to mitigate immediate impact (e.g., restarting a service or rolling back changes).
+2. **Permanent Solution:**
+   - **Bug Fix:** Write and test a patch or update the code.
+   - **Configuration Change:** Modify settings in tools like Jenkins, Terraform, or cloud providers (AWS, Azure).
+   - **Database Update:** Apply schema changes or optimize queries if it involves databases like DynamoDB.
+3. **Automation:** If repetitive, consider automating the fix for future occurrences.
+
+#### **D. Test the Solution**
+- Ensure the solution resolves the issue without causing regressions.
+- Test in a staging or non-production environment before deployment.
+
+#### **E. Communicate with Stakeholders**
+- Update the requester with clear explanations:
+  - What caused the issue?
+  - What has been done to fix it?
+  - Steps to prevent recurrence (if applicable).
+- Share documentation or steps for future reference if the issue occurs again.
+
+#### **F. Close the Ticket**
+- Ensure the requester agrees the issue is resolved.
+- Add relevant notes to the ticket for record-keeping.
+- Close the ticket only after all acceptance criteria are met.
+
+---
+
+### **3. Practical Examples**
+- **Incident:** A Jenkins job fails due to misconfigured credentials.
+  - **Steps Taken:** Investigate logs, update credentials, test the job.
+  - **Solution:** Implement a credentials rotation policy.
+- **Request:** Need a new DynamoDB table.
+  - **Steps Taken:** Confirm requirements, use Terraform to provision the table, test.
+  - **Solution:** Deliver infrastructure-as-code (IaC) for consistent provisioning.
+
+---
+
+Would you like detailed instructions (COMOFF) for handling tickets in a specific tool or system?
+
+---
+
 ## Cognizent L1 Q&A Fri Jan 10, 2025 3pm – 4pm (IST)
 
 ### Role: AWS DevOps Engineer
