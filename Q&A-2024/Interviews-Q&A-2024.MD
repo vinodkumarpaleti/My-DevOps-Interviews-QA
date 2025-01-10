@@ -192,7 +192,7 @@ Use `iotop` (requires root) to monitor real-time disk I/O.
 Ans: Available
 ### 11.	What is the hard link?
 Ans: Available
-### 12.	How to delete both the hard link and its reference file?
+### 12.	How to delete both hard link and its reference file?
 Ans: To delete both the hard link and its reference file (original file):
 
 **1.	Delete the hard link:** Use the rm command to remove the hard link:
