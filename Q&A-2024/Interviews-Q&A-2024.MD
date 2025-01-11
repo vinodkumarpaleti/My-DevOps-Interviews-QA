@@ -10413,28 +10413,29 @@ sudo chown :developers file.txt
 sudo chown john:developers file1.txt file2.txt
 ```
 
-Verify Ownership
-After changing ownership, verify the changes using the ls -l command:
-bash
+- Verify Ownership
+- After changing ownership, verify the changes using the ls -l command:
+```bash
 Copy code
 ls -l file_name
-Example Output:
-plaintext
+```
+#### Example Output:
+```plaintext
 Copy code
 -rw-r--r-- 1 john developers 4096 Nov 15 12:00 file.txt
-________________________________________
-Common Use Cases
-•	When a file is created by one user but needs to be managed by another user.
-•	To grant group permissions for collaborative projects.
-Note:
-•	Root Privileges: You must have sudo privileges to change the ownership of a file or directory.
-•	Ownership Restrictions: Only root can change the ownership of a file; regular users can change group ownership only if they are members of the new group.
-12.	Write a Jenkins CICD pipeline along with condtions? 
+```
+#### Common Use Cases
+- When a file is created by one user but needs to be managed by another user.
+- To grant group permissions for collaborative projects.
+
+`Note:`
+- Root Privileges: You must have sudo privileges to change the ownership of a file or directory.
+- Ownership Restrictions: Only root can change the ownership of a file; regular users can change group ownership only if they are members of the new group.
+### 12.	Write a Jenkins CICD pipeline along with condtions? 
 Ans: Below is an example of a Jenkins CI/CD pipeline script (written in Groovy) that includes conditions to control the execution of certain stages based on build parameters or runtime conditions.
-________________________________________
-Jenkins Pipeline Script
-groovy
-Copy code
+
+#### Jenkins Pipeline Script
+```groovy
 pipeline {
     agent any
 
@@ -10513,67 +10514,93 @@ pipeline {
         }
     }
 }
-________________________________________
-Explanation
-1.	Parameters:
-o	RUN_TESTS: A boolean parameter to control whether the "Run Tests" stage is executed.
-o	DEPLOY_ENV: A string parameter specifying the environment (dev, staging, prod) to deploy the application.
-2.	Stages:
-o	Checkout Code: Fetches the code from the version control system.
-o	Build Application: Builds the application using a build tool (e.g., Maven).
-o	Run Tests: Executes tests if RUN_TESTS is set to true.
-o	Deploy Application: Deploys the application, skipping deployment for the dev environment.
-o	Post-Deployment Checks: Runs additional checks only if the environment is prod.
-3.	Conditions:
-o	when block: Used to include/exclude stages based on specific conditions.
-o	Expressions: Custom logic to determine whether a stage should run.
-4.	Post Actions:
-o	success: Executes steps when the pipeline completes successfully.
-o	failure: Executes steps if the pipeline fails.
-o	always: Executes steps regardless of pipeline status (e.g., cleaning up).
-________________________________________
-Steps to Use This Script
+```
+
+#### Explanation
+#### 1.	Parameters:
+
+`o RUN_TESTS:` A boolean parameter to control whether the "Run Tests" stage is executed.
+
+`o DEPLOY_ENV:` A string parameter specifying the environment (dev, staging, prod) to deploy the application.
+
+#### 2.	Stages:
+`o	Checkout Code:` Fetches the code from the version control system.
+
+`o	Build Application:` Builds the application using a build tool (e.g., Maven).
+
+`o	Run Tests:` Executes tests if RUN_TESTS is set to true.
+
+`o	Deploy Application:` Deploys the application, skipping deployment for the dev environment.
+
+`o	Post-Deployment Checks:` Runs additional checks only if the environment is prod.
+
+#### 3.	Conditions:
+
+`o when block:` Used to include/exclude stages based on specific conditions.
+
+`o Expressions:` Custom logic to determine whether a stage should run.
+
+#### 4.	Post Actions:
+
+`o	success:` Executes steps when the pipeline completes successfully.
+
+`o	failure:` Executes steps if the pipeline fails.
+
+`o	always:` Executes steps regardless of pipeline status (e.g., cleaning up).
+
+
+#### Steps to Use This Script
 1.	Open your Jenkins UI.
 2.	Create a new pipeline job.
 3.	Paste this script into the "Pipeline Script" section.
 4.	Run the job and specify the parameters (if needed).
-13.	What is the difference between continuous delivary and continuoes deployment?
+### 13.	What is the difference between continuous delivary and continuoes deployment?
 Ans: Already available
-14.	Can you write a sample docker file?
+### 14.	Can you write a sample docker file?
 Ans: Already available
-15.	What is the difference between CMD and ENTRYPOINT?
+### 15.	What is the difference between CMD and ENTRYPOINT?
 Ans: Already available
-16.	What is the difference between Application Load Balancer and Network Load Balancer?
+### 16.	What is the difference between Application Load Balancer and Network Load Balancer?
 Ans: Already available
-17.	What are the different types of routing policies available in route53?
+### 17.	What are the different types of routing policies available in route53?
 Ans: Simple routing policy – Use for a single resource that performs a given function for your domain, for example, a web server that serves content for the example.com website.
-*	It is just used for one server to access.
-Failover routing policy – Use when you want to configure active-passive failover.
-*	Here one server is in Active and one server is in back up, if first server is down automatically request goes to second server.
-Geolocation routing policy – Use when you want to route traffic based on the location of your users.
-Geoproximity routing policy – Use when you want to route traffic based on the location of your resources and, optionally, shift traffic from resources in one location to resources in another.
-Latency routing policy – Use when you  have resources in multiple AWS Regions and you want to route traffic to the Region that provides the best latency with less round-trip time.
-*	Here, for suppose they create the two servers at us-east-region and Europe region. So if I want to access the application it redirects to the nearby region to avoid the latency
-Multivalue answer routing policy – Use when you want Route 53 to respond to DNS queries with up to eight healthy records selected at random.
-Weighted routing policy – Use to route traffic to multiple resources in proportions that you specify.
-*	Here we distribute the traffic to multiple server, suppose we have two servers we assign the traffic 70% to one server and 30% to second server.
-18.	I have hosted static s3 website in Mumbai region? Client is in us region and accessing the website but the response is very slow? So how will you resolve this?
-Ans: The slow response of the S3-hosted static website for the client in the US is due to the latency caused by the geographical distance between the Mumbai region and the US. To resolve this issue, you can use Amazon CloudFront, a content delivery network (CDN) service that caches content in edge locations closer to the users. Here's how to resolve the issue step by step:
-________________________________________
-Solution: Use Amazon CloudFront
-1.	Set up CloudFront Distribution:
-o	Log in to the AWS Management Console.
-o	Navigate to the CloudFront service.
-o	Click Create Distribution and choose Web distribution.
-o	In the Origin Settings:
-	Set the Origin Domain Name to your S3 bucket URL (e.g., my-static-website.s3.amazonaws.com).
-	Enable Restrict Bucket Access if you want secure access.
-o	Configure other settings like caching behavior, viewer protocols, and distribution settings.
-2.	Configure S3 Bucket Permissions:
-o	Ensure your S3 bucket allows access to CloudFront.
-o	Update the bucket policy to allow access from the CloudFront Origin Access Identity (OAI):
-json
-Copy code
+
+**It is just used for one server to access.**
+
+**Failover routing policy** – Use when you want to configure active-passive failover.
+
+- Here one server is in Active and one server is in back up, if first server is down automatically request goes to second server.
+
+**Geolocation routing policy** – Use when you want to route traffic based on the location of your users.
+
+**Geoproximity routing policy** – Use when you want to route traffic based on the location of your resources and, optionally, shift traffic from resources in one location to resources in another.
+
+**Latency routing policy** – Use when you  have resources in multiple AWS Regions and you want to route traffic to the Region that provides the best latency with less round-trip time.
+- Here, for suppose they create the two servers at us-east-region and Europe region. So if I want to access the application it redirects to the nearby region to avoid the latency
+
+**Multivalue answer routing policy** – Use when you want Route 53 to respond to DNS queries with up to eight healthy records selected at random.
+
+**Weighted routing policy** – Use to route traffic to multiple resources in proportions that you specify.
+- Here we distribute the traffic to multiple server, suppose we have two servers we assign the traffic 70% to one server and 30% to second server.
+### 18.	I have hosted static s3 website in Mumbai region? Client is in us region and accessing the website but the response is very slow? So how will you resolve this?
+Ans: The slow response of the S3-hosted static website for the client in the US is due to the latency caused by the geographical distance between the Mumbai region and the US. 
+
+To resolve this issue, you can use Amazon CloudFront, a content delivery network (CDN) service that caches content in edge locations closer to the users. Here's how to resolve the issue step by step:
+
+#### Solution: Use Amazon CloudFront
+#### 1.	Set up CloudFront Distribution:
+- Log in to the AWS Management Console.
+- Navigate to the CloudFront service.
+- Click Create Distribution and choose Web distribution.
+
+**In the Origin Settings:**
+- Set the Origin Domain Name to your S3 bucket URL (e.g., my-static-website.s3.amazonaws.com).
+- Enable Restrict Bucket Access if you want secure access.
+- Configure other settings like caching behavior, viewer protocols, and distribution settings.
+#### 2.	Configure S3 Bucket Permissions:
+- Ensure your S3 bucket allows access to CloudFront.
+- Update the bucket policy to allow access from the CloudFront Origin Access Identity (OAI):
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -10587,276 +10614,422 @@ Copy code
     }
   ]
 }
-3.	Update DNS Settings:
-o	If you're using a custom domain, update your DNS configuration to point to the CloudFront distribution domain name (e.g., d123456abcdef.cloudfront.net) instead of the S3 bucket.
-o	Configure a CNAME record in your DNS management console (e.g., Route 53).
-4.	Test the Setup:
-o	Access the website using the CloudFront distribution domain name or the custom domain.
-o	Verify that the response time has improved for US clients.
-________________________________________
-Why CloudFront Resolves the Issue
-1.	Caching:
-o	CloudFront caches the website content in edge locations near the US users, reducing latency.
-2.	Global Edge Network:
-o	CloudFront has a global network of edge locations, ensuring faster delivery of content to users worldwide.
-3.	Improved Performance:
-o	With content cached at edge locations, users experience faster load times.
-4.	Security:
-o	CloudFront integrates with AWS Shield and Web Application Firewall (WAF) for enhanced security.
-________________________________________
-Alternative Solutions
-If using CloudFront is not feasible, you could consider:
-1.	Moving the S3 Bucket to the US Region:
-o	Migrate your S3 bucket to a region closer to the majority of your users (e.g., us-east-1).
-o	Update the DNS to point to the new bucket.
-2.	Using a Third-Party CDN:
-o	Leverage CDNs like Akamai or Cloudflare if your use case requires non-AWS solutions.
-19.	I have application in ec2 hosted? Few users able to acces and few other users not able to access the website?What is the issue how will you resolve this?
+```
+#### 3.	Update DNS Settings:
+- If you're using a custom domain, update your DNS configuration to point to the CloudFront distribution domain name (e.g., d123456abcdef.cloudfront.net) instead of the S3 bucket.
+- Configure a CNAME record in your DNS management console (e.g., Route 53).
+#### 4.	Test the Setup:
+- Access the website using the CloudFront distribution domain name or the custom domain.
+- Verify that the response time has improved for US clients.
+
+#### Why CloudFront Resolves the Issue
+#### 1.	Caching:
+- CloudFront caches the website content in edge locations near the US users, reducing latency.
+#### 2.	Global Edge Network:
+- CloudFront has a global network of edge locations, ensuring faster delivery of content to users worldwide.
+#### 3.	Improved Performance:
+- With content cached at edge locations, users experience faster load times.
+#### 4.	Security:
+- CloudFront integrates with AWS Shield and Web Application Firewall (WAF) for enhanced security.
+
+#### Alternative Solutions
+- If using CloudFront is not feasible, you could consider:
+#### 1.	Moving the S3 Bucket to the US Region:
+- Migrate your S3 bucket to a region closer to the majority of your users (e.g., us-east-1).
+- Update the DNS to point to the new bucket.
+#### 2.	Using a Third-Party CDN:
+- Leverage CDNs like Akamai or Cloudflare if your use case requires non-AWS solutions.
+### 19.	I have application in ec2 hosted? Few users able to acces and few other users not able to access the website?What is the issue how will you resolve this?
 Ans: If some users are able to access your EC2-hosted application, but others cannot, the issue is likely related to one or more of the following:
-1.	Security Groups:
-o	Security groups are stateful firewalls that control inbound and outbound traffic to EC2 instances.
-o	Ensure that the Security Group associated with your EC2 instance allows inbound traffic on the required port (e.g., port 80 for HTTP or port 443 for HTTPS) from all IP addresses (0.0.0.0/0) or the specific IP ranges of the users who cannot access the application.
-Steps to resolve:
-o	Go to the EC2 Dashboard.
-o	Select your EC2 instance and navigate to the Security tab.
-o	Click on the associated Security Group.
-o	Ensure there is an Inbound Rule for HTTP (port 80) or HTTPS (port 443).
-o	Example inbound rule:
-plaintext
-Copy code
+#### 1.	Security Groups:
+- Security groups are stateful firewalls that control inbound and outbound traffic to EC2 instances.
+- Ensure that the Security Group associated with your EC2 instance allows inbound traffic on the required port (e.g., port 80 for HTTP or port 443 for HTTPS) from all IP addresses (0.0.0.0/0) or the specific IP ranges of the users who cannot access the application.
+#### Steps to resolve:
+- Go to the EC2 Dashboard.
+- Select your EC2 instance and navigate to the Security tab.
+- Click on the associated Security Group.
+- Ensure there is an Inbound Rule for HTTP (port 80) or HTTPS (port 443).
+#### Example inbound rule:
+```plaintext
 Type: HTTP
 Protocol: TCP
 Port Range: 80
 Source: 0.0.0.0/0 (for public access) or a specific IP range
-2.	Network ACLs:
-o	Network ACLs (Access Control Lists) act as an additional layer of security in VPCs, controlling inbound and outbound traffic to subnets.
-o	If your EC2 instance is in a private subnet, ensure that the Network ACLs allow traffic from the IP addresses of the users who cannot access the application.
-Steps to resolve:
-o	Go to the VPC Dashboard.
-o	Under Network ACLs, check the inbound and outbound rules to ensure they allow the necessary traffic (such as HTTP/HTTPS) from the source IPs.
-3.	Elastic Load Balancer (ELB) Configuration:
-o	If you are using an ELB to distribute traffic to your EC2 instances, ensure that the load balancer's security group and listeners are configured properly.
-o	Verify that the ELB has a valid SSL certificate for HTTPS if you're using HTTPS.
-Steps to resolve:
-o	Check the Listener configuration in the ELB to ensure the correct port (80 or 443) is open.
-o	Review the Security Groups of the ELB to ensure access is allowed for all IPs or specific users.
-o	Ensure your Target Group in the ELB is healthy and routing traffic correctly to EC2 instances.
-4.	Routing Issues / Internet Gateway:
-o	If the EC2 instance is in a private subnet (without direct access to the internet), it might be missing an Internet Gateway or NAT Gateway for external access.
-o	Ensure that the route table of the subnet containing the EC2 instance has an appropriate route to the Internet Gateway if the instance needs to be publicly accessible.
-Steps to resolve:
-o	Go to the VPC Dashboard and check the Route Tables.
-o	Ensure that a route to the Internet Gateway (0.0.0.0/0) exists if the EC2 instance is in a public subnet.
-5.	Local User Network Issues:
-o	The issue might be with the users' local network, browser, or firewall settings. They might be experiencing issues due to:
-	Local firewall blocking access.
-	Browser cache or DNS issues.
-	VPN or proxy settings that block certain traffic.
-Steps to resolve:
-o	Ask the affected users to try accessing the site using a different network (e.g., mobile data, another Wi-Fi network).
-o	Recommend clearing the browser cache or trying incognito mode.
-o	Ask users to verify whether they are behind a VPN or proxy that might block certain traffic.
-6.	DNS Resolution:
-o	Ensure that the domain name is resolving correctly for all users.
-o	If users are accessing the website via a domain name, make sure that the DNS records are correctly configured and propagated. You can use tools like nslookup or dig to verify DNS resolution.
-Steps to resolve:
-o	Ensure that the A record for the domain points to the correct public IP address of the EC2 instance or ELB.
-o	If the application uses a custom domain, ensure that it’s resolving correctly for all users.
-7.	Instance Capacity:
-o	Sometimes, the EC2 instance might be under heavy load (CPU, memory, or network traffic) and unable to handle requests from certain users.
-o	Check if the EC2 instance is at capacity and not throttling requests from certain users.
-Steps to resolve:
-o	Monitor the instance metrics using CloudWatch to check for high CPU or memory usage.
-o	Consider scaling vertically (upgrading the instance) or horizontally (adding more instances behind a load balancer).
-________________________________________
-Step-by-Step Troubleshooting
-1.	Check EC2 Security Group:
-o	Go to the EC2 Dashboard.
-o	Review inbound rules to ensure the required ports are open to all or specific IPs.
-2.	Check VPC & Network ACLs:
-o	Review Network ACLs for the subnet to ensure they aren’t blocking access.
-3.	Check Load Balancer (if used):
-o	Verify the security group and target group configuration.
-4.	Verify DNS:
-o	Check that the DNS resolves correctly for all users using tools like nslookup.
-5.	Check Instance Load:
-o	Monitor instance metrics (CPU, memory, network traffic) in CloudWatch.
-________________________________________
-Conclusion
+```
+#### 2.	Network ACLs:
+- Network ACLs (Access Control Lists) act as an additional layer of security in VPCs, controlling inbound and outbound traffic to subnets.
+- If your EC2 instance is in a private subnet, ensure that the Network ACLs allow traffic from the IP addresses of the users who cannot access the application.
+#### Steps to resolve:
+- Go to the VPC Dashboard.
+- Under Network ACLs, check the inbound and outbound rules to ensure they allow the necessary traffic (such as HTTP/HTTPS) from the source IPs.
+#### 3.	Elastic Load Balancer (ELB) Configuration:
+- If you are using an ELB to distribute traffic to your EC2 instances, ensure that the load balancer's security group and listeners are configured properly.
+- Verify that the ELB has a valid SSL certificate for HTTPS if you're using HTTPS.
+#### Steps to resolve:
+- Check the Listener configuration in the ELB to ensure the correct port (80 or 443) is open.
+- Review the Security Groups of the ELB to ensure access is allowed for all IPs or specific users.
+- Ensure your Target Group in the ELB is healthy and routing traffic correctly to EC2 instances.
+#### 4.	Routing Issues / Internet Gateway:
+- If the EC2 instance is in a private subnet (without direct access to the internet), it might be missing an Internet Gateway or NAT Gateway for external access.
+- Ensure that the route table of the subnet containing the EC2 instance has an appropriate route to the Internet Gateway if the instance needs to be publicly accessible.
+#### Steps to resolve:
+- Go to the VPC Dashboard and check the Route Tables.
+- Ensure that a route to the Internet Gateway (0.0.0.0/0) exists if the EC2 instance is in a public subnet.
+#### 5.	Local User Network Issues:
+- The issue might be with the users' local network, browser, or firewall settings. They might be experiencing issues due to:
+- Local firewall blocking access.
+- Browser cache or DNS issues.
+- VPN or proxy settings that block certain traffic.
+#### Steps to resolve:
+- Ask the affected users to try accessing the site using a different network (e.g., mobile data, another Wi-Fi network).
+- Recommend clearing the browser cache or trying incognito mode.
+- Ask users to verify whether they are behind a VPN or proxy that might block certain traffic.
+#### 6.	DNS Resolution:
+- Ensure that the domain name is resolving correctly for all users.
+- If users are accessing the website via a domain name, make sure that the DNS records are correctly configured and propagated. You can use tools like nslookup or dig to verify DNS resolution.
+#### Steps to resolve:
+- Ensure that the A record for the domain points to the correct public IP address of the EC2 instance or ELB.
+- If the application uses a custom domain, ensure that it’s resolving correctly for all users.
+#### 7.	Instance Capacity:
+- Sometimes, the EC2 instance might be under heavy load (CPU, memory, or network traffic) and unable to handle requests from certain users.
+- Check if the EC2 instance is at capacity and not throttling requests from certain users.
+#### Steps to resolve:
+- Monitor the instance metrics using CloudWatch to check for high CPU or memory usage.
+- Consider scaling vertically (upgrading the instance) or horizontally (adding more instances behind a load balancer).
+
+#### Step-by-Step Troubleshooting
+#### 1.	Check EC2 Security Group:
+- Go to the EC2 Dashboard.
+- Review inbound rules to ensure the required ports are open to all or specific IPs.
+#### 2.	Check VPC & Network ACLs:
+- Review Network ACLs for the subnet to ensure they aren’t blocking access.
+#### 3.	Check Load Balancer (if used):
+- Verify the security group and target group configuration.
+#### 4.	Verify DNS:
+- Check that the DNS resolves correctly for all users using tools like nslookup.
+#### 5.	Check Instance Load:
+- Monitor instance metrics (CPU, memory, network traffic) in CloudWatch.
+
+#### Conclusion
 The issue is likely related to security configurations, networking, or instance load. By systematically checking and adjusting these configurations (security groups, NACLs, ELB, routing, and DNS), you can resolve the access issue for the users who are unable to reach the application.
-20.	Can you write the terraform script for creating a VPC in private subnet?
+### 20.	Can you write the terraform script for creating a VPC in private subnet?
 Ans: Already available
-21.	Can you write a ansible playbook for stopping the service?
+#### 21.	Can you write a ansible playbook for stopping the service?
 Ans: Already available
-22.	Can you explain about ECS in AWS?
+#### 22.	Can you explain about ECS in AWS?
 Ans: Already available
 
-LTI Mind Tree L1 Q&A (23-03-2024)
-1.	What is your role in project?
-2.	What are the stages that we have integrated in jenkins pipeline?
+---
+
+## LTI Mind Tree L1 Q&A (23-03-2024)
+
+### 1.	What is your role in project?
+### 2.	What are the stages that we have integrated in jenkins pipeline?
 Ans: Already available                                                                                    
-3.	What happened if the image has a high vulnerability while we pushing through the jenkins pipeline? Weather the pipeline is stopped or what will you do for immediate counter measure?
-Ans: If a high vulnerability is detected in the image being pushed through the Jenkins pipeline, it's crucial to take immediate action to mitigate the risk and prevent the vulnerable image from being deployed. Here's a general approach to handle this situation within the Jenkins pipeline:
-1. Stop the Pipeline: Immediately halt the pipeline execution to prevent further steps, especially the deployment of the vulnerable image. You can achieve this by using pipeline directives such as `error` or `abort`, or by implementing conditional logic to skip subsequent stages if a high vulnerability is detected.
-2. Notify Relevant Parties: Send notifications to relevant stakeholders, such   as developers, DevOps engineers, security teams, and management, informing them about the high vulnerability detected in the image. This ensures that the issue is escalated promptly and appropriate actions can be taken.
-3. Vulnerability Assessment: Perform a thorough assessment of the vulnerability to understand its impact, severity, and potential exploits. This may involve consulting vulnerability databases, security advisories, and conducting further analysis.
-4. Image Remediation: Depending on the severity of the vulnerability and its impact on the image, you may need to remediate the vulnerability by updating dependencies, applying patches, or rebuilding the image with secure components. This process should be carried out by experienced developers or security professionals.
-5. Rebuild and Retest: Once the image has been remediated, rebuild it using the updated dependencies and components. After rebuilding, rerun the necessary tests, including security scans, to ensure that the vulnerability has been effectively addressed and that the image is safe for deployment.
-6. Resume Pipeline: Once the vulnerable image has been replaced with a secure version, resume the pipeline execution from the point of interruption. Ensure that the pipeline continues with the deployment of the remediated image or any subsequent steps necessary for the software delivery process.
-7. Prevent Recurrence: Conduct a post-mortem analysis to identify the root cause of the vulnerability and implement preventive measures to avoid similar issues in the future. This may include improving image scanning practices, integrating security checks earlier in the development process, and enforcing stricter security policies.
-By following these steps, you can effectively respond to the detection of high vulnerabilities in images pushed through the Jenkins pipeline, mitigate risks, and ensure the security of your software delivery process.
-4.	What is the importance of Dockerfile? Explain it?
-Ans: The Dockerfile is a fundamental component in Docker-based development and deployment workflows. It plays a critical role in defining the blueprint for creating Docker images, which are lightweight, portable, and self-contained packages that contain everything needed to run a piece of software, including the code, runtime, libraries, and dependencies. Here's why the Dockerfile is important:
-1. Reproducibility: Dockerfiles provide a standardized and reproducible way to build Docker images. By defining the steps needed to create an image in a Dockerfile, developers ensure that the image can be built consistently across different environments, platforms, and machines. This reproducibility is essential for maintaining consistency and predictability in the software development lifecycle.
-2. Version Control: Dockerfiles are text-based files that can be version-controlled using tools like Git. This allows developers to track changes to the Dockerfile over time, collaborate with team members, and revert to previous versions if needed. Version control ensures that changes to the Dockerfile are documented, reviewed, and managed effectively, promoting transparency and accountability in the development process.
-3. Customization: Dockerfiles enable developers to customize the environment and configuration of Docker images to meet specific requirements. By specifying instructions such as base image, dependencies, environment variables, and configuration settings in the Dockerfile, developers can tailor the image to suit the needs of their application and infrastructure. This flexibility allows for greater control and optimization of Docker images for different use cases and scenarios.
-4. Dependency Management: Dockerfiles provide a mechanism for managing dependencies and software packages required by the application. By including instructions to install dependencies, libraries, and tools in the Dockerfile, developers can ensure that the image contains all the necessary components to run the application smoothly. This simplifies dependency management and reduces the risk of compatibility issues and runtime errors.
-5. Automation: Dockerfiles can be integrated into automated build pipelines and continuous integration/continuous deployment (CI/CD) workflows. Automated builds using Dockerfiles enable developers to streamline the process of building, testing, and deploying Docker images, leading to faster release cycles and improved productivity. Automation ensures consistency, efficiency, and repeatability in the software delivery pipeline.
-6. Portability: Dockerfiles facilitate the creation of portable and platform-independent Docker images. By abstracting away the underlying infrastructure and dependencies, Dockerfiles allow developers to package applications in a standardized format that can be deployed across different environments, including development laptops, on-premises servers, and cloud platforms. This portability promotes agility, scalability, and flexibility in deploying applications across diverse infrastructure environments.
-Overall, the Dockerfile is a key component in Docker-based workflows, providing developers with a powerful tool for building, customizing, and managing Docker images effectively. By defining the configuration and dependencies of Docker images in a Dockerfile, developers can ensure consistency, reproducibility, and efficiency in the software development and deployment process.
-5.	What is the CMD and ENTRYPOINT?
-Ans: Already available
-6.	Difference between ADD/COPY instruction?
-Ans: Already available
-7.	What are the base images in Dockerfile?
-Ans: In a Dockerfile, the base image is the starting point for creating a new Docker image. It serves as the foundation upon which additional layers of the image are built. Base images typically contain the operating system and runtime environment necessary to run the application or service being packaged into the Docker image. Here are some common types of base images used in Dockerfiles:
-1. Official Images: Official images are maintained and provided by Docker, Inc. These images are typically hosted on Docker Hub and are considered trustworthy and reliable. Examples include images for popular Linux distributions such as Ubuntu, Debian, CentOS, and Alpine Linux, as well as runtime environments like Node.js, Python, Java, and .NET Core.
-2. Community Images: Community images are created and maintained by the Docker community or third-party contributors. These images cover a wide range of use cases and applications, including databases (e.g., MySQL, PostgreSQL, MongoDB), web servers (e.g., Nginx, Apache HTTP Server), and development tools (e.g., Git, Maven, Gradle).
-3. Custom Images: Custom images are created by users based on existing base images or other custom images. Users can customize these images by adding or removing software packages, configuring settings, and installing dependencies to meet the specific requirements of their applications. Custom images are often used to package and distribute proprietary or specialized software.
+### 3.	What happened if the image has a high vulnerability while we pushing through the jenkins pipeline? Weather the pipeline is stopped or what will you do for immediate counter measure?
+Ans: If a high vulnerability is detected in the image being pushed through the Jenkins pipeline, it's crucial to take immediate action to mitigate the risk and prevent the vulnerable image from being deployed. 
 
-4. Slim or Minimal Images: Slim or minimal images are lightweight variants of base images that are optimized for size and performance. These images typically contain only the essential components needed to run the application, minimizing the image size and reducing the attack surface. Examples include Alpine Linux-based images, which are known for their small footprint and fast boot times.
-5. Multi-Stage Build Images: Multi-stage build images allow developers to optimize Dockerfiles by using multiple base images in different stages of the build process. This approach enables the separation of build-time dependencies from runtime dependencies, resulting in smaller and more efficient final images. For example, a Dockerfile might use a base image for compiling source code and a different base image for running the compiled binary.
-6. Scratch Image: The scratch image is a special base image provided by Docker that represents an empty filesystem. It is typically used to create minimalistic Docker images that contain only the application binary and its dependencies, without any additional overhead. This approach is commonly used for building containerized applications with statically compiled binaries or for creating specialized containers from scratch.
+Here's a general approach to handle this situation within the Jenkins pipeline:
+
+**1. Stop the Pipeline:** Immediately halt the pipeline execution to prevent further steps, especially the deployment of the vulnerable image. You can achieve this by using pipeline directives such as `error` or `abort`, or by implementing conditional logic to skip subsequent stages if a high vulnerability is detected.
+
+**2. Notify Relevant Parties:** Send notifications to relevant stakeholders, such   as developers, DevOps engineers, security teams, and management, informing them about the high vulnerability detected in the image. This ensures that the issue is escalated promptly and appropriate actions can be taken.
+
+**3. Vulnerability Assessment:** Perform a thorough assessment of the vulnerability to understand its impact, severity, and potential exploits. This may involve consulting vulnerability databases, security advisories, and conducting further analysis.
+
+**4. Image Remediation:** Depending on the severity of the vulnerability and its impact on the image, you may need to remediate the vulnerability by updating dependencies, applying patches, or rebuilding the image with secure components. This process should be carried out by experienced developers or security professionals.
+
+**5. Rebuild and Retest:** Once the image has been remediated, rebuild it using the updated dependencies and components. After rebuilding, rerun the necessary tests, including security scans, to ensure that the vulnerability has been effectively addressed and that the image is safe for deployment.
+
+**6. Resume Pipeline:** Once the vulnerable image has been replaced with a secure version, resume the pipeline execution from the point of interruption. Ensure that the pipeline continues with the deployment of the remediated image or any subsequent steps necessary for the software delivery process.
+
+**7. Prevent Recurrence:** Conduct a post-mortem analysis to identify the root cause of the vulnerability and implement preventive measures to avoid similar issues in the future. This may include improving image scanning practices, integrating security checks earlier in the development process, and enforcing stricter security policies.
+
+- By following these steps, you can effectively respond to the detection of high vulnerabilities in images pushed through the Jenkins pipeline, mitigate risks, and ensure the security of your software delivery process.
+
+### 4.	What is the importance of Dockerfile? Explain it?
+Ans: The Dockerfile is a fundamental component in Docker-based development and deployment workflows. It plays a critical role in defining the blueprint for creating Docker images, which are lightweight, portable, and self-contained packages that contain everything needed to run a piece of software, including the code, runtime, libraries, and dependencies. Here's why the Dockerfile is important:
+
+**1. Reproducibility:** Dockerfiles provide a standardized and reproducible way to build Docker images. By defining the steps needed to create an image in a Dockerfile, developers ensure that the image can be built consistently across different environments, platforms, and machines. 
+- This reproducibility is essential for maintaining consistency and predictability in the software development lifecycle.
+
+**2. Version Control:** Dockerfiles are text-based files that can be version-controlled using tools like Git. This allows developers to track changes to the Dockerfile over time, collaborate with team members, and revert to previous versions if needed. 
+
+- Version control ensures that changes to the Dockerfile are documented, reviewed, and managed effectively, promoting transparency and accountability in the development process.
+
+**3. Customization:** Dockerfiles enable developers to customize the environment and configuration of Docker images to meet specific requirements. 
+
+- By specifying instructions such as base image, dependencies, environment variables, and configuration settings in the Dockerfile, developers can tailor the image to suit the needs of their application and infrastructure. 
+
+- This flexibility allows for greater control and optimization of Docker images for different use cases and scenarios.
+
+**4. Dependency Management:** Dockerfiles provide a mechanism for managing dependencies and software packages required by the application. 
+- By including instructions to install dependencies, libraries, and tools in the Dockerfile, developers can ensure that the image contains all the necessary components to run the application smoothly. 
+- This simplifies dependency management and reduces the risk of compatibility issues and runtime errors.
+
+**5. Automation:** Dockerfiles can be integrated into automated build pipelines and continuous integration/continuous deployment (CI/CD) workflows. 
+- Automated builds using Dockerfiles enable developers to streamline the process of building, testing, and deploying Docker images, leading to faster release cycles and improved productivity. 
+- Automation ensures consistency, efficiency, and repeatability in the software delivery pipeline.
+
+**6. Portability:** Dockerfiles facilitate the creation of portable and platform-independent Docker images. By abstracting away the underlying infrastructure and dependencies, Dockerfiles allow developers to package applications in a standardized format that can be deployed across different environments, including development laptops, on-premises servers, and cloud platforms. 
+
+- This portability promotes agility, scalability, and flexibility in deploying applications across diverse infrastructure environments.
+
+- Overall, the Dockerfile is a key component in Docker-based workflows, providing developers with a powerful tool for building, customizing, and managing Docker images effectively. 
+- By defining the configuration and dependencies of Docker images in a Dockerfile, developers can ensure consistency, reproducibility, and efficiency in the software development and deployment process.
+### 5.	What is the CMD and ENTRYPOINT?
+Ans: Already available
+### 6.	Difference between ADD/COPY instruction?
+Ans: Already available
+### 7.	What are the base images in Dockerfile?
+Ans: In a Dockerfile, the base image is the starting point for creating a new Docker image. It serves as the foundation upon which additional layers of the image are built. 
+
+Base images typically contain the operating system and runtime environment necessary to run the application or service being packaged into the Docker image. Here are some common types of base images used in Dockerfiles:
+
+**1. Official Images:** Official images are maintained and provided by Docker, Inc. These images are typically hosted on Docker Hub and are considered trustworthy and reliable. 
+
+Examples include images for popular Linux distributions such as Ubuntu, Debian, CentOS, and Alpine Linux, as well as runtime environments like Node.js, Python, Java, and .NET Core.
+
+**2. Community Images:** Community images are created and maintained by the Docker community or third-party contributors. 
+
+These images cover a wide range of use cases and applications, including databases (e.g., MySQL, PostgreSQL, MongoDB), web servers (e.g., Nginx, Apache HTTP Server), and development tools (e.g., Git, Maven, Gradle).
+
+**3. Custom Images:** Custom images are created by users based on existing base images or other custom images. Users can customize these images by adding or removing software packages, configuring settings, and installing dependencies to meet the specific requirements of their applications. Custom images are often used to package and distribute proprietary or specialized software.
+
+**4. Slim or Minimal Images:** Slim or minimal images are lightweight variants of base images that are optimized for size and performance. 
+
+These images typically contain only the essential components needed to run the application, minimizing the image size and reducing the attack surface. Examples include Alpine Linux-based images, which are known for their small footprint and fast boot times.
+
+**5. Multi-Stage Build Images:** Multi-stage build images allow developers to optimize Dockerfiles by using multiple base images in different stages of the build process. 
+
+This approach enables the separation of build-time dependencies from runtime dependencies, resulting in smaller and more efficient final images. For example, a Dockerfile might use a base image for compiling source code and a different base image for running the compiled binary.
+
+**6. Scratch Image:** The scratch image is a special base image provided by Docker that represents an empty filesystem. It is typically used to create minimalistic Docker images that contain only the application binary and its dependencies, without any additional overhead. 
+
+This approach is commonly used for building containerized applications with statically compiled binaries or for creating specialized containers from scratch.
+
 These are some of the common types of base images used in Dockerfiles. The choice of base image depends on factors such as the requirements of the application, desired dependencies, security considerations, and performance optimizations. It's important to select a suitable base image that provides the necessary components and capabilities for building and running the Dockerized application effectively.
-8.	What are the services in kubernetes?
+### 8.	What are the services in kubernetes?
 Ans: Already available
-9.	Difference b/w cluster ip and node port?
+### 9.	Difference b/w cluster ip and node port?
 Ans: Already available
-10.	What are the different types of ‘Kind’s’ available in manifest?
-Ans: In Kubernetes, the "kind" field in a manifest specifies the type of Kubernetes resource being described in that manifest. There are various kinds available in Kubernetes, each serving a specific purpose in defining and managing the desired state of the cluster. Here are some of the common kinds used in Kubernetes manifests:
-1. Pod: A Pod represents the smallest deployable unit in Kubernetes, consisting of one or more containers that share the same network namespace and storage. Pods encapsulate application containers, storage resources, and networking configurations.
-2. Service: A Service defines a set of Pods and a policy for accessing them. It provides an abstraction layer to expose the functionality of a set of Pods to other parts of the cluster or external clients. Services enable communication and load balancing between Pods.
-3. Deployment: A Deployment manages the lifecycle of replicated Pods, ensuring that a specified number of replicas are running at any given time. Deployments facilitate rolling updates, scaling, and rollback of application changes with minimal downtime.
-4. ReplicaSet: A ReplicaSet ensures that a specified number of identical Pods are running in the cluster. It is similar to a Deployment but offers fewer features and is primarily used for maintaining a stable set of Pod replicas.
-5. StatefulSet: A StatefulSet is a workload API object used to manage stateful applications, such as databases, that require stable and unique network identifiers, persistent storage, and ordered deployment and scaling.
-6. DaemonSet: A DaemonSet ensures that a copy of a Pod runs on each node in the cluster. DaemonSets are typically used for system-level services or agents that need to run on every node, such as monitoring agents or logging collectors.
-7. Job: A Job creates one or more Pods and ensures that a specified number of them successfully terminate. Jobs are used for running short-lived, batch-oriented tasks or parallel computations.
-8. CronJob: A CronJob creates Jobs on a recurring schedule, similar to cron jobs in Unix-like operating systems. CronJobs are used for running periodic tasks or batch jobs at specified intervals.
-9. Namespace: A Namespace provides a way to logically partition the cluster into multiple virtual clusters, each with its own resources and policies. Namespaces are used for organizing and isolating workloads, users, and resources within a Kubernetes cluster.
-10. Secret: A Secret stores sensitive information, such as passwords, tokens, or encryption keys, securely in the cluster. Secrets are base64-encoded and can be mounted into Pods as files or exposed as environment variables.
+### 10.	What are the different types of ‘Kind’s’ available in manifest?
+Ans: In Kubernetes, the "kind" field in a manifest specifies the type of Kubernetes resource being described in that manifest. There are various kinds available in Kubernetes, each serving a specific purpose in defining and managing the desired state of the cluster. 
+
+Here are some of the common kinds used in Kubernetes manifests:
+
+`1. Pod:` A Pod represents the smallest deployable unit in Kubernetes, consisting of one or more containers that share the same network namespace and storage. Pods encapsulate application containers, storage resources, and networking configurations.
+
+`2. Service:` A Service defines a set of Pods and a policy for accessing them. It provides an abstraction layer to expose the functionality of a set of Pods to other parts of the cluster or external clients. Services enable communication and load balancing between Pods.
+
+`3. Deployment:` A Deployment manages the lifecycle of replicated Pods, ensuring that a specified number of replicas are running at any given time. Deployments facilitate rolling updates, scaling, and rollback of application changes with minimal downtime.
+
+`4. ReplicaSet:` A ReplicaSet ensures that a specified number of identical Pods are running in the cluster. It is similar to a Deployment but offers fewer features and is primarily used for maintaining a stable set of Pod replicas.
+
+`5. StatefulSet:` A StatefulSet is a workload API object used to manage stateful applications, such as databases, that require stable and unique network identifiers, persistent storage, and ordered deployment and scaling.
+
+`6. DaemonSet:` A DaemonSet ensures that a copy of a Pod runs on each node in the cluster. DaemonSets are typically used for system-level services or agents that need to run on every node, such as monitoring agents or logging collectors.
+
+`7. Job:` A Job creates one or more Pods and ensures that a specified number of them successfully terminate. Jobs are used for running short-lived, batch-oriented tasks or parallel computations.
+
+`8. CronJob:` A CronJob creates Jobs on a recurring schedule, similar to cron jobs in Unix-like operating systems. CronJobs are used for running periodic tasks or batch jobs at specified intervals.
+
+`9. Namespace:` A Namespace provides a way to logically partition the cluster into multiple virtual clusters, each with its own resources and policies. Namespaces are used for organizing and isolating workloads, users, and resources within a Kubernetes cluster.
+
+`10. Secret:` A Secret stores sensitive information, such as passwords, tokens, or encryption keys, securely in the cluster. Secrets are base64-encoded and can be mounted into Pods as files or exposed as environment variables.
+
 These are some of the common kinds available in Kubernetes manifests. Each kind serves a specific purpose and defines a different type of resource in the Kubernetes ecosystem.
-11.	What is Daemonset?
+### 11.	What is Daemonset?
 Ans: Already available
-12.	What is HPA?
+### 12.	What is HPA?
 Ans: Already available
-13.	What is Ingress? 
+### 13.	What is Ingress? 
 Ans: Already available
-14.	Do you know path based routing?
+### 14.	Do you know path based routing?
 Ans: Yes, path-based routing is a method used in networking and web services to direct incoming requests to different backend services or resources based on the URL path of the request. It is commonly used in various networking scenarios, including load balancers, reverse proxies, API gateways, and web servers.
-In the context of web services and HTTP-based applications, path-based routing typically involves routing requests to different endpoints or services based on the URL path component of the HTTP request. For example, consider a scenario where a web server receives incoming requests for a website. The web server can examine the URL path of each request and route the request to the appropriate backend service or handler based on predefined routing rules.
-Here's how path-based routing works:
-1. Request Inspection: When an HTTP request is received by the routing component (e.g., load balancer, reverse proxy), it examines the URL path component of the request.
-2. Routing Rules: Based on predefined routing rules or configurations, the routing component determines the destination for the request. These rules map URL paths to specific backend services, endpoints, or handlers.
-3. Forwarding: Once the destination for the request is determined, the routing component forwards the request to the appropriate backend service or handler based on the routing rule.
-4. Response Handling: After processing the request, the backend service generates a response, which is then returned to the client through the routing component.
+
+In the context of web services and HTTP-based applications, path-based routing typically involves routing requests to different endpoints or services based on the URL path component of the HTTP request. For example, consider a scenario where a web server receives incoming requests for a website.
+
+The web server can examine the URL path of each request and route the request to the appropriate backend service or handler based on predefined routing rules.
+
+#### Here's how path-based routing works:
+
+**1. Request Inspection:** When an HTTP request is received by the routing component (e.g., load balancer, reverse proxy), it examines the URL path component of the request.
+
+**2. Routing Rules:** Based on predefined routing rules or configurations, the routing component determines the destination for the request. These rules map URL paths to specific backend services, endpoints, or handlers.
+
+**3. Forwarding:** Once the destination for the request is determined, the routing component forwards the request to the appropriate backend service or handler based on the routing rule.
+
+**4. Response Handling:** After processing the request, the backend service generates a response, which is then returned to the client through the routing component.
+
 Path-based routing is commonly used in microservices architectures, where different services handle requests for different parts of an application or API. It allows for better organization, scalability, and flexibility in managing complex web applications by decoupling different functionalities into separate services or endpoints.
-Additionally, path-based routing can be combined with other routing methods, such as host-based routing or header-based routing, to create more sophisticated routing configurations tailored to specific use cases or requirements. Overall, path-based routing is a powerful technique for efficiently directing incoming requests to the appropriate backend services or resources based on URL paths.
-15.	Which load balancer you are using Ingress Controller or nginx or service mesh?
+
+Additionally, path-based routing can be combined with other routing methods, such as host-based routing or header-based routing, to create more sophisticated routing configurations tailored to specific use cases or requirements. 
+
+Overall, path-based routing is a powerful technique for efficiently directing incoming requests to the appropriate backend services or resources based on URL paths.
+### 15.	Which load balancer you are using Ingress Controller or nginx or service mesh?
 Ans:The choice of load balancer depends on various factors such as your Kubernetes environment, application requirements, scalability needs, and operational preferences.
-Here's a brief overview of each option you mentioned:
-1. Ingress Controller: In Kubernetes, an Ingress Controller is responsible for managing external access to services within a cluster. It acts as a layer 7 (HTTP/HTTPS) load balancer, routing traffic to different services based on rules defined in Ingress resources. There are several Ingress Controller implementations available, such as NGINX Ingress Controller, Traefik, HAProxy Ingress, and Istio's Gateway.
-2. NGINX: NGINX can be used as an Ingress Controller in Kubernetes, providing advanced load balancing, SSL termination, and traffic routing capabilities. NGINX is a popular choice due to its high performance, reliability, and rich feature set. NGINX can also be deployed as a standalone reverse proxy or load balancer outside of Kubernetes clusters.
-3. Service Mesh (e.g., Istio): A service mesh such as Istio provides advanced traffic management, security, and observability features for microservices running in Kubernetes clusters. While not primarily a load balancer, Istio's data plane proxies (Envoy) handle traffic routing and load balancing between microservices within the mesh. Istio can be used in conjunction with Ingress Controllers or independently for internal service-to-service communication.
-Ultimately, the choice between Ingress Controllers, NGINX, or Service Mesh depends on your specific use case, requirements, and familiarity with the technologies involved. You may also consider factors such as community support, integration with existing tools, performance, scalability, and security when making your decision. It's common for organizations to evaluate and experiment with different solutions before settling on the one that best fits their needs.
-16.	How big is your infrastructure how many clusters you are maintaining?
+#### Here's a brief overview of each option you mentioned:
+
+**1. Ingress Controller:** In Kubernetes, an Ingress Controller is responsible for managing external access to services within a cluster. It acts as a layer 7 (HTTP/HTTPS) load balancer, routing traffic to different services based on rules defined in Ingress resources. There are several Ingress Controller implementations available, such as NGINX Ingress Controller, Traefik, HAProxy Ingress, and Istio's Gateway.
+
+**2. NGINX:** NGINX can be used as an Ingress Controller in Kubernetes, providing advanced load balancing, SSL termination, and traffic routing capabilities. NGINX is a popular choice due to its high performance, reliability, and rich feature set. NGINX can also be deployed as a standalone reverse proxy or load balancer outside of Kubernetes clusters.
+
+**3. Service Mesh (e.g., Istio):** A service mesh such as Istio provides advanced traffic management, security, and observability features for microservices running in Kubernetes clusters. While not primarily a load balancer, Istio's data plane proxies (Envoy) handle traffic routing and load balancing between microservices within the mesh. Istio can be used in conjunction with Ingress Controllers or independently for internal service-to-service communication.
+
+Ultimately, the choice between Ingress Controllers, NGINX, or Service Mesh depends on your specific use case, requirements, and familiarity with the technologies involved. You may also consider factors such as community support, integration with existing tools, performance, scalability, and security when making your decision. 
+
+It's common for organizations to evaluate and experiment with different solutions before settling on the one that best fits their needs.
+### 16.	How big is your infrastructure how many clusters you are maintaining?
 Ans : Explain about your infra
 
-17.	How do you maintain and monitor all these clusters and how did you integrated these clusters do you have any platform or individual maintain and individual dashboards?
+### 17.	How do you maintain and monitor all these clusters and how did you integrated these clusters do you have any platform or individual maintain and individual dashboards?
 Ans: 
-1. Cluster Management Platforms: Many organizations use dedicated cluster management platforms to deploy, manage, and monitor Kubernetes clusters at scale. Examples include Google Kubernetes Engine (GKE), Amazon Elastic Kubernetes Service (EKS), Azure Kubernetes Service (AKS), and Red Hat OpenShift. These platforms offer features for provisioning clusters, scaling resources, managing configurations, and monitoring cluster health and performance.
-2. Monitoring and Logging: Organizations typically deploy monitoring and logging solutions to track the health, performance, and resource utilization of Kubernetes clusters and the workloads running on them. Common tools include Prometheus for metrics monitoring, Grafana for visualization, Fluentd or Fluent Bit for log collection, and ELK Stack (Elasticsearch, Logstash, Kibana) for log analysis.
-3. Alerting and Notification: To proactively identify and respond to issues within Kubernetes clusters, organizations set up alerting and notification mechanisms. This involves defining alerting rules based on predefined thresholds or conditions and configuring notifications to be sent via email, chat, or other communication channels using tools like Prometheus Alertmanager, Grafana alerts, or external services like PagerDuty or Opsgenie.
-4. Dashboard and Visualization: Kubernetes provides a built-in dashboard for visualizing cluster metrics, resource usage, and configuration details. Additionally, organizations may use external dashboarding tools like Grafana or Kibana to create customized dashboards for monitoring Kubernetes clusters alongside other infrastructure components.
-5. Automation and Orchestration: Automation plays a crucial role in managing and maintaining Kubernetes clusters efficiently. Organizations leverage automation tools and scripts to perform routine tasks such as cluster provisioning, configuration management, deployment, scaling, and updates. Tools like Terraform, Ansible, and Kubernetes Operators simplify cluster management tasks and ensure consistency across environments.
-6. Security and Compliance: Maintaining security and compliance within Kubernetes clusters is essential for protecting sensitive data and preventing unauthorized access or breaches. Organizations implement security best practices, such as RBAC (Role-Based Access Control), network policies, pod security policies, and vulnerability scanning, to secure Kubernetes clusters. They also use compliance auditing tools to assess adherence to regulatory requirements and industry standards.
+**1. Cluster Management Platforms:** Many organizations use dedicated cluster management platforms to deploy, manage, and monitor Kubernetes clusters at scale. Examples include Google Kubernetes Engine (GKE), Amazon Elastic Kubernetes Service (EKS), Azure Kubernetes Service (AKS), and Red Hat OpenShift. These platforms offer features for provisioning clusters, scaling resources, managing configurations, and monitoring cluster health and performance.
+
+**2. Monitoring and Logging:** Organizations typically deploy monitoring and logging solutions to track the health, performance, and resource utilization of Kubernetes clusters and the workloads running on them. Common tools include Prometheus for metrics monitoring, Grafana for visualization, Fluentd or Fluent Bit for log collection, and ELK Stack (Elasticsearch, Logstash, Kibana) for log analysis.
+
+**3. Alerting and Notification:** To proactively identify and respond to issues within Kubernetes clusters, organizations set up alerting and notification mechanisms. This involves defining alerting rules based on predefined thresholds or conditions and configuring notifications to be sent via email, chat, or other communication channels using tools like Prometheus Alertmanager, Grafana alerts, or external services like PagerDuty or Opsgenie.
+
+**4. Dashboard and Visualization:** Kubernetes provides a built-in dashboard for visualizing cluster metrics, resource usage, and configuration details. Additionally, organizations may use external dashboarding tools like Grafana or Kibana to create customized dashboards for monitoring Kubernetes clusters alongside other infrastructure components.
+
+**5. Automation and Orchestration:** Automation plays a crucial role in managing and maintaining Kubernetes clusters efficiently. Organizations leverage automation tools and scripts to perform routine tasks such as cluster provisioning, configuration management, deployment, scaling, and updates. Tools like Terraform, Ansible, and Kubernetes Operators simplify cluster management tasks and ensure consistency across environments.
+
+**6. Security and Compliance:** Maintaining security and compliance within Kubernetes clusters is essential for protecting sensitive data and preventing unauthorized access or breaches. Organizations implement security best practices, such as RBAC (Role-Based Access Control), network policies, pod security policies, and vulnerability scanning, to secure Kubernetes clusters. They also use compliance auditing tools to assess adherence to regulatory requirements and industry standards.
+
 Overall, maintaining and monitoring Kubernetes clusters involves a combination of platform-specific tools, open-source solutions, and best practices tailored to the organization's requirements and operational workflows. These practices ensure the reliability, performance, and security of Kubernetes-based infrastructure in production environments.
-Or
+
+`Or`
+
 Newrelic is APM kind of tool. It is used for application monitoring.
-18.	 Do you heard about open shift and run shift?
+### 18.	 Do you heard about open shift and run shift?
 Ans: Yes, I'm familiar with both OpenShift and Red Hat OpenShift.
-1. OpenShift: OpenShift is a family of containerization software products developed by Red Hat. It provides a platform for building, deploying, and managing containerized applications and services. OpenShift builds on top of Kubernetes and adds additional features and tools to simplify the application development and deployment process. Some key features of OpenShift include:
-   - Developer-friendly workflows: OpenShift provides tools and APIs that streamline the development process, such as source-to-image (S2I) for building container images directly from source code.
-   - Integrated CI/CD: OpenShift integrates with CI/CD tools like Jenkins to automate the building, testing, and deployment of applications.
-   - Self-service provisioning: OpenShift allows developers to easily provision and manage their own development environments using self-service portals and templates.
-   - Application lifecycle management: OpenShift provides features for managing the lifecycle of applications, including scaling, rolling updates, and monitoring.
-2. Red Hat OpenShift Kubernetes Engine (ROKES): ROKES is a managed Kubernetes service offered by Red Hat that provides a fully managed Kubernetes environment based on OpenShift. It simplifies the deployment and operation of Kubernetes clusters by handling tasks such as cluster provisioning, scaling, and maintenance. ROKES is designed to provide a secure, reliable, and scalable platform for running containerized workloads in production environments.
+
+**1. OpenShift:** OpenShift is a family of containerization software products developed by Red Hat. It provides a platform for building, deploying, and managing containerized applications and services. OpenShift builds on top of Kubernetes and adds additional features and tools to simplify the application development and deployment process. Some key features of OpenShift include:
+
+   **- Developer-friendly workflows:** OpenShift provides tools and APIs that streamline the development process, such as source-to-image (S2I) for building container images directly from source code.
+   
+   **- Integrated CI/CD:** OpenShift integrates with CI/CD tools like Jenkins to automate the building, testing, and deployment of applications.
+
+   **- Self-service provisioning:** OpenShift allows developers to easily provision and manage their own development environments using self-service portals and templates.
+   
+   **- Application lifecycle management:** OpenShift provides features for managing the lifecycle of applications, including scaling, rolling updates, and monitoring.
+
+**2. Red Hat OpenShift Kubernetes Engine (ROKES):** ROKES is a managed Kubernetes service offered by Red Hat that provides a fully managed Kubernetes environment based on OpenShift. It simplifies the deployment and operation of Kubernetes clusters by handling tasks such as cluster provisioning, scaling, and maintenance. ROKES is designed to provide a secure, reliable, and scalable platform for running containerized workloads in production environments.
+
 Both OpenShift and ROKES are widely used by organizations looking to adopt containerization and Kubernetes for their application development and deployment needs. They offer enterprise-grade features, support, and integration with Red Hat's ecosystem of tools and services, making them popular choices for building cloud-native applications and microservices architectures.
-Or
+
+`Or`
+
 These are all k8s cluster management tools
-19.	 Which network plugin you are using in k8s cluster?
+
+### 19.	 Which network plugin you are using in k8s cluster?
 Ans: Common network plugins used in Kubernetes clusters.
 In Kubernetes, a network plugin, also known as a Container Network Interface (CNI) plugin, is responsible for configuring networking between Pods and enabling communication within the cluster. There are several network plugins available, each with its own features, performance characteristics, and compatibility requirements. Some of the popular network plugins used in Kubernetes clusters include:
-1. Flannel: Flannel is a simple and lightweight CNI plugin that provides a flat networking model for Kubernetes clusters. It uses either UDP or VXLAN encapsulation to create an overlay network that connects Pods across nodes. Flannel is easy to deploy and configure and is suitable for small to medium-sized clusters.
-2. Calico: Calico is a highly scalable and flexible CNI plugin designed for large-scale Kubernetes deployments. It implements a pure Layer 3 networking model using BGP (Border Gateway Protocol) for routing and IP-in-IP or VXLAN encapsulation for pod-to-pod communication. Calico offers advanced networking features, including network policy enforcement, security controls, and observability.
-3. Cilium: Cilium is a modern CNI plugin that provides both networking and security capabilities for Kubernetes clusters. It leverages eBPF (extended Berkeley Packet Filter) technology to implement fast and efficient packet processing at the Linux kernel level. Cilium supports various networking modes, including overlay, direct routing, and service mesh integration, and offers features such as network policy enforcement, load balancing, and transparent encryption.
-4. Weave Net: Weave Net is a CNI plugin that provides a simple and lightweight overlay network for Kubernetes clusters. It uses VXLAN encapsulation to create a virtual network that spans across nodes, allowing Pods to communicate with each other regardless of the underlying network topology. Weave Net is easy to deploy and integrates well with Kubernetes, making it suitable for small to medium-sized clusters.
-5. Kube-router: Kube-router is a CNI plugin that combines networking and routing functionalities within a single solution. It implements a Layer 3 networking model using BGP for dynamic routing and IPVS (IP Virtual Server) for load balancing. Kube-router offers features such as network policy enforcement, service discovery, and automatic failover, making it well-suited for production environments.
+
+`1. Flannel:` Flannel is a simple and lightweight CNI plugin that provides a flat networking model for Kubernetes clusters. It uses either UDP or VXLAN encapsulation to create an overlay network that connects Pods across nodes. Flannel is easy to deploy and configure and is suitable for small to medium-sized clusters.
+
+`2. Calico:` Calico is a highly scalable and flexible CNI plugin designed for large-scale Kubernetes deployments. It implements a pure Layer 3 networking model using BGP (Border Gateway Protocol) for routing and IP-in-IP or VXLAN encapsulation for pod-to-pod communication. Calico offers advanced networking features, including network policy enforcement, security controls, and observability.
+
+`3. Cilium:` Cilium is a modern CNI plugin that provides both networking and security capabilities for Kubernetes clusters. It leverages eBPF (extended Berkeley Packet Filter) technology to implement fast and efficient packet processing at the Linux kernel level. Cilium supports various networking modes, including overlay, direct routing, and service mesh integration, and offers features such as network policy enforcement, load balancing, and transparent encryption.
+
+`4. Weave Net:` Weave Net is a CNI plugin that provides a simple and lightweight overlay network for Kubernetes clusters. It uses VXLAN encapsulation to create a virtual network that spans across nodes, allowing Pods to communicate with each other regardless of the underlying network topology. Weave Net is easy to deploy and integrates well with Kubernetes, making it suitable for small to medium-sized clusters.
+
+`5. Kube-router:` Kube-router is a CNI plugin that combines networking and routing functionalities within a single solution. It implements a Layer 3 networking model using BGP for dynamic routing and IPVS (IP Virtual Server) for load balancing. Kube-router offers features such as network policy enforcement, service discovery, and automatic failover, making it well-suited for production environments.
+
 The choice of network plugin depends on factors such as the size and complexity of the Kubernetes cluster, performance requirements, network topology, and desired features. Organizations often evaluate different network plugins based on their specific use cases and operational preferences before selecting the most suitable option for their environment.
-Or
+
+`Or`
+
 CNI (Container Network Interface)
-20.	Can you explain about jenkins pipeline?
+### 20.	Can you explain about jenkins pipeline?
 Ans: Already available
-21.	What are the resources have you provision by using the terraform?
+### 21.	What are the resources have you provision by using the terraform?
 Ans: Already available
-22.	What are the terraform edition are you using enterprise or open source (free tier)
+### 22.	What are the terraform edition are you using enterprise or open source (free tier)
 Ans: need to check
-23.	What are the types of load balancers?
+### 23.	What are the types of load balancers?
 Ans: Already available
-24.	Difference between Applicatio Load Balancer and Network Load Balancer?
+### 24.	Difference between Applicatio Load Balancer and Network Load Balancer?
 Ans: Already available
-25.	Do we have any limitations to set acm certificates for ALB and NLB? Or Specific quota?
+### 25.	Do we have any limitations to set acm certificates for ALB and NLB? Or Specific quota?
 Ans: When using AWS Certificate Manager (ACM) certificates with Application Load Balancers (ALB) and Network Load Balancers (NLB) in AWS, there are some limitations and considerations to be aware of:
-1. Supported Regions: ACM certificates can be used with ALB and NLB in AWS regions where ACM is available. Not all AWS regions support ACM, so you should ensure that you're working in a region where ACM is supported if you plan to use ACM certificates with your load balancers.
-2. Certificate Types: ACM supports both public and private SSL/TLS certificates. Public certificates can be used with ALB and NLB to serve HTTPS traffic from the internet. Private certificates can be used with internal ALB and NLB to serve HTTPS traffic within a Virtual Private Cloud (VPC).
-3. Supported Protocols and Ports: ALB supports HTTPS (port 443) and HTTP (port 80) traffic, while NLB supports TCP, TLS, and UDP traffic on custom ports. Ensure that the ACM certificate you select is compatible with the protocol and port configuration of your load balancer.
-4. Wildcard Certificates: ACM supports wildcard certificates (e.g., `*.example.com`) that can be used to secure multiple subdomains under the same domain. You can associate a wildcard certificate with ALB and NLB to secure multiple subdomains hosted by the load balancer.
-5. Certificate Validation: ACM automatically manages certificate renewals and validation. ACM certificates are automatically renewed before they expire, and ACM handles the validation process to ensure the certificates are trusted by browsers and clients.
-6. Certificate Limits: There are limits on the number of ACM certificates you can create and manage in an AWS account. Be aware of these limits and plan your certificate usage accordingly. Additional certificates may require approval from AWS support.
-7. ARN Usage: When associating an ACM certificate with an ALB or NLB, you'll need to specify the Amazon Resource Name (ARN) of the certificate in the load balancer configuration. Ensure that you have the correct ARN for the ACM certificate you want to use.
+
+**1. Supported Regions:** ACM certificates can be used with ALB and NLB in AWS regions where ACM is available. Not all AWS regions support ACM, so you should ensure that you're working in a region where ACM is supported if you plan to use ACM certificates with your load balancers.
+
+**2. Certificate Types:** ACM supports both public and private SSL/TLS certificates. Public certificates can be used with ALB and NLB to serve HTTPS traffic from the internet. Private certificates can be used with internal ALB and NLB to serve HTTPS traffic within a Virtual Private Cloud (VPC).
+
+**3. Supported Protocols and Ports:** ALB supports HTTPS (port 443) and HTTP (port 80) traffic, while NLB supports TCP, TLS, and UDP traffic on custom ports. Ensure that the ACM certificate you select is compatible with the protocol and port configuration of your load balancer.
+
+**4. Wildcard Certificates:** ACM supports wildcard certificates (e.g., `*.example.com`) that can be used to secure multiple subdomains under the same domain. You can associate a wildcard certificate with ALB and NLB to secure multiple subdomains hosted by the load balancer.
+
+**5. Certificate Validation:** ACM automatically manages certificate renewals and validation. ACM certificates are automatically renewed before they expire, and ACM handles the validation process to ensure the certificates are trusted by browsers and clients.
+
+**6. Certificate Limits:** There are limits on the number of ACM certificates you can create and manage in an AWS account. Be aware of these limits and plan your certificate usage accordingly. Additional certificates may require approval from AWS support.
+
+**7. ARN Usage:** When associating an ACM certificate with an ALB or NLB, you'll need to specify the Amazon Resource Name (ARN) of the certificate in the load balancer configuration. Ensure that you have the correct ARN for the ACM certificate you want to use.
+
 By understanding these limitations and considerations, you can effectively use ACM certificates with ALB and NLB in AWS to secure your web applications and services. Always refer to the official AWS documentation for the most up-to-date information on ACM certificate usage and limitations.
-26.	What kind of providers have you used in terraform?
+
+### 26.	What kind of providers have you used in terraform?
 Ans:Terraform providers are plugins that enable Terraform to interact with various infrastructure and service providers to manage resources. Here are some examples of providers frequently used in Terraform configurations:
-1. AWS (Amazon Web Services): The AWS provider allows Terraform to manage resources within Amazon Web Services, including EC2 instances, S3 buckets, RDS databases, VPCs, and more.
-2. Azure: The Azure provider enables Terraform to manage resources in Microsoft Azure, such as virtual machines, storage accounts, databases, networks, and Azure Kubernetes Service (AKS) clusters.
-3. Google Cloud Platform (GCP): The GCP provider allows Terraform to manage resources in Google Cloud Platform, including Compute Engine instances, Google Kubernetes Engine (GKE) clusters, Cloud Storage buckets, and Pub/Sub topics.
-4. DigitalOcean: The DigitalOcean provider enables Terraform to manage resources on the DigitalOcean cloud platform, including Droplets (virtual machines), Kubernetes clusters, volumes, and databases.
-5. VMware vSphere: The vSphere provider allows Terraform to manage virtualized infrastructure in VMware vSphere environments, such as virtual machines, datastores, networks, and templates.
-6. OpenStack: The OpenStack provider enables Terraform to manage resources in OpenStack-based cloud environments, including compute instances, volumes, networks, and security groups.
-7. Kubernetes: The Kubernetes provider allows Terraform to manage resources within Kubernetes clusters, such as Deployments, Services, ConfigMaps, and Ingresses.
-8. GitHub: The GitHub provider allows Terraform to manage repositories, teams, webhooks, and other resources within GitHub organizations.
-9. GitLab: The GitLab provider enables Terraform to manage projects, groups, runners, variables, and other resources within GitLab instances.
-10. Datadog: The Datadog provider allows Terraform to manage resources in the Datadog monitoring platform, including monitors, dashboards, alerts, and integrations.
-These are just a few examples of the many providers available for Terraform. Each provider typically offers a range of resources that can be managed using Terraform configurations. By leveraging providers, Terraform enables infrastructure as code (IaC) workflows for managing resources across different cloud and on-premises environments.
-27.	Apart from this cloud providers any other providers have you used in terraform?
+
+**1. AWS (Amazon Web Services):** The AWS provider allows Terraform to manage resources within Amazon Web Services, including EC2 instances, S3 buckets, RDS databases, VPCs, and more.
+
+**2. Azure:** The Azure provider enables Terraform to manage resources in Microsoft Azure, such as virtual machines, storage accounts, databases, networks, and Azure Kubernetes Service (AKS) clusters.
+
+**3. Google Cloud Platform (GCP):** The GCP provider allows Terraform to manage resources in Google Cloud Platform, including Compute Engine instances, Google Kubernetes Engine (GKE) clusters, Cloud Storage buckets, and Pub/Sub topics.
+
+**4. DigitalOcean:** The DigitalOcean provider enables Terraform to manage resources on the DigitalOcean cloud platform, including Droplets (virtual machines), Kubernetes clusters, volumes, and databases.
+
+**5. VMware vSphere:** The vSphere provider allows Terraform to manage virtualized infrastructure in VMware vSphere environments, such as virtual machines, datastores, networks, and templates.
+
+**6. OpenStack:** The OpenStack provider enables Terraform to manage resources in OpenStack-based cloud environments, including compute instances, volumes, networks, and security groups.
+
+**7. Kubernetes:** The Kubernetes provider allows Terraform to manage resources within Kubernetes clusters, such as Deployments, Services, ConfigMaps, and Ingresses.
+
+**8. GitHub:** The GitHub provider allows Terraform to manage repositories, teams, webhooks, and other resources within GitHub organizations.
+
+**9. GitLab:** The GitLab provider enables Terraform to manage projects, groups, runners, variables, and other resources within GitLab instances.
+
+**10. Datadog:** The Datadog provider allows Terraform to manage resources in the Datadog monitoring platform, including monitors, dashboards, alerts, and integrations.
+
+- These are just a few examples of the many providers available for Terraform. Each provider typically offers a range of resources that can be managed using Terraform configurations. 
+
+By leveraging providers, Terraform enables infrastructure as code (IaC) workflows for managing resources across different cloud and on-premises environments.
+### 27.	Apart from this cloud providers any other providers have you used in terraform?
 Ans: Yes, Terraform supports a wide range of providers beyond just cloud providers. Here are some examples of non-cloud providers commonly used in Terraform configurations:
-1. DNS Providers: Terraform can manage DNS records and configurations using providers such as `cloudflare`, `aws.route53`, `google`, `azure`, `digitalocean`, etc.
-2. Networking Providers: Terraform can configure networking resources such as firewalls, load balancers, and VPNs using providers like `ciscoasa`, `fortios`, `juniper`, `panos`, etc.
-3. Monitoring Providers: Terraform can manage monitoring resources such as alerts, dashboards, and metrics using providers like `datadog`, `newrelic`, `signalfx`, `splunk`, etc.
-4. Source Code Management Providers: Terraform can interact with source code management systems to manage repositories, teams, and webhooks using providers like `github`, `gitlab`, `bitbucket`, etc.
-5. Containers and Orchestration Providers: Terraform can manage containerized applications and orchestration platforms using providers like `kubernetes`, `docker`, `rancher`, `nomad`, etc.
-6. Database Providers: Terraform can provision and manage databases using providers like `mysql`, `postgresql`, `microsoft/sqlserver`, `mongodbatlas`, `google/sql`, `aws/dynamodb`, etc.
-7. Security Providers: Terraform can configure security-related resources such as IAM roles, policies, and security groups using providers like `vault`, `okta`, `auth0`, `keycloak`, `ldap`, etc.
-8. Storage Providers: Terraform can manage storage resources such as object storage buckets, block storage volumes, and file systems using providers like `aws/s3`, `google/storage`, `azure/storage`, `digitalocean/spaces`, etc.
-9. Messaging Providers: Terraform can configure messaging services and queues using providers like `rabbitmq`, `activemq`, `kafka`, `aws/sqs`, `google/pubsub`, etc.
-10. Identity Providers: Terraform can integrate with identity management systems and authentication providers using providers like `okta`, `auth0`, `keycloak`, `ldap`, etc.
+
+**1. DNS Providers:** Terraform can manage DNS records and configurations using providers such as `cloudflare`, `aws.route53`, `google`, `azure`, `digitalocean`, etc.
+
+**2. Networking Providers:** Terraform can configure networking resources such as firewalls, load balancers, and VPNs using providers like `ciscoasa`, `fortios`, `juniper`, `panos`, etc.
+
+**3. Monitoring Providers:** Terraform can manage monitoring resources such as alerts, dashboards, and metrics using providers like `datadog`, `newrelic`, `signalfx`, `splunk`, etc.
+
+**4. Source Code Management Providers:** Terraform can interact with source code management systems to manage repositories, teams, and webhooks using providers like `github`, `gitlab`, `bitbucket`, etc.
+
+**5. Containers and Orchestration Providers:** Terraform can manage containerized applications and orchestration platforms using providers like `kubernetes`, `docker`, `rancher`, `nomad`, etc.
+
+**6. Database Providers:** Terraform can provision and manage databases using providers like `mysql`, `postgresql`, `microsoft/sqlserver`, `mongodbatlas`, `google/sql`, `aws/dynamodb`, etc.
+
+**7. Security Providers:** Terraform can configure security-related resources such as IAM roles, policies, and security groups using providers like `vault`, `okta`, `auth0`, `keycloak`, `ldap`, etc.
+
+**8. Storage Providers:** Terraform can manage storage resources such as object storage buckets, block storage volumes, and file systems using providers like `aws/s3`, `google/storage`, `azure/storage`, `digitalocean/spaces`, etc.
+
+**9. Messaging Providers:** Terraform can configure messaging services and queues using providers like `rabbitmq`, `activemq`, `kafka`, `aws/sqs`, `google/pubsub`, etc.
+
+**10. Identity Providers:** Terraform can integrate with identity management systems and authentication providers using providers like `okta`, `auth0`, `keycloak`, `ldap`, etc.
+
 These are just a few examples of the many providers available for Terraform. Terraform's extensibility through providers allows it to manage a broad spectrum of resources and services, enabling infrastructure as code (IaC) practices across various technology stacks and environments.
-28.	Do you know foreach in terraform?
+
+### 28.	Do you know foreach in terraform?
 Ans: Already available
-29.	Difference between count and for each?
+### 29.	Difference between count and for each?
 Ans: Already available
-30.	Do you know about locals?
+### 30.	Do you know about locals?
 Ans: Yes, in Terraform, `locals` is a block used to define local values within a Terraform configuration. Local values allow you to define reusable expressions or calculations that can be referenced multiple times within the same configuration file. This helps in keeping your code DRY (Don't Repeat Yourself) and improves readability.
-Here's an example of using `locals` in a Terraform configuration:
+
+#### Here's an example of using `locals` in a Terraform configuration:
 ```hcl
 locals {
   # Define a local variable for the AMI ID
@@ -10867,11 +11040,12 @@ locals {
   instance_name = "web-server-${var.environment}"
 }
 ```
-In this example:
+#### In this example:
 - The `locals` block defines three local values: `ami_id`, `instance_type`, and `instance_name`.
 - The `ami_id` and `instance_type` variables are simple string values.
 - The `instance_name` variable is calculated using an interpolated string that includes a variable `var.environment`.
-You can then reference these local values throughout your Terraform configuration using the `local` prefix. For example:
+
+- You can then reference these local values throughout your Terraform configuration using the `local` prefix. For example:
 ```hcl
 resource "aws_instance" "web" {
   ami           = local.ami_id
@@ -10882,9 +11056,9 @@ resource "aws_instance" "web" {
 }
 ```
 Using `locals` allows you to encapsulate complex expressions or calculations, improve readability, and make your Terraform code more maintainable. It's particularly useful when you need to reuse the same value multiple times within a configuration file or when you want to perform calculations based on input variables.
-31.	What are the dynamic blocks in terraforms?
+### 31.	What are the dynamic blocks in terraforms?
 Ans: Dynamic blocks in Terraform allow you to define repeated nested blocks dynamically based on a list or map variable. This is particularly useful when you need to create multiple instances of a nested block with varying configurations.
-Here's a basic syntax for using dynamic blocks in Terraform:
+#### Here's a basic syntax for using dynamic blocks in Terraform:
 ```hcl
 resource "aws_instance" "example" {
   count = 3
@@ -10897,70 +11071,84 @@ resource "aws_instance" "example" {
   }
 }
 ```
-In this example:
+#### In this example:
 - `count = 3` specifies that three instances of the `aws_instance` resource will be created.
 - The `dynamic` block allows you to define a nested block (`tags` in this case) multiple times based on the contents of a list or map variable.
 - `for_each = var.instance_tags` specifies the list or map variable to iterate over. In this example, `var.instance_tags` is expected to be a map of tags.
 - Inside the `content` block, you define the attributes for each dynamically generated nested block. Here, `tags.key` and `tags.value` refer to the key-value pairs in the map variable.
+
 Using dynamic blocks, you can generate nested blocks dynamically based on the contents of variables, allowing for more flexible and concise Terraform configurations. This is particularly useful when you need to create resources with varying configurations or when you want to dynamically generate resource blocks based on input data.
-32.	Consider a scenario you have written a two separate modules for for VM creation using the count to spin up vms, before that I want to attach it to a network load balancer so I have written that module also in the same script you have written,calling the two same modules from the mani-1 one is like a load balancer and another is a VM that will create 2 vm’s based on our choice.
-Now, I have firstly created the load balancer next is vm creation and attach it to the load balancer I have mapped into a tfvars but I have segregated a load balancer with another tfvars and vm configuration in other tfvars. How I can call this when I required this?
-Hint: using at the time of plan and apply
+### 32.	Consider a scenario you have written a two separate modules for for VM creation using the count to spin up vms, before that I want to attach it to a network load balancer so I have written that module also in the same script you have written,calling the two same modules from the mani-1 one is like a load balancer and another is a VM that will create 2 vm’s based on our choice.(OR) Now, I have firstly created the load balancer next is vm creation and attach it to the load balancer I have mapped into a tfvars but I have segregated a load balancer with another tfvars and vm configuration in other tfvars. How I can call this when I required this?
+
+### Hint: using at the time of plan and apply
 Ans: To achieve this scenario where you have separate Terraform configurations (modules) for creating a load balancer and virtual machines, and you want to attach the VMs to the load balancer, you can follow these steps:
-1. Define Terraform Modules:
+#### 1. Define Terraform Modules:
    - Create two separate Terraform modules: one for creating the network load balancer and another for creating virtual machines.
    - Each module should have its own `.tf` files containing the necessary resources and configurations.
-2. Define Input Variables:
+#### 2. Define Input Variables:
    - Define input variables for both modules to parameterize their configurations.
    - For example, in the load balancer module, you might have variables for the load balancer listener ports, target groups, etc. In the VM module, you might have variables for the VM instance types, count, subnet IDs, etc.
-3. Define Output Variables:
+#### 3. Define Output Variables:
    - Define output variables in the load balancer module to expose the necessary information required to attach VMs to the load balancer.
    - For example, you might have output variables for the load balancer ARN, listener ARN, target group ARNs, etc.
-4. Create Terraform Configuration for Load Balancer:
+#### 4. Create Terraform Configuration for Load Balancer:
    - Create a separate Terraform configuration file (`main.tf`) to use the load balancer module.
    - In this configuration file, provide input values for the load balancer module variables based on your requirements. You can use a separate `.tfvars` file (`lb.tfvars`) to specify these input values.
-5. Create Terraform Configuration for Virtual Machines:
+#### 5. Create Terraform Configuration for Virtual Machines:
    - Similarly, create another Terraform configuration file (`main.tf`) to use the virtual machine module.
    - Provide input values for the VM module variables, including the necessary information to attach the VMs to the load balancer (e.g., load balancer ARN, target group ARNs). You can use a separate `.tfvars` file (`vm.tfvars`) to specify these input values.
-6. Initialize and Apply Terraform:
+#### 6. Initialize and Apply Terraform:
    - Initialize Terraform in both directories using `terraform init`.
    - Apply the Terraform configurations in the following order:
      1. Apply the load balancer configuration using `terraform apply -var-file=lb.tfvars`.
      2. Apply the VM configuration using `terraform apply -var-file=vm.tfvars`.
 By following these steps, you can effectively separate the configurations for creating the load balancer and virtual machines, while still being able to attach the VMs to the load balancer by passing the necessary information as input variables. This approach allows for modularity, reusability, and easier management of your Terraform configurations.
-Or
-You can call multiple tfvars,
-If you have like a network load balancer, load balancer is a onetime creation in the backend pool only you will try to add each time, if you consider the blue green deployment in this scenario these two vm’s that we spin up with sample hello world applications you are trying to knock in the backend pool, In the blue green deployment which is already in the live it is attached new version 2.0 amd version1.0 is already in production which is attached in the backend pool of that one. Now you need to map that new version 2.0, you wont  run again this entire script for this scenario, in blue green you are spinning up new VM every time
+
+`Or`
+
+- You can call multiple tfvars,
+
+- If you have like a network load balancer, load balancer is a onetime creation in the backend pool only you will try to add each time, if you consider the blue green deployment in this scenario these two vm’s that we spin up with sample hello world applications you are trying to knock in the backend pool, In the blue green deployment which is already in the live it is attached new version 2.0 amd version1.0 is already in production which is attached in the backend pool of that one. Now you need to map that new version 2.0, you wont  run again this entire script for this scenario, in blue green you are spinning up new VM every time
 For this we use
+```
 Ex: terraform apply –var-file=test.tfvars vm.tfvars ----This is for first time
-Next time we can only call the VM related tfvars.
-33.	Consider the scenario, I have a VM I want to create the firewall between this one anyway I created this within the private Ip range.so from new instances and other instances I want to keep the communication for a particular IP address so I can go to specific resource and try to modify there can you name that resource?
+```
+- Next time we can only call the VM related tfvars.
+### 33.	Consider the scenario, I have a VM I want to create the firewall between this one anyway I created this within the private Ip range.so from new instances and other instances I want to keep the communication for a particular IP address so I can go to specific resource and try to modify there can you name that resource?
 Ans: Security Group
-Or
+
+`Or`
+
 In the scenario you described, where you want to restrict communication between a specific IP address and your VM within a private IP range using a firewall, the resource you're looking for is likely a "Security Group" in the context of AWS or a "Network Security Group" (NSG) in the context of Azure.
 Here's how you would typically achieve this:
-1. AWS - Security Group:
+#### 1. AWS - Security Group:
    - In AWS, a Security Group acts as a virtual firewall for your instances to control inbound and outbound traffic. You can define rules to allow or deny traffic based on IP addresses, ports, and protocols.
    - To restrict communication to a specific IP address for your VM, you would create an inbound rule in the Security Group associated with your VM's network interface. This rule would allow traffic from the specific IP address while blocking traffic from other sources.
    - You can create and manage Security Groups using Terraform's `aws_security_group` resource.
-2. Azure - Network Security Group (NSG):
+#### 2. Azure - Network Security Group (NSG):
    - In Azure, a Network Security Group (NSG) provides network traffic filtering rules for controlling traffic to and from network interfaces in Azure Virtual Networks.
    - Similar to AWS Security Groups, you can define inbound and outbound security rules in an NSG to allow or deny traffic based on source and destination IP addresses, ports, and protocols.
    - To restrict communication to a specific IP address for your VM, you would create an inbound security rule in the NSG associated with your VM's subnet or network interface. This rule would allow traffic from the specific IP address while blocking traffic from other sources.
    - You can create and manage Network Security Groups using Terraform's `azurerm_network_security_group` resource.
 By configuring the appropriate security rules in either AWS Security Groups or Azure Network Security Groups, you can restrict communication to your VM from specific IP addresses while allowing access from other instances within your private IP range. This helps enhance the security of your infrastructure by implementing network-level access controls.
 
-EY L1 Q&A (23-02-2024)  
-1.	What is static POD?  What is the use of this static pods?
+---
+
+## EY L1 Q&A (23-02-2024)  
+
+### 1.	What is static POD?  What is the use of this static pods?
 Ans: Introduction
 Static Pods are a feature in Kubernetes that allows you to run pods without the need for a Kubernetes API server. They are useful in situations where you need to run a pod on a node that is not managed by a Kubernetes cluster.
-What are Static Pods?
-Static Pods are pods that are created and managed by a kubelet on a node, rather than by the Kubernetes API server. When the kubelet on a node detects a static pod manifest file in a specific directory, it creates a pod from the manifest file and manages the pod’s lifecycle.
-Static Pods are useful in situations where you need to run a pod on a node that is not part of a Kubernetes cluster or when you want to run a pod without relying on the Kubernetes API server.
-How to Configure Static Pods in Kubernetes
-To configure a Static Pod in Kubernetes, follow these steps:
-Create a Static Pod Manifest File
-To create a Static Pod, you need to create a manifest file in YAML format that describes the pod’s configuration. For example:
+#### What are Static Pods?
+- Static Pods are pods that are created and managed by a kubelet on a node, rather than by the Kubernetes API server. 
+- When the kubelet on a node detects a static pod manifest file in a specific directory, it creates a pod from the manifest file and manages the pod’s lifecycle.
+- Static Pods are useful in situations where you need to run a pod on a node that is not part of a Kubernetes cluster or when you want to run a pod without relying on the Kubernetes API server.
+
+#### How to Configure Static Pods in Kubernetes
+#### To configure a Static Pod in Kubernetes, follow these steps:
+#### Create a Static Pod Manifest File
+- To create a Static Pod, you need to create a manifest file in YAML format that describes the pod’s configuration. For example:
+```
 apiVersion: v1
 kind: Pod
 metadata:
@@ -10969,70 +11157,98 @@ spec:
   containers:
   - name: my-container
     image: nginx
-The above YAML manifest file creates a Static Pod named my-static-pod with a single container that runs an Nginx image.
-Place the Manifest File in the Static Pod Directory
-By default, the kubelet on a node looks for Static Pod manifest files in the /etc/kubernetes/manifests directory. You can also configure the kubelet to look for Static Pod manifest files in a different directory.
-To place the manifest file in the Static Pod directory, copy it to the appropriate directory on the node. For example:
+```
+- The above YAML manifest file creates a Static Pod named my-static-pod with a single container that runs an Nginx image.
+- Place the Manifest File in the Static Pod Directory
+- By default, the kubelet on a node looks for Static Pod manifest files in the `/etc/kubernetes/manifests `directory. 
+- You can also configure the kubelet to look for Static Pod manifest files in a different directory.
+- To place the manifest file in the Static Pod directory, copy it to the appropriate directory on the node. For 
+
+`example:`
+```
 sudo cp my-static-pod.yaml /etc/kubernetes/manifests/
-The above command copies the my-static-pod.yaml file to the default Static Pod directory.
-Verify the Static Pod
-To verify that the Static Pod is running, use the kubectl get pods command, for example:
+```
+- The above command copies the my-static-pod.yaml file to the default Static Pod directory.
+- Verify the Static Pod
+- To verify that the Static Pod is running, use the kubectl get pods command, for example:
+```yaml
 kubectl get pods -o wide
-The output should show the Static Pod running on the node.
-Examples of Static Pods in Kubernetes
-Kubernetes comes with several Static Pods that are configured by default. These include:
-kube-apiserver: The API server for the Kubernetes control plane.
-kube-controller-manager: The controller manager that runs various controllers in the Kubernetes control plane.
-kube-scheduler: The component that schedules pods to run on nodes.
-These Static Pods are managed by the kubelet on the control plane node.
-To view the configuration files for these Static Pods, use the kubectl describe pod command, for example:
+```
+- The output should show the Static Pod running on the node.
+- Examples of Static Pods in Kubernetes
+- Kubernetes comes with several Static Pods that are configured by default. These include:
+
+**kube-apiserver:** The API server for the Kubernetes control plane.
+
+**kube-controller-manager:** The controller manager that runs various controllers in the Kubernetes control plane.
+
+**kube-scheduler:** The component that schedules pods to run on nodes.
+
+- These Static Pods are managed by the kubelet on the control plane node.
+
+- To view the configuration files for these Static Pods, use the kubectl describe pod command, for example:
+```bash
 kubectl describe pod kube-apiserver-control-plane -n kube-system
-The output should show the manifest file used to create the Static Pod.
-Default Static Pod Directory
-By default, the kubelet on a node looks for Static Pod manifest files in the /etc/kubernetes/manifests directory. You can also configure the kubelet to look for Static Pod manifest files in a different directory by specifying the --pod-manifest-path flag when starting the kubelet.
-Conclusion
-Static Pods are a useful feature in Kubernetes that allows you to run pods without relying on the Kubernetes API server.you can easily configure Static Pods and run them on nodes in your Kubernetes cluster. Additionally, Kubernetes comes with several default Static Pods that are configured by default, allowing you to run essential components of the Kubernetes control plane as Static Pods. Understanding how Static Pods work and how to configure them effectively can help you optimize your Kubernetes cluster for your specific workloads and improve the overall stability and reliability of your environment.
+```
+- The output should show the manifest file used to create the Static Pod.
+- Default Static Pod Directory
+- By default, the kubelet on a node looks for Static Pod manifest files in the `/etc/kubernetes/manifests` directory. You can also configure the kubelet to look for Static Pod manifest files in a different directory by specifying the --pod-manifest-path flag when starting the kubelet.
+
+#### Conclusion
+
+Static Pods are a useful feature in Kubernetes that allows you to run pods without relying on the Kubernetes API server.you can easily configure Static Pods and run them on nodes in your Kubernetes cluster. Additionally, Kubernetes comes with several default Static Pods that are configured by default, allowing you to run essential components of the Kubernetes control plane as Static Pods. 
+
+Understanding how Static Pods work and how to configure them effectively can help you optimize your Kubernetes cluster for your specific workloads and improve the overall stability and reliability of your environment.
 In conclusion, Static Pods are a powerful feature in Kubernetes that provides flexibility and control over running pods on nodes that are not part of a Kubernetes cluster or running pods without relying on the Kubernetes API server.
-2.	There is cluster up and running suddenly master node is goes down scheduler is not able to give the instructions to kubectl? How can we set up the cluster again here we don’t have master node?
+### 2.	There is cluster up and running suddenly master node is goes down scheduler is not able to give the instructions to kubectl? How can we set up the cluster again here we don’t have master node?
 Ans: In a typical Kubernetes cluster, the master node plays a critical role in managing and orchestrating the entire cluster. If the master node goes down, it can significantly impact the cluster's functionality. However, Kubernetes is designed to be resilient, and there are strategies to recover from such situations.
-1. Check Master Node Status:
+#### 1. Check Master Node Status:
    First, confirm that the master node is indeed(really) down. You can check the status of the master node and its components. Common components include the API server, controller manager, and etcd. Use tools like `kubectl` or check system logs to gather information.
-2. Backup and Restore etcd:
+#### 2. Backup and Restore etcd:
    The data store for Kubernetes is typically etcd, and it's crucial for cluster state. If the etcd data is intact(flawless), you may be able to recover the cluster. Ensure you have a backup of etcd data regularly. If the master node is unrecoverable, you might need to set up a new master node and restore the etcd data.
-3. Replace or Recover Master Node:
+#### 3. Replace or Recover Master Node:
    If the master node is recoverable, you can try restarting the necessary components or troubleshoot the issues causing the downtime. If the master node is not recoverable, you may need to replace it. In cloud environments, this might involve creating a new virtual machine or instance. If you have multiple master nodes, you can promote one of the existing nodes to be the new master.
-4. Rejoin Worker Nodes:
+#### 4. Rejoin Worker Nodes:
    Once the master node is back up or replaced, ensure that the worker nodes can rejoin the cluster. Worker nodes automatically try to reconnect to the master, but you may need to update kubelet configuration if significant changes occurred.
-5. Check Cluster Health:
+#### 5. Check Cluster Health:
    After restoring the master node and ensuring worker nodes have rejoined, check the overall health of the cluster. Use `kubectl` to inspect the state of nodes, pods, and other resources.
-6. Review Cluster Architecture:
+#### 6. Review Cluster Architecture:
    Consider reviewing your cluster architecture to make it more resilient in the future. This might involve setting up multiple master nodes for high availability or using managed Kubernetes services that handle some aspects of cluster management.
 Remember that the specifics of recovering from a master node failure can depend on your cluster setup, the underlying infrastructure, and other factors. 
-3.	What is kubeadem?
+### 3.	What is kubeadem?
 Ans: Kubeadm is a tool used for bootstrapping Kubernetes clusters. It is part of the Kubernetes project and is designed to simplify the process of setting up and initializing a Kubernetes cluster.
-Kubeadm performs the following key functions:
-1. Bootstrapping the Cluster: Kubeadm helps in setting up the initial cluster control plane. It initializes the necessary components, such as the API server, controller manager, and etcd, on the master node.
-2. Node Joining: After the master node is initialized, kubeadm provides a token that worker nodes can use to join the cluster. This token contains the necessary information for the worker node to connect to the master.
-3. Configuration: Kubeadm generates default configuration files for the cluster components, making it easier to get started with a basic setup. Advanced users can customize these configurations as needed.
-4. Secure Cluster Initialization: Kubeadm helps in securely initializing the cluster by handling tasks such as generating and distributing certificates.
-Here's a basic overview of using kubeadm to set up a Kubernetes cluster:
+#### Kubeadm performs the following key functions:
+
+**1. Bootstrapping the Cluster:** Kubeadm helps in setting up the initial cluster control plane. It initializes the necessary components, such as the API server, controller manager, and etcd, on the master node.
+
+**2. Node Joining:** After the master node is initialized, kubeadm provides a token that worker nodes can use to join the cluster. This token contains the necessary information for the worker node to connect to the master.
+
+**3. Configuration:** Kubeadm generates default configuration files for the cluster components, making it easier to get started with a basic setup. Advanced users can customize these configurations as needed.
+
+**4. Secure Cluster Initialization:** Kubeadm helps in securely initializing the cluster by handling tasks such as generating and distributing certificates.
+#### Here's a basic overview of using kubeadm to set up a Kubernetes cluster:
 - Master Node Initialization:
-   kubeadm init
-  This command initializes the master node and provides instructions for configuring `kubectl` to connect to the newly created cluster.
+```yaml
+  kubeadm init
+```
+  - This command initializes the master node and provides instructions for configuring `kubectl` to connect to the newly created cluster.
 - Join Worker Node to the Cluster:
-  kubeadm join <master-node-ip>:<master-node-port> --token <token> --discovery-token-ca-cert-hash sha256:<hash>
-  This command is run on worker nodes to join them to the cluster. The necessary information is obtained during the master node initialization.
-- Configuration and Networking:
-  After the cluster is initialized, kubeadm provides instructions on setting up the Kubernetes configuration file (`kubeconfig`) and deploying a networking solution (e.g., Calico, Flannel) to enable pod communication.
+```yaml
+ kubeadm join <master-node-ip>:<master-node-port> --token <token> --discovery-token-ca-cert-hash sha256:<hash>
+```
+  - This command is run on worker nodes to join them to the cluster. The necessary information is obtained during the master node initialization.
+
+**Configuration and Networking:**
+  - After the cluster is initialized, kubeadm provides instructions on setting up the Kubernetes configuration file (`kubeconfig`) and deploying a networking solution (e.g., Calico, Flannel) to enable pod communication.
 Kubeadm is suitable for creating clusters for development, testing, and small-scale production deployments. For larger and more complex setups, additional configurations and tools might be necessary. Always refer to the official Kubernetes documentation and guidelines when using kubeadm, as features and commands may change with newer versions.
-4.	What is the default network service for kubernetes cluster? (If we create the POD the default network will auomatically creates what is that POD)
+### 4.	What is the default network service for kubernetes cluster? (If we create the POD the default network will auomatically creates what is that POD)
 Ans: clster ip
-5.	What services are you used in kubernetes?
+### 5.	What services are you used in kubernetes?
 Ans: Already available
-6.	What is the use of cluster IP?
+### 6.	What is the use of cluster IP?
 Ans: In Kubernetes, a ClusterIP service is a type of service that exposes a set of pods as a stable, internal IP address within the cluster. This type of service is often used for communication between different components or microservices within the Kubernetes cluster.
 Here's how a ClusterIP service is typically configured:
-1. Service Definition:
+#### 1. Service Definition:
    You create a Kubernetes Service and specify the service type as `ClusterIP`. You also define the ports and select the pods that should be part of the service using labels.
    ```yaml
    apiVersion: v1
@@ -11047,15 +11263,16 @@ Here's how a ClusterIP service is typically configured:
      selector:
        app: my-app        # Pods with this label will be part of the service
    ```
-2. Accessing the Service:
-   The ClusterIP service is given a stable IP address within the cluster, and other pods or services can access it using this IP address. The service is usually reachable through the service name and port.
-	http://my-clusterip-service:80
-      Within the Kubernetes cluster, DNS resolution is typically configured, so you can often access the service using its DNS name.
-ClusterIP services are primarily used for internal communication between services or microservices within the cluster. They provide a stable and abstracted way to reach a set of pods without having to know the specific IP addresses of individual pods.
-It's important to note that ClusterIP services are not accessible from outside the cluster. If you need external access, you might consider using NodePort, LoadBalancer, or Ingress services depending on your requirements.
-7.	What is Node Port?
+#### 2. Accessing the Service:
+   - The ClusterIP service is given a stable IP address within the cluster, and other pods or services can access it using this IP address. The service is usually reachable through the service name and port.
+- http://my-clusterip-service:80
+- Within the Kubernetes cluster, DNS resolution is typically configured, so you can often access the service using its DNS name.
+- ClusterIP services are primarily used for internal communication between services or microservices within the cluster. They provide a stable and abstracted way to reach a set of pods without having to know the specific IP addresses of individual pods.
+- It's important to note that ClusterIP services are not accessible from outside the cluster. If you need external access, you might consider using NodePort, LoadBalancer, or Ingress services depending on your requirements.
+### 7.	What is Node Port?
 Ans: In Kubernetes, a NodePort service is a way to expose a service externally to the cluster by allocating a specific port on each node in the cluster. This allows external traffic to reach the service by connecting to any node's IP address on the specified port. NodePort services are often used when you need to make a service accessible from outside the Kubernetes cluster.
-Here's how a NodePort service is typically configured:
+#### Here's how a NodePort service is typically configured:
+```yaml
 1. Service Definition:
    You create a Kubernetes Service and specify the service type as `NodePort`. You also specify the port number that the service should be exposed on.
    ```yaml
@@ -11071,18 +11288,24 @@ Here's how a NodePort service is typically configured:
        nodePort: 30001    # Port accessible externally on each node
      selector:
        app: my-app
-2. NodePort Assignment:
-   When the service is created, Kubernetes automatically assigns a port on each node (the `nodePort` in the service definition). For example, if the assigned nodePort is 30001, you can access the service on any node's IP at port 30001.
-3. Accessing the Service:
-   External clients can access the service by connecting to any node's IP address on the assigned nodePort. The traffic will then be forwarded to the pods selected by the service.
-	http://node-ip:nodePort
-NodePort services are useful when you need to expose a service to external clients, but it's essential to consider security implications. The NodePort range is 30000-32767 by default, and it's recommended to choose a port within this range to avoid conflicts with other services. Additionally, firewall rules should be configured to control external access to the nodes.
-Keep in mind that while NodePort services provide external access, they might not be suitable for production use-cases where more advanced load balancing and security features are required. In such cases, a LoadBalancer service or an Ingress resource might be more appropriate.
-8.	What are the parameters that we define in POD to communicate for the outside the POD? 
+```
+#### 2. NodePort Assignment:
+   - When the service is created, Kubernetes automatically assigns a port on each node (the `nodePort` in the service definition). For example, if the assigned nodePort is 30001, you can access the service on any node's IP at port 30001.
+#### 3. Accessing the Service:
+   - External clients can access the service by connecting to any node's IP address on the assigned nodePort. The traffic will then be forwarded to the pods selected by the service.
+- http://node-ip:nodePort
+
+- NodePort services are useful when you need to expose a service to external clients, but it's essential to consider security implications. The NodePort range is 30000-32767 by default, and it's recommended to choose a port within this range to avoid conflicts with other services. Additionally, firewall rules should be configured to control external access to the nodes.
+
+- Keep in mind that while NodePort services provide external access, they might not be suitable for production use-cases where more advanced load balancing and security features are required. In such cases, a LoadBalancer service or an Ingress resource might be more appropriate.
+### 8.	What are the parameters that we define in POD to communicate for the outside the POD? 
 Ans: When you want a pod in Kubernetes to communicate with resources outside of the pod or cluster, you typically need to consider a few parameters and configurations. Here are some key aspects:
-1. Service Account:
-   - Description: Service accounts provide an identity for processes that run in a pod. By default, pods are associated with the default service account in their namespace. You can create custom service accounts and associate them with pods.
-   - How to Define: Specify the `serviceAccountName` field in the pod specification.
+#### 1. Service Account:
+
+   **- Description:** Service accounts provide an identity for processes that run in a pod. By default, pods are associated with the default service account in their namespace. You can create custom service accounts and associate them with pods.
+
+   **- How to Define:** Specify the `serviceAccountName` field in the pod specification.
+
      ```yaml
      apiVersion: v1
      kind: Pod
@@ -11093,9 +11316,11 @@ Ans: When you want a pod in Kubernetes to communicate with resources outside of 
        containers:
        - name: mycontainer
          image: myimage
-2. Network Policy:
+```
+### 2. Network Policy:
    - Description: Network policies define how pods are allowed to communicate with each other and other network endpoints. By default, pods can communicate with any other pod within the same namespace.
    - How to Define: Create and apply a NetworkPolicy resource. Define rules to allow or deny traffic based on various criteria.
+
      ```yaml
      apiVersion: networking.k8s.io/v1
      kind: NetworkPolicy
@@ -11110,9 +11335,11 @@ Ans: When you want a pod in Kubernetes to communicate with resources outside of 
          - podSelector:
              matchLabels:
                role: frontend
-3. Pod IP and DNS:
+               ```
+#### 3. Pod IP and DNS:
    - Description: Each pod in Kubernetes is assigned an IP address, and DNS is configured to resolve the pod's name to its IP address within the cluster.
    - How to Use: Pods can use the IP address or DNS name of other pods within the same cluster to communicate.
+     
      ```yaml
      apiVersion: v1
      kind: Pod
@@ -11123,9 +11350,11 @@ Ans: When you want a pod in Kubernetes to communicate with resources outside of 
        - name: mycontainer
          image: myimage
          command: [ "ping", "otherpod.namespace.svc.cluster.local" ]
-4. Environment Variables:
+      ```
+#### 4. Environment Variables:
    - Description: You can set environment variables in a pod's containers to provide configuration or connection details.
    - How to Define: Specify the `env` field in the container definition.
+     
      ```yaml
      apiVersion: v1
      kind: Pod
@@ -11138,9 +11367,11 @@ Ans: When you want a pod in Kubernetes to communicate with resources outside of 
          env:
          - name: DATABASE_URL
            value: "mysql://username:password@hostname:port/database"
-5. Volumes and ConfigMaps:
+      ```
+#### 5. Volumes and ConfigMaps:
    - Description: Volumes and ConfigMaps allow you to share data between pods and store configuration information.
    - How to Use: Mount a volume or ConfigMap into a pod's container so that the necessary files or configuration are available.
+
      ```yaml
      apiVersion: v1
      kind: Pod
@@ -11159,9 +11390,9 @@ Ans: When you want a pod in Kubernetes to communicate with resources outside of 
            path: /host/path
      ```
 These parameters and configurations help you define how a pod interacts with the external world, whether it's other pods within the cluster or resources outside the cluster. Adjustments may be needed based on your specific use case and networking setup.
-9.	Is it mandatory to define the host port and target port? Which one is mandatory?
+### 9.	Is it mandatory to define the host port and target port? Which one is mandatory?
 Ans: In Kubernetes, when defining a container port within a pod, you have the option to specify both the host port and the target port, but it's not mandatory to define both. Whether you need to define one or both depends on your specific use case and networking requirements.
-Here's a brief explanation of host port and target port:
+#### Here's a brief explanation of host port and target port:
 - Host Port:
   - This is the port on the host machine (node) that will be mapped to the container port. If you specify a host port, the container port is exposed on the specified port of the host.
   - Example:
@@ -11181,30 +11412,39 @@ Here's a brief explanation of host port and target port:
     ```
   - In this example, the container's port 8080 is mapped to the target port 80.
 Now, whether you need to define one or both depends on the scenario:
-1. No Ports Defined:
+#### 1. No Ports Defined:
    - If you don't specify any ports, Kubernetes will allocate a random host port and map it to the container port. This is the typical case for many deployments.
-2. Define Only ContainerPort:
+#### 2. Define Only ContainerPort:
    - If you define only the `containerPort`, Kubernetes will allocate a random host port by default.
-3. Define HostPort:
+#### 3. Define HostPort:
    - If you define the `hostPort` only, the container port is automatically set to the same value as the host port.
-4. Define Both HostPort and TargetPort:
+#### 4. Define Both HostPort and TargetPort:
    - If you define both `hostPort` and `targetPort`, you are explicitly specifying the mapping between the host and container ports.
 It's common to rely on the default behavior and let Kubernetes manage the port allocation unless you have specific requirements or constraints that necessitate explicit port mapping. Keep in mind that using host ports can limit the scalability and portability of your application, so it's important to consider these factors when making decisions about port definitions.
-10.	Suppose we created a persistence volume, while deleting a POD this PVC also got deleted. What is the reason for deleted PVC? Is there any parameter define for that?
+### 10.	Suppose we created a persistence volume, while deleting a POD this PVC also got deleted. What is the reason for deleted PVC? Is there any parameter define for that?
 Ans: In Kubernetes, when a Persistent Volume Claim (PVC) is created, it is bound to a specific Persistent Volume (PV) to provide storage to a pod. The relationship between a PVC and a PV is dynamic, and the PVC will be automatically deleted under certain conditions. Here are a few scenarios in which a PVC might get deleted:
-1. Pod Deletion:
-   - Reason: If the pod using the PVC is deleted, and the PVC has no other pods bound to it, the PVC is considered unclaimed.
-   - Explanation: PVCs are tied to the lifecycle of the pods that use them. When the pod is deleted, the associated PVC is no longer needed. If the PVC has a `retain` reclaim policy (not the default), it might persist after pod deletion.
-2. PV Deletion:
-   - Reason: If the PV bound to the PVC is deleted, the PVC is no longer valid.
-   - Explanation: The PVC relies on the existence of the associated PV. If the PV is deleted, the PVC is considered unbound and might get deleted.
-3. Storage Class Deletion:
-   - Reason: If the Storage Class used by the PVC is deleted, and the PVC has no PV bound to it, the PVC is considered unbound.
-   - Explanation: Storage Classes define the provisioner and other parameters for dynamically provisioning PVs. If the Storage Class is deleted, the associated PVC might become unbound.
-4. Reclaim Policy:
-   - Reason: The reclaim policy specified in the PV's configuration can affect whether the PV is retained, recycled, or deleted.
-   - Explanation: If the PV has a reclaim policy of `Delete`, it might be deleted when the PVC is no longer using it. If the reclaim policy is `Retain`, the PV might persist even if the PVC is deleted.
-Here's an example of a PVC definition:
+#### 1. Pod Deletion:
+
+   `- Reason:` If the pod using the PVC is deleted, and the PVC has no other pods bound to it, the PVC is considered unclaimed.
+
+   `- Explanation:` PVCs are tied to the lifecycle of the pods that use them. When the pod is deleted, the associated PVC is no longer needed. If the PVC has a `retain` reclaim policy (not the default), it might persist after pod deletion.
+#### 2. PV Deletion:
+
+   `- Reason:` If the PV bound to the PVC is deleted, the PVC is no longer valid.
+
+   `- Explanation:` The PVC relies on the existence of the associated PV. If the PV is deleted, the PVC is considered unbound and might get deleted.
+
+#### 3. Storage Class Deletion:
+
+   `- Reason:` If the Storage Class used by the PVC is deleted, and the PVC has no PV bound to it, the PVC is considered unbound.
+
+   `- Explanation:` Storage Classes define the provisioner and other parameters for dynamically provisioning PVs. If the Storage Class is deleted, the associated PVC might become unbound.
+#### 4. Reclaim Policy:
+
+   `- Reason:` The reclaim policy specified in the PV's configuration can affect whether the PV is retained, recycled, or deleted.
+
+   -` Explanation:` If the PV has a reclaim policy of `Delete`, it might be deleted when the PVC is no longer using it. If the reclaim policy is `Retain`, the PV might persist even if the PVC is deleted.
+#### Here's an example of a PVC definition:
 ```yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -11218,26 +11458,30 @@ spec:
       storage: 1Gi
   storageClassName: standard
 ```
-If you are experiencing unexpected PVC deletions, you might want to check the events associated with the PVC to get more information about the deletion. You can use the following command to view events for a specific PVC:
-	kubectl describe pvc <pvc-name>
+- If you are experiencing unexpected PVC deletions, you might want to check the events associated with the PVC to get more information about the deletion. You can use the following command to view events for a specific PVC:
+```yaml
+kubectl describe pvc <pvc-name>
+```
 Look for events related to the PVC, and it should provide details about why the PVC was deleted. Common reasons include pod deletion, PV deletion, or changes in the Storage Class.
-11.	After we create the cluster, and we have POD are running is it possible to POD-to-POD communication?
+### 11.	After we create the cluster, and we have POD are running is it possible to POD-to-POD communication?
 Ans: Yes, it is possible for pods to communicate with each other within the same Kubernetes cluster. Kubernetes sets up a flat, virtual network for all containers within a cluster, allowing them to communicate with each other using their pod IP addresses.
-Here are some key points about pod-to-pod communication:
-1. Pod IP Addresses:
+#### Here are some key points about pod-to-pod communication:
+#### 1. Pod IP Addresses:
    - Each pod in a Kubernetes cluster is assigned a unique IP address.
    - Pods can communicate with each other directly using these IP addresses.
-2. Service Discovery:
+2#### . Service Discovery:
    - Pods can use the DNS names of other pods to communicate.
    - The DNS names follow the format `<pod-name>.<namespace>.svc.cluster.local`.
      Example:
      ```bash
      curl http://otherpod.namespace.svc.cluster.local
      ```
-3. Service:
+#### 3. Service:
    - Kubernetes Services provide a stable endpoint for accessing a set of pods.
    - When pods are selected by a Service, the Service acts as a load balancer, and pods can communicate with the Service's cluster IP.
-     Example:
+
+     `Example:`
+
      ```yaml
      apiVersion: v1
      kind: Service
@@ -11250,10 +11494,12 @@ Here are some key points about pod-to-pod communication:
        - protocol: TCP
          port: 80
          targetPort: 8080
-4. Network Policies:
+  ```
+#### 4. Network Policies:
    - Network Policies can be used to control traffic between pods.
    - They define rules to allow or deny communication based on labels, namespaces, and other criteria.
-     Example:
+     
+     `Example:`
      ```yaml
      apiVersion: networking.k8s.io/v1
      kind: NetworkPolicy
@@ -11269,31 +11515,36 @@ Here are some key points about pod-to-pod communication:
              matchLabels:
                app: my-app
      ```
-5. Pods in Different Namespaces:
+#### 5. Pods in Different Namespaces:
    - Pods in different namespaces can communicate using their fully qualified DNS names.
    - Network Policies can be used to control traffic between pods in different namespaces.
-     Example:
-	curl http://otherpod.other-namespace.svc.cluster.local
+     `Example:`
+
+```bash
+curl http://otherpod.other-namespace.svc.cluster.local
+```
 Pod-to-pod communication is a fundamental aspect of Kubernetes networking, and the platform is designed to make it seamless. Ensure that your pods are correctly labeled, and you can use these labels in Services, Network Policies, and other resources to control and facilitate communication between pods.
-12.	What is sidecar container? why we use it?
+### 12.	What is sidecar container? why we use it?
 Ans: A sidecar container is a design pattern in which an additional container (the "sidecar") is deployed alongside a main container within the same pod in a Kubernetes deployment. The sidecar container runs in the same network namespace and shares the same lifecycle as the main container, allowing them to communicate with each other efficiently.
+
 The primary purpose of using a sidecar container is to extend or enhance the functionality of the main container without directly modifying its code. This pattern promotes modularity, maintainability, and reusability of components within a microservices architecture or containerized application.
-Key characteristics and use cases for sidecar containers include:
-1. Separation of Concerns:
+#### Key characteristics and use cases for sidecar containers include:
+#### 1. Separation of Concerns:
    - A sidecar container enables separation of concerns by encapsulating additional functionalities (logging, monitoring, security, etc.) into a separate container. This makes it easier to maintain and update individual components without affecting the entire application.
-2. Code Decoupling:
+#### 2. Code Decoupling:
    - Sidecar containers help in decoupling the core functionality of the main container from auxiliary concerns. This promotes cleaner code and better organization of the application logic.
-3. Modularity:
+#### 3. Modularity:
    - Sidecars enhance modularity by allowing the addition or removal of functionalities independently. New features can be added to the application by introducing new sidecar containers without modifying the existing codebase.
-4. Reusable Components:
+#### 4. Reusable Components:
    - Sidecar containers can be designed as reusable components that provide common functionalities (e.g., logging, monitoring agents) across multiple applications without duplicating code.
-5. Dynamic Configuration:
+#### 5. Dynamic Configuration:
    - Sidecar containers can dynamically configure and adapt to changes in the main container's behavior. For example, a sidecar may dynamically update its configuration based on the state of the main application.
-6. Observability and Monitoring:
+#### 6. Observability and Monitoring:
    - Sidecar containers are commonly used for observability and monitoring purposes. They can collect and send metrics, logs, or traces without interfering with the primary application logic.
-7. Proxying and Networking:
+#### 7. Proxying and Networking:
    - Sidecars can be used for proxying and handling networking concerns, such as load balancing, authentication, or encryption, allowing the main container to focus on its primary business logic.
-Here's a simplified example of a pod with a sidecar container:
+#### Here's a simplified example of a pod with a sidecar container:
+```yaml
 apiVersion: v1	
 kind: Pod
 metadata:
@@ -11310,72 +11561,78 @@ spec:
 ```
 In this example, `main-container` is the primary application container, and `sidecar-container` is the sidecar providing additional functionalities.
 Overall, the sidecar container pattern enhances the flexibility and maintainability of containerized applications in distributed systems and microservices architectures.
-13.	What is process for upgrading the cluster? Is it possible to upgrade the cluster while it is up and running? what strategy you are using?
+### 13.	What is process for upgrading the cluster? Is it possible to upgrade the cluster while it is up and running? what strategy you are using?
 Ans: Upgrading a Kubernetes cluster is a common operation to apply security patches, bug fixes, and new features. Kubernetes provides mechanisms to perform upgrades, and it's designed to allow for minimal downtime during the process. The upgrade process involves updating the control plane components, nodes, and other related components.
-Here are general steps for upgrading a Kubernetes cluster:
-Upgrade Control Plane Components:
-1. Backup:
+#### Here are general steps for upgrading a Kubernetes cluster:
+#### Upgrade Control Plane Components:
+#### 1. Backup:
    - Before starting an upgrade, it's crucial to backup critical data, including etcd, to ensure you can recover in case of issues.
-2. Check Compatibility:
+#### 2. Check Compatibility:
    - Verify the compatibility matrix for the target Kubernetes version. Ensure that your applications and other components are compatible with the new version.
-3. Upgrade Control Plane Components:
+#### 3. Upgrade Control Plane Components:
    - Upgrade the control plane components such as the API server, controller manager, and scheduler. The specific steps depend on the tool you used to set up the cluster (e.g., kubeadm, kops, etc.).
-4. Verify Control Plane Upgrade:
+#### 4. Verify Control Plane Upgrade:
    - Confirm that the control plane components have been upgraded successfully.
 Upgrade Nodes:
-1. Drain Nodes:
+#### 1. Drain Nodes:
    - Use `kubectl drain` to gracefully evict pods from nodes that need to be upgraded. This ensures that the workload is moved to other nodes.
-2. Upgrade Kubelet and Kubeproxy:
+#### 2. Upgrade Kubelet and Kubeproxy:
    - Upgrade the kubelet and kube-proxy on each node. This is often done using package managers (e.g., `apt`, `yum`) or specific upgrade commands (e.g., `kubeadm upgrade node`).
-3. Uncordon Nodes:
+#### 3. Uncordon Nodes:
    - Use `kubectl uncordon` to allow nodes to accept new pods again.
-4. Verify Node Upgrade:
+#### 4. Verify Node Upgrade:
    - Confirm that all nodes have been upgraded and are in a healthy state.
-Upgrade Add-ons and Plugins:
-1. Upgrade CNI Plugins, Ingress Controllers, etc.:
+#### Upgrade Add-ons and Plugins:
+#### 1. Upgrade CNI Plugins, Ingress Controllers, etc.:
    - Upgrade any additional plugins or add-ons you are using in your cluster.
-Rolling Upgrade Strategy:
+#### Rolling Upgrade Strategy:
 - Kubernetes supports a rolling upgrade strategy for minimizing downtime during the upgrade process.
 - Nodes are upgraded one at a time, and the control plane components are updated in a way that maintains API server availability.
 - Rolling upgrades allow for continuous operation while the cluster is being upgraded.
-Considerations:
-- Backup and Rollback Plan:
+#### Considerations:
+#### - Backup and Rollback Plan:
   - Always have a backup and rollback plan in case the upgrade encounters issues.
-- Communication:
+#### - Communication:
   - Communicate the upgrade plan to stakeholders and teams to ensure everyone is aware of potential downtime and impacts.
-- Test in Staging:
+#### - Test in Staging:
   - Before upgrading a production cluster, test the upgrade process in a staging environment.
-- Read Release Notes:
+#### - Read Release Notes:
   - Read the release notes for the target Kubernetes version to understand any specific changes or considerations.
-Tools:
-- Kubeadm:
+#### Tools:
+#### - Kubeadm:
   - If you used `kubeadm` to initialize your cluster, refer to the official documentation for the specific steps for upgrading using `kubeadm`.
-- Cloud Providers:
+#### - Cloud Providers:
   - If you are using a managed Kubernetes service from a cloud provider (e.g., AKS, GKE, EKS), follow the provider's documentation for upgrading the cluster.
-Example:
-For clusters using `kubeadm`, a basic upgrade process might look like this:
-Upgrade control plane components
-	sudo apt-get update && sudo apt-get install -y kubeadm=<version> kubelet=<version> kubectl=<version>
+
+`Example:`
+- For clusters using `kubeadm`, a basic upgrade process might look like this:
+- Upgrade control plane components
+```bash
+sudo apt-get update && sudo apt-get install -y kubeadm=<version> kubelet=<version> kubectl=<version>
 Upgrade kubelet and kube-proxy on each node
-	sudo apt-get update && sudo apt-get install -y kubelet=<version> kubectl=<version>
-Verify upgrade
+sudo apt-get update && sudo apt-get install -y kubelet=<version> kubectl=<version>
+```
+- Verify upgrade
+```bash
 kubeadm version
 kubectl get nodes
 ```
 Remember to adapt these steps based on your specific setup, tools, and cluster configuration. Always follow the official documentation and recommendations for your chosen Kubernetes distribution.
+
 Yes, it is possible to upgrade a Kubernetes cluster while it is up and running, and Kubernetes is designed to facilitate rolling upgrades with minimal downtime. The rolling upgrade strategy allows you to upgrade components of the cluster one at a time, ensuring that there is continuous operation during the upgrade process.
-14.	What is the rolling update and recreate strategies?
+### 14.	What is the rolling update and recreate strategies?
 Ans: In the context of Kubernetes Deployments, "Rolling Update" and "Recreate" are two different strategies for managing the deployment of new versions of your application or changes to your configuration. These strategies define how the old pods are replaced by the new ones during the update process.
-Rolling Update Strategy:
-- Description:
+#### Rolling Update Strategy:
+
+#### - Description:
   - In a rolling update, new pods are gradually introduced into the deployment, while old pods are gradually terminated. This ensures that the application remains available during the update.
-- Process:
+#### - Process:
   - Pods are replaced one at a time, ensuring that there is a minimal impact on the overall availability of the application.
   - New pods are started before the old ones are terminated, and the process continues until all the old pods have been replaced.
-- Benefits:
+#### - Benefits:
   - Continuous availability: The rolling update strategy minimizes downtime, as there is always a set of pods serving traffic.
   - Controlled and gradual: The update process is controlled and occurs gradually, making it easier to monitor and manage.
-- Example (Deployment YAML):
+#### - Example (Deployment YAML):
   ```yaml
   spec:
     strategy:
@@ -11385,17 +11642,18 @@ Rolling Update Strategy:
         maxUnavailable: 1
     template:
       # Pod template definition
-Recreate Strategy:
-- Description:
+```
+#### Recreate Strategy:
+#### - Description:
   - In a recreate strategy, all existing pods are terminated before new ones are created. The application experiences downtime during the update process.
-- Process:
+#### - Process:
   - All existing pods are terminated simultaneously.
   - New pods are then created to replace the old ones.
-- Benefits:
-  - Simplicity: The recreate strategy is simpler to implement and might be suitable for stateless applications or scenarios where brief downtime is acceptable.
-- Drawbacks:
-  - Downtime: The application experiences downtime during the update, as all existing pods are terminated at the same time.
-- Example (Deployment YAML):
+#### - Benefits:
+  #### - Simplicity: The recreate strategy is simpler to implement and might be suitable for stateless applications or scenarios where brief downtime is acceptable.
+#### - Drawbacks:
+  #### - Downtime: The application experiences downtime during the update, as all existing pods are terminated at the same time.
+#### - Example (Deployment YAML):
   ```yaml
   spec:
     strategy:
@@ -11403,18 +11661,18 @@ Recreate Strategy:
     template:
       # Pod template definition
   ```
- Choosing Between Strategies:
-- Rolling Update Use Cases:
+ #### Choosing Between Strategies:
+#### - Rolling Update Use Cases:
   - Preferred for applications that require continuous availability and cannot tolerate downtime.
   - Suitable for stateful and stateless applications.
-- Recreate Use Cases:
+#### - Recreate Use Cases:
   - Simplicity: If simplicity is more important than continuous availability.
   - Suitable for stateless applications where brief downtime is acceptable.
-When defining a Deployment in Kubernetes, you can specify the update strategy in the Deployment's YAML file under the `spec.strategy` field. The specific details of the strategy, such as `maxSurge` and `maxUnavailable` for rolling updates, can also be configured to control the pace of the update process.
-15.	What are the policies that we use in rolling update strategy?
+- When defining a Deployment in Kubernetes, you can specify the update strategy in the Deployment's YAML file under the `spec.strategy` field. The specific details of the strategy, such as `maxSurge` and `maxUnavailable` for rolling updates, can also be configured to control the pace of the update process.
+### 15.	What are the policies that we use in rolling update strategy?
 Ans: In Kubernetes, the RollingUpdate strategy for Deployments allows you to define policies to control the pace and behavior of the rolling update process. The key parameters for controlling the rolling update strategy are usually specified under the `strategy.rollingUpdate` field in the Deployment's YAML file. Here are the commonly used policies:
-1. maxSurge:
-   - Description: The maximum number or percentage of pods that can be created above the desired number of replicas during the rolling update.
+#### 1. maxSurge:
+   `- Description:` The maximum number or percentage of pods that can be created above the desired number of replicas during the rolling update.
    - Example:
      ```yaml
      spec:
@@ -11423,8 +11681,8 @@ Ans: In Kubernetes, the RollingUpdate strategy for Deployments allows you to def
          rollingUpdate:
            maxSurge: 1
      ```
-2. maxUnavailable:
-   - Description: The maximum number or percentage of pods that can be unavailable (e.g., terminated or not yet ready) during the rolling update.
+#### 2. maxUnavailable:
+   `- Description:` The maximum number or percentage of pods that can be unavailable (e.g., terminated or not yet ready) during the rolling update.
    - Example:
      ```yaml
      spec:
@@ -11433,8 +11691,8 @@ Ans: In Kubernetes, the RollingUpdate strategy for Deployments allows you to def
          rollingUpdate:
            maxUnavailable: 1
      ```
-3. minReadySeconds:
-   - Description: The minimum number of seconds that a newly created pod should be ready without any failures before it is considered available.
+#### 3. minReadySeconds:
+   `- Description:` The minimum number of seconds that a newly created pod should be ready without any failures before it is considered available.
    - Example:
      ```yaml
      spec:
@@ -11442,8 +11700,8 @@ Ans: In Kubernetes, the RollingUpdate strategy for Deployments allows you to def
          type: RollingUpdate
        minReadySeconds: 5
      ```
-4. progressDeadlineSeconds:
-   - Description: The maximum time in seconds that the rolling update is allowed to make progress. If the update doesn't make progress within this time, the update is considered failed.
+#### 4. progressDeadlineSeconds:
+   `- Description:` The maximum time in seconds that the rolling update is allowed to make progress. If the update doesn't make progress within this time, the update is considered failed.
    - Example:
      ```yaml
      spec:
@@ -11452,19 +11710,22 @@ Ans: In Kubernetes, the RollingUpdate strategy for Deployments allows you to def
        progressDeadlineSeconds: 600
      ```
 These policies provide fine-grained control over how new pods are introduced and old pods are terminated during a rolling update. They help ensure that the update is conducted in a controlled manner, avoiding scenarios where too many new pods are created or too many old pods are terminated simultaneously.
-Here's a brief explanation of how these policies work together:
-- maxSurge:
+
+#### Here's a brief explanation of how these policies work together:
+#### - maxSurge:
   - Specifies the maximum number of pods that can be created above the desired replica count. It allows you to control the rate at which new pods are introduced.
-- maxUnavailable:
+#### - maxUnavailable:
   - Specifies the maximum number of pods that can be unavailable (terminated or not yet ready) at any given time. It allows you to control the rate at which old pods are terminated.
-- minReadySeconds:
+#### - minReadySeconds:
   - Specifies the minimum time a newly created pod should be ready without any failures before it's considered available. It helps to ensure that the new pods are stable before continuing with the rolling update.
-- progressDeadlineSeconds:
+#### - progressDeadlineSeconds:
   - Specifies the maximum time allowed for the rolling update to make progress. If the update takes longer than this, it is considered failed.
+
 These policies provide flexibility and control over the rolling update process, allowing you to balance between availability and speed of the update. Adjusting these parameters depends on your application's characteristics and requirements.
-16.	On a time of upgradation it should have 25% capacity goes out so how man pods should be running state?
+### 16.	On a time of upgradation it should have 25% capacity goes out so how man pods should be running state?
 Ans: If you want to ensure that during a rolling update no more than 25% of the total capacity is unavailable at any given time, you can use the `maxUnavailable` policy in the rolling update strategy. The `maxUnavailable` parameter allows you to control the maximum number or percentage of pods that can be unavailable during the update.
-Here's how you can set the `maxUnavailable` policy to achieve your requirement:
+
+#### Here's how you can set the `maxUnavailable` policy to achieve your requirement:
 ```yaml
 spec:
   replicas: 4  # Assuming you have 4 replicas
@@ -11475,15 +11736,24 @@ spec:
 ```
 In this example, if you have 4 replicas, setting `maxUnavailable` to 25% means that during the rolling update, no more than one pod (25% of 4) will be allowed to be unavailable at any given time.
 If you have a different number of replicas, adjust the `maxUnavailable` percentage accordingly. For example, if you have 8 replicas, setting `maxUnavailable` to 25% would mean that during the update, no more than two pods (25% of 8) can be unavailable simultaneously.
+
 Keep in mind that Kubernetes supports both absolute values and percentages for the `maxUnavailable` parameter. Choose the format that is more convenient for your specific use case.
-17.	What is the default namespace for master node?
-Ans: In Kubernetes, there is no concept of a "master node" having a specific default namespace. The master node is typically one of the nodes in the cluster where control plane components, such as the API server, controller manager, and scheduler, are running. These control plane components collectively manage the cluster.
+
+### 17.	What is the default namespace for master node?
+Ans: In Kubernetes, there is no concept of a "master node" having a specific default namespace. The master node is typically one of the nodes in the cluster where control plane components, such as the API server, controller manager, and scheduler, are running. 
+
+These control plane components collectively manage the cluster.
 Namespaces in Kubernetes are a way to organize and isolate resources within a cluster. When you create objects (like Pods, Services, Deployments) without specifying a namespace, they are created in the default namespace, which is usually named "default."
+
 If you are referring to the namespace where the Kubernetes control plane components are deployed, it's common to find them in the "kube-system" namespace. This namespace is intended for system-level components and resources.
+
 For example, you can list the control plane components in the "kube-system" namespace using the following command:
-	kubectl get pods -n kube-system
+```yaml
+kubectl get pods -n kube-system
+```
 Remember that the default namespace for objects created by users (unless explicitly specified) is "default," but the control plane components themselves are often deployed in a separate namespace like "kube-system." The exact namespace configuration might vary depending on how the Kubernetes cluster was set up and any custom configurations applied.
-18.	Write a command for creating a deployment that should have an image nginx and it should be create in a namespace as to the imperative command?
+
+### 18.	Write a command for creating a deployment that should have an image nginx and it should be create in a namespace as to the imperative command?
 Ans: To create a Deployment in Kubernetes with the `nginx` image and place it in a specific namespace using an imperative command, you can use the following `kubectl` command:
 	kubectl create deployment mynginx --image=nginx --namespace=my-namespace
 This command does the following:
@@ -11491,16 +11761,17 @@ This command does the following:
 - Uses the `nginx` image.
 - Places the Deployment in the namespace named `my-namespace`.
 Make sure to replace `my-namespace` with the actual name of the namespace where you want to create the Deployment. The `kubectl create deployment` command is a convenient way to create a Deployment with basic configurations using imperative commands.
-19.	Is it possible to have two entrypoint in a single docker file? If yes which one executes first?
+### 19.	Is it possible to have two entrypoint in a single docker file? If yes which one executes first?
 Ans: In a Dockerfile, you typically define a single entry point using the `ENTRYPOINT` instruction. The `ENTRYPOINT` instruction sets the command and parameters that will be executed when a container is run. If you define multiple `ENTRYPOINT` instructions in a Dockerfile, only the last one will take effect.
-Here is an example of a Dockerfile with a single `ENTRYPOINT`:
+
+#### Here is an example of a Dockerfile with a single `ENTRYPOINT`:
 ```Dockerfile
 FROM some-base-image
 # ... other instructions ...
 # Define the entry point
 ENTRYPOINT ["command", "arg1", "arg2"]
 ```
-If you want to execute multiple commands, you can use a shell form for the `ENTRYPOINT` instruction or use a script that contains the sequence of commands. For example:
+- If you want to execute multiple commands, you can use a shell form for the `ENTRYPOINT` instruction or use a script that contains the sequence of commands. For example:
 ```Dockerfile
 FROM some-base-image
 # ... other instructions ...
@@ -11512,11 +11783,14 @@ ENTRYPOINT ["/entrypoint.sh"]
 ```
 In the script approach, you can include multiple commands and control the sequence of execution.
 Keep in mind that the `CMD` instruction can also be used to provide a default command and/or arguments for an executing container. If both `CMD` and `ENTRYPOINT` are specified in a Dockerfile, `CMD` provides default arguments for the `ENTRYPOINT` instruction.
+
 In summary, while you can't have multiple `ENTRYPOINT` instructions in a Dockerfile, you have options to define complex commands or execute multiple commands in a script within the `ENTRYPOINT` instruction. The order of execution is determined by the sequence of commands or the script content.
-20.	What are scratch images?
+
+### 20.	What are scratch images?
 Ans: A "scratch" image in the context of Docker is an empty image or a minimalistic base image that contains only the essential components required to run a binary or executable. It is effectively an image with no file system layers, no operating system, and no pre-installed libraries or utilities. The term "scratch" is used because the image starts from scratch with no additional layers.
+
 When you build a Docker image using the `FROM scratch` directive in your Dockerfile, you are starting with an empty image. This is often used when you want to create a highly minimalistic container image for running a single binary or statically compiled Go application.
-Here's a simple example Dockerfile using a scratch image:
+#### Here's a simple example Dockerfile using a scratch image:
 ```Dockerfile
 # Use scratch as the base image
 FROM scratch
@@ -11525,57 +11799,72 @@ COPY my-binary /
 # Specify the default command to run when the container starts
 CMD ["/my-binary"]
 ```
-In this example:
+#### In this example:
 - The image is based on "scratch," which provides no underlying operating system.
 - The `COPY` instruction adds your compiled binary (assuming it's named `my-binary`) to the root directory of the image.
 - The `CMD` instruction sets the default command to execute when the container is started.
 Using a scratch image can result in very small container images because there's no OS layer or unnecessary components. However, it comes with some caveats:
-1. Static Binaries: The binary you include must be statically compiled or include all its dependencies, as there is no underlying file system or shared libraries in the image.
-2. Limited Functionality: Since the image is minimalistic, it lacks typical system utilities and libraries, making it suitable for very specific use cases.
+
+**1. Static Binaries:** The binary you include must be statically compiled or include all its dependencies, as there is no underlying file system or shared libraries in the image.
+
+**2. Limited Functionality:** Since the image is minimalistic, it lacks typical system utilities and libraries, making it suitable for very specific use cases.
+
 Using scratch images is common in scenarios where you want the smallest possible image size and only need to run a specific application. This approach is often used in the Go programming language where it's common to build statically compiled binaries.
-21.	What is the difference between ADD and Copy command?
+### 21.	What is the difference between ADD and Copy command?
 Ans: In a Dockerfile, both the `ADD` and `COPY` instructions are used to copy files and directories from the host machine to the container image. However, there are some key differences between the two:
-`COPY` Instruction:
--Basic Functionality:
+#### `COPY` Instruction:
+#### -Basic Functionality:
   - `COPY` is a straightforward command for copying files and directories from the source on the host to the destination in the image.
-- Syntax:
+
+`- Syntax:`
+
   ```Dockerfile
   COPY <src> <dest>
   ```
-- Example:
+`- Example:`
+
   ```Dockerfile
   COPY app-files /app
   ```
-- Usage:
+`- Usage:`
+
   - Used for copying local files or directories into the container image.
   - Supports copying multiple source files into a single destination directory.
-- Caching:
+
+`- Caching:`
+
   - Docker can take advantage of caching when using `COPY` if the source files haven't changed. This can lead to more efficient builds.
-`ADD` Instruction:
-- Extended Functionality:
+
+#### `ADD` Instruction:
+#### - Extended Functionality:
   - `ADD` has additional functionality beyond `COPY`. It can also handle URLs, compressed archives (tar, gzip, bzip2), and automatically extracts compressed files.
-- Syntax:
+
+`- Syntax:`
+
   ```Dockerfile
   ADD <src> <dest>
   ```
-- Example:
+`- Example:`
+
   ```Dockerfile
   ADD http://example.com/file.tar.gz /tmp/
   ```
-- Usage:
+`- Usage:`
+
   - Used for copying local files or directories into the container image, similar to `COPY`.
   - Can also download files from URLs and automatically extract compressed archives.
-- Caching:
+
+`- Caching:`
   - The caching behavior of `ADD` is less predictable compared to `COPY` because it performs additional functionality (like extraction). This can lead to unexpected behavior when building images.
-Recommendation:
-- Use `COPY` for Simple Copying:
+#### Recommendation:
+#### - Use `COPY` for Simple Copying:
   - For basic copying of local files and directories, especially when you want to take advantage of Docker's caching mechanism, use the `COPY` instruction.
 - Use `ADD` When Necessary:
   - Use `ADD` when you need the additional functionality it provides, such as downloading files from URLs or automatically extracting compressed archives. However, be cautious about potential caching issues.
 - Prefer `COPY` for Transparency:
   - `COPY` is generally recommended when you want a more transparent and predictable build process, and when you want to avoid unexpected caching behavior.
 In most cases, `COPY` is preferred for its simplicity and predictability. `ADD` should be used sparingly and only when the additional functionality it provides is required.
-22.	Instead of ADD can we use wget command in a Docker file?
+### 22.	Instead of ADD can we use wget command in a Docker file?
 Ans: Yes, you can use the `RUN` instruction in a Dockerfile to execute a `wget` command and download files from the internet. The `RUN` instruction allows you to run arbitrary commands during the image build process.
 Here's an example of using `wget` in a Dockerfile:
 ```Dockerfile
@@ -11596,9 +11885,9 @@ RUN curl -o /tmp/file.tar.gz http://example.com/file.tar.gz
 # ... continue with other instructions in your Dockerfile ...
 ```
 Choose the tool that is available in your base image and fits your preference. Both `wget` and `curl` are commonly used for downloading files in Dockerfiles.
-23.	Suppose there is a docker file when I created a docker image with that docker file its having more space but I need the docker should be in a light weight what are the best practices we should follow?
+### 23.	Suppose there is a docker file when I created a docker image with that docker file its having more space but I need the docker should be in a light weight what are the best practices we should follow?
 Ans: Already available
-24.	What is the command for list out the last created container?
+### 24.	What is the command for list out the last created container?
 Ans: To list the last created container using the Docker command-line interface (CLI), you can use the following command:
 ```bash
 docker ps -l
@@ -11610,7 +11899,7 @@ docker ps -l --format "ID: {{.ID}} | Image: {{.Image}} | Command: {{.Command}} |
 ```
 This will display a custom format with specific details about the last created container.
 Keep in mind that the `docker ps -l` command shows the last container created or stopped across all containers, not just running containers. If you specifically want to see the last running container, you might need to adjust the command or use other filtering options based on your requirements.
-25.	Suppose I need only ID of every container in a running mode what command we use?
+### 25.	Suppose I need only ID of every container in a running mode what command we use?
 Ans: To list only the IDs of running containers, you can use the `docker ps` command with the `--quiet` or `-q` option. This option displays only the container IDs without any additional details.
 Here's the command:
 ```bash
@@ -11625,44 +11914,47 @@ If you want to customize the output further or use the IDs in other commands, yo
 ```bash
 docker ps --quiet --format "{{.ID}}"
 ```
-This command will list only the IDs of running containers with one ID per line.
-Choose the option that best fits your specific needs.
+- This command will list only the IDs of running containers with one ID per line.
+- Choose the option that best fits your specific needs.
 
-TechMahindra L1 Q&A (22-02-2024)
-1.	How you are pushing the docker images into the ECR?
+---
+
+## TechMahindra L1 Q&A (22-02-2024)
+
+## 1.	How you are pushing the docker images into the ECR?
 Ans: 
-Here are the general steps:
-1. Install AWS CLI:
+#### Here are the general steps:
+#### 1. Install AWS CLI:
 Make sure you have the AWS Command Line Interface (CLI) installed on your machine. You can download and install it from the [official AWS CLI website](https://aws.amazon.com/cli/).
-2. Configure AWS CLI:
+#### 2. Configure AWS CLI:
 Run the following command to configure your AWS CLI with your AWS credentials:
 ```bash
 aws configure
 ```
 You'll be prompted to enter your AWS Access Key ID, Secret Access Key, AWS Region, and default output format.
-3. Authenticate Docker to ECR:
+#### 3. Authenticate Docker to ECR:
 Run the following command to authenticate Docker to your ECR registry:
 ```bash
 aws ecr get-login-password --region <your-region> | docker login --username AWS --password-stdin <your-account-id>.dkr.ecr.<your-region>.amazonaws.com
 ```
 Replace `<your-region>` with your AWS region and `<your-account-id>` with your AWS account ID.
-4. Build your Docker image:
+#### 4. Build your Docker image:
 Build your Docker image using the `docker build` command. For example:
 ```bash
 docker build -t <your-repository-name> /path/to/Dockerfile
 ```
-5. Tag your Docker image:
+#### 5. Tag your Docker image:
 Tag your Docker image with the ECR repository URI:
 ```bash
 docker tag <your-repository-name>:latest <your-account-id>.dkr.ecr.<your-region>.amazonaws.com/<your-repository-name>:latest
 ```
-6. Push the Docker image to ECR:
+#### 6. Push the Docker image to ECR:
 ```bash
 docker push <your-account-id>.dkr.ecr.<your-region>.amazonaws.com/<your-repository-name>:latest
 ```
 Replace `<your-region>`, `<your-account-id>`, and `<your-repository-name>` with your specific values.
 These are general steps, and you should adapt them to your specific ECR repository and image details. Ensure that your AWS CLI is configured correctly, and you have the necessary permissions to push images to your ECR repository. Additionally, AWS CLI commands may change, so it's always a good idea to refer to the [official AWS ECR documentation](https://docs.aws.amazon.com/AmazonECR/latest/userguide/what-is-ecr.html) for the latest and most accurate information.
-2.	I want to create the postgreSQL image and  use it in AKS cluster? what are the steps we do. (in Azure pipeline)?
+### 2.	I want to create the postgreSQL image and  use it in AKS cluster? what are the steps we do. (in Azure pipeline)?
 Ans: To use PostgreSQL in an Azure Kubernetes Service (AKS) cluster, you can follow these general steps:
 1. Create a PostgreSQL Docker Image:
 Create a Dockerfile to build a PostgreSQL image. You can use an official PostgreSQL image from the Docker Hub or customize it based on your requirements. Here's a basic example of a Dockerfile:
