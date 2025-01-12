@@ -15003,23 +15003,38 @@ If you've made manual changes and want to reconcile(resolve) the state, consider
 
 ## Embitel Technologies L1 Q&A (08-02-2024)
 
-1.	can we use pipelines on cloud?
+### 1.	can we use pipelines on cloud?
 Ans: Jenkins pipelines and cloud-native pipeline solutions serve similar purposes in automating and orchestrating workflows, but there are key differences and considerations that might influence the choice between them. Here are some reasons why you might choose Jenkins pipelines over cloud-native pipelines or vice versa:
-Jenkins Pipeline:
-1.Flexibility and Extensibility: Jenkins is a highly extensible and customizable automation server. Jenkins pipelines allow you to define workflows as code using the Jenkinsfile, and this flexibility enables you to integrate with a wide variety of tools and plugins.
-2. Community Support:Jenkins has a large and active community, which means extensive documentation, a wealth of plugins, and community-contributed resources. This can be advantageous when you need to find solutions to specific problems or configurations.
-3.Legacy Systems Integration: If your existing infrastructure heavily relies on Jenkins or you have extensive Jenkins-based workflows, migrating to a cloud-native solution might involve a significant effort. In such cases, sticking with Jenkins may be more practical.
-4.On-Premises Deployment: If your organization requires on-premises solutions due to regulatory or security considerations, Jenkins provides flexibility for deployment in your own data center.
-Cloud-Native Pipelines:
-1. Managed Services: Cloud providers offer managed services specifically designed for pipelines and workflows. Examples include AWS Step Functions, Azure Data Factory, and Google Cloud Composer. These services abstract much of the infrastructure management, providing a serverless or managed experience.
-2. Tight Integration with Cloud Services: Cloud-native solutions often seamlessly integrate with other cloud services, making it easy to incorporate functionalities like cloud storage, machine learning, database services, and more into your pipelines.
-3. Scalability and Resource Efficiency: Cloud-native solutions inherently benefit from the scalability and elasticity of cloud environments. They can automatically scale resources up or down based on workload demands, optimizing resource utilization.
-4. Built-in Monitoring and Logging: Cloud-native pipeline services often come with built-in monitoring, logging, and visualization tools. This can simplify the task of tracking and debugging pipeline executions.
-5. Pay-as-You-Go Model: Cloud-native services typically follow a pay-as-you-go pricing model, which can be cost-effective, especially for smaller teams or projects, as you only pay for the resources you consume.
-Ultimately, the choice between Jenkins pipelines and cloud-native pipelines depends on your specific requirements, existing infrastructure, team expertise, and preferences. In some cases, a hybrid approach might also be suitable, where Jenkins is used for certain tasks, and cloud-native solutions are leveraged for others.
-2.	Write the jenkins pipeline for release and deploy stages?
-Ans: Creating a Jenkins pipeline for release and deploy stages involves defining a Jenkinsfile, which is a text file that specifies the steps and stages of your pipeline. Below is a simple example of a Jenkins pipeline with release and deploy stages. This assumes you have a basic understanding of Jenkins and have configured your build and deployment environments accordingly.
-Groovy:
+#### Jenkins Pipeline:
+**1.Flexibility and Extensibility:** Jenkins is a highly extensible and customizable automation server. Jenkins pipelines allow you to define workflows as code using the Jenkinsfile, and this flexibility enables you to integrate with a wide variety of tools and plugins.
+
+**2. Community Support:**Jenkins has a large and active community, which means extensive documentation, a wealth of plugins, and community-contributed resources. This can be advantageous when you need to find solutions to specific problems or configurations.
+
+**3.Legacy Systems Integration:** If your existing infrastructure heavily relies on Jenkins or you have extensive Jenkins-based workflows, migrating to a cloud-native solution might involve a significant effort. In such cases, sticking with Jenkins may be more practical.
+
+**4.On-Premises Deployment:** If your organization requires on-premises solutions due to regulatory or security considerations, Jenkins provides flexibility for deployment in your own data center.
+
+#### Cloud-Native Pipelines:
+**1. Managed Services:** Cloud providers offer managed services specifically designed for pipelines and workflows. Examples include AWS Step Functions, Azure Data Factory, and Google Cloud Composer. These services abstract much of the infrastructure management, providing a serverless or managed experience.
+
+**2. Tight Integration with Cloud Services:** Cloud-native solutions often seamlessly integrate with other cloud services, making it easy to incorporate functionalities like cloud storage, machine learning, database services, and more into your pipelines.
+
+**3. Scalability and Resource Efficiency:** Cloud-native solutions inherently benefit from the scalability and elasticity of cloud environments. They can automatically scale resources up or down based on workload demands, optimizing resource utilization.
+
+**4. Built-in Monitoring and Logging:** Cloud-native pipeline services often come with built-in monitoring, logging, and visualization tools. This can simplify the task of tracking and debugging pipeline executions.
+
+**5. Pay-as-You-Go Model:** Cloud-native services typically follow a pay-as-you-go pricing model, which can be cost-effective, especially for smaller teams or projects, as you only pay for the resources you consume.
+
+Ultimately, the choice between Jenkins pipelines and cloud-native pipelines depends on your specific requirements, existing infrastructure, team expertise, and preferences. 
+
+In some cases, a hybrid approach might also be suitable, where Jenkins is used for certain tasks, and cloud-native solutions are leveraged for others.
+
+### 2.	Write the jenkins pipeline for release and deploy stages?
+Ans: Creating a Jenkins pipeline for release and deploy stages involves defining a Jenkinsfile, which is a text file that specifies the steps and stages of your pipeline. 
+
+Below is a simple example of a Jenkins pipeline with release and deploy stages. This assumes you have a basic understanding of Jenkins and have configured your build and deployment environments accordingly.
+
+```groovy
 pipeline {
     agent any
     stages {
@@ -15058,14 +15073,16 @@ pipeline {
         }
     }
 }
-Explanation:
+```
+#### Explanation:
 - The pipeline has three stages: Build, Release, and Deploy.
 - The `agent any` directive allows the pipeline to run on any available agent.
 - Each stage contains a set of steps that are executed sequentially.
 - You can customize the steps inside each stage based on your specific build, release, and deployment processes.
 - The `post` section contains actions to be taken after the pipeline execution, depending on whether the pipeline succeeded or failed.
+
 Remember to adapt the pipeline according to your project's build tools, deployment mechanisms, and any other specific requirements. You may need to integrate with your version control system, specify environment variables, or include additional configuration steps based on your project's needs.
-3.	How to run the two stages at a time or parallel in jenkins pipeline?
+### 3.	How to run the two stages at a time or parallel in jenkins pipeline?
 Ans: In Jenkins, you can run stages in parallel by using the `parallel` directive within the `stages` block of your pipeline. Here's an example of how to run two stages concurrently:
 ```groovy
 pipeline {
@@ -15103,15 +15120,17 @@ pipeline {
         }
     }
 }
+```
 In this example, the `Release` and `Deploy` stages are defined within a `parallel` block inside the `Release and Deploy` stage. This means that both `Release` and `Deploy` stages will run concurrently.
 Here's a breakdown of the structure:
 - The `Build` stage runs sequentially.
 - The `Release and Deploy` stage uses the `parallel` directive to run `Release` and `Deploy` concurrently.
+
 You can modify the steps within each parallel stage to suit your specific build, release, and deployment processes. The success or failure of the entire `Release and Deploy` stage will be determined by the success or failure of its parallel branches. The post section contains actions to be taken after the parallel stages have completed.
-4.	How to run the task every 5 minutes using cron job?
+### 4.	How to run the task every 5 minutes using cron job?
 Ans: In Jenkins, you can use the cron syntax to schedule tasks to run at specific intervals. To run a task every 5 minutes, you can use the following cron syntax in the Jenkins job configuration:
 */5 * * * *
-Here's how you can set up a job to run every 5 minutes:
+#### Here's how you can set up a job to run every 5 minutes:
 1. Open Jenkins and navigate to the job for which you want to set up the cron schedule.
 2. In the job configuration page, find the "Build Triggers" section.
 3. Check the "Build periodically" option.
@@ -15124,115 +15143,134 @@ Here's how you can set up a job to run every 5 minutes:
    - `*`: Every day of the week.
 5. Save your Jenkins job configuration.
 With this cron syntax, Jenkins will schedule the job to run every 5 minutes. Adjust the schedule based on your specific requirements.
-5.	How do you add global credentials in jenkins?
+### 5.	How do you add global credentials in jenkins?
 Ans: In Jenkins, global credentials can be added and managed through the Jenkins Credential Store. These credentials can include usernames and passwords, secret text, or other types of credentials that can be used by jobs or scripts in your Jenkins instance.
-Here are the general steps to add global credentials in Jenkins:
-1. Access Jenkins Dashboard:
+#### Here are the general steps to add global credentials in Jenkins:
+#### 1. Access Jenkins Dashboard:
    - Open your Jenkins instance in a web browser.
    - Log in to Jenkins with your credentials.
-2. Navigate to Credentials:
+#### 2. Navigate to Credentials:
    - In the Jenkins dashboard, click on "Manage Jenkins" in the left-hand menu.
-3. Access the Credentials Page:
+#### 3. Access the Credentials Page:
    - Click on "Manage Credentials" within the "Manage Jenkins" page.
-4. Add Global Credentials:
+#### 4. Add Global Credentials:
    - On the Credentials page, you'll see a list of existing credentials.
    - To add a new credential, click on the "Jenkins" domain (or a custom domain if you've set one up).
    - Then, click on "(global)" to specify that you want to add a global credential.
-5. Add Credentials:
+#### 5. Add Credentials:
    - Click on the "Add Credentials" link or button.
-6. Select Credential Type:
+#### 6. Select Credential Type:
    - Choose the type of credential you want to add (e.g., Username with password, Secret text, etc.).
-7. Fill in Credential Details:
+#### 7. Fill in Credential Details:
    - Provide the necessary information based on the selected credential type.
    - For example, if you are adding a username with a password, enter the username and password.
-8. Save Credentials:
+#### 8. Save Credentials:
    - Click "OK" or "Save" to add the new global credential.
 Now, the global credential is stored in the Jenkins Credential Store and can be referenced by Jenkins jobs or other configurations that require credentials.
+
 Please note that the exact steps and options may vary slightly depending on the version of Jenkins you are using. If you're using Jenkins Pipeline scripts, you can use the `withCredentials` block to access these global credentials within your pipeline.
-6.	What all kinds of credentials we can put in global credentials in jenkins?
-Ans: Jenkins supports various types of credentials that can be stored in the global credentials store. These credentials can be used by Jenkins jobs, pipelines, and other configurations to authenticate against external systems or services. Here are some common types of credentials that can be stored in the global credentials store in Jenkins:
-1.Username with Password:
+### 6.	What all kinds of credentials we can put in global credentials in jenkins?
+Ans: Jenkins supports various types of credentials that can be stored in the global credentials store. These credentials can be used by Jenkins jobs, pipelines, and other configurations to authenticate against external systems or services. 
+
+Here are some common types of credentials that can be stored in the global credentials store in Jenkins:
+
+#### 1. Username with Password:
    - This credential type includes a username and password pair. It is commonly used for authenticating against systems that require basic username/password authentication.
-2. Secret Text:
+#### 2. Secret Text:
    - Secret text credentials are used for storing sensitive information such as API keys, tokens, or any other confidential text. This type allows you to store secret values securely.
-3. SSH Username with Private Key:
+#### 3. SSH Username with Private Key:
    - If your build or deployment process involves SSH access, you can store an SSH private key along with a username. This is useful for authenticating with remote servers using SSH.
-4. SSH User Key:
+#### 4. SSH User Key:
    - Similar to the SSH Username with Private Key credential, this credential type stores an SSH private key but without an associated username. It can be used when the SSH username is derived from the Jenkins job environment.
-5. Certificate:
+#### 5. Certificate:
    - If you need to store a certificate for secure communication, you can use the Certificate credential type.
-6. AWS Credentials:
+#### 6. AWS Credentials:
    - Jenkins provides a dedicated credential type for storing AWS access keys and secret keys, which is useful when interacting with AWS services in your pipelines.
-7. Google Service Account Key:
+#### 7. Google Service Account Key:
    - If you are working with Google Cloud Platform (GCP), you can store a JSON-formatted service account key in Jenkins.
-8. Docker Host Certificate Authentication:
+#### 8. Docker Host Certificate Authentication:
    - If your Jenkins job involves Docker operations and requires authentication with a Docker registry, you can store Docker host certificate credentials.
-9. Jira Site:
+#### 9. Jira Site:
    - Jenkins supports storing Jira site credentials for integration with Jira systems.
-10. GitHub/GitLab/Bitbucket Credentials:
+#### 10. GitHub/GitLab/Bitbucket Credentials:
     - Jenkins allows you to store credentials for Git repositories hosted on platforms like GitHub, GitLab, and Bitbucket.
-11. Username with Token:
+#### 11. Username with Token:
     - Some systems use token-based authentication instead of passwords. You can store a username and token pair for such scenarios.
+
 These are just a few examples, and the Jenkins Credential Store provides flexibility to support various authentication methods and systems. When configuring credentials, Jenkins provides options for different credential types based on the requirements of your build and deployment processes.
-7.	How many kinds of triggers we can have in jenkins?
+### 7.	How many kinds of triggers we can have in jenkins?
 Ans: In Jenkins, triggers are mechanisms that initiate the execution of a Jenkins job. There are several types of triggers available in Jenkins, allowing jobs to be automatically triggered based on different events or conditions. Here are some common types of triggers in Jenkins:
-1. Poll SCM Trigger:
+#### 1. Poll SCM Trigger:
    - Jenkins can periodically check your version control system (SCM) for changes, and if changes are detected, it triggers a build. This is known as the "Poll SCM" trigger.
-2. Scheduled Build (Timer Trigger):
+#### 2. Scheduled Build (Timer Trigger):
    - You can schedule a job to run at specific intervals using the "Build periodically" option. This is similar to a cron job and allows you to define a schedule for when the job should run.
-3. Webhooks and SCM Hooks:
+#### 3. Webhooks and SCM Hooks:
    - Many version control systems support webhooks or post-commit hooks. Jenkins can be configured to listen for these events and trigger a build when changes are pushed to the repository.
-4. Upstream/Downstream Projects:
+#### 4. Upstream/Downstream Projects:
    - Jobs can be triggered based on the completion of other jobs. If a job (upstream) triggers another job (downstream), the downstream job can be configured to run when the upstream job completes.
-5. Build after other Projects are built (Build Other Projects):
+#### 5. Build after other Projects are built (Build Other Projects):
    - Similar to upstream/downstream projects, you can configure a job to be triggered after one or more other specified projects have been built.
-6. GitHub/GitLab/Bitbucket Hooks:
+#### 6. GitHub/GitLab/Bitbucket Hooks:
    - If your Jenkins server is integrated with a code repository on GitHub, GitLab, or Bitbucket, you can configure webhooks to trigger builds on code pushes or other repository events.
-7. GitHub/GitLab/Bitbucket Pull Request Build:
+#### 7. GitHub/GitLab/Bitbucket Pull Request Build:
    - Jenkins can be configured to build pull requests automatically when they are submitted on GitHub, GitLab, or Bitbucket.
-8. Parameterized Builds:
+#### 8. Parameterized Builds:
    - Builds can be triggered with parameters, allowing you to pass parameters to a job when triggering it. This can be useful for customization based on specific conditions.
-9. Pipeline Triggers:
+#### 9. Pipeline Triggers:
    - In Jenkins Pipeline, you can define triggers as part of your pipeline script. Common triggers include SCM changes, cron-based schedules, and manual triggers.
-10. Remote Trigger:
+#### 10. Remote Trigger:
     - You can trigger Jenkins jobs remotely using tools like cURL or by making HTTP requests to Jenkins' remote trigger URLs.
 These triggers provide a wide range of options for automating builds and deployments in Jenkins, allowing you to customize job execution based on various events and conditions. The choice of trigger depends on the specific requirements of your project and workflow.
-8.	Can you explain the architecture of kubernetes?
-Ans: Certainly! Kubernetes, often abbreviated as K8s, is an open-source container orchestration platform that automates the deployment, scaling, and management of containerized applications. The architecture of Kubernetes is designed to provide a scalable and resilient platform for running and managing container workloads. Here's an overview of the key components and their roles in a typical Kubernetes cluster:
-1. Master Node:
+### 8.	Can you explain the architecture of kubernetes?
+Ans: Certainly! Kubernetes, often abbreviated as K8s, is an open-source container orchestration platform that automates the deployment, scaling, and management of containerized applications.
+
+The architecture of Kubernetes is designed to provide a scalable and resilient platform for running and managing container workloads. Here's an overview of the key components and their roles in a typical Kubernetes cluster:
+#### 1. Master Node:
    - The master node is the control plane that manages the entire Kubernetes cluster. It consists of several components:
-   - API Server:
+
+   **- API Server:**
+
      - The API server is the central management entity that exposes the Kubernetes API. It processes RESTful API requests, validates them, and communicates with the etcd cluster to persistently store cluster state.
-   - etcd:
+
+   **- etcd:**
      - etcd is a distributed key-value store that stores the configuration data of the cluster, including information about nodes, configurations, and the current state of the system.
-   - Controller Manager:
+
+   **- Controller Manager:**
      - The controller manager is responsible for regulating the state of the cluster. It includes various controllers that manage different aspects of the cluster, such as replication controllers, endpoints controllers, and service account controllers.
-   - Scheduler:
+   **- Scheduler:**
      - The scheduler assigns workloads (pods) to available nodes based on resource requirements, policies, and constraints. It ensures efficient resource utilization and load balancing.
-2. Node (Minion) - Worker Node:
+#### 2. Node (Minion) - Worker Node:
    - Nodes are the worker machines that run containerized applications. Each node runs a set of components to communicate with the master node and manage containers. Components include:
-   - Kubelet:
+
+   **- Kubelet:**
+
      - Kubelet is an agent that runs on each node and communicates with the master node. It is responsible for ensuring that containers are running in a Pod.
-   - Kube-proxy:
+
+   **- Kube-proxy:**
+
      - Kube-proxy maintains network rules on nodes. It handles network communication to and from the pods. It also enables the Kubernetes service abstraction.
-   - Container Runtime:
+
+   **- Container Runtime:**
+
      - The container runtime (such as Docker or containerd) is responsible for pulling container images and running containers on the node.
-3. Pod:
+#### 3. Pod:
    - A pod is the smallest deployable unit in Kubernetes and represents a single instance of a running process in a cluster. Pods encapsulate one or more containers, share the same network namespace, and can communicate with each other using localhost.
-4. Service:
+#### 4. Service:
    - A service provides a stable endpoint (IP address and DNS name) for accessing a group of pods. It enables load balancing and discovery of pods within the cluster.
-5. Namespace:
+#### 5. Namespace:
    - Namespaces provide a way to divide cluster resources into multiple virtual clusters. They are used to organize and isolate resources, making it easier to manage and secure different workloads within the same cluster.
-6. ConfigMap and Secret:
+#### 6. ConfigMap and Secret:
    - ConfigMaps and Secrets are used to decouple configuration artifacts from container images, allowing for more flexible and secure application configurations.
-7. Ingress:
+#### 7. Ingress:
    - Ingress is an API object that manages external access to services within a cluster. It allows for the definition of rules for routing external traffic to specific services.
+
 This is a high-level overview of the Kubernetes architecture. Kubernetes provides a robust and extensible platform for container orchestration, enabling the deployment and management of containerized applications at scale. The modular and distributed nature of its architecture contributes to its resilience and scalability.
-9.	Can you explain the workflow in kubernetes?
+### 9.	Can you explain the workflow in kubernetes?
 Ans: The workflow in Kubernetes involves defining, deploying, and managing containerized applications within a cluster. Here's an overview of the typical workflow in Kubernetes:
-1. Define Application Components:
+#### 1. Define Application Components:
    - Start by defining the components of your application using Kubernetes manifest files. The primary resource for this purpose is the YAML-based Kubernetes Deployment or StatefulSet. The manifest files specify details such as container images, resource requirements, replica counts, and other configuration settings.
-   Example Deployment manifest
+   #### Example Deployment manifest
+   ```yaml
    apiVersion: apps/v1
    kind: Deployment
    metadata:
@@ -15252,25 +15290,40 @@ Ans: The workflow in Kubernetes involves defining, deploying, and managing conta
            image: my-image:latest
            ports:
            - containerPort: 8080
-2. Apply Manifests to the Cluster:
+    ```
+#### 2. Apply Manifests to the Cluster:
    - Use the `kubectl apply` command to apply the manifest files to the Kubernetes cluster. This creates the specified resources, such as Deployments, Pods, and Services, within the cluster.
-    kubectl apply -f deployment.yaml
-3. Monitor Application Deployment:
+
+   ```yaml
+   kubectl apply -f deployment.yaml
+   ```
+#### 3. Monitor Application Deployment:
    - Monitor the status of your application deployment using `kubectl` commands. Check the status of pods, deployments, and services to ensure that the desired state is achieved.
-    kubectl get pods
-    kubectl get deployments
- kubectl get services
-4. Scale and Update:
+
+```bash
+   kubectl get pods
+   kubectl get deployments
+   kubectl get services
+```
+#### 4. Scale and Update:
    - Use the `kubectl scale` command to scale the number of replicas in a Deployment or StatefulSet. For updates, modify the manifest files with the desired changes and use `kubectl apply` again.
+```bash
       kubectl scale deployment my-app --replicas=5
-5. Rolling Updates and Rollbacks:
+```
+#### 5. Rolling Updates and Rollbacks:
    - Kubernetes supports rolling updates, allowing you to update your application without downtime. Use the `kubectl set image` command to update the container image, and Kubernetes will gradually replace the old pods with new ones.
-    kubectl set image deployment/my-app my-container=new-image:latest
+   
+   ```yaml
+   kubectl set image deployment/my-app my-container=new-image:latest
+   ```
       - If an update causes issues, roll back to the previous version using the `kubectl rollout undo` command.
-    kubectl rollout undo deployment/my-app
-6. Service Discovery and Load Balancing:
+  ```yaml
+     kubectl rollout undo deployment/my-app
+  ```
+#### 6. Service Discovery and Load Balancing:
    - Access your application using Kubernetes Services. Services provide stable IP addresses and DNS names for accessing pods. They also enable load balancing among pods.
-  Example Service manifest
+  #### Example Service manifest
+  ```yaml
    apiVersion: v1
    kind: Service
    metadata:
@@ -15283,49 +15336,67 @@ Ans: The workflow in Kubernetes involves defining, deploying, and managing conta
        port: 80
        targetPort: 8080
      type: ClusterIP
-7. Pod Logs and Debugging:
+  ```
+#### 7. Pod Logs and Debugging:
    - Use `kubectl logs` to view the logs of a specific pod, helping with debugging and troubleshooting.
- kubectl logs pod-name
-8. Resource Scaling:
+```yaml
+kubectl logs pod-name
+```
+#### 8. Resource Scaling:
    - Adjust the resource scaling based on demand. Use the `kubectl scale` command to dynamically scale the number of replicas in a Deployment or StatefulSet.
- kubectl scale deployment my-app --replicas=3
-9. Delete Resources:
+```yaml
+kubectl scale deployment my-app --replicas=3
+```
+#### 9. Delete Resources:
    - When done, use `kubectl delete` to delete resources and free up cluster resources.
-   kubectl delete -f deployment.yaml
-10. Monitoring and Logging:
+```yaml
+  ubectl delete -f deployment.yaml
+```
+#### 10. Monitoring and Logging:
    - Integrate monitoring and logging tools to gain insights into the performance and behavior of your application. Tools like Prometheus, Grafana, and ELK stack are commonly used for this purpose.
-This workflow provides a high-level overview of the typical steps involved in deploying and managing applications in a Kubernetes cluster. The specifics may vary based on the complexity of your application and the specific requirements of your use case.
+
+- This workflow provides a high-level overview of the typical steps involved in deploying and managing applications in a Kubernetes cluster. The specifics may vary based on the complexity of your application and the specific requirements of your use case.
 		(Or)
-The kubectlclient will first translate your CLI command to one more REST-API call(s) and send it to kube-apiserver.
-After validating these REST-API calls, kube-apiserver understands the task and calls kube-scheduler process to select one node from the available ones to execute the job. This is the scheduling procedure.
-Once kube-scheduler returns the target node, and kube-apiserver will dispatch the task with all of the details describing the task.
-The kubelet process in the target node receives the task and talks to the container engine, for example, the Docker engine in Figure 1, to spawn a container with all provided parameters.
-This job and its specification will be recorded in a centralized database etcd. Its job is to preserve and provide access to all data in the cluster.
-10.	What etcd generally called or other name for etcd?
+- The kubectlclient will first translate your CLI command to one more REST-API call(s) and send it to kube-apiserver.
+
+- After validating these REST-API calls, kube-apiserver understands the task and calls kube-scheduler process to select one node from the available ones to execute the job. This is the scheduling procedure.
+
+- Once kube-scheduler returns the target node, and kube-apiserver will dispatch the task with all of the details describing the task.
+
+- The kubelet process in the target node receives the task and talks to the container engine, for example, the Docker engine in Figure 1, to spawn a container with all provided parameters.
+
+- This job and its specification will be recorded in a centralized database etcd. Its job is to preserve and provide access to all data in the cluster.
+
+### 10.	What etcd generally called or other name for etcd?
 Ans: "etcd" is typically referred to by its name "etcd." Etcd is a distributed key-value store that is often used as a reliable data store for configuration management and coordination in distributed systems. It is commonly associated with container orchestration systems like Kubernetes, where it is used to store and manage cluster configuration and state information.
+
 Etcd is sometimes colloquially referred to as "etcd database" or simply "etcd store." However, it's important to note that "etcd" is the proper and widely accepted name for this distributed key-value store.
+
 Etcd is an open-source project maintained by the Cloud Native Computing Foundation (CNCF), and its name is derived from the abbreviation "etcd," which stands for "extended distributed." It plays a critical role in providing consistency and coordination in distributed environments, ensuring that the configuration and state information across a cluster remain synchronized and reliable.
+
 In summary, "etcd" is the common and accepted name for this distributed key-value store, and it is not typically referred to by other specific names.
-11.	What is service? why service required in kubernetes?
+
+### 11.	What is service? why service required in kubernetes?
 Ans: Already available (Q.16)
-12.	 How do you auto scale things in EKS?
+### 12.	 How do you auto scale things in EKS?
 Ans: Amazon Elastic Kubernetes Service (EKS) provides built-in support for autoscaling, allowing you to automatically adjust the number of nodes in your EKS cluster based on demand. Autoscaling can help you optimize resource usage and ensure that your applications have the necessary compute capacity to handle varying workloads. Here's an overview of how autoscaling works in EKS:
-1. Node Group Configuration:
+#### 1. Node Group Configuration:
    - In EKS, a node group is a set of worker nodes that run containerized applications. To enable autoscaling, you first need to configure a node group with the desired settings, including the minimum and maximum number of nodes.
    - You can create a node group using the AWS Management Console, AWS CLI, or infrastructure-as-code tools like AWS CloudFormation and terraform.
-2. Amazon EC2 Auto Scaling Groups:
+#### 2. Amazon EC2 Auto Scaling Groups:
    - EKS leverages Amazon EC2 Auto Scaling Groups (ASGs) under the hood to manage the worker nodes. ASGs automatically adjust the number of instances in the group based on scaling policies.
    - The node group you create in EKS is associated with an EC2 Auto Scaling Group, which handles the scaling operations.
-3. Scaling Policies:
+#### 3. Scaling Policies:
    - Auto Scaling policies define the conditions under which the Auto Scaling Group scales in or out. EKS supports both manual and dynamic scaling policies.
    - Manual Scaling: You can manually adjust the desired capacity of the Auto Scaling Group using the AWS Management Console or AWS CLI.
    - Dynamic Scaling: Dynamic scaling policies automatically adjust the capacity based on metrics like CPU utilization or custom CloudWatch metrics. For example, you can create a policy to scale out if CPU utilization exceeds a certain threshold.
-4. Cluster Autoscaler:
+#### 4. Cluster Autoscaler:
    - EKS also supports the Kubernetes Cluster Autoscaler, which can automatically adjust the number of nodes in your cluster based on resource demands for scheduled pods.
    - To use the Cluster Autoscaler with EKS, you need to configure it in your node group launch template or configuration. This allows the Cluster Autoscaler to communicate with the EKS control plane to scale nodes based on pending pods.
- 5. Example Cluster Autoscaler Configuration:
+ #### 5. Example Cluster Autoscaler Configuration:
    - Here's an example of how you might configure the Cluster Autoscaler when creating a node group with the AWS CLI:
-   ```bash
+
+  ```bash
    eksctl create nodegroup \
      --cluster your-cluster \
      --region your-region \
@@ -15335,18 +15406,19 @@ Ans: Amazon Elastic Kubernetes Service (EKS) provides built-in support for autos
      --node-type t3.medium \
      --asg-access
    ```
- 6. Monitoring and Logging:
+#### 6. Monitoring and Logging:
    - Monitor your Auto Scaling Group and node group metrics using Amazon CloudWatch. AWS CloudWatch provides insights into resource utilization, scaling activities, and other relevant metrics.
-7. Considerations:
+#### 7. Considerations:
    - Ensure that your applications and workloads are designed to take advantage of dynamic scaling. Kubernetes Horizontal Pod Autoscaling (HPA) can also be used to scale individual pods based on metrics.
    - Regularly review and adjust your autoscaling policies and configurations based on your application's requirements and usage patterns.
+
 By configuring node groups, Auto Scaling Groups, and possibly the Cluster Autoscaler, you can achieve autoscaling in Amazon EKS to efficiently manage resources based on demand. Adjust the configurations based on your specific workload characteristics and scaling requirements.
-13.	What kind of Autoscaling happened in terms of load increases?
+### 13.	What kind of Autoscaling happened in terms of load increases?
 Ans: Autoscaling in the context of load increases typically refers to dynamically adjusting the number of resources (such as servers or instances) in a system based on the current workload or demand. In the context of Amazon Elastic Kubernetes Service (EKS), which uses Amazon EC2 Auto Scaling Groups, there are two primary types of autoscaling that can occur:
-1. Horizontal Pod Autoscaling (HPA):
+#### 1. Horizontal Pod Autoscaling (HPA):
    - Kubernetes itself provides a feature known as Horizontal Pod Autoscaling (HPA). HPA automatically adjusts the number of pods in a deployment or replica set based on observed metrics, such as CPU utilization or custom metrics.
    - When the load on your application increases, HPA can dynamically increase the number of pods to handle the additional demand. Similarly, when the load decreases, HPA can scale down the number of pods to optimize resource utilization.
-   - Example HPA configuration:
+   #### - Example HPA configuration:
      ```yaml
      apiVersion: autoscaling/v2beta2
      kind: HorizontalPodAutoscaler
@@ -15368,11 +15440,12 @@ Ans: Autoscaling in the context of load increases typically refers to dynamicall
              averageUtilization: 80
      ```
    - In this example, the HPA scales the number of replicas based on CPU utilization, targeting an average utilization of 80%.
-2. Node Group Autoscaling (EC2 Auto Scaling):
+#### 2. Node Group Autoscaling (EC2 Auto Scaling):
    - EKS leverages Amazon EC2 Auto Scaling Groups (ASGs) for managing worker nodes. Node group autoscaling involves dynamically adjusting the number of worker nodes in an Auto Scaling Group based on metrics such as CPU utilization or custom CloudWatch metrics.
    - As the load on your EKS cluster increases, the Auto Scaling Group can automatically add new worker nodes to handle the additional demand. Conversely, when the load decreases, the Auto Scaling Group can scale down the number of worker nodes to save resources.
    - Example Auto Scaling Group configuration:
      - When creating a node group using `eksctl`, you can specify the desired minimum and maximum number of nodes, and EC2 Auto Scaling will adjust accordingly:
+
      ```bash
      eksctl create nodegroup \
        --cluster your-cluster \
@@ -15384,51 +15457,62 @@ Ans: Autoscaling in the context of load increases typically refers to dynamicall
        --asg-access
      ```
    - In this example, the node group can dynamically scale between 2 and 10 nodes based on demand.
-Combining Horizontal Pod Autoscaling (HPA) for adjusting the number of pods within a deployment and Node Group Autoscaling for adjusting the number of worker nodes in an Auto Scaling Group provides a comprehensive (complete) approach to autoscaling in response to load increases. These mechanisms collectively ensure that your EKS cluster can efficiently handle varying workloads while optimizing resource utilization.
-14.	What are the criteria’s will give you for auto scaling?
+Combining Horizontal Pod Autoscaling (HPA) for adjusting the number of pods within a deployment and Node Group Autoscaling for adjusting the number of worker nodes in an Auto Scaling Group provides a comprehensive (complete) approach to autoscaling in response to load increases. 
+
+These mechanisms collectively ensure that your EKS cluster can efficiently handle varying workloads while optimizing resource utilization.
+### 14.	What are the criteria’s will give you for auto scaling?
 Ans: The decision to trigger autoscaling in a system, whether in Kubernetes or another environment, typically relies on certain criteria or metrics that indicate changes in demand or resource utilization. Here are common criteria or metrics used for autoscaling decisions:
-1. CPU Utilization:
+#### 1. CPU Utilization:
    - One of the most common metrics for autoscaling is CPU utilization. When the CPU usage of your application or infrastructure crosses a certain threshold, autoscaling can be triggered to add more resources (scale out) or remove excess resources (scale in).
-2. Memory Utilization:
+#### 2. Memory Utilization:
    - Memory usage is another key metric. Autoscaling based on memory utilization helps ensure that your system has enough memory to handle the current workload. Similar to CPU utilization, thresholds can be set for memory usage.
-3. Network Throughput(over):
+#### 3. Network Throughput(over):
    - Autoscaling decisions can be based on network throughput or bandwidth. If your application's demand leads to increased network traffic, autoscaling can help allocate more resources to handle the communication load.
-4. Request Latency or Response Time:
+#### 4. Request Latency or Response Time:
    - Monitoring the latency or response time of your application can be crucial. Autoscaling can be triggered based on deteriorating(falling) performance metrics, ensuring that your system can maintain responsiveness under increased load.
-5. Queue Length:
+#### 5. Queue Length:
    - For systems with message queues or task processing, monitoring the length of queues can be an effective autoscaling criterion. If the queue length increases, indicating a backlog of tasks, autoscaling can help in handling the increased workload.
-6. Custom Application Metrics:
+#### 6. Custom Application Metrics:
    - Application-specific metrics can play a significant role in autoscaling decisions. These metrics could include business-specific key performance indicators (KPIs) or custom performance metrics relevant to your application's behavior.
-7. Scheduled Scaling:
+#### 7. Scheduled Scaling:
    - In some cases, autoscaling may be based on a predefined schedule. For example, scaling up during peak hours and scaling down during off-peak hours can be a scheduled autoscaling strategy.
-8. External Metrics and Events:
+#### 8. External Metrics and Events:
    - Autoscaling decisions can also be triggered based on external factors, such as changes in user traffic, events, or external dependencies. Integrating external metrics and events into your autoscaling strategy provides a more comprehensive approach.
-9. Cost Considerations:
+#### 9. Cost Considerations:
    - Cost-related metrics, such as cloud infrastructure costs or budget thresholds, can be considered for autoscaling. This ensures that the system scales efficiently while staying within budget constraints.
-10. Error Rates:
+#### 10. Error Rates:
     - Monitoring error rates or failure rates can be crucial for autoscaling decisions. If the error rate increases beyond an acceptable threshold, autoscaling can help mitigate potential issues.
-The specific criteria for autoscaling depend on the nature of your application, workload patterns, and performance requirements. It's important to establish meaningful thresholds and criteria based on a thorough (total) understanding of your system's behavior and the needs of your application. Integrating multiple metrics and considering the overall health and performance of the system is often necessary for effective autoscaling strategies.
-15.	How many PODs can we have in a node?
-Ans: The number of Pods that can run on a node in Kubernetes depends on various factors, including the resource requirements of the Pods, the available resources on the node, and any resource constraints or limits set for the Pods. There is no fixed or predetermined limit on the number of Pods that can be scheduled on a node, and the actual number can vary based on the specific characteristics of the Pods and the node.
-Here are some key considerations that influence the number of Pods on a node:
-1. Resource Constraints:
+
+The specific criteria for autoscaling depend on the nature of your application, workload patterns, and performance requirements. 
+
+It's important to establish meaningful thresholds and criteria based on a thorough (total) understanding of your system's behavior and the needs of your application. 
+
+Integrating multiple metrics and considering the overall health and performance of the system is often necessary for effective autoscaling strategies.
+### 15.	How many PODs can we have in a node?
+Ans: The number of Pods that can run on a node in Kubernetes depends on various factors, including the resource requirements of the Pods, the available resources on the node, and any resource constraints or limits set for the Pods. 
+
+There is no fixed or predetermined limit on the number of Pods that can be scheduled on a node, and the actual number can vary based on the specific characteristics of the Pods and the node.
+#### Here are some key considerations that influence the number of Pods on a node:
+#### 1. Resource Constraints:
    - Each node in a Kubernetes cluster has a finite amount of resources, such as CPU and memory. The total resource capacity of the node is shared among all the Pods running on that node.
-2. Resource Requests and Limits:
+#### 2. Resource Requests and Limits:
    - Pods can specify resource requests and limits for CPU and memory. These values influence the Kubernetes scheduler's decisions on where to place Pods and help prevent resource contention.
-3. Node Capacity:
+#### 3. Node Capacity:
    - The overall capacity of the node, including CPU and memory, plays a crucial role. The combined resource usage of all the Pods on a node should not exceed the available capacity to prevent performance issues.
-4. Pod Scheduling:
+#### 4. Pod Scheduling:
    - The Kubernetes scheduler determines where to place Pods based on factors such as resource requirements, node capacity, and any affinity or anti-affinity rules. The scheduler aims to optimize resource utilization across the cluster.
-5. Pod Co-location:
+#### 5. Pod Co-location:
    - Multiple Pods can co-locate on a node if their resource requirements allow it. However, the ability to co-locate Pods depends on the size of the Pods and the overall resource usage of the node.
-6. Pod Density:
+#### 6. Pod Density:
    - The density of Pods on a node is influenced by factors such as the size of the Pods, the level of resource sharing, and the overall utilization of the node.
+
 It's essential to consider the resource requirements and limits of your Pods when designing your Kubernetes applications. Additionally, monitoring tools such as `kubectl top` and external monitoring solutions can help you understand the resource utilization on your nodes and make informed decisions about scaling and optimizing your cluster.
+
 In practice, the actual number of Pods on a node can vary based on the workload characteristics and resource profiles of the applications running in the cluster.
-16.	How many containers should be there in POD?(or) recommended containers for a POD?
+### 16.	How many containers should be there in POD?(or) recommended containers for a POD?
 Ans: The number of containers within a Kubernetes Pod is a design decision that depends on the requirements of your application and the principles of microservices architecture. Kubernetes Pods are designed to co-locate and share a common network namespace, which makes them suitable for running containers that need to communicate with each other over localhost.
-Here are some considerations when deciding the number of containers in a Pod:
-1. Single-Container Pods:
+#### Here are some considerations when deciding the number of containers in a Pod:
+#### 1. Single-Container Pods:
    - In many cases, especially with simpler applications, a Pod may contain only a single container. This is common for standalone applications or components that don't require close coupling with other containers.
    ```yaml
    apiVersion: v1
@@ -15440,8 +15524,10 @@ Here are some considerations when deciding the number of containers in a Pod:
      - name: my-app
        image: my-image:latest
    ```
-2. Multi-Container Pods:
-   - Multi-container Pods are used when two or more containers need to run together in the same network namespace and share resources. This is often done to implement sidecar patterns, where additional containers provide supporting functionality to the main application.
+#### 2. Multi-Container Pods:
+   - Multi-container Pods are used when two or more containers need to run together in the same network namespace and share resources. 
+   
+   This is often done to implement sidecar patterns, where additional containers provide supporting functionality to the main application.
    ```yaml
    apiVersion: v1
    kind: Pod
@@ -15454,9 +15540,9 @@ Here are some considerations when deciding the number of containers in a Pod:
      - name: sidecar-container
        image: sidecar-image:latest
    ```
-3. Sidecar Containers:
+#### 3. Sidecar Containers:
    - Sidecar containers are auxiliary containers that run alongside the main application container, providing additional functionality such as logging, monitoring, or handling specific tasks. They enhance the capabilities of the main application without tightly coupling their code.
-4. Init Containers:
+#### 4. Init Containers:
    - Init containers run before the main containers in a Pod and can be used for tasks like setting up configuration files or performing pre-processing tasks. Init containers run to completion before the main containers start.
    ```yaml
    apiVersion: v1
@@ -15471,118 +15557,142 @@ Here are some considerations when deciding the number of containers in a Pod:
      - name: main-app
        image: main-app-image:latest
    ```
-5. Communication and Shared Resources:
+#### 5. Communication and Shared Resources:
    - If containers within a Pod need to communicate with each other over localhost or share storage volumes, they can be grouped in the same Pod.
-6. Logging and Monitoring:
+#### 6. Logging and Monitoring:
    - Consider using separate containers for logging and monitoring to ensure observability and maintainability of your applications.
 There isn't a fixed or recommended number of containers for all scenarios; it depends on the specific requirements and architecture of your application. It's generally advised to keep containers within a Pod focused on a single responsibility, following the principles of modularity and separation of concerns. This helps maintain a clear and scalable architecture.
+
 Before deciding the number of containers in a Pod, carefully consider factors such as application architecture, container communication requirements, resource sharing, and maintainability.
-17.	What is POD?
+### 17.	What is POD?
 Ans: Already available
-18.	Can you tell me about keyvaluts? How it works?
-Ans: Azure Key Vault is a cloud service provided by Microsoft Azure that allows you to securely store and manage sensitive information such as secrets, encryption keys, and certificates. It helps you safeguard cryptographic keys and other secrets used by cloud applications and services. Here's an overview of Azure Key Vault and how it works:
-Key Vault Components:
-1. Secrets:
+### 18.	Can you tell me about keyvaluts? How it works?
+Ans: Azure Key Vault is a cloud service provided by Microsoft Azure that allows you to securely store and manage sensitive information such as secrets, encryption keys, and certificates. It helps you safeguard cryptographic keys and other secrets used by cloud applications and services. 
+
+Here's an overview of Azure Key Vault and how it works:
+#### Key Vault Components:
+#### 1. Secrets:
    - Azure Key Vault can store and manage sensitive information, such as connection strings, passwords, and API keys, as secrets.
-2. Keys:
+#### 2. Keys:
    - Key Vault allows you to create and maintain cryptographic keys for use in your applications. These keys can be used for encryption, decryption, signing, and verification.
-3. Certificates:
+#### 3. Certificates:
    - Key Vault supports the storage and management of digital certificates, which can be used for securing communication in applications.
-Key Vault Features:
-1. Secure Storage:
+#### Key Vault Features:
+#### 1. Secure Storage:
    - Key Vault provides a secure and centralized location for storing sensitive information. Secrets, keys, and certificates are safeguarded within the Key Vault.
-2. Access Control:
+#### 2. Access Control:
    - Access to Key Vault resources is controlled through Azure Active Directory (Azure AD). You can define roles and permissions to control who can manage, retrieve, and create secrets, keys, and certificates.
-3. Key Rotation:
+#### 3. Key Rotation:
    - Key Vault supports the automatic rotation of keys, which is essential for enhancing security. You can configure Key Vault to rotate keys at regular intervals, reducing the risk associated with using the same key for an extended period.
-4. Auditing and Monitoring:
+#### 4. Auditing and Monitoring:
    - Key Vault provides logging and auditing capabilities, allowing you to monitor operations performed on keys, secrets, and certificates. This helps in maintaining visibility into the usage of sensitive information.
-5. Managed HSM (Hardware Security Module):
+#### 5. Managed HSM (Hardware Security Module):
    - Azure Key Vault offers a premium tier that includes a managed HSM, providing additional security for cryptographic operations. The managed HSM is FIPS 140-2 Level 2 certified.
-How Azure Key Vault Works:
-1. Creation of Key Vault:
+#### How Azure Key Vault Works:
+#### 1. Creation of Key Vault:
    - To use Azure Key Vault, you start by creating a Key Vault instance in your Azure subscription. During the creation process, you specify the settings, access policies, and configurations for your Key Vault.
-2. Adding Secrets, Keys, and Certificates:
+#### 2. Adding Secrets, Keys, and Certificates:
    - Once the Key Vault is created, you can add secrets, keys, and certificates to it. This can be done through the Azure Portal, Azure CLI, or programmatically using Azure SDKs.
-3. Access Control:
+#### 3. Access Control:
    - Access to Key Vault resources is controlled using Azure AD. You can grant specific permissions to users, service principals, or applications to perform various operations on the stored secrets, keys, and certificates.
-4. Integration with Applications:
+#### 4. Integration with Applications:
    - Applications and services that need access to sensitive information can authenticate with Azure AD and then retrieve the required secrets, keys, or certificates from the Key Vault. This helps in centralizing and securing the storage of sensitive information used by various components of your application.
-5. Key Rotation and Management:
+#### 5. Key Rotation and Management:
    - Azure Key Vault provides key rotation features, allowing you to regularly rotate keys to enhance security. Additionally, it provides the ability to disable or delete keys and secrets when they are no longer needed.
 
-6. Monitoring and Auditing:
+#### 6. Monitoring and Auditing:
    - Key Vault logs and audits operations performed on secrets, keys, and certificates. This information is valuable for compliance and security monitoring.
-Azure Key Vault is a fundamental component for enhancing the security posture of applications that rely on sensitive information. It helps in centralizing and managing cryptographic keys and secrets, reducing the risk of unauthorized access and ensuring compliance with security best practices.
-19.	How do you connect local machine to jenkins server?
+- Azure Key Vault is a fundamental component for enhancing the security posture of applications that rely on sensitive information. It helps in centralizing and managing cryptographic keys and secrets, reducing the risk of unauthorized access and ensuring compliance with security best practices.
+### 19.	How do you connect local machine to jenkins server?
 Ans: To connect your local machine to a Jenkins server, you typically interact with Jenkins through a web browser. Here are the general steps to access Jenkins from your local machine:
-1. Install Jenkins:
+#### 1. Install Jenkins:
    - Ensure that Jenkins is installed on a server accessible from your local machine. You can follow the official Jenkins installation instructions for your operating system: [Installing Jenkins](https://www.jenkins.io/doc/book/installing/).
-2. Start Jenkins:
+#### 2. Start Jenkins:
    - Start the Jenkins service on the server. Once Jenkins is running, you can access its web interface.
-3. Access Jenkins Web Interface:
+#### 3. Access Jenkins Web Interface:
    - Open a web browser on your local machine.
    - Enter the URL or IP address of the Jenkins server in the browser's address bar, followed by the Jenkins port (default is 8080). For example: `http://your-jenkins-server:8080`.
    - If Jenkins is running on the default port, you should see the Jenkins login screen.
-4. Unlock Jenkins:
+#### 4. Unlock Jenkins:
    - During the first access, Jenkins requires you to unlock it using an initial administrator password. The password is stored in a file on the server. You can retrieve it by following the instructions displayed on the Jenkins server or in the Jenkins logs.
-5. Install Plugins (Optional):
+#### 5. Install Plugins (Optional):
    - Jenkins may prompt you to install suggested plugins. You can choose to install the recommended plugins or select your own set of plugins based on your needs.
-6. Create an Admin User:
+#### 6. Create an Admin User:
    - After unlocking Jenkins and installing plugins, you'll need to create an administrative user account.
-7. Access Jenkins Dashboard:
+#### 7. Access Jenkins Dashboard:
    - Once you've completed the setup, you should be able to log in to the Jenkins dashboard using the admin credentials you created.
    - The Jenkins dashboard provides an overview of the available jobs, builds, and configuration options.
 Now, you have successfully connected to the Jenkins server from your local machine. From the Jenkins dashboard, you can create, configure, and manage Jenkins jobs, which are used to automate various tasks, such as building, testing, and deploying applications.
-If your Jenkins server is running on a remote server, make sure that the server is accessible from your local machine, either through the local network or the internet. If necessary, configure firewalls and network settings to allow access to the Jenkins server. Additionally, consider securing the Jenkins installation by using HTTPS and authentication mechanisms if you plan to expose it to the internet.
-20.	Can you tell me the steps to resolve the merge conflicts in git?
+
+If your Jenkins server is running on a remote server, make sure that the server is accessible from your local machine, either through the local network or the internet. 
+
+If necessary, configure firewalls and network settings to allow access to the Jenkins server. Additionally, consider securing the Jenkins installation by using HTTPS and authentication mechanisms if you plan to expose it to the internet.
+### 20.	Can you tell me the steps to resolve the merge conflicts in git?
 Ans: Already available
-21.	What are the commands to use resolve the merge conflicts?
-Ans: # Switch to the branch you are merging into
+### 21.	What are the commands to use resolve the merge conflicts?
+Ans: 
+
+#### Switch to the branch you are merging into
+```bash
 git checkout branch-to-merge-into
-# Attempt to merge branches
+```
+#### Attempt to merge branches
+```bash
 git merge branch-to-be-merged
-# Resolve conflicts manually in your code editor
-# Mark the conflicted file as resolved
+```
+#### Resolve conflicts manually in your code editor
+#### Mark the conflicted file as resolved
+```bash
 git add conflicted-file.txt
-# Continue with the merge
+```
+#### Continue with the merge
+```bash
 git merge --continue
-# OR
-# Use git commit to complete the merge
+```
+`OR`
+
+#### Use git commit to complete the merge
+```bash
 git commit -m "Merge branch-to-be-merged into branch-to-merge-into"
-22.	I have two commits I want to delete that along with commit history?
+```
+### 22.	I have two commits I want to delete that along with commit history?
 Ans: If you want to remove specific commits along with their commit history from your Git repository, you can use the `git rebase` command. Be cautious when using `git rebase` because it rewrites commit history, and force pushing the changes can impact collaborators if you're working in a shared repository.
-Here's a step-by-step guide on how to delete specific commits along with their history:
-1. Identify the Commits to Delete
-First, identify the commit hashes of the commits you want to remove. You can use `git log` to view the commit history and find the commit hashes.
+
+- Here's a step-by-step guide on how to delete specific commits along with their history:
+#### 1. Identify the Commits to Delete
+- First, identify the commit hashes of the commits you want to remove. You can use `git log` to view the commit history and find the commit hashes.
 ```bash
 git log
 ```
-2. Start an Interactive Rebase
+#### 2. Start an Interactive Rebase
 Run the following command to start an interactive rebase, replacing `commit-hash-1` and `commit-hash-2` with the commit hashes you want to delete.
 ```bash
 git rebase -i commit-hash-before-the-first-commit-to-delete
 ```
-3. Mark Commits for Deletion
+#### 3. Mark Commits for Deletion
 In the interactive rebase editor, change the word "pick" to "drop" (or use "d") for the commits you want to delete. Save and close the editor.
+
 ```plaintext
 pick commit-hash-1 Some commit message
 drop commit-hash-2 Another commit message
 # ...
 ```
-4. Save and Close the Editor
+#### 4. Save and Close the Editor
 Save and close the interactive rebase editor.
-5. Complete the Rebase
-Git will automatically apply the changes, dropping the commits you marked for deletion.
-6. Force Push (Use with Caution)
-If the branch is already pushed to a remote repository, you will need to force push the changes. Be cautious when force pushing, especially if others are collaborating on the same branch.
+#### 5. Complete the Rebase
+- Git will automatically apply the changes, dropping the commits you marked for deletion.
+#### 6. Force Push (Use with Caution)
+- If the branch is already pushed to a remote repository, you will need to force push the changes. Be cautious when force pushing, especially if others are collaborating on the same branch.
 ```bash
 git push origin your-branch-name --force
 ```
 Replace `your-branch-name` with the name of your branch.
-Note: Force pushing rewrites history and can cause issues if others have pulled the branch. Coordinate with your collaborators before force pushing.
-Alternative Approach: Revert Commits
-If you want to keep the commit history intact and add new commits that undo the changes introduced by the unwanted commits, you can use the `git revert` command.
+
+`Note:` Force pushing rewrites history and can cause issues if others have pulled the branch. Coordinate with your collaborators before force pushing.
+
+`Alternative Approach:` Revert Commits
+
+- If you want to keep the commit history intact and add new commits that undo the changes introduced by the unwanted commits, you can use the `git revert` command.
 1. Identify the commit hashes to revert.
 2. Run the following command for each commit:
    ```bash
@@ -15595,43 +15705,52 @@ If you want to keep the commit history intact and add new commits that undo the 
    ```
 This approach adds new commits that effectively undo the changes made by the unwanted commits.
 Choose the approach that best fits your needs, considering the impact on the commit history and collaboration with others.
-23.	Difference between git merge and git rebase?
+### 23.	Difference between git merge and git rebase?
 Ans: Already available
-24.	When you have multiple merge conflicts what will you use git merge or rebase?
-Ans: Whether to use `git merge` or `git rebase` when dealing with multiple merge conflicts depends on your workflow, project policies, and collaboration practices. Both commands have their use cases, and the decision depends on factors such as the project's commit history, collaboration model, and the desired outcome.
+### 24.	When you have multiple merge conflicts what will you use git merge or rebase?
+Ans: Whether to use `git merge` or `git rebase` when dealing with multiple merge conflicts depends on your workflow, project policies, and collaboration practices. 
+
+Both commands have their use cases, and the decision depends on factors such as the project's commit history, collaboration model, and the desired outcome.
 Use Cases for `git merge`:
-1. Shared Branches:
+#### 1. Shared Branches:
    - If you are working on a shared branch with other collaborators, and you want to preserve the existing commit history, use `git merge`. This is common in projects where a shared branch represents the main line of development (e.g., `main` or `develop`).
-2. Clear Separation of Changes:
+#### 2. Clear Separation of Changes:
    - If you prefer to keep separate branches for different features or bug fixes, and you want to maintain a clear separation of changes in the commit history, `git merge` is suitable.
-3. Preserving Original Commits:
+#### 3. Preserving Original Commits:
    - If you want to preserve the original commits and show a clear integration point for the merged changes, use `git merge`.
-Use Cases for `git rebase`:
-1. Linearizing Commit History:
+#### Use Cases for `git rebase`:
+#### 1. Linearizing Commit History:
    - If you want to create a linear and cleaner commit history by incorporating changes from another branch, use `git rebase`. This can help avoid unnecessary merge commits.
-2. Squashing Commits:
+#### 2. Squashing Commits:
    - If you want to squash or combine multiple commits into a single commit, `git rebase` allows you to interactively reword, reorder, or squash commits.
-3. Feature Branches:
+#### 3. Feature Branches:
    - If you are working on a feature branch and want to incorporate changes from the main branch before merging, using `git rebase` can create a linear history.
-4. Avoiding Merge Commits:
+#### 4. Avoiding Merge Commits:
    - If you prefer a repository with fewer merge commits to maintain a cleaner history, `git rebase` helps avoid creating additional merge commits.
-Considerations:
-- Collaboration:
+#### Considerations:
+#### - Collaboration:
   - If you are collaborating with others, be cautious when using `git rebase` as it rewrites commit history. Force-pushing after a rebase can disrupt others who have pulled the branch.
-- Shared Branches:
+#### - Shared Branches:
   - For branches that are shared among collaborators, using `git merge` is generally safer and more straightforward.
-- Interactive Rebase:
+#### - Interactive Rebase:
   - If you have multiple merge conflicts during a rebase, you can interactively resolve conflicts similar to resolving conflicts during a merge.
-- Project Policies:
+#### - Project Policies:
   - Follow project-specific policies and guidelines. Some projects may prefer a linear commit history, while others may prioritize a clear integration point with merge commits.
+
 In summary, both `git merge` and `git rebase` have their advantages, and the choice depends on the specific requirements of your project and collaboration model. It's important to communicate with your team and follow project guidelines to determine the most appropriate approach.
-25.	How do you build the docker file?
+### 25.	How do you build the docker file?
 Ans: Already available
-26.	What is host port and target port in docker?
-Ans: In Docker, when you run a container, you have the option to map ports between the host machine and the container. This port mapping allows external processes to communicate with services running inside the container. The terms "host port" and "target port" are used to distinguish between the ports on the host machine and the ports exposed by the container.
-- Host Port: The host port is the port on the host machine to which you map the port from the container. It is the port through which external entities (other machines, services, or processes) can communicate with the containerized service. When you run a Docker container, you can specify the host port as part of the port mapping.
-- Target Port: The target port is the port on which the service inside the container is listening. This is the port you want to make accessible from the host machine. When you expose a port in your Dockerfile or when defining your container runtime settings, you are specifying the target port.
-Example:
+### 26.	What is host port and target port in docker?
+Ans: In Docker, when you run a container, you have the option to map ports between the host machine and the container. 
+
+This port mapping allows external processes to communicate with services running inside the container. The terms "host port" and "target port" are used to distinguish between the ports on the host machine and the ports exposed by the container.
+
+**- Host Port:** The host port is the port on the host machine to which you map the port from the container. It is the port through which external entities (other machines, services, or processes) can communicate with the containerized service. When you run a Docker container, you can specify the host port as part of the port mapping.
+
+**- Target Port:** The target port is the port on which the service inside the container is listening. This is the port you want to make accessible from the host machine. When you expose a port in your Dockerfile or when defining your container runtime settings, you are specifying the target port.
+
+`Example:`
+
 Let's say you have a web server running inside a Docker container, and it exposes its service on port 80. If you want to make this web server accessible from the host machine on port 8080, you would use port mapping.
 - Target Port (inside the container): 80
 - Host Port (on the host machine): 8080
@@ -15640,80 +15759,89 @@ When you run the container, you might use a command like:
 docker run -p 8080:80 your-image
 ```
 In this example, `8080` is the host port, and `80` is the target port. Now, you can access the web server running inside the container by visiting `http://localhost:8080` on your host machine.
-Port Mapping Syntax:
+#### Port Mapping Syntax:
 The syntax for port mapping with the `-p` or `--publish` option is as follows:
 ```bash
 docker run -p <host-port>:<container-port> ...
 ```
 - `<host-port>`: The port on the host machine.
 - `<container-port>`: The port inside the container.
-By mapping ports, you can expose specific services from your container to the external world, allowing them to be accessed on the host machine through the specified host port. This is a common practice when deploying Dockerized applications, especially in scenarios where multiple containers are running on the same host, and you need to avoid port conflicts.
-27.	which port can be changed host port or container port?
-Ans: When you use port mapping in Docker, both the host port and the container port can be changed, depending on your requirements. The key is to understand the flexibility provided by the `-p` or `--publish` option when running a Docker container.
-Here is the general syntax for port mapping:
+By mapping ports, you can expose specific services from your container to the external world, allowing them to be accessed on the host machine through the specified host port. 
+
+This is a common practice when deploying Dockerized applications, especially in scenarios where multiple containers are running on the same host, and you need to avoid port conflicts.
+### 27.	which port can be changed host port or container port?
+Ans: When you use port mapping in Docker, both the host port and the container port can be changed, depending on your requirements. 
+
+The key is to understand the flexibility provided by the `-p` or `--publish` option when running a Docker container.
+#### Here is the general syntax for port mapping:
 ```bash
 docker run -p <host-port>:<container-port> ...
 ```
 - `<host-port>`: The port on the host machine.
 - `<container-port>`: The port inside the container.
-Flexibility:
-1. Changing Host Port:
+#### Flexibility:
+#### 1. Changing Host Port:
    - If you want to expose a service from the container on a different port on the host machine, you can change the `<host-port>` in the port mapping command. For example:
      ```bash
      docker run -p 8080:80 your-image
      ```
    - In this case, `8080` is the host port, and it can be any available port on the host machine.
-2. Changing Container Port:
+#### 2. Changing Container Port:
    - Similarly, if you want to make the service inside the container available on a different port, you can change the `<container-port>` in the port mapping command. For example:
      ```bash
      docker run -p 80:8080 your-image
      ```
    - In this case, `8080` is the container port, and it can be any port on which the service inside the container is listening.
-3. Using Different Ports on Host and Container:
+#### 3. Using Different Ports on Host and Container:
    - You can use different port numbers for the host and container, allowing you to expose services on custom ports.
      ```bash
      docker run -p 8088:80 your-image
      ```
    - In this example, the service inside the container on port `80` is made accessible on the host machine at port `8088`.
-Recommendations:
-- Avoid Port Conflicts:
+#### Recommendations:
+#### - Avoid Port Conflicts:
   - When changing port numbers, ensure that the selected ports are available on the host machine and do not conflict with other services or containers.
-- Document Port Mappings:
+#### - Document Port Mappings:
   - Clearly document the chosen port mappings so that users and collaborators understand how to access the services.
-- Standard Ports:
+#### - Standard Ports:
   - It's common to use standard ports for well-known services (e.g., HTTP on port 80). However, in development or scenarios with multiple containers, you might use different ports on the host to avoid conflicts.
-Remember that the flexibility to change both the host and container ports allows you to adapt to different deployment scenarios and network configurations. Choose port numbers based on your project requirements and the conventions followed in your environment.
-28.	Can you run multiple containers with same image simultaneously and what is the condition?
-Ans: Yes, you can run multiple containers from the same Docker image simultaneously. Docker is designed to support running multiple instances (containers) of an image concurrently, and it provides isolation between containers, allowing them to run independently.
-Conditions to Run Multiple Containers Simultaneously:
 
-1. Available Resources:
+Remember that the flexibility to change both the host and container ports allows you to adapt to different deployment scenarios and network configurations. Choose port numbers based on your project requirements and the conventions followed in your environment.
+
+### 28.	Can you run multiple containers with same image simultaneously and what is the condition?
+Ans: Yes, you can run multiple containers from the same Docker image simultaneously. Docker is designed to support running multiple instances (containers) of an image concurrently, and it provides isolation between containers, allowing them to run independently.
+#### Conditions to Run Multiple Containers Simultaneously:
+
+#### 1. Available Resources:
    - Ensure that your host machine has sufficient resources (CPU, memory, etc.) to accommodate multiple running containers. Each container consumes system resources, so running many containers concurrently may require an adequately provisioned host machine.
-2. Port Availability:
+#### 2. Port Availability:
    - If your containers expose services on specific ports, make sure that the chosen ports are available on the host machine. Avoid port conflicts by mapping each container's ports to different host ports when running them.
-3. Image Accessibility:
+#### 3. Image Accessibility:
    - The Docker image you want to run should be accessible on the host machine. If the image is not available locally, Docker will attempt to pull it from a registry (e.g., Docker Hub) during the `docker run` command.
-4. Unique Container Names:
+#### 4. Unique Container Names:
    - When running multiple containers from the same image, ensure that each container has a unique name. You can specify a custom name using the `--name` option when running the `docker run` command.
+
    ```bash
    docker run --name container1 your-image
    docker run --name container2 your-image
    ```
-5. Unique Volumes (if applicable):
+#### 5. Unique Volumes (if applicable):
    - If your containers use volumes for data storage, ensure that each container has a unique volume name or volume mount point to prevent conflicts.
+
    ```bash
    docker run -v /host/path1:/container/path your-image
    docker run -v /host/path2:/container/path your-image
    ```
-6. Networking Configuration:
+#### 6. Networking Configuration:
    - If your containers need to communicate with each other or external services, consider the networking configuration. Docker provides various networking options, including bridge networks, host networks, and user-defined networks, to facilitate communication between containers.
+
    ```bash
    docker network create my-network
    docker run --network my-network container1
    docker run --network my-network container2
    ```
-Example: Running Multiple Containers
-Here's a basic example of running multiple containers from the same image:
+`Example:` Running Multiple Containers
+- Here's a basic example of running multiple containers from the same image:
 ```bash
 # Run the first container
 docker run --name container1 -p 8080:80 your-image
@@ -15721,106 +15849,115 @@ docker run --name container1 -p 8080:80 your-image
 docker run --name container2 -p 8081:80 your-image
 ```
 In this example, two containers (`container1` and `container2`) are running from the same image (`your-image`). They have unique container names, and their services are accessible on different host ports (8080 and 8081).
+
 By following these conditions and adjusting parameters like container names, ports, and networking as needed, you can run multiple containers concurrently from the same Docker image.
-29.	How can we get the logs from the running container?
+### 29.	How can we get the logs from the running container?
 Ans: To retrieve logs from a running Docker container, you can use the `docker logs` command. Here's how you can use it:
 ```bash
 docker logs <container-id or container-name>
 ```
 Replace `<container-id or container-name>` with the actual ID or name of your running container.
-Example:
+
+`Example:`
+
 ```bash
 docker logs my-running-container
 ```
-Options:
-- Follow the Logs in Real-time:
+`Options:`
+
+#### - Follow the Logs in Real-time:
   - If you want to follow the logs in real-time as new log entries are added, you can use the `-f` or `--follow` option:
     ```bash
     docker logs -f my-running-container
     ```
-- Show Timestamps:
-  - To include timestamps in the log entries, use the `--timestamps` option:
+#### - Show Timestamps:
+
+  #### - To include timestamps in the log entries, use the `--timestamps` option:
     ```bash
     docker logs --timestamps my-running-container
     ```
-- Show Logs for a Specific Time Range:
-  - You can use the `--since` and `--until` options to specify a time range for the logs:
+#### - Show Logs for a Specific Time Range:
+  #### - You can use the `--since` and `--until` options to specify a time range for the logs:
     ```bash
     docker logs --since="2022-01-01T00:00:00" --until="2022-01-02T00:00:00" my-running-container
     ```
-- Show Logs with Specific Log Levels:
+#### - Show Logs with Specific Log Levels:
   - If your application logs have different levels (e.g., INFO, ERROR), you can filter logs based on log levels. For example, to show only error messages, use the `--grep` option:
     ```bash
     docker logs --grep="ERROR" my-running-container
     ```
-- Output as JSON:
-  - To format the logs as JSON, you can use the `--format` option:
+#### - Output as JSON:
+  #### - To format the logs as JSON, you can use the `--format` option:
     ```bash
     docker logs --format=json my-running-container
     ```
 These options provide additional flexibility depending on your specific needs for viewing and analyzing container logs. Adjust the command based on the options that suit your requirements.
-30.	Difference between volume and mount?
+### 30.	Difference between volume and mount?
 Ans: In Docker, both volumes and mounts are mechanisms for persisting data and sharing files between the host machine and containers. However, they serve slightly different purposes and have some key differences.
-Volumes:
-1. Purpose:
+#### Volumes:
+#### 1. Purpose:
    - Volumes are a way to persist and share data between containers and the host machine. They are designed to store data independently of the container lifecycle.
-2. Storage Location:
+#### 2. Storage Location:
    - Volumes are stored outside of the container filesystem. Docker manages volumes, and they can be located in a specific directory on the host machine.
-3. Lifecycle:
+#### 3. Lifecycle:
    - Volumes persist even if the container is removed. They are not tied to the container's lifecycle. This makes volumes suitable for sharing and persisting data across container restarts and recreations.
-4. Named and Managed:
+#### 4. Named and Managed:
    - Volumes are given a name, and Docker manages their creation and removal. They can be easily referenced and shared among multiple containers.
-5. Usage:
+#### 5. Usage:
    - Used for persistent storage needs, such as databases, configuration files, and shared data between containers.
-Mounts:
-1. Purpose:
+#### Mounts:
+#### 1. Purpose:
    - Mounts are used to share files or directories between the host machine and the container. They allow you to specify a path on the host that is mounted into the container.
-2. Storage Location:
+#### 2. Storage Location:
    - Mounts directly reference files or directories on the host machine. Changes to files in the mount are reflected on both the host and the container.
-3. Lifecycle:
+#### 3. Lifecycle:
    - Mounts are closely tied to the container's lifecycle. If a container is removed, the mounted files or directories on the host remain.
-4. Named or Anonymous:
+#### 4. Named or Anonymous:
    - Mounts can be named (bind mounts) or anonymous (using the `docker run -v` option). Named mounts are explicitly defined in the Docker run command.
-5. Usage:
+#### 5. Usage:
    - Used for sharing specific files or directories between the host and the container. Particularly useful for development, debugging, or when you need direct access to specific host files in the container.
-Summary:
-- Volumes:Used for persistent data, independent of container lifecycle. Managed by Docker, stored outside the container filesystem.
-- Mounts: Used for sharing specific files or directories between the host and the container. Changes are reflected on both sides and are closely tied to the container's lifecycle.
+#### Summary:
+
+`- Volumes:` Used for persistent data, independent of container lifecycle. Managed by Docker, stored outside the container filesystem.
+
+`- Mounts:` Used for sharing specific files or directories between the host and the container. Changes are reflected on both sides and are closely tied to the container's lifecycle.
+
 In practice, both volumes and mounts are valuable tools, and the choice between them depends on the specific use case and requirements of your application. Volumes are often preferred for scenarios where you need persistent storage, while mounts are useful for sharing specific files for development or debugging purposes.
-31.	What is docker swam?
+### 31.	What is docker swam?
 Ans: It appears there's a small typo in your question. I assume you meant "Docker Swarm." Docker Swarm is a container orchestration and clustering tool provided by Docker. It allows you to create and manage a swarm of Docker nodes, turning them into a single, virtual Docker system.
-Here are some key points about Docker Swarm:
-1. Container Orchestration:
+#### Here are some key points about Docker Swarm:
+#### 1. Container Orchestration:
    - Docker Swarm enables the orchestration of Docker containers, allowing you to deploy, scale, and manage containerized applications across a cluster of machines.
-2. Swarm Mode:
+#### 2. Swarm Mode:
    - Swarm Mode is an integrated orchestration solution built into the Docker Engine. It allows you to manage a swarm of Docker nodes using a decentralized and declarative approach.
-3. Nodes:
+#### 3. Nodes:
    - In a Docker Swarm, machines running the Docker daemon can join the swarm as either manager or worker nodes. Manager nodes are responsible for managing the swarm, while worker nodes execute tasks.
-4. Services:
+#### 4. Services:
    - Docker Swarm introduces the concept of services, which represents a group of tasks (containers) that run on the swarm. Services allow you to define the desired state of your application and let Docker Swarm handle the deployment and scaling.
-5. Load Balancing:
+#### 5. Load Balancing:
    - Swarm includes built-in load balancing for services, distributing incoming requests across the various containers running the service. This helps ensure high availability and scalability.
-6. Rolling Updates:
+#### 6. Rolling Updates:
    - Docker Swarm supports rolling updates for services, allowing you to update your application without downtime. It gradually replaces old containers with new ones, ensuring continuous availability.
-7. Secure Communication:
+#### 7. Secure Communication:
    - Swarm provides secure communication between nodes and encrypts data in transit. This ensures the confidentiality and integrity of communications within the swarm.
-8. Integration with Docker CLI:
+#### 8. Integration with Docker CLI:
    - Docker Swarm can be managed using the Docker command-line interface (CLI). You can use familiar Docker commands to interact with the swarm, deploy services, and manage nodes.
-9. Compliance with Docker API:
+#### 9. Compliance with Docker API:
    - Docker Swarm is designed to be compatible with the Docker Remote API, which means tools and libraries that interact with the Docker API can often be used seamlessly with Docker Swarm.
-Docker Swarm is a built-in feature of Docker and is a simpler alternative to more complex orchestration solutions like Kubernetes. It is suitable for smaller to medium-sized deployments where simplicity and ease of use are priorities. If you're working on larger and more complex deployments, you might also explore Kubernetes, another popular container orchestration platform.
-32.	What is - -init main in python?
+- Docker Swarm is a built-in feature of Docker and is a simpler alternative to more complex orchestration solutions like Kubernetes. 
+- It is suitable for smaller to medium-sized deployments where simplicity and ease of use are priorities. If you're working on larger and more complex deployments, you might also explore Kubernetes, another popular container orchestration platform.
+### 32.	What is - -init main in python?
 Ans: It seems like there might be a misunderstanding or a slight confusion in your question. In Python, there is no specific syntax or construct called `--init main`. However, I'll provide information about commonly used elements in Python that might be related to initialization and the `__main__` block.
-1. `__main__` Block:
+#### 1. `__main__` Block:
 In Python, there is a special variable called `__name__`. When a Python script is executed, the interpreter sets the `__name__` variable. If the script is the main program being run, `__name__` is set to `"__main__"`.
 ```python
-Example:
+# Example:
 if __name__ == "__main__":
     # This code block will be executed only if the script is run as the main program
     print("This script is the main program.")
 ```
 The `if __name__ == "__main__":` block is commonly used to include code that should only run when the Python script is executed directly, not when it is imported as a module into another script.
-2. Command-Line Arguments:
+#### 2. Command-Line Arguments:
 It's also worth mentioning that if you see something like `--init main` in the context of a Python script, it might be related to command-line arguments parsing using libraries like `argparse` or `click`. For example, you might have a script that initializes some functionality based on command-line arguments:
 ```python
 import argparse
@@ -15839,64 +15976,113 @@ if __name__ == "__main__":
         main()
 ```
 In this example, the script checks for a command-line argument `--init` and initializes something based on that argument.
-33.	 What is devops KPI’s?
+### 33.	 What is devops KPI’s?
 If your question is related to a specific context or library, providing more details could help in providing a more accurate answer.
+
 Key Performance Indicators (KPIs) in DevOps help organizations measure the effectiveness, efficiency, and performance of their DevOps practices. KPIs provide insights into the software development and delivery process, enabling teams to identify areas for improvement. Here are some common DevOps KPIs:
-1. Deployment Frequency:
-   - KPI: Number of deployments per unit of time (e.g., per day, per week).
-   - Objective: Measure how often code changes are deployed to production.
-2. Lead Time for Changes:
-   - KPI: Time taken from code commit to deployment.
-   - Objective: Evaluate the efficiency of the development and delivery pipeline.
-3. Mean Time to Recover (MTTR):
-   - KPI: Average time to restore service in the event of a failure.
-   - Objective: Assess the system's resilience and ability to recover from incidents.
-4. Change Failure Rate:
-   - KPI: Percentage of changes that result in a failure.
-   - Objective: Monitor the stability and quality of code changes.
-5. Deployment Success Rate:
-   - KPI: Percentage of deployments that are successful.
-   - Objective: Measure the reliability of the deployment process.
-6. Code Churn:
-   - KPI: Number of lines of code changed over a specific period.
-   - Objective: Understand the level of code modifications and their impact on stability.
-7. Infrastructure as Code (IaC) Adoption:
-   - KPI: Percentage of infrastructure managed as code.
-   - Objective: Promote the use of IaC for reproducibility and automation.
-8. Test Coverage:
-   - KPI: Percentage of code covered by automated tests.
-   - Objective: Assess the effectiveness of test automation and identify areas lacking coverage.
-9. Mean Time Between Failures (MTBF):
-   - KPI: Average time between system failures.
-   - Objective: Evaluate system reliability and identify areas for improvement.
-10. Lead Time for Changes (from Development to Production):
-    - KPI: Time taken for code changes to move from development to production.
-    - Objective: Measure the efficiency of the entire delivery pipeline.
+#### 1. Deployment Frequency:
 
-11. Infrastructure Provisioning Time:
-    - KPI: Time taken to provision new infrastructure resources.
-    - Objective: Evaluate the speed and efficiency of infrastructure provisioning.
-12. Scalability and Elasticity:
-    - KPI: Ability to scale resources up or down based on demand.
-    - Objective: Assess the adaptability of the infrastructure to varying workloads.
-13. Cost of Downtime:
-    - KPI: Financial impact of system downtime.
-    - Objective: Understand the business cost associated with disruptions.
-14. Environment Consistency:
-    - KPI: Measure consistency across different environments (development, staging, production).
-    - Objective: Ensure that environments closely match each other to avoid issues in production.
-15. Incident Response Time:
-    - KPI: Time taken to respond to and acknowledge incidents.
-    - Objective: Improve incident response efficiency and minimize downtime.
-16. User Satisfaction:
-    - KPI: User feedback and satisfaction scores.
-    - Objective: Gauge the impact of changes on end-users and overall satisfaction.
+   `- KPI:` Number of deployments per unit of time (e.g., per day, per week).
+
+   `- Objective:` Measure how often code changes are deployed to production.
+#### 2. Lead Time for Changes:
+
+   `- KPI:` Time taken from code commit to deployment.
+
+   `- Objective:` Evaluate the efficiency of the development and delivery pipeline.
+
+#### 3. Mean Time to Recover (MTTR):
+
+   `- KPI:` Average time to restore service in the event of a failure.
+
+   `- Objective:` Assess the system's resilience and ability to recover from incidents.
+
+#### 4. Change Failure Rate:
+
+   `- KPI:` Percentage of changes that result in a failure.
+
+   `- Objective:` Monitor the stability and quality of code changes.
+
+#### 5. Deployment Success Rate:
+
+   `- KPI:` Percentage of deployments that are successful.
+
+   `- Objective:` Measure the reliability of the deployment process.
+
+#### 6. Code Churn:
+
+   `- KPI:` Number of lines of code changed over a specific period.
+
+   `- Objective:` Understand the level of code modifications and their impact on stability.
+
+#### 7. Infrastructure as Code (IaC) Adoption:
+
+   `- KPI:` Percentage of infrastructure managed as code.
+
+   `- Objective:` Promote the use of IaC for reproducibility and automation.
+
+#### 8. Test Coverage:
+
+   `- KPI:` Percentage of code covered by automated tests.
+
+   `- Objective:` Assess the effectiveness of test automation and identify areas lacking coverage.
+
+#### 9. Mean Time Between Failures (MTBF):
+
+   `- KPI:` Average time between system failures.
+
+   `- Objective:` Evaluate system reliability and identify areas for improvement.
+
+#### 10. Lead Time for Changes (from Development to Production):
+
+  `- KPI:` Time taken for code changes to move from development to production.
+
+  `- Objective:` Measure the efficiency of the entire delivery pipeline.
+
+#### 11. Infrastructure Provisioning Time:
+
+  `- KPI:` Time taken to provision new infrastructure resources.
+
+  `- Objective:` Evaluate the speed and efficiency of infrastructure provisioning.
+
+#### 12. Scalability and Elasticity:
+
+  `- KPI:` Ability to scale resources up or down based on demand.
+
+  `- Objective:` Assess the adaptability of the infrastructure to varying workloads.
+
+#### 13. Cost of Downtime:
+
+  `- KPI:` Financial impact of system downtime.
+
+  `- Objective:` Understand the business cost associated with disruptions.
+
+#### 14. Environment Consistency:
+
+  `- KPI:` Measure consistency across different environments (development, staging, production).
+
+  `- Objective:` Ensure that environments closely match each other to avoid issues in production.
+
+#### 15. Incident Response Time:
+
+  `- KPI:` Time taken to respond to and acknowledge incidents.
+
+  `- Objective: `Improve incident response efficiency and minimize downtime.
+
+#### 16. User Satisfaction:
+
+  `- KPI:` User feedback and satisfaction scores.
+
+  `- Objective:` Gauge the impact of changes on end-users and overall satisfaction.
+
 Selecting the right combination of DevOps KPIs depends on the specific goals and objectives of the organization. Continuous monitoring and analysis of these KPIs provide valuable insights for continuous improvement and optimization of DevOps processes.
-34.	What is headless service in kubernetes?
-In Kubernetes, a Headless Service is a type of service that does not have a cluster IP and does not load balance traffic. Instead, it exposes the set of pods it selects directly, allowing clients to connect to them individually. Headless Services are useful when you need to discover and connect to individual pods rather than a single service IP.
-Here's how you can create a Headless Service in Kubernetes:
+### 34.	What is headless service in kubernetes?
+In Kubernetes, a Headless Service is a type of service that does not have a cluster IP and does not load balance traffic. Instead, it exposes the set of pods it selects directly, allowing clients to connect to them individually. 
 
-1. Create a Headless Service YAML file:
+Headless Services are useful when you need to discover and connect to individual pods rather than a single service IP.
+#### Here's how you can create a Headless Service in Kubernetes:
+
+#### 1. Create a Headless Service YAML file:
 ```yaml
 apiVersion: v1
 kind: Service
@@ -15911,28 +16097,33 @@ spec:
       port: 80       # Specify the port your pods are listening on
 ```
 In this example, replace `my-headless-service` with the desired name, and adjust the selector to match the labels of the pods you want to include in the service.
-2. Apply the Service Configuration:
+#### 2. Apply the Service Configuration:
 Save the YAML configuration in a file (e.g., `headless-service.yaml`) and apply it using `kubectl`:
 ```bash
 kubectl apply -f headless-service.yaml
 ```
-3. Verify the Headless Service:
+#### 3. Verify the Headless Service:
 You can verify that the Headless Service has been created by running:
 ```bash
 kubectl get svc my-headless-service
 ```
 The `CLUSTER-IP` field should be set to `None`, indicating that it is a Headless Service.
-4. DNS Resolution:
+#### 4. DNS Resolution:
 When you create a Headless Service, Kubernetes automatically creates a DNS A or AAAA record for each pod selected by the service. The DNS name is based on the pod name and the namespace. For example, if your pod has the name `pod-1` in the `default` namespace, it can be reached at `pod-1.my-headless-service.default.svc.cluster.local`.
-5. Use Cases for Headless Services:
-- StatefulSets: Headless Services are commonly used in conjunction with StatefulSets where each pod has a stable and unique network identity.
-- Database Clusters: When you need to connect to individual database instances in a cluster.
-- Peer-to-Peer Communication: In scenarios where pods need to communicate directly with each other without going through a load balancer.
+#### 5. Use Cases for Headless Services:
+
+**- StatefulSets:** Headless Services are commonly used in conjunction with StatefulSets where each pod has a stable and unique network identity.
+
+**- Database Clusters:** When you need to connect to individual database instances in a cluster.
+
+**- Peer-to-Peer Communication:** In scenarios where pods need to communicate directly with each other without going through a load balancer.
+
 By using Headless Services, you gain more control over the network interactions between pods. This is particularly useful in scenarios where you need to address pods individually, such as in StatefulSet deployments or database clusters.
-35.	What is null resource in terraform?
+### 35.	What is null resource in terraform?
 In Terraform, the `null_resource` is a resource type that represents a resource with no direct provider in Terraform. It is often used as a workaround or for specific tasks that don't correspond to a typical infrastructure resource managed by a specific provider.
-Example Usage:
-Here's a basic example of using `null_resource` in a Terraform configuration:
+#### Example Usage:
+#### Here's a basic example of using `null_resource` in a Terraform configuration:
+
 ```hcl
 resource "null_resource" "example" {
   # Configuration for the null_resource goes here
@@ -15947,28 +16138,33 @@ resource "null_resource" "example" {
 }
 ```
 
-In this example:
+#### In this example:
 - The `null_resource` is given the name "example."
 - The `triggers` block is used to define conditions under which the resource should be recreated. In this case, the resource will be recreated whenever the `always_run` trigger changes, which is set to the current timestamp.
 - The `provisioner` block specifies a local-exec provisioner, which runs a local shell command. In this case, it's a simple `echo` command.
-Use Cases:
-1. Local Executions and Commands:
+#### Use Cases:
+#### 1. Local Executions and Commands:
    - Running local commands or scripts during provisioning.
-2. Data Processing or Validation:
+#### 2. Data Processing or Validation:
    - Performing data processing or validation tasks that don't map directly to infrastructure resources.
-3. Custom Workflows:
+#### 3. Custom Workflows:
    - Implementing custom workflows or tasks as part of the Terraform configuration.
-Important Considerations:
-- Stateful Resource:
+#### Important Considerations:
+#### - Stateful Resource:
   - While the `null_resource` itself doesn't represent a real infrastructure resource, it is stateful. Terraform will track its state, and changes to its configuration or triggers can result in it being recreated.
-- Idempotence:
+#### - Idempotence:
   - It's important to ensure that the commands or scripts executed by the `null_resource` are idempotent, meaning they produce the same result regardless of how many times they are executed.
-- Avoiding Anti-Patterns:
+#### - Avoiding Anti-Patterns:
   - While `null_resource` can be a flexible tool, it's essential to be cautious and avoid using it as a workaround for missing Terraform functionality. In many cases, there may be more suitable solutions or other providers that better align with the desired infrastructure management approach.
-The `null_resource` can be a powerful tool for specific use cases where direct interaction with the local environment or custom logic is required within the Terraform configuration. However, it should be used judiciously, and alternative Terraform resource types or providers should be considered where applicable.
-36.	How to build multistage docker images?
-Ans: A multi-stage Docker build is a feature that allows you to use multiple `FROM` statements in a single Dockerfile. Each `FROM` statement defines a separate build stage, and the final image is built using only the artifacts from the last stage. This helps to create smaller and more efficient Docker images by discarding unnecessary build dependencies and intermediate layers.
-Here's a basic example of a multi-stage Dockerfile:
+
+- The `null_resource` can be a powerful tool for specific use cases where direct interaction with the local environment or custom logic is required within the Terraform configuration. 
+
+- However, it should be used judiciously, and alternative Terraform resource types or providers should be considered where applicable.
+### 36.	How to build multistage docker images?
+Ans: A multi-stage Docker build is a feature that allows you to use multiple `FROM` statements in a single Dockerfile. Each `FROM` statement defines a separate build stage, and the final image is built using only the artifacts from the last stage. 
+
+This helps to create smaller and more efficient Docker images by discarding unnecessary build dependencies and intermediate layers.
+#### Here's a basic example of a multi-stage Dockerfile:
 ```Dockerfile
 First Stage: Build stage with dependencies
 FROM node:14 as builder
@@ -15991,90 +16187,94 @@ EXPOSE 80
 # Start Nginx
 CMD ["nginx", "-g", "daemon off;"]
 ```
-In this example:
+#### In this example:
 - The first stage uses the `node:14` base image and is responsible for installing dependencies, building the application, and generating the artifacts.
 - The second stage uses the `nginx:alpine` base image and copies only the necessary artifacts (in this case, the `/app/dist` directory) from the first stage.
 
-Explanation:
-1. First Stage (`builder`):
+#### Explanation:
+#### 1. First Stage (`builder`):
    - Uses the Node.js image for building the application.
    - Copies `package.json` and `package-lock.json` to install dependencies.
    - Copies the application code.
    - Builds the application using `npm run build`.
-2. Second Stage (`nginx:alpine`):
+#### 2. Second Stage (`nginx:alpine`):
    - Uses the Nginx image as the production image.
    - Copies only the built artifacts from the first stage (`--from=builder`).
    - Exposes port 80.
    - Starts the Nginx web server.
-Building the Multi-Stage Docker Image:
-To build the multi-stage Docker image, use the following command in the directory containing the Dockerfile:
+#### Building the Multi-Stage Docker Image:
+- To build the multi-stage Docker image, use the following command in the directory containing the Dockerfile:
 ```bash
 docker build -t your-image-name:tag .
 ```
-Replace `your-image-name:tag` with the desired name and tag for your Docker image.
-This multi-stage Dockerfile example is for a Node.js application with an Nginx web server, but the concept can be adapted for other languages and frameworks. The key idea is to separate the build environment from the production environment, resulting in a smaller and more secure final Docker image.
-37.	how to get ip address attached to the dns name
+- Replace `your-image-name:tag` with the desired name and tag for your Docker image.
+- This multi-stage Dockerfile example is for a Node.js application with an Nginx web server, but the concept can be adapted for other languages and frameworks. The key idea is to separate the build environment from the production environment, resulting in a smaller and more secure final Docker image.
+### 37.	how to get ip address attached to the dns name
 Ans: To retrieve the IP address associated with a DNS name, you can use various tools and commands depending on your operating system. Here are examples for Linux, macOS, and Windows:
-1. Linux / macOS (using `dig`):
-Open a terminal and use the `dig` command. Replace `example.com` with the desired DNS name.
+#### 1. Linux / macOS (using `dig`):
+- Open a terminal and use the `dig` command. Replace `example.com` with the desired DNS name.
 ```bash
 dig +short example.com
 ```
 
-This will output the IP address associated with the given DNS name.
-2. Linux / macOS (using `nslookup`):
-Another option is to use the `nslookup` command:
+- This will output the IP address associated with the given DNS name.
+#### 2. Linux / macOS (using `nslookup`):
+- Another option is to use the `nslookup` command:
 ```bash
 nslookup example.com
 ```
-This will provide information about the DNS resolution, including the IP address.
-3. Linux / macOS (using `host`):
-The `host` command is also commonly used for DNS resolution:
+- This will provide information about the DNS resolution, including the IP address.
+#### 3. Linux / macOS (using `host`):
+- The `host` command is also commonly used for DNS resolution:
 ```bash
 host example.com
 ```
-This will display information about the DNS name, including the IP address.
-4. Windows (using `nslookup`):
-Open the Command Prompt on Windows and use the `nslookup` command:
+- This will display information about the DNS name, including the IP address.
+#### 4. Windows (using `nslookup`):
+- Open the Command Prompt on Windows and use the `nslookup` command:
 ```bash
 nslookup example.com
 ```
-This will provide information about the DNS resolution, including the IP address.
-5. Windows (using `ping`):
-You can use the `ping` command with the `-4` option to force IPv4 resolution:
+- This will provide information about the DNS resolution, including the IP address.
+#### 5. Windows (using `ping`):
+- You can use the `ping` command with the `-4` option to force IPv4 resolution:
 ```bash
 ping -4 example.com
 ```
-This will show the IPv4 address of the given DNS name.
-Note:
-- Keep in mind that DNS records may have multiple IP addresses associated with them due to load balancing, failover, or other reasons. The commands above will typically provide one of the IP addresses associated with the DNS name.
+- This will show the IPv4 address of the given DNS name.
+
+`Note:`
+
+- Keep in mind that DNS records may have multiple IP addresses associated with them due to load balancing, failover, or other reasons. 
+
+- The commands above will typically provide one of the IP addresses associated with the DNS name.
 - If you are dealing with a specific DNS record type (e.g., A record for IPv4 or AAAA record for IPv6), you can specify the record type in your `dig`, `nslookup`, or `host` command.
-Choose the command that is most appropriate for your operating system and preferences. The `dig` command is widely used and available on various platforms, while `nslookup` and `host` are also common tools for DNS queries.
-38.	What is HA Proxy ?
+- Choose the command that is most appropriate for your operating system and preferences. The `dig` command is widely used and available on various platforms, while `nslookup` and `host` are also common tools for DNS queries.
+### 38.	What is HA Proxy ?
 Ans: HAProxy, or High Availability Proxy, is a widely-used open-source software load balancer and proxy server that can distribute network or application traffic across multiple servers. It is known for its performance, reliability, and flexibility, making it a popular choice for load balancing in various deployment scenarios.
-Key features and concepts associated with HAProxy include:
-1. Load Balancing:
+#### Key features and concepts associated with HAProxy include:
+#### 1. Load Balancing:
    - HAProxy balances incoming traffic across multiple backend servers to ensure even distribution of requests. This helps in optimizing resource utilization and improving application performance.
-2. Proxying:
+#### 2. Proxying:
    - HAProxy can act as a reverse proxy, forwarding client requests to backend servers and then returning the servers' responses to clients.
-3. TCP and HTTP Load Balancing:
+#### 3. TCP and HTTP Load Balancing:
    - HAProxy supports both TCP and HTTP load balancing. In HTTP mode, it can perform content-based routing and make decisions based on HTTP headers or content.
-4. SSL/TLS Termination:
+#### 4. SSL/TLS Termination:
    - HAProxy can handle SSL/TLS termination, offloading the decryption of SSL/TLS traffic from backend servers. This improves efficiency and allows for easier management of SSL certificates.
-5. Health Checks:
+#### 5. Health Checks:
    - HAProxy regularly checks the health of backend servers to ensure they are responsive. Unhealthy servers are temporarily removed from the pool, preventing them from receiving traffic until they recover.
-6. Session Persistence:
+#### 6. Session Persistence:
    - HAProxy supports session persistence, ensuring that requests from the same client are consistently routed to the same backend server. This is crucial for applications that require stateful communication.
-7. Dynamic Configuration:
+#### 7. Dynamic Configuration:
    - HAProxy allows dynamic reconfiguration through runtime API and configuration reloading. This enables administrators to make changes without interrupting ongoing traffic.
-8. ACLs (Access Control Lists):
+#### 8. ACLs (Access Control Lists):
    - HAProxy uses ACLs to define conditions for routing decisions. This allows for sophisticated routing logic based on criteria such as source IP, headers, or URL paths.
-9. Logging and Monitoring:
+#### 9. Logging and Monitoring:
    - HAProxy provides logging capabilities for tracking requests and responses. Additionally, it integrates with monitoring tools, allowing administrators to gather performance metrics and diagnose issues.
-10. Community and Enterprise Editions:
+#### 10. Community and Enterprise Editions:
     - HAProxy is available in two editions: the open-source community edition and the enterprise edition with additional features and support. The community edition is widely used, while the enterprise edition provides additional capabilities for large-scale deployments.
-Example HAProxy Configuration:
-Here's a simplified example of an HAProxy configuration:
+#### Example HAProxy Configuration:
+#### Here's a simplified example of an HAProxy configuration:
 ```plaintext
 global
   log /dev/log local0
@@ -16106,28 +16306,37 @@ backend my_backend
   server server1 192.168.1.101:80 check
   server server2 192.168.1.102:80 check
 ```
-This configuration sets up a basic HTTP load balancer with two backend servers. Incoming requests are distributed in a round-robin fashion between the two servers.
+- This configuration sets up a basic HTTP load balancer with two backend servers. Incoming requests are distributed in a round-robin fashion between the two servers.
 Remember to adjust the configuration based on your specific requirements and deployment environment.
-39.	What is swap space?
+### 39.	What is swap space?
 Ans: Swap space in computing refers to a designated area on a storage device (usually a hard disk or SSD) that is used as virtual memory by the operating system when physical RAM (Random Access Memory) is exhausted. When the system needs more memory than the physical RAM can provide, it swaps data between RAM and the swap space.
-Key points about swap space:
-1. Purpose:
-   - Virtual Memory Extension: Swap space extends the effective size of physical memory by using a portion of the storage device as a temporary storage area for inactive or less frequently used memory pages.
-2. Usage:
-   - Page Swapping: The operating system swaps out pages of memory from RAM to the swap space when it needs to free up space in RAM for active processes or when the system is under memory pressure.
-3. When is Swap Used:
-   - Memory Overflow: Swap space is typically used when the physical RAM is exhausted, and the operating system needs to move less frequently accessed data to the swap space to make room for more critical or active data in RAM.
-4. Performance Implications:
-   - Slower Than RAM: Accessing data from swap space is slower than accessing data from RAM because it involves reading from or writing to the storage device.
-5. Configuration:
-   - Size and Location: The size and location of swap space can be configured during the operating system installation or adjusted later. Common configurations include a dedicated swap partition or a swap file within the filesystem.
-6. Monitoring:
-   - System Monitoring Tools: Administrators can use system monitoring tools to check the usage of swap space. High swap usage may indicate that the system is under memory pressure.
-7. Swapiness:
-   - Linux Kernel Parameter: On Linux systems, the `swappiness` parameter determines the tendency of the kernel to move processes out of physical RAM and onto the swap space. It ranges from 0 to 100, with lower values indicating a preference to keep more data in RAM.
-8. Considerations:
-   - SSD vs. HDD: Swap space on an SSD generally provides better performance compared to swap space on a traditional HDD due to faster read and write speeds.
-Example (Linux):
+#### Key points about swap space:
+#### 1. Purpose:
+
+   **- Virtual Memory Extension:** Swap space extends the effective size of physical memory by using a portion of the storage device as a temporary storage area for inactive or less frequently used memory pages.
+
+#### 2. Usage:
+
+   **- Page Swapping:** The operating system swaps out pages of memory from RAM to the swap space when it needs to free up space in RAM for active processes or when the system is under memory pressure.
+#### 3. When is Swap Used:
+
+   **- Memory Overflow:** Swap space is typically used when the physical RAM is exhausted, and the operating system needs to move less frequently accessed data to the swap space to make room for more critical or active data in RAM.
+#### 4. Performance Implications:
+
+   **- Slower Than RAM:** Accessing data from swap space is slower than accessing data from RAM because it involves reading from or writing to the storage device.
+#### 5. Configuration:
+
+   **- Size and Location:** The size and location of swap space can be configured during the operating system installation or adjusted later. Common configurations include a dedicated swap partition or a swap file within the filesystem.
+#### 6. Monitoring:
+
+   **- System Monitoring Tools:** Administrators can use system monitoring tools to check the usage of swap space. High swap usage may indicate that the system is under memory pressure.
+#### 7. Swapiness:
+
+   **- Linux Kernel Parameter:** On Linux systems, the `swappiness` parameter determines the tendency of the kernel to move processes out of physical RAM and onto the swap space. It ranges from 0 to 100, with lower values indicating a preference to keep more data in RAM.
+#### 8. Considerations:
+
+   **- SSD vs. HDD:** Swap space on an SSD generally provides better performance compared to swap space on a traditional HDD due to faster read and write speeds.
+#### Example (Linux):
 - To check the current swap space usage on a Linux system, you can use the `free` or `swapon` command:
     ```bash
     free -h
@@ -16136,8 +16345,9 @@ Example (Linux):
     swapon -s
     ```
 - To configure or modify swap space on Linux, you can use tools like `swapon`, `swapoff`, and edit the `/etc/fstab` file.
-It's important to note that while swap space can prevent out-of-memory situations, excessive swapping (swapping in and out frequently) can lead to performance degradation. Proper sizing and monitoring of swap space are essential for maintaining a healthy system. In some cases, adding more physical RAM may be a better solution than relying heavily on swap space.
-40.	How to clone the git repository with specific branch?
+
+- It's important to note that while swap space can prevent out-of-memory situations, excessive swapping (swapping in and out frequently) can lead to performance degradation. Proper sizing and monitoring of swap space are essential for maintaining a healthy system. In some cases, adding more physical RAM may be a better solution than relying heavily on swap space.
+### 40.	How to clone the git repository with specific branch?
 Ans: To clone a Git repository with a specific branch, you can use the following command:
 ```bash
 git clone -b branch_name repository_url
@@ -16156,8 +16366,10 @@ git branch -m main
 In this example, the repository is cloned with the `develop` branch, and then the local branch is renamed to `main`. This way, you have the specific branch you want locally, and the default branch remains `main`. Adjust the branch names accordingly based on your repository structure.
 Remember to replace the repository URL and branch names with the actual values for your Git repository.
 
+---
 
-Incresol L1 Q&A (05-02-2024)
+## Incresol L1 Q&A (05-02-2024)
+
 1.	What is the difference between git pull and git clone?
 Ans: `git pull` and `git clone` are both Git commands used for different purposes in version control.
 1. git pull:
