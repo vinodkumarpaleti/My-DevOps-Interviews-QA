@@ -19214,73 +19214,73 @@ Each microservice is designed to perform a specific business function and can be
 Microservices architecture is well-suited for complex and large-scale applications, and it aligns with principles of agility, scalability, and resilience. 
 
 However, it also introduces challenges, such as managing inter-service communication, maintaining data consistency, and ensuring proper monitoring and governance. Organizations considering microservices should carefully weigh the benefits and challenges based on their specific requirements and context.
-10.	What is IAM?
+### 10.	What is IAM?
 Ans: IAM stands for Identity and Access Management. In the context of cloud computing, IAM refers to a service that enables the management of access to resources securely. AWS (Amazon Web Services) has its IAM service, and other cloud providers offer similar services with their own implementations.
 Here are the key aspects of IAM in AWS:
-1. Identity Management:
+#### 1. Identity Management:
    - IAM allows you to create and manage identities, which can represent users, groups, or roles. An identity has associated security credentials (such as access keys or passwords) and permissions.
-2. Users:
+#### 2. Users:
    - Users are individual identities that interact with AWS resources. Each user has a unique set of security credentials.
-3. Groups:
+#### 3. Groups:
    - Groups are collections of users. Instead of attaching policies directly to users, you can assign policies to groups, making it easier to manage permissions for multiple users.
-4. Roles:
+### 4. Roles:
    - Roles are AWS identities with policies that determine what permissions can be assumed by entities (such as AWS services, users, or applications). Roles are often used to grant permissions to AWS services and to enable cross-account access.
-5. Policies:
+#### 5. Policies:
    - Policies are documents that define permissions. They specify what actions are allowed or denied on what resources. Policies can be attached to users, groups, or roles.
-6. Permissions and Access Control:
+#### 6. Permissions and Access Control:
    - IAM allows you to define fine-grained permissions to control access to AWS resources. Permissions are based on policies, and you can grant or restrict access to specific actions and resources.
-7. Multi-Factor Authentication (MFA):
+#### 7. Multi-Factor Authentication (MFA):
    - IAM supports multi-factor authentication for an extra layer of security. Users can be required to provide a second form of authentication (in addition to their password) when signing in.
-8. Temporary Security Credentials:
+#### 8. Temporary Security Credentials:
    - IAM supports the generation of temporary security credentials, which can be used for temporary access to AWS resources. This is often used in scenarios such as temporary access for applications or for cross-account access using roles.
-9. Access Key Management:
+#### 9. Access Key Management:
    - IAM allows the management of access keys, which are used for programmatic access to AWS services. Access keys consist of an access key ID and a secret access key.
-10. Audit and Logging:
+#### 10. Audit and Logging:
     - IAM provides capabilities for auditing and logging. You can track actions performed by users and identify changes to IAM policies.
 IAM is a fundamental component of AWS security, providing a way to control and manage access to AWS resources. Properly configuring IAM helps organizations enforce the principle of least privilege, ensuring that users and applications have only the necessary permissions to perform their tasks and reducing the risk of unauthorized access or accidental misuse of resources.
-11.	What are the things to be consider before create the server?
+#### 11.	What are the things to be consider before create the server?
 Ans: Before creating a server, whether it's a virtual machine, container, or any other compute resource, it's essential to carefully plan and consider various aspects to ensure a secure, efficient, and well-managed deployment. Here are some key things to consider:
-1. Purpose and Requirements:
+#### 1. Purpose and Requirements:
    - Clearly define the purpose of the server and its intended role in your infrastructure.
    - Identify the specific software, applications, and services that need to be installed and configured on the server.
    - Determine the resource requirements (CPU, memory, storage) based on the expected workload.
-2. Choice of Infrastructure:
+#### 2. Choice of Infrastructure:
    - Decide whether the server will be hosted on-premises, in a public cloud (e.g., AWS, Azure, GCP), or in a private cloud environment.
    - Consider the scalability and flexibility of the chosen infrastructure.
-3. Operating System:
+#### 3. Operating System:
    - Choose an appropriate operating system based on compatibility with your applications and services.
    - Consider security features, support, and familiarity with the chosen operating system.
-4. Security Considerations:
+#### 4. Security Considerations:
    - Plan for security measures, including firewalls, network security groups, and intrusion detection/prevention systems.
    - Implement strong authentication mechanisms, such as secure passwords, SSH keys, or multi-factor authentication (MFA).
    - Regularly update and patch the operating system and installed software to address security vulnerabilities.
-5. Network Configuration:
+#### 5. Network Configuration:
    - Plan the network architecture and define IP addressing schemes.
    - Consider whether the server needs a public IP address, private IP address, or both.
    - Configure DNS settings for proper name resolution.
-6. Backup and Disaster Recovery:
+#### 6. Backup and Disaster Recovery:
    - Establish a backup strategy to protect data and configurations.
    - Consider disaster recovery options, including the ability to restore services in the event of a failure.
-7. Monitoring and Logging:
+#### 7. Monitoring and Logging:
    - Implement monitoring tools to track server performance, resource utilization, and potential issues.
    - Set up logging mechanisms to capture relevant events and errors for troubleshooting and auditing purposes.
-8. Compliance and Regulations:
+#### 8. Compliance and Regulations:
    - Ensure compliance with industry regulations and data protection laws (e.g., GDPR, HIPAA).
    - Implement necessary security controls to meet regulatory requirements.
-9. Resource Scaling:
+#### 9. Resource Scaling:
    - Plan for scalability based on expected growth and workload fluctuations.
    - Consider auto-scaling options for dynamic resource adjustments.
-10. Documentation:
+#### 10. Documentation:
     - Create comprehensive documentation for server configurations, network settings, security measures, and operational procedures.
     - Document dependencies and integration points with other systems.
-11. Automation:
+#### 11. Automation:
     - Consider automation tools (e.g., configuration management, infrastructure as code) to streamline server provisioning and maintenance.
     - Implement infrastructure automation to ensure consistency and reduce manual errors.
-12. Budget and Cost Management:
+#### 12. Budget and Cost Management:
     - Estimate the costs associated with server provisioning, including infrastructure, storage, and data transfer.
     - Monitor and manage costs to avoid unexpected expenses.
 Taking the time to address these considerations before creating a server can contribute to a more stable, secure, and efficient deployment. It helps in minimizing potential issues and ensures that the server meets the requirements of your applications and infrastructure.
-12.	Diff between cut and awk command in linux?
+### 12.	Diff between cut and awk command in linux?
 Ans: The `cut` and `awk` commands are both used for text processing in Linux, but they serve slightly different purposes and have different capabilities.
 `cut` Command:
 The `cut` command is primarily used for cutting out sections from each line of a file or from a stream of data.
@@ -19288,51 +19288,58 @@ Syntax:
 ```bash
 cut OPTION... [FILE]...
 ```
-Example:
+`Example:`
+
 ```bash
 echo "John,Doe,30" | cut -d ',' -f 1,2
 ```
-Key Points:
+`Key Points:`
 - Field Selection: `cut` is designed for selecting specific fields (columns) from lines based on a delimiter. You specify the delimiter with the `-d` option and the fields with the `-f` option.
 - Delimiter: By default, `cut` uses the tab character as the delimiter, but you can specify a different delimiter using the `-d` option.
 - Fixed-Width Fields: `cut` works well when fields are of fixed width, and you want to extract a portion of each line based on character positions.
 `awk` Command:
 The `awk` command is a powerful programming language for pattern scanning and text processing. It allows you to write more complex scripts for manipulating and analyzing text.
-Syntax:
+#### Syntax:
 ```bash
 awk 'pattern { action }' [FILE]...
 ```
-Example:
+`Example:`
 ```bash
 echo "John Doe 30" | awk '{print $1, $2}'
 ```
-Key Points:
-- Field Separation: `awk` automatically breaks each line into fields based on whitespace (by default) and allows you to access and manipulate these fields.
-- Pattern Matching: `awk` allows you to define patterns and associated actions. The action block is executed for lines that match the specified pattern.
-- Field Access: Fields in `awk` are referred to using `$1`, `$2`, etc. (for the first, second fields, and so on).
-- Conditional Statements: `awk` supports conditional statements, loops, and more, making it a more versatile tool for text processing.
-Comparison:
+`Key Points:`
 
-- Purpose:
+**- Field Separation:** `awk` automatically breaks each line into fields based on whitespace (by default) and allows you to access and manipulate these fields.
+
+**- Pattern Matching:** `awk` allows you to define patterns and associated actions. The action block is executed for lines that match the specified pattern.
+
+**- Field Access:** Fields in `awk` are referred to using `$1`, `$2`, etc. (for the first, second fields, and so on).
+
+**- Conditional Statements:** `awk` supports conditional statements, loops, and more, making it a more versatile tool for text processing.
+#### Comparison:
+
+#### - Purpose:
   - `cut`: Primarily used for extracting columns from lines based on a delimiter.
   - `awk`: A more general-purpose programming language for text processing, allowing complex pattern matching and manipulation.
-- Flexibility:
+#### - Flexibility:
   - `cut`: Limited to simple column extraction based on fixed positions or delimiters.
 
   - `awk`: Highly flexible, supports complex logic, conditions, and field manipulation.
-- Delimiters:
+#### - Delimiters:
   - `cut`: Typically used for fixed-width fields or fields separated by a specific delimiter.
   - `awk`: Automatically splits fields based on whitespace (by default), but can be customized for different delimiters.
-- Use Cases:
+##### - Use Cases:
   - Use `cut` when simple column extraction is sufficient.
   - Use `awk` when more advanced text processing, pattern matching, and field manipulation are required.
 In summary, while both `cut` and `awk` are useful for text processing, `cut` is more specialized for simple field extraction, while `awk` is a more powerful and versatile tool for general text manipulation and analysis. The choice between them depends on the specific requirements of your text-processing task.
 
+---
 
-Capgemini L1 Q&A (10-01-2024)
-1.	What are the stages in Jenkins?
+## Capgemini L1 Q&A (10-01-2024)
+
+### 1.	What are the stages in Jenkins?
 Ans: In Jenkins, a continuous integration and continuous delivery (CI/CD) tool, the stages represent the distinct phases or steps that a pipeline goes through during its execution. A Jenkins pipeline is typically defined using a Jenkinsfile, which is a text file that specifies the stages, steps, and configuration for building, testing, and deploying software. Here are the common stages in a Jenkins pipeline:
-1. Checkout:
+#### 1. Checkout:
    - In this stage, the source code from the version control system (e.g., Git, Subversion) is checked out to the Jenkins workspace. This is usually the first stage in a pipeline.
 
    ```groovy
@@ -19342,7 +19349,7 @@ Ans: In Jenkins, a continuous integration and continuous delivery (CI/CD) tool, 
        }
    }
    ```
-2. Build:
+#### 2. Build:
    - The build stage involves compiling the source code, running tests, and generating artifacts. This stage ensures that the application is built successfully.
    ```groovy
    stage('Build') {
@@ -19351,7 +19358,7 @@ Ans: In Jenkins, a continuous integration and continuous delivery (CI/CD) tool, 
        }
    }
    ```
-3. Test:
+#### 3. Test:
    - The test stage is dedicated to running automated tests to ensure the correctness of the code. This includes unit tests, integration tests, and any other relevant test suites.
    ```groovy
    stage('Test') {
@@ -19360,7 +19367,7 @@ Ans: In Jenkins, a continuous integration and continuous delivery (CI/CD) tool, 
        }
    }
    ```
-4. Code Quality Analysis:
+#### 4. Code Quality Analysis:
    - This optional stage involves analyzing the code for quality metrics, such as code coverage, static code analysis, and other code quality checks.
 
    ```groovy
@@ -19370,7 +19377,7 @@ Ans: In Jenkins, a continuous integration and continuous delivery (CI/CD) tool, 
        }
    }
    ```
-5. Artifact Archiving:
+#### 5. Artifact Archiving:
    - In this stage, the build artifacts (e.g., compiled binaries, JAR files) are archived and stored for later use in deployment or distribution.
    ```groovy
    stage('Artifact Archiving') {
@@ -19380,7 +19387,7 @@ Ans: In Jenkins, a continuous integration and continuous delivery (CI/CD) tool, 
        }
    }
    ```
-6. Deployment:
+#### 6. Deployment:
    - The deployment stage involves deploying the application to a staging or production environment. This could include pushing artifacts to a repository, deploying to a server, or deploying to a cloud platform.
    ```groovy
    stage('Deployment') {
@@ -19389,7 +19396,7 @@ Ans: In Jenkins, a continuous integration and continuous delivery (CI/CD) tool, 
        }
    }
    ```
-7. Post-Deployment Steps:
+#### 7. Post-Deployment Steps:
    - After deployment, additional steps may be executed, such as running post-deployment tests, sending notifications, or triggering downstream jobs.
 
    ```groovy
@@ -19399,7 +19406,7 @@ Ans: In Jenkins, a continuous integration and continuous delivery (CI/CD) tool, 
        }
    }
    ```
-8. Notification:
+#### 8. Notification:
    - In this final stage, notifications are sent to relevant stakeholders, such as team members or administrators, to inform them about the status of the pipeline.
    ```groovy
    stage('Notification') {
