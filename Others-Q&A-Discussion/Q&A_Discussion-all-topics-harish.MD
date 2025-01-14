@@ -849,123 +849,134 @@ Ans: A gateway that you attach to your VPC to enable communication between resou
 ### 3.	Explain about the stages in git?
 Ans: Work Space, Index and Local repository.
 ### 4.	Difference between SVN and Git? Git has a Distributed Model.
-🡺 In git every user has their own copy of code on their local like their own branch.
-🡺 In git we do not required any Network to perform git operation.
+- In git every user has their own copy of code on their local like their own branch.
+- In git we do not required any Network to perform git operation.
 SVN has a Centralized Model.
-🡺 In SVN there is central repository has working copy that also make changes and committed in central repository.
-🡺 In SVN we required Network for runs the SVN operation.
-5.	What is Git Rebase and git merge?
+- In SVN there is central repository has working copy that also make changes and committed in central repository.
+- In SVN we required Network for runs the SVN operation.
+### 5.	What is Git Rebase and git merge?
 Ans: For example If you commit 5 commits in feature branch it consist all the information about each commit but by using git merge all these 5 commits will combine in a single commit and merges into the master branch. Here we have only one commit in the master branch but in feature branch we are having 5 commits.
+
 On the other hand by using the git rebase we can find all the five commits at the top of the Master Brach
-6.	What is git pull and git clone?
+### 6.	What is git pull and git clone?
 Ans: By using git clone command we can clone the entire repository in our local repository
 By using git pull we can pull or get the updated files or changes from the remote repository or GitHub.
-7.	What is git fetch?
+### 7.	What is git fetch?
 Ans: It pulls the updated data or files from the remote repository but it doesn’t move the data to the local repository, now if you type the git merge command all the changes will store in the local repository.
-8.	What is git stash?
+### 8.	What is git stash?
 Ans: Git stash is used to move the incomplete code to the stash. It is like a temporary storage area. We can move the not committed code to stash.
-9.	How to create and delete the branch in git? 
+### 9.	How to create and delete the branch in git? 
 Ans:
-🡪$ git branch sample_branch //For creating the branch
-🡪git branch –d branch-name //For deleting the branch
+```bash
+git branch sample_branch //For creating the branch
+git branch –d branch-name //For deleting the branch
+``` 
 
+---
 
+## KUBERNATES
 
-
-
-
+### 1.	What is kubernates?
  
+### Kubernetes 
+Ans: kubernates is container management system. We can scale our application within secons if the load gets high. We can’t scale the application manually. Each and every POD has its own deployment file (yaml file). We define the auto scaling in yaml file like horizontal scalling or vertical scalling.
 
-
-1.	What is kubernates?
- 
-Kubernetes 
-Ans: kubernates is container management system. We can scale our application within secons if the load gets high. We can’t scale the application manually. Each and every POD has its own deployment file (yaml file). We define the auto scaling in yaml file like horizontal scalling or vertical scalling
-*	In horizontal auto scaling we define as if the percentage of CPU and memory gets increased or decreased our defined limit it launches the no of replicas that we define in the yaml file
+* In horizontal auto scaling we define as if the percentage of CPU and memory gets increased or decreased our defined limit it launches the no of replicas that we define in the yaml file
 Ex: If we define need to launch the two replicas after it crossed the CPU percentage as 50% it launches two replicas.
-2.	What is cooling periods or scaling up and scaling down period in kubernetes?
+### 2.	What is cooling periods or scaling up and scaling down period in kubernetes?
 Ans: For Example as per our condition first limit of 50% of CPU utilization crossed it needs to launch two replicas as we defined but one POD will be scale up, again it crossed 50% cpu usage it waits for some time(ex: 180sec) while scaling up. So still same cpu usage is there it launches one more POD. It takes some time intervals in between POD to POD scaling. This is called scaling up and scaling down period. And also known as cooling periods
+
 If CPU usage <50% i.e some 30% so it waits for some time if still CPU usage is less than our defined number it remove the POD automatically. It is called scaling down period.
 If we define desired PODs as some 5. It reaches up to 5 PODS while scaling up, while scaling down it reaches 1 POD
-3.	What is etcd in kubernetes?
+### 3.	What is etcd in kubernetes?
 Ans: “etcd” is distributed key value store. It stores the key-values in kubernetes. All API calls will stored in “etcd”, like requests, cluster state and secrets. And also all configuration data will store in etcd.
-4.	What is API server in kubernetes?
+### 4.	What is API server in kubernetes?
 Ans: The API server is an entry point to the kubernetes. The API Server is used to the user wants to interact to the kubernetes, for example he wants to list the PODs that are available in namespace, so first request goes to API server. All the In-Request and out-request will go through only API Server. And all the administration task will perform by the API Server
-*	The API Server checks the request weather it is valid or not. And process the request. 
-*	Whenever the request reached to API server, the request information will stored in the “etcd”
-5.	What are the components that are run in Control Plane or Master Node?
+* The API Server checks the request weather it is valid or not. And process the request. 
+* Whenever the request reached to API server, the request information will stored in the “etcd”
+### 5.	What are the components that are run in Control Plane or Master Node?
 Ans: API Server, Scheduler, Controller Manger, etcd.
-6.	What is controller manager in kubernetes?
+### 6.	What is controller manager in kubernetes?
 Ans: for example in our deployment file we define the replicas as start with 5, so here its needs to launch with 5 replicas while deployment. Here the control manger checks every time how many desired PODs and current running PODs. For example desired is 5 that we defined already but if the current PODs are running 4 so now the controller manager creates the remaining one POD by following some steps. This is the job of the controller manager.
-*	Always it checks the desired PODs and also watch the current running PODs. The desired PODs number and current running PODs number always be equal. If it is not equal Controller manager will do that duty.
+* Always it checks the desired PODs and also watch the current running PODs. The desired PODs number and current running PODs number always be equal. If it is not equal Controller manager will do that duty.
 Process of Equal the PODs by Controller Manager:
 In Controller Manager it has some controller’s i.e Deployment, Replica Set, and Replication Controller.
 Here the request goes to the controller and these controllers will create the replicas that we require.
-7.	What is Scheduler in kubernetes?
+### 7.	What is Scheduler in kubernetes?
 Ans: Generally our PODs needs to be run on worker nodes (slave nodes). The scheduler will schedule the PODs on the worker nodes.
-8.	Difference between scheduler and controller manager?
-9.	Difference between API Server and etcd?
-10.	How to attach the Worker node to the Master node ?
+### 8.	Difference between scheduler and controller manager?
+### 9.	Difference between API Server and etcd?
+### 10.	How to attach the Worker node to the Master node ?
 Ans: By using “kubeadm join” command we will attach the worker node to master node
-*	As soon as we attach the worker node to master node, kubelet and kube-proxy services will automatically create by using “Daemonset service”.
-11.	What is the use of Daemonset in kubernetes?
+* As soon as we attach the worker node to master node, kubelet and kube-proxy services will automatically create by using “Daemonset service”.
+### 11.	What is the use of Daemonset in kubernetes?
 Ans: Suppose we have two nodes, I want to install the service in this two nodes for monitoring purpose so here that monitoring service will monitor all the details about the containers that are present in the two nodes like how much CPU usage and memory usage.
+
 So for that purpose we need to install the monitoring service in the worker nodes every time.
 So to avoid that we install monitoring service in Control Plan that is called metric server. This metric server is created by using Daemonset component. As soon as we attach the worker node to the master node, daemonset creates the metric server POD on the worker nodes.
-* kubelet and kube-proxy is also created by daemonset component that are created in the Control Plane.
-12.	What are the components that are run on the worker nodes? 
+- kubelet and kube-proxy is also created by daemonset component that are created in the Control Plane.
+### 12.	What are the components that are run on the worker nodes? 
 Ans: kubelet and kube-proxy.
-13.	What is the use of kubelet in kubernetes?
+### 13.	What is the use of kubelet in kubernetes?
 Ans: kubelet is a component or an agent. By using the kubelet we can communicate control plane to worker nodes. When the request starts from Control plane through the API Server it goes to the kubelet on the worker node. And if the request needs to go from the worker node to master node or control plane it should come from kubelet.
-●	Kubelet always checks the health of the PODs and send the report to the master node
-●	Communication between master nodes to worker node is responsible by the kubelet.
+- Kubelet always checks the health of the PODs and send the report to the master node
+- Communication between master nodes to worker node is responsible by the kubelet.
 
-14.	What is kube-proxy in kubernetes?
+### 14.	What is kube-proxy in kubernetes?
 Ans: kube-proxy is just like the internal load balancer. When the request comes to the container, the request first goes to the kube-proxy. In kube-proxy we have a service called name, so the PODs which are assigned to that particular service the request goes to that PODs.
-●	We assign the PODs to the service. Whenever we access the service it redirects traffic to the PODs.
-15.	What is kubernetes master and slave node?
+- We assign the PODs to the service. Whenever we access the service it redirects traffic to the PODs.
+### 15.	What is kubernetes master and slave node?
 Ans: Master Node: Control Plane is called Master Node. In Master node, these services like API Server, Scheduler, Controller Manager and etcd will run.
 Slave Nodes: Worker nodes are called slave nodes
 All the PODs in kubernetes are run in the slave node that we define already.
-16.	What is namespace?
+### 16.	What is namespace?
 Ans: Namespace is a grouping mechanism inside the kubernetes container. 
 Kubernetes is a cluster, we divide the cluster as an individual PODs. All these PODs are called namespace.
-●	We create the namespaces in the cluster and we launch the containers in the particular namespaces.
-●	Ex: we create the namespaces as Dev, Testing,Pre-Production,Production, Performance Testing
-●		In kubernetes cluster we have a namespace, in that name space we have a POD, in that pod we have the container, and in that container we have our application.
-17.	What is kubectl in kubernetes?
+- We create the namespaces in the cluster and we launch the containers in the particular namespaces.
+- `Ex:` we create the namespaces as Dev, Testing,Pre-Production,Production, Performance Testing
+- In kubernetes cluster we have a namespace, in that name space we have a POD, in that pod we have the container, and in that container we have our application.
+### 17.	What is kubectl in kubernetes?
 Ans: kubectl is a command line interface (CLI). If we want to access the cluster resources we need kubectl. It is a command line tool this we can install by using the command.
 Suppose if you want to list the PODs in namespace, through the kubectl only we can get the PODs.
-Ex: kubectl get namespaces (or) kubectl get pods namespace-name 
-18.	Why we use labels?
+```bash
+kubectl get namespaces (or) kubectl get pods namespace-name 
+```
+### 18.	Why we use labels?
 Ans: We assign the services to the PODs only by using labels For example in POD we define the label name as, vinod:Prod
 So in service we give the same label  as vinod:Prod. So based on the label identification the service will redirect to the particular POD, i.e the defined label is available POD.
-19.	What is node selector in kubernetes?
+### 19.	What is node selector in kubernetes?
 Ans: In service we define that the particular POD is needs to run in which node. That is known as “node selector”
+
 In node selector we give the label name, for example we have a node by using the command we can give the label name
-*	“kubectl label nodes node-IPAddress (or) host-name label-name(i.e vi: Prod)”
-*	By using this command the labels which are assigned to the node all the respective PODs will run on the particular node.
-*	Then we give the node name in node selector under services. Then these PODs will run on the particular node.
-*	Simply we can say while we add the slave node to the master node by default some PODs will run. But if you want to run selected PODs, in that POD we simple give the labels, i.e The labels which already defined to the PODs (Ex: vi:pro) by using this we create the node selector, that node name we will define in the service, then particular PODs will run on the nodes
-20.	What is deployment?
+
+* “kubectl label nodes node-IPAddress (or) host-name label-name(i.e vi: Prod)”
+* By using this command the labels which are assigned to the node all the respective PODs will run on the particular node.
+* Then we give the node name in node selector under services. Then these PODs will run on the particular node.
+* Simply we can say while we add the slave node to the master node by default some PODs will run. But if you want to run selected PODs, in that POD we simple give the labels, i.e The labels which already defined to the PODs (Ex: vi:pro) by using this we create the node selector, that node name we will define in the service, then particular PODs will run on the nodes
+### 20.	What is deployment?
 Ans: In Kubernetes, Deployment is used to provide declarative updates to Pods as well as ReplicaSets. Also, a Deployment Controller is the higher version of a Replication Controller, as it Removes, Adds, Updates Pods in ReplicaSets. We need this to work faster and dynamically when we have ReplicaSets with tens of pods, and we are in need to modify them. By using Kubernetes Deployment, this can be achieved with very little effort if used in a correct way.
 
 Kubernetes Deployment works based on the specification YAML file, and you describe a required state in that. Then Deployment Controller changes the current state of Pods or ReplicaSets to the required state. We can define Deployments to create new ReplicaSets or to delete existing ReplicaSets or many other operations.
-21.	What is replica set?
+### 21.	What is replica set?
 Ans: As the name suggests, replica set, which basically means an exact copy of the pods. It decides how many replicas of the pods will be created at the same time. It is defined with the fields, which basically include the selector. This selector is used to identify the pods it can acquire; we also specify the number of replicas, representing the number of pods it will maintain. Once the configuration is done properly, Replica sets to identify and start deleting and creating the pods as per the criteria to reach the desired number it has to maintain.
 22.	What is the difference between replica set and replication controller? 
 Ans:
+
+![Replica Set vs Replication Controller](./Images/Replicaset.jpg "Difference between RS and RC")
 Why do we need it?
 Let’s suppose application get crashed and pod fails, users are no longer to access an application.
 To control this risk, we need more than one instance or POD. Or even if there is one pod and if it fails we need some system, which creates another pod at the same time.
-Here the Replication Controller comes in the picture:
+### Here the Replication Controller comes in the picture:
 The replication controller helps us to run multiple instances of a single pod in the Kubernetes cluster thus providing High Availability.
 Even though if a single pod is running, the Replication Controller helps to bring up new POD if the first POD fails.
 Thus Replication Controller ensures that specified POD will always be running.
 Another reason to create multiple PODS to share the loads. It helps to balance the loads and availability when demands increases.
 It is important to know that there are two similar terms.
-I)	Replication Controller
-II)	Replica Set Difference:
+
+**I)	Replication Controller**
+
+**II)	Replica Set Difference:**
+
 Both have the same purpose but they are different.
 “Replication Controller” is older technologies that are being replaced by “Replica Set” Replica Set is the newer term. However, there is a minor difference between both of them. “Selector”
  
@@ -976,83 +987,91 @@ Selector is not mandatory in case of “Replication Controller” but it is requ
 Incase of Replica Set a user input is required for these properties and it has to be written in the form of “matchLabels”
 The matchLabels selector simply matches the “label” under it to the labels on PODS.
 
+![Kubernetes Architecture](./Images/rs-rc.jpg "This is kubernetes Architecture")
 
-23.	Why we use Deployment, why we are not using replica sets?
+### 23.	Why we use Deployment, why we are not using replica sets?
 Ans: Replica set is not suitable for rolling update strategy. That’s why we are using deployment.
 
-24.	What is kubernetes services?
+### 24.	What is kubernetes services?
 Ans: Cluster Ip, Node Port, load balancer
-25.	What is cluster ip in kubernetes?
+### 25.	What is cluster ip in kubernetes?
 Ans: cluster ip is the default service in kubernetes. This services it gets created with IP address. This cluster IP address is used to access the different PODs which are present in same cluster.
-*	But we can’t use this cluster IP externally. It means we can’t do the public traffic by using this cluster IP.
-26.	What is node port in kubernetes? 
+* But we can’t use this cluster IP externally. It means we can’t do the public traffic by using this cluster IP.
+### 26.	What is node port in kubernetes? 
 Ans: In kubernetes node port range is 30000-32767. While we create the service one node port will create. By using the node port we can get the public access. It means we can access the PODs from the outside. Where as in cluster Ip we can access internally.
-*	Each and every application has a service that service is known as cluster IP or Node Port service or load balancer service
-*	The file which we define as a deployment file has a service. An IP gets created to that service i.e cluster IP. So the cluster will not use from externally so that time we need to assign the port .If we assign the port we can access the particular service from outside
+* Each and every application has a service that service is known as cluster IP or Node Port service or load balancer service
+* The file which we define as a deployment file has a service. An IP gets created to that service i.e cluster IP. So the cluster will not use from externally so that time we need to assign the port .If we assign the port we can access the particular service from outside
 *So that here all the PODs are running in the worker nodes i.e slave nodes. The Node Port will expose the particular service in all nodes.
 So now we can access the PODs by following the below steps,
-*	Windows IP address:service-port-number Ex: 123.23.345:31236 //
+* Windows IP address:service-port-number Ex: 123.23.345:31236 //
 After we access like this, first request reached to service and it goes host port. And the request goes to the container that are present in the PODs from the host port. And internally the container has another port (Ex:80) so finally it redirects to the container port
-Why we need to use service to Access the PODs:
+#### Why we need to use service to Access the PODs:
 Here we can directly access to the PODs. But every time IP gets created to the POD, but while we delete PODs the IP also gets deleted, so if you again create the New POD, new IP address also gets created so here we need to know the IP address of the POD and need to update it somewhere then only we can access that particular POD so to avoid that problem we create the service and we give the name to that service. The name will not change. While we hit the service the request will go all available PODs.
-27.	What is Load Balancer in kubernetes?
+### 27.	What is Load Balancer in kubernetes?
 Ans: An IP address gets created in Load Balancer that IP is static IP, it will not change
 We need to give the IP address and Host port number to access the PODs. This is also used for external access
-28.	How many containers can we run in a single POD?
+### 28.	How many containers can we run in a single POD?
 Ans: We can run multiple container in a Single POD as for the user need.
-*	In docker we have only one container.
-*	Each and every container has different port, suppose if it is Jenkins container its port is 8080, if it is nginix 80
-*	Each and every container has individual access authority.
-29.	What is the process of communication between container to container that are present in the POD? Suppose I have 3 containers available in the POD I want to make them communicate each other and how?
-Ans: While a POD is creating, an IP address gets created to that corresponding POD. The IP address is called as a server or local host. By using the local host we can access or communicate between one containers to another container. 
-Ex: localhost:container-port-number
-Ex: localhost:8080/	// Now it access Jenkins container
-*POD to POD communication is takes place by the IP address
-*	In worker nodes docker containers will run. If any container needs to be run in worker node we need container run time then only containers will run.
-*	Kubernetes by default communicates to docker for run the containers as container run time
-30.	What is POD life cycle?
-Ans: Step 1 Pending State: Whenever we done the deployment it is in pending state at the beginning. Pending means that particular node is scheduling into the respective slave node. (Scheduler will schedule the PODS in the respective nodes). If the schedule is not finished still the POD is in pending state.
-31.	What happened if the POD is in pending state?
+* In docker we have only one container.
+* Each and every container has different port, suppose if it is Jenkins container its port is 8080, if it is nginix 80
+* Each and every container has individual access authority.
+### 29.	What is the process of communication between container to container that are present in the POD? Suppose I have 3 containers available in the POD I want to make them communicate each other and how?
+Ans: 
+While a POD is creating, an IP address gets created to that corresponding POD. The IP address is called as a server or local host. By using the local host we can access or communicate between one containers to another container. 
+```bash
+localhost:container-port-number
+localhost:8080/	// Now it access Jenkins container
+```
+- POD to POD communication is takes place by the IP address
+* In worker nodes docker containers will run. If any container needs to be run in worker node we need container run time then only containers will run.
+* Kubernetes by default communicates to docker for run the containers as container run time
+### 30.	What is POD life cycle?
+Ans: 
+
+**Step 1 Pending State:** Whenever we done the deployment it is in pending state at the beginning. Pending means that particular node is scheduling into the respective slave node. (Scheduler will schedule the PODS in the respective nodes). If the schedule is not finished still the POD is in pending state.
+### 31.	What happened if the POD is in pending state?
 Ans: If the POD is in pending state, it’s because of insufficient CPU and memory.
-Step 2 Creating State: Once the POD is Moved or schedule to the Node, this state is called Creating state.
-In Creating State the respective container which is present in the POD will pull the docker image from the docker registry. If the container pulls the docker image successfully then it moves to the next state. If it is unable to pull the image it goes to the waiting state
+
+**Step 2 Creating State:** Once the POD is Moved or schedule to the Node, this state is called Creating state.
+In Creating State the respective container which is present in the POD will pull the docker image from the docker registry. 
+
+If the container pulls the docker image successfully then it moves to the next state. If it is unable to pull the image it goes to the waiting state
 *Waiting state means the POD is scheduled to node but the image pull was not done. It is called waiting state.
 Why Docker Image pull not working
-●	The docker image name may be incorrect
-●	The docker image may not be available in the docker registery. (We may not be push the respective docker image into the docker registery).
+- The docker image name may be incorrect
+- The docker image may not be available in the docker registery. (We may not be push the respective docker image into the docker registery).
 
-Step 3 Running State: If the POD is moved to the node and pulls the docker image successfully from the docker registery. This state is called running state. Once the POD is in running state by any chance the health of the application which is present in the POD is not good it goes to the crash loop back state.
+**Step 3 Running State:** If the POD is moved to the node and pulls the docker image successfully from the docker registery. This state is called running state. Once the POD is in running state by any chance the health of the application which is present in the POD is not good it goes to the crash loop back state.
 
-Step 4 Cross Loop back state: In cross loop back state the POD starts again, if any issues present in the application or code and the parameters and environmental variable are may be incorrect which we define so that it goes to the cross loop back state.
-32.	What are the deployment strategies in kubernetes?
+**Step 4 Cross Loop back state:** In cross loop back state the POD starts again, if any issues present in the application or code and the parameters and environmental variable are may be incorrect which we define so that it goes to the cross loop back state.
+### 32.	What are the deployment strategies in kubernetes?
 Ans: The process of manually updating containerized applications can be time consuming and tedious.
 A Kubernetes deployment makes this process automated and repeatable.
+
 Deployments are entirely managed by the Kubernetes backend, and the whole update process is performed on the server side without client interaction. 
 We have 4 types of deployment strategies are available in the kubernetes
 1. Recreate Deployment 2. Rolling update deployment 3.Blue-Green Deployment
 4. Ceneray deployment
-1.	Recreate Strategy: In this strategy old replicas will delete at a time and new versions will create. In this strategy we have a problem i.e as soon as old versions are deleted application is not work until the new version create.so that time we face the down time issue.
 
+**1.	Recreate Strategy:** In this strategy old replicas will delete at a time and new versions will create. In this strategy we have a problem i.e as soon as old versions are deleted application is not work until the new version create.so that time we face the down time issue.
+
+![Recreate Strategy](./Images/Recreate.jpg "This is recreate strategy")
 
 In recreate deployment, we fully scale down the existing application version before we scale up the new application version.
 In the below diagram, Version 1 represents the current application version, and Version 2 represents the new application version.
 When updating the current application version, we first scale down the existing replicas of Version 1 to zero and then concurrently deploy replicas with the new version.
 
 
-
 The below template shows deployment using the recreate strategy: First,
 we create our recreate deployment by saving the following yaml to a file recreate.yaml
  
  
-
-
-
-2.	Rolling Update strategy: In this strategy old versions (replicas) are still available and it creates the versions one by one. After new version deployment works fine, now old versions are deleted at the backend one by one.
+**2. Rolling Update strategy:** In this strategy old versions (replicas) are still available and it creates the versions one by one. After new version deployment works fine, now old versions are deleted at the backend one by one.
 
 
 The rolling deployment is the default deployment strategy in Kubernetes. It replaces pods, one by one, of the previous version of our application with pods of the new version without any cluster downtime. A rolling deployment slowly replaces instances of the previous version of an application with instances of the new version of the application.
 
-3.	Blue-Green Deployment: In this deployment we create two versions at a time that is followed by Blue and Green.
+**3. Blue-Green Deployment:** In this deployment we create two versions at a time that is followed by Blue and Green.
 Now, first we will work on the Blue. For example we create two deployments i.e deployment 1 is for blue and deployment 2 is for green. 
  
 
