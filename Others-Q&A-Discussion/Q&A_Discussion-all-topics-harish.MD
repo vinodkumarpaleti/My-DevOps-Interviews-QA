@@ -585,171 +585,197 @@ COPY /etc/hosts/opt/	//here /etc is our source path /opt is destination (server)
 
 `ADD:` This command is also used to copy the files and directories but here by using ADD command if you give the zip file, this zip file will extract in the container automatically.
 Suppose if you give a path or location of the zip file from the remote, the ADD command will download and keep it in the container. It download and extract the remote URLs
-CMD/ENTRYPOINT
-CMD: Suppose if I want to give some message to the docker image ex: echo “this image is for dev”.So while we build the docker image we can overwrite the message that we defined already. Ex: echo “this image is for Test”.
-ENTRYPOINT: Here we cannot overwrite but we can append the message if you use the ENTRYPOINT command
-ENV: Here we define the environmental variables.
-Dockerfile Example FROM nginx MAINTAINER vinod COPY testfile /opt/testfile
-ENTRYPOINT [“echo”, “hello”] CMD [“image”]
-23. What is the use of docker volumes?
+#### CMD/ENTRYPOINT
+
+**CMD:** Suppose if I want to give some message to the docker image ex: echo “this image is for dev”.So while we build the docker image we can overwrite the message that we defined already. Ex: echo “this image is for Test”.
+
+**ENTRYPOINT:** Here we cannot overwrite but we can append the message if you use the ENTRYPOINT command
+
+**ENV:** Here we define the environmental variables.
+
+- Dockerfile Example FROM nginx MAINTAINER vinod COPY testfile /opt/testfile
+- ENTRYPOINT [“echo”, “hello”] CMD [“image”]
+### 23. What is the use of docker volumes?
 Ans: Suppose we have container we install the application in the container so here all the data that is related to the application will store in the container.
-->So after sometime if you delete the container all the application data will be deleted but we need that data from the container. We required the data if all application data gets deleted we need to start from the beginning.
-->In order to overcome this problem we use Volumes in docker.
-->While we creating the containers we create the volume to store those container data by specifying the container path.(Ex: /etc/var). So here the data which is present in the container will store into the volumes.
-->The data will sync between container and volumes
-->After if you delete the container. The data will remain safe in the volume. That’s the reason why we use the volumes in docker
-->By using the Bind Mount we can move the data from the container to directory. We assign the directory to the container. So all the container data will move to the directory.mostly we use docker volumes.
--> we can assign the same volume to the different containers 
+
+- So after sometime if you delete the container all the application data will be deleted but we need that data from the container. We required the data if all application data gets deleted we need to start from the beginning.
+- In order to overcome this problem we use Volumes in docker.
+- While we creating the containers we create the volume to store those container data by specifying the container path.(Ex: /etc/var). So here the data which is present in the container will store into the volumes.
+- The data will sync between container and volumes
+- After if you delete the container. The data will remain safe in the volume. That’s the reason why we use the volumes in docker
+- By using the Bind Mount we can move the data from the container to directory. We assign the directory to the container. So all the container data will move to the directory.mostly we use docker volumes.
+- we can assign the same volume to the different containers 
 Create the Docker Volume
-Ex: docker run –itd –name jenkins1 –v volume1:/var/jenkins_home –p 8081:8080 jenkins/jenkins:lts.
-We never modify the volume data. We always interact with the container data.
 
+```bash
+docker run –itd –name jenkins1 –v volume1:/var/jenkins_home –p 8081:8080 jenkins/jenkins:lts.
+```
+- We never modify the volume data. We always interact with the container data.
 
+---
 
+## AWS (AMAZON WEB SERVICES):
 
-AWS (AMAZON WEB SERVICES):
-1.	How to secure the IAM in AWS?
+### 1.	How to secure the IAM in AWS?
 Ans: Under the Account Information-> Click on Security Credentials we have some options below,
-Step 1: We enabling MFA (Multifactor Authentication)
-MFA (Multi Factor Authentication): MFA works by requiring additional verification information (factors). One of the most common MFA factors that users encounter are
-one-time passwords (OTP). OTPs are those 4-8 digit codes that you often receive via email, SMS or some sort of mobile app.
+
+`Step 1:` We enabling MFA (Multifactor Authentication)
+- MFA (Multi Factor Authentication): MFA works by requiring additional verification information (factors). One of the most common MFA factors that users encounter are
+- one-time passwords (OTP). OTPs are those 4-8 digit codes that you often receive via email, SMS or some sort of mobile app.
 * While we login the IAM account it asks to enter MFA code along with username and password.
-2.	What are the Storage class available in AWS?
-The S3 storage classes include
-S3 Standard for frequently accessed data, if you create the s3 bucket in AWS it will create under S3 Standard frequent access by default. It creates the object in multiple Zones.
-S3 Standard-Infrequent Access (S3 Standard-IA) If you don’t want to access the data frequently we use this Standard-Infrequent Access storage class. It creates the object in multiple Zones
-S3 Intelligent-Tiering for automatic cost savings for data with unknown or changing access patterns. It is commination both standard and standard IA. If the user accessing the data frequently it moves to the Standard Storage class. It creates the object in multiple Zones
-If the user is not accessing the data frequently it moves to the Standard In frequent Storage class. These operations are managed by the S3 Intelligent Tiering.
-S3 One Zone-Infrequent Access (S3 One Zone-IA) for less frequently accessed data. It creates the object in only one Zones.
-S3 Glacier Instant Retrieval for archive data that needs immediate access,
-S3 Glacier Flexible Retrieval (formerly S3 Glacier) for rarely accessed long-term data that does not require immediate access.
-S3 Glacier Deep Archive (S3 Glacier Deep Archive) for long-term archive and digital preservation with retrieval in hours at the lowest cost storage in the cloud. It compress the data. For retrieval data takes the long time
-3.	What is Intelligent Storage class? 
+### 2.	What are the Storage class available in AWS?
+- The S3 storage classes include
+- `S3 Standard` for frequently accessed data, if you create the s3 bucket in AWS it will create under S3 Standard frequent access by default. It creates the object in multiple Zones.
+
+- `S3 Standard-Infrequent Access` (S3 Standard-IA) If you don’t want to access the data frequently we use this Standard-Infrequent Access storage class. It creates the object in multiple Zones
+
+- `S3 Intelligent-Tiering` for automatic cost savings for data with unknown or changing access patterns. It is commination both standard and standard IA. If the user accessing the data frequently it moves to the Standard Storage class. It creates the object in multiple Zones
+- If the user is not accessing the data frequently it moves to the Standard In frequent Storage class. These operations are managed by the S3 Intelligent Tiering.
+- `S3 One Zone-Infrequent Access` (S3 One Zone-IA) for less frequently accessed data. It creates the object in only one Zones.
+- `S3 Glacier` Instant Retrieval for archive data that needs immediate access,
+- `S3 Glacier Flexible Retrieval` (formerly S3 Glacier) for rarely accessed long-term data that does not require immediate access.
+- `S3 Glacier Deep Archive` (S3 Glacier Deep Archive) for long-term archive and digital preservation with retrieval in hours at the lowest cost storage in the cloud. It compress the data. For retrieval data takes the long time
+### 3.	What is Intelligent Storage class? 
 Ans: Amazon S3 Intelligent-Tiering (S3 Intelligent-Tiering) is the first cloud storage that automatically reduces your storage costs on a granular object level by automatically moving data to the most cost-effective access tier based on access frequency, without performance impact, retrieval fees, or operational overhead.
+
 S3 Intelligent-Tiering delivers milliseconds latency and high throughput performance for frequently, infrequently, and rarely accessed data in the Frequent, Infrequent, and Archive Instant Access tiers. You can use S3 Intelligent-Tiering as the default storage class for virtually any workload, especially data lakes, data analytics, new applications, and
 user-generated content.
-Q) What is Replication rules in AWS S3?
+### 3. What is Replication rules in AWS S3?
 Ans: Suppose if you create the s3 bucket in some region (Ex: us-east-1). So if want to send or replicate the same object in another region or another bucket in the same region we use this replication rule.
 Click 0n->create replication rule->source bucket->bucket name
-4.	Does static website hosting supports https in AWS?
+### 4.	Does static website hosting supports https in AWS?
 Ans: By using Amazon S3 bucket we can create the Static Website hosting. But https is not support
-5.	How to select the availability zone in subnet while launching the instance?
+### 5.	How to select the availability zone in subnet while launching the instance?
 Ans: By default instance picks the existing subnets zone.
-6.	If you launch instance in public and private IP’s in the subnet respectively. After stop and again start the instance does new IP’s are created or old IP’s are exist?
+### 6.	If you launch instance in public and private IP’s in the subnet respectively. After stop and again start the instance does new IP’s are created or old IP’s are exist?
 Ans: Here Private IP doesn’t change. Only public IP gets change. This is only if you stop the instance .But if you reboot the instance both IP’s will not change.
 IAM (Identity and Access Management)
-7.	What is role in IAM?
+### 7.	What is role in IAM?
 Ans: Role is nothing but group of policies. We can attach many policies to the single role and give the access to the services and finally we attach this role to the particular user. That user can have access to the services that we attached.
 *	Instead of accessing the services directly by the user we create the Role to interact with these services. Suppose I want to call the S3 buckets by using EC2 instance. Now we create the role and assign to the instance.
 *	While we create the EC2 instance we can select the role under IAM role option.
 *	Generally we can’t pass the Access key and secret key directly we always use the role to access the services.
-Q) What are the types of policies in AWS?
+### 8. What are the types of policies in AWS?
 Ans: In AWS we have Managed Policies, custom policy and In-line policy.
 *	Managed Policies are managed by the AWS. These policies are already created we cannot edit or modify these policies
 *	Custom-Policies are designed by the user or developer by using AWS policy generator. 
-*	In-line policy: Here we create the policy for the particular user or group. It is applicable only for that user or group.
-8.	Difference between role and policy?
+*	**In-line policy:** Here we create the policy for the particular user or group. It is applicable only for that user or group.
+### 9.	Difference between role and policy?
 Ans: Answer already written above.
-Q) What is policy in IAM?
+### 10. What is policy in IAM?
 Ans: Policy is nothing but permissions.
-9.	What is account settings in IAM?
+### 11.	What is account settings in IAM?
 Ans: Here we can do the settings Password Policy of the user.
-10.	What is In-Line policy and managed policy? Ans: Answer already written above.
-11.	What is cross account access (or) Assume role?
+### 12.	What is In-Line policy and managed policy? Ans: Answer already written above.
+### 13.	What is cross account access (or) Assume role?
 Ans: cross account access is, If the developer want to access the data from one account to another account, in second account we create one role and this role ARN we will give at the first account user after creating the In-line policy and define that ARN. This all process will be perform based on assume role. This assume role is managed by STS (simple Token Service) at the backend.
-12.	What is IAM in AWS?
+### 14.	What is IAM in AWS?
 Ans: IAM is the centralized system to manage access for all the services in AWS. IAM is global specific.
-13.	What is Account Alias in IAM?
+#### 15.	What is Account Alias in IAM?
 Ans: Here we can get the sign-in URL for IAM user in the AWS account. Here we can create the username instead of account ID.
-14.	How to change the password policy in IAM?
+### 16.	How to change the password policy in IAM?
 Ans: Under IAM we have an option called Account Setting, here we can give the password policy to the user.
-Q)	What is cloud watch in AWS?
+### 17.	What is cloud watch in AWS?
 Ans: Cloud Watch is the Monitoring service for all AWS services. As soon as we enable this cloud watch to any service, it creates the folder in this folder all the logs will be available.
-●	Cloud Watch is used for monitoring purpose in AWS. It monitor all the services whenever we create or launch the services we need to enable the Cloud Watch.
-●	While we enabling the Cloud watch we need to define that weather it is basic monitoring or Detailed Monitoring.
+- Cloud Watch is used for monitoring purpose in AWS. It monitor all the services whenever we create or launch the services we need to enable the Cloud Watch.
+- While we enabling the Cloud watch we need to define that weather it is basic monitoring or Detailed Monitoring.
 CloudFront Distribution.
-12.	What is cloudFront?
+### 18.	What is cloudFront?
 Ans: Cloud front distribution is a content delivery network. It delivers the data or content to the user without latency. 
-*	Suppose our application data is available in s3 bucket, now the user is trying to get the data but the user doesn’t hit the S3 bucket directly in between the service will run.
-*	We have an Edge Location in cloud front. Suppose as soon as the user trying to hit our application from US location he get the data nearest location to the US that is called Edge location. So as soon as the user hit the application at beginning no data at the Edge location. In the first request the CloudFront will fetch the data from the S3 and keep it in the Edge Location.
+- Suppose our application data is available in s3 bucket, now the user is trying to get the data but the user doesn’t hit the S3 bucket directly in between the service will run.
+- We have an Edge Location in cloud front. Suppose as soon as the user trying to hit our application from US location he get the data nearest location to the US that is called Edge location. So as soon as the user hit the application at beginning no data at the Edge location. 
+
+In the first request the CloudFront will fetch the data from the S3 and keep it in the Edge Location.
 Second time if the user hits the same data it will get from the Edge Location. So now we will get the data without latency.
-13.	What is edge location?
+### 19.	What is edge location?
 Ans: We have an Edge Location in cloud front. Suppose as soon as the user trying to hit our application from US location he get the data nearest location to the US that is called Edge location.
 
-
-14.	What is Origin Access Identity (OAI)?
+### 20.	What is Origin Access Identity (OAI)?
 Ans: While creating the cloudFront distribution, under S3 bucket permissions a permission will be enabled that is called as Origin Access Identity. This means only this particular CloudFront distribution will access the particular bucket.
-15.	What is ACM certificates in AWS?
+### 21.	What is ACM certificates in AWS?
 Ans: AWS Certificate Manager (ACM) is designed to simplify and automate many of the tasks traditionally associated with provisioning and managing SSL (Secure Socket Layer)/TLS (Transport Layer Security) certificates. ACM takes care of the complexity surrounding the provisioning, deployment, and renewal of digital certificates for no extra cost!
 Rout53
-14.	What is rout53?
+### 22.	What is rout53?
 Ans: Route53 is the DNS (Domain Name System) service in Linux. The port number of the DNS is ‘53’. So that we called it as “Route 53” in AWS.
-15.	What are the different routing policies available in the rout53?
+### 23.	What are the different routing policies available in the rout53?
 Ans: Simple routing policy – Use for a single resource that performs a given function for your domain, for example, a web server that serves content for the example.com website.
-●	It is just used for one server to access.
+- It is just used for one server to access.
 Failover routing policy – Use when you want to configure active-passive failover.
-●	Here one server is in Active and one server is in back up, if first server is down automatically request goes to second server.
-Geolocation routing policy – Use when you want to route traffic based on the location of your users. 
-Geoproximity routing policy – Use when you want to route traffic based on the location of your resources and, optionally, shift traffic from resources in one location to resources in another.
+
+- Here one server is in Active and one server is in back up, if first server is down automatically request goes to second server.
+
+**Geolocation routing policy** – Use when you want to route traffic based on the location of your users. 
+
+**Geoproximity routing policy** – Use when you want to route traffic based on the location of your resources and, optionally, shift traffic from resources in one location to resources in another.
 Latency routing policy – Use when you have resources in multiple AWS Regions and you want to route traffic to the Region that provides the best latency with less round-trip time.
-●	Here, for suppose they create the two servers at us-east-region and Europe region. So if I want to access the application it redirects to the nearby region to avoid the latency
+- Here, for suppose they create the two servers at us-east-region and Europe region. So if I want to access the application it redirects to the nearby region to avoid the latency
 Multivalue answer routing policy – Use when you want Route 53 to respond to DNS queries with up to eight healthy records selected at random.
 Weighted routing policy – Use to route traffic to multiple resources in proportions that you specify.
-●	Here we distribute the traffic to multiple server, suppose we have two servers we assign the traffic 70% to one server and 30% to second server.
+- Here we distribute the traffic to multiple server, suppose we have two servers we assign the traffic 70% to one server and 30% to second server.
 S3 (Simple Storage Service)
-16.	What are the storage classes in s3?
+### 24.	What are the storage classes in s3?
 Ans: Standard, standard in frequent, Intelligent Tiering, One Zone IA, Glacier, and deep archive
-17.	What is the life cycle policy in s3?
+### 25.	What is the life cycle policy in s3?
 Ans: First the file is stored in standard storage class while we create. Later it moves to the different storage class as we defined. We can move the objects across all the storage classes as per the requirement. This is called management life cycle in s3 bucket.
-18.	How to access the object or bucket in S3?
+### 26.	How to access the object or bucket in S3?
 Ans: If the option “Block all public access” is enabled, we can’t access the bucket. So make it public and access the objects.
-19.	How to give the permission to S3 buckets?
+### 27.	How to give the permission to S3 buckets?
 Ans: By using ACL (Access Control List) or bucket policy.
-20.	What is static website hosting?
+### 28.	What is static website hosting?
 Ans: This is unsecure
 EC2 (Elastic Compute Cloud)
-21.	What are different types of Instances in EC2?
+### 29.	What are different types of Instances in EC2?
 Ans: Reserved Instance, On-Demand Instance, Spot Instances and Dedicated Host, Scheduled Instances. By default if we install the instance that will be created in On-Demand Instance type.
 * If you want reserved instance we need to purchase it.
-22.	What is AMI (Amazon Machine Image)?
-Ans: AMI (Amazon Machine Image) is a template, we can choose the type of AMI Ex: Linux and Windows and Ubuntu). It is just like the docker Image if we run the docker image we can 
+### 30.	What is AMI (Amazon Machine Image)?
+Ans: 
+- AMI (Amazon Machine Image) is a template, we can choose the type of AMI Ex: Linux and Windows and Ubuntu). 
+- It is just like the docker Image if we run the docker image we can 
 get the all application data. Here AMI has all the data i.e O.S information once we run the AMI we will get the Instance.
 *	By using the AMI we take server backup.
 *	Suppose I have installed 4 applications in the server. I want to launch the server with these same 4 applications. Here we take the entire server backup by using AMI.
 *	While  we launching the instance we choose this AMI and we get the server with 4 applications.
-Q) What is Volumes in AWS?
+#### 31. What is Volumes in AWS?
 Ans: While we launching the EC2 instances, there we find some storage or volumes. Here we can add the Volumes.
-Q) What is Snapshot in AWS?
+#### 32. What is Snapshot in AWS?
 Ans: The data that we take back up from the volumes is known as Snapshot. This snapshot is only take the back up from the volumes no the entire server.
-23.	What is Network ACL?
+#### 33.	What is Network ACL?
 Ans: Network ACL is used to create the in-bound and out-bound rules to the subnet. In other words, ACLs monitor and filter traffic moving in and out of a network.
 Suppose, we launch the instance (EC2) in the particular subnet. Here we need to assign the security group to the subnet. In Security group also we define the In-bound and out-bound rules.
 Security Group is an inner layer and N/W ACL is upper layer in security purpose.
-24.	What is security Group?
+### 34.	What is security Group?
 Ans: Here we can add the In-bound and out-bound rules to the Instance.
-25.	What is Static IP (or) Elastic IPs?
+### 35.	What is Static IP (or) Elastic IPs?
 Ans: Elastic IP is the permanent IP address for our instance but it is more cost. Only few instances will use the Elastic IP.
 Suppose if you launch the instance in Subnet A you get a public IP so here as soon as you stop the instance the public IP will removed and after if you start the instance again it creates the new IP.
 * If you want to use Static or Elastic IP, we create one Elastic IP and we give this IP at the time of launching the server.
-26.	What are the different types of Load Balancer (or) Difference between Application, Classic, and Network Load Balancer?
-Ans: Network Load Balancer, Application Load Balancer, Classic Load Balancer and Gateway Load Balancer.
-Classic Load Balancer: In classic load balancer, suppose we have a 4 servers having the same data. So the request will share across all servers. It is a simple routing policy.
-Application load Balancer: In Application Load Balancer data is different the data will be different in each server. So while we hit the application based on the path or path based. 
+### 36.	What are the different types of Load Balancer (or) Difference between Application, Classic, and Network Load Balancer?
+Ans: 
+Network Load Balancer, Application Load Balancer, Classic Load Balancer and Gateway Load Balancer.
+
+**Classic Load Balancer:** In classic load balancer, suppose we have a 4 servers having the same data. So the request will share across all servers. It is a simple routing policy.
+
+**Application load Balancer:** In Application Load Balancer data is different the data will be different in each server. So while we hit the application based on the path or path based. 
+
 Routing. It redirects to one server, for ex: url/image, and url/login---it redirects to other server. It is a path based routing policy. Here we use http and https protocols.
-Network Load Balancer: In Network Load Balancer there is no http and https protocols. It has TCP, UDP and TLS. While we hit the port it redirects the server. It is PORT based routing. If we want a static IP to our application by using Network Load Balancer we can get this. If we want perform our application with ultra-high performance we use Network Load Balancer.
-27.	What is Auto Scaling?
-Ans: Amazon EC2 Auto Scaling helps you ensure that you have the correct number of Amazon EC2 instances available to handle the load for your application. You create collections of EC2 instances, called Auto Scaling groups. You can specify the minimum number of instances in each Auto Scaling group, and Amazon EC2 Auto Scaling ensures that your group never goes below this size. You can specify the maximum number of instances in each Auto Scaling group, and Amazon EC2 Auto Scaling ensures that your group never goes above this size. If you specify the desired capacity, either when you create the group or at any time thereafter, Amazon EC2 Auto Scaling ensures that your group has this many instances. If you specify scaling policies, then Amazon EC2 Auto Scaling can launch or terminate instances as demand on your application increases or decreases.
+
+**Network Load Balancer:** In Network Load Balancer there is no http and https protocols. It has TCP, UDP and TLS. While we hit the port it redirects the server. It is PORT based routing. If we want a static IP to our application by using Network Load Balancer we can get this. If we want perform our application with ultra-high performance we use Network Load Balancer.
+### 37.	What is Auto Scaling?
+Ans: 
+![Auto Scaling](./Images/auto-scaling.png "This is Auto Scaling")
+
+Amazon EC2 Auto Scaling helps you ensure that you have the correct number of Amazon EC2 instances available to handle the load for your application. You create collections of EC2 instances, called Auto Scaling groups. You can specify the minimum number of instances in each Auto Scaling group, and Amazon EC2 Auto Scaling ensures that your group never goes below this size. 
+
+You can specify the maximum number of instances in each Auto Scaling group, and Amazon EC2 Auto Scaling ensures that your group never goes above this size. If you specify the desired capacity, either when you create the group or at any time thereafter, Amazon EC2 Auto Scaling ensures that your group has this many instances. If you specify scaling policies, then Amazon EC2 Auto Scaling can launch or terminate instances as demand on your application increases or decreases.
+
 For example, the following Auto Scaling group has a minimum size of one instance, a desired capacity of two instances, and a maximum size of four instances. The scaling policies that you define adjust the number of instances, within your minimum and maximum number of instances, based on the criteria that you specify.
 
-
-
-
-28.	What is Launch Configuration?
+### 38.	What is Launch Configuration?
 Ans: Suppose we have server and it has the application. So here we back up the server as AMI back up, and we choose this AMI back while we create the Launch Configuration and we create the Launch configuration.
 * Later we assign this Launch Configuration to the Auto Scaling. Suppose we have a server and it has an application as soon as the load gets increased the servers need to scale or increase while creating the Auto Scaling we define the launch configuration with minimum servers and maximum servers and desired capacity.
-29.	What is API Gateway? 
+### 39.	What is API Gateway? 
 Ans:
-30.	What is Lambda in AWS?
+### 40.	What is Lambda in AWS?
 Ans: Lambda is a Server less Compute Service. Suppose if you want to run or test the application in some particular timings so that we launched the EC2 instance for 1 year period of time for access but here we need the only for some particular timings for maintaining the instance for one year cost will be high.
 *	So here Lambda comes into the picture, Lambda Is a server less, we keep our application in the lambda and we run the application in backend AWS manages this application either in containers or server whatever it may be. Lambda will not be useful if workloads are high like 24x7 interact with the server in this case lambda will not use.
 *	It does not have any separate URL, if we want to hit this lambda we will create the events (like s3 event, SNS services and API gateway)
@@ -758,71 +784,71 @@ Ans: Lambda is a Server less Compute Service. Suppose if you want to run or test
 *	API Gateway---🡪Lambda-🡪Database
 *	Sometimes we use SNS service if any event takes place lambda will be invoke
 *	Sometime we use s3 events and SQS event to invoke the Lambda.
-We can create the Lambda by using Terraform.
-Creating the Lambda function
-Go to Lambda->click on create Function->select Author from Scratch->add Function Name->Select Run time based on application->Click on Create Function button.
- Adding Trigger to the Lambda Function
-Click on Add trigger button under Lambda Function-->Select Trigger as API Gateway->select REST API ->select open Under Security Option🡪click on Add button.
+- We can create the Lambda by using Terraform.
+#### Creating the Lambda function
+- `Go to Lambda->click on create Function->select Author from Scratch->add Function Name->Select Run time based on application->Click on Create Function button.`
+ #### Adding Trigger to the Lambda Function
+- `Click on Add trigger button under Lambda Function-->Select Trigger as API Gateway->select REST API ->select open Under Security Option🡪click on Add button.`
 *	Trigger is created
-Now, Open API gateway in AWS 🡪 click on API Gateway that we created🡪click on stages at left side panel there we have the URL for API Gateway copy this URL and Add the
-/resource name. Ex: URL/vinod
-We can create the API directly without lambda,
-Click on🡪create API button🡪click on REST API Build button🡪Add API name (Ex: Vinod)click on Create API.
-API Created., now create the resources in Action dropdown🡪Give the Resource Name (Ex: Vinod)click on create resource button.
-Again create the Method in Action Dropdown🡪Select Get Method🡪Now, choose the lambad function that we created already🡪click on Save Button. 
-Now, Create the Deploy API🡪Add the Deployment🡪click on new Stage name (Ex: Dev) click on Deploy🡪Now copy the Dev stage URL/Resource name.
+- Now, Open API gateway in AWS 🡪 click on API Gateway that we created🡪click on stages at left side panel there we have the URL for API Gateway copy this URL and Add the
+`/resource name. Ex: URL/vinod`
+- We can create the API directly without lambda,
+- `Click on🡪create API button🡪click on REST API Build button🡪Add API name (Ex: Vinod)click on Create API.`
+- API Created., now create the resources in `Action dropdown🡪Give the Resource Name (Ex: Vinod)click on create resource button.`
+- Again create the Method in `Action Dropdown🡪Select Get Method🡪Now, choose the lambad function that we created already🡪click on Save Button. `
+- Now, Create the `Deploy API🡪Add the Deployment🡪click on new Stage name (Ex: Dev) click on Deploy🡪Now copy the Dev stage URL/Resource name.`
 *	In API gateway under resource policy we define Range and
-Q) What is CloudFormation in AWS?
+### 41. What is CloudFormation in AWS?
 Ans: CloudFormation is a template which is used to create any service in AWS. It creates and Manage Resources by using templates.
 *	Mostly people will use Terraform
-Q) What is code commit, code build and code deploy in AWS? Ans:
-31.	What is Web Application Firewall (WAF) or How to secure the application from web explodes?
-Ans: Suppose hackers try to hack our application. So they increase the load to our application in other ways and sometimes it downs by the high load. So these kind of issues resolved by the WAF. The Web Application Firewall will protects the application. WAF is mainly used for CloudFront distribution and API Gateway. We can enable WAF to these services
-32.	What is VPC?
+### 42. What is code commit, code build and code deploy in AWS? Ans:
+### 43.	What is Web Application Firewall (WAF) or How to secure the application from web explodes?
+Ans:
+ Suppose hackers try to hack our application. So they increase the load to our application in other ways and sometimes it downs by the high load. So these kind of issues resolved by the WAF. The Web Application Firewall will protects the application. WAF is mainly used for CloudFront distribution and API Gateway. We can enable WAF to these services
+### 44.	What is VPC?
 Ans: Amazon Virtual Private Cloud (Amazon VPC) enables you to launch AWS resources into a virtual network that you've defined.
 
+![VPC](./Images/vpc.png "This is VPC")
 
 Suppose I have 10 servers, I want to access these servers internally as one server to another server, I don’t want to access to public for that we take the CIDR range we create some subnets under CIDR and we launch the instances into that subnets.
-
 
 *	We can create 5 VPC’s, including 1 VPC’s given by default. If we want more than that we need to send request to the AWS Service people. 
 *	As soon as we create the VPC by default a route table will create
 
-
-Q) What is CIDR Range?
+### 45. What is CIDR Range?
 Ans: CIDR block —Classless Inter-Domain Routing. An internet protocol address allocation and route aggregation methodology.
-33.	What is subnets?
+### 46.	What is subnets?
 Ans: Subnet is nothing but range of IP Address in our VPC.
-*	We calculate the subnets by the 2^32-16 = 2^16 = 65536 IP’s will be available While we create the Subnets we select the availability Zones
-Q) Why we need to divide the subnets in AWS?
+- We calculate the subnets by the 2^32-16 = 2^16 = 65536 IP’s will be available While we create the Subnets we select the availability Zones
+### 47. Why we need to divide the subnets in AWS?
 Ans: Suppose we have a 4(Ex: A, B, C, D) subnets are available Sometimes if we want to use A and B subnets for public and C and D for Private. If you want to launch the service In private network we use C and D subnets. If you want to launch the service in public network we use A and B subnets.
-*	I have launched 10 instances in subnet A and Subnet B, now we need to assign these subnets to the route tables then only the request will go to the internet gateway.
-*	We can explicitly assign the subnets to the route tables by selecting the subnets. If we are not done the subnet associations all the subnets will associates to the default route table
-34.	What is the use of route tables?
+
+* I have launched 10 instances in subnet A and Subnet B, now we need to assign these subnets to the route tables then only the request will go to the internet gateway.
+* We can explicitly assign the subnets to the route tables by selecting the subnets. If we are not done the subnet associations all the subnets will associates to the default route table
+### 48.	What is the use of route tables?
 Ans: A set of rules, called routes that are used to determine where network traffic is directed.
-35.	What is the use of NAT (Network address Translation) gateway?
+### 49.	What is the use of NAT (Network address Translation) gateway?
 Ans: A managed AWS service that allows EC2 instances in private subnets to connect to the internet, other VPCs, or on-premises networks.
+
 Suppose, we assign internet Gateway to the two subnets that are created in private route table and we are not assign the internet gateway to that route table. If any instance launched in private subnets that instance should not get the internet gateway. In this case if we want the internet access for that particular private instance, for that we use the NAT gateway.
-*	We create the NAT gateway we assign the instance to the NAT gateway. Now the request comes to NAT gateway.
-*	Here NAT Gateway is used for Private Instances
-*	Internet gateway is for public instances
-36.	What is the use of Internet Gateway?
+* We create the NAT gateway we assign the instance to the NAT gateway. Now the request comes to NAT gateway.
+* Here NAT Gateway is used for Private Instances
+* Internet gateway is for public instances
+### 50.	What is the use of Internet Gateway?
 Ans: A gateway that you attach to your VPC to enable communication between resources in your VPC and the internet.
-*	Suppose the instance that we launch under the particular subnet in VPC range, that instance must need the internet gateway. Thats why we define the internet gateway in the routing 
-*	Internet gateway is for public instances
-37.	What is the difference between public subnet and private subnets?
+* Suppose the instance that we launch under the particular subnet in VPC range, that instance must need the internet gateway. Thats why we define the internet gateway in the routing 
+* Internet gateway is for public instances
+### 51. .	What is the difference between public subnet and private subnets?
 
+---
 
- 
+## GIT
 
-
-1.	What is Git?
- 
-Git 
-2.	What is the use of Git Status and Git log commands?
-3.	Explain about the stages in git?
+### 1.	What is Git?
+### 2.	What is the use of Git Status and Git log commands?
+### 3.	Explain about the stages in git?
 Ans: Work Space, Index and Local repository.
-4.	Difference between SVN and Git? Git has a Distributed Model.
+### 4.	Difference between SVN and Git? Git has a Distributed Model.
 🡺 In git every user has their own copy of code on their local like their own branch.
 🡺 In git we do not required any Network to perform git operation.
 SVN has a Centralized Model.
