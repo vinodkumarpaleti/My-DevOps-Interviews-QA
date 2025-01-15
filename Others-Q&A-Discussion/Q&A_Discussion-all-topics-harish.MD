@@ -1,3 +1,5 @@
+## Q&A Discussion all topics by hareesh overview
+
 ### Introduction:
 - Good Moring, Thank you for shortlisting for the interview
 - I am Vinod I am from Hyderabad.
@@ -32,7 +34,7 @@ Buddy: is a smart CI/CD tool for web developers designed to lower the entry thre
 ### 3.	What is the use of GitHub WebHook?
 Ans: As soon as we commit any change in git to the particular branch, it will automatically triggers in to the Jenkins. This is known as git hub WebHook.
 ### 4.	How to configure WebHook?
-Ans: Goto repository in git that you want to configure in jenkins->click on settings icon->click on WebHook at left side panel->click on add WebHook->enter the payload URL(Jenkins URL ex: 12.234.56:8080/github-webhook/)->change the content type Json->click on Add webhook button.
+Ans: Goto repository in git that you want to configure in `jenkins->click on settings icon->click on WebHook at left side panel->click on add WebHook->enter the payload URL(Jenkins URL ex: 12.234.56:8080/github-webhook/)->change the content type Json->click on Add webhook button.`
 ### 5.	What is Difference between Continuous Deployment and Continuous Delivery?
 Ans: 
 
@@ -98,31 +100,29 @@ node('master') {
 Ans:
 ```groovy
 
-pipeline{
-agent any 
-
-stages{
-    stage('Build'){ 
-    steps {
-echo ‘This is Building Stage’ 
-}
-}
-stage('Test'){
-steps {
-echo ‘This is Test Stage’
-}
-}
-stage('Deploy'){
-steps {
-echo ‘This is Deploy Stage’
-}
-}
-stage('Monitor'){
-steps {
-echo ‘This is Monitor Stage’
-}
-}
-}
+pipeline {
+    agent any stages {
+        stage('Build') {
+            steps {
+                echo ‘This is Building Stage
+            }
+        }
+        stage('Test') {
+            steps {
+                echo ‘This is Test Stage’
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo ‘This is Deploy Stage’
+            }
+        }
+        stage('Monitor') {
+            steps {
+                echo ‘This is Monitor Stage’
+            }
+        }
+    }
 }
 ```
 ### 20.	What is the meaning of execute concurrent builds?
@@ -206,13 +206,16 @@ Ans: Free Style, Pipeline, Multi-configuration project, Folder, Multibranch pipe
 
 ```groovy
 pipeline {
-Agent any stages {
-stage(“Hello”) {
-stage {
-echo “Hello World”
+    Agent any
+    stages {
+        stage(“Hello”) {
+            stage {
+                echo “Hello World”
+            }
+        }
+    }
 }
-}
-}
+
 ```
 * Pipeline script from SCM in drop down means we already define the pipeline script and stored in the Git/SVN from that only we can pull the code.
 * Generally we use Freestyle Project.
@@ -595,7 +598,7 @@ Suppose if you give a path or location of the zip file from the remote, the ADD 
 
 - Dockerfile Example FROM nginx MAINTAINER vinod COPY testfile /opt/testfile
 - ENTRYPOINT [“echo”, “hello”] CMD [“image”]
-### 23. What is the use of docker volumes?
+### 27. What is the use of docker volumes?
 Ans: Suppose we have container we install the application in the container so here all the data that is related to the application will store in the container.
 
 - So after sometime if you delete the container all the application data will be deleted but we need that data from the container. We required the data if all application data gets deleted we need to start from the beginning.
@@ -666,7 +669,8 @@ Ans: Answer already written above.
 Ans: Policy is nothing but permissions.
 ### 11.	What is account settings in IAM?
 Ans: Here we can do the settings Password Policy of the user.
-### 12.	What is In-Line policy and managed policy? Ans: Answer already written above.
+### 12.	What is In-Line policy and managed policy? 
+Ans: Answer already written above.
 ### 13.	What is cross account access (or) Assume role?
 Ans: cross account access is, If the developer want to access the data from one account to another account, in second account we create one role and this role ARN we will give at the first account user after creating the In-line policy and define that ARN. This all process will be perform based on assume role. This assume role is managed by STS (simple Token Service) at the backend.
 ### 14.	What is IAM in AWS?
@@ -679,7 +683,9 @@ Ans: Under IAM we have an option called Account Setting, here we can give the pa
 Ans: Cloud Watch is the Monitoring service for all AWS services. As soon as we enable this cloud watch to any service, it creates the folder in this folder all the logs will be available.
 - Cloud Watch is used for monitoring purpose in AWS. It monitor all the services whenever we create or launch the services we need to enable the Cloud Watch.
 - While we enabling the Cloud watch we need to define that weather it is basic monitoring or Detailed Monitoring.
-CloudFront Distribution.
+
+## CloudFront Distribution.
+
 ### 18.	What is cloudFront?
 Ans: Cloud front distribution is a content delivery network. It delivers the data or content to the user without latency. 
 - Suppose our application data is available in s3 bucket, now the user is trying to get the data but the user doesn’t hit the S3 bucket directly in between the service will run.
@@ -694,7 +700,9 @@ Ans: We have an Edge Location in cloud front. Suppose as soon as the user trying
 Ans: While creating the cloudFront distribution, under S3 bucket permissions a permission will be enabled that is called as Origin Access Identity. This means only this particular CloudFront distribution will access the particular bucket.
 ### 21.	What is ACM certificates in AWS?
 Ans: AWS Certificate Manager (ACM) is designed to simplify and automate many of the tasks traditionally associated with provisioning and managing SSL (Secure Socket Layer)/TLS (Transport Layer Security) certificates. ACM takes care of the complexity surrounding the provisioning, deployment, and renewal of digital certificates for no extra cost!
-Rout53
+
+## Rout53
+
 ### 22.	What is rout53?
 Ans: Route53 is the DNS (Domain Name System) service in Linux. The port number of the DNS is ‘53’. So that we called it as “Route 53” in AWS.
 ### 23.	What are the different routing policies available in the rout53?
@@ -712,7 +720,9 @@ Latency routing policy – Use when you have resources in multiple AWS Regions a
 Multivalue answer routing policy – Use when you want Route 53 to respond to DNS queries with up to eight healthy records selected at random.
 Weighted routing policy – Use to route traffic to multiple resources in proportions that you specify.
 - Here we distribute the traffic to multiple server, suppose we have two servers we assign the traffic 70% to one server and 30% to second server.
-S3 (Simple Storage Service)
+
+## S3 (Simple Storage Service)
+
 ### 24.	What are the storage classes in s3?
 Ans: Standard, standard in frequent, Intelligent Tiering, One Zone IA, Glacier, and deep archive
 ### 25.	What is the life cycle policy in s3?
@@ -723,13 +733,15 @@ Ans: If the option “Block all public access” is enabled, we can’t access t
 Ans: By using ACL (Access Control List) or bucket policy.
 ### 28.	What is static website hosting?
 Ans: This is unsecure
-EC2 (Elastic Compute Cloud)
+
+## EC2 (Elastic Compute Cloud)
+
 ### 29.	What are different types of Instances in EC2?
 Ans: Reserved Instance, On-Demand Instance, Spot Instances and Dedicated Host, Scheduled Instances. By default if we install the instance that will be created in On-Demand Instance type.
 * If you want reserved instance we need to purchase it.
 ### 30.	What is AMI (Amazon Machine Image)?
 Ans: 
-- AMI (Amazon Machine Image) is a template, we can choose the type of AMI Ex: Linux and Windows and Ubuntu). 
+- AMI (Amazon Machine Image) is a template, we can choose the type of AMI Ex: Linux and Windows and Ubuntu. 
 - It is just like the docker Image if we run the docker image we can 
 get the all application data. Here AMI has all the data i.e O.S information once we run the AMI we will get the Instance.
 *	By using the AMI we take server backup.

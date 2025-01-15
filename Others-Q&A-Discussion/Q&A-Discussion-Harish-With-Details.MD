@@ -1,369 +1,436 @@
 
+## Interview Q&A Discussion by Hareesh
 
-Introduction:
-●	Good Moring, Thank you for shortlisting for the interview
-●	I am Vinod I am from Hyderabad.
-●	I have around 6 years of experience in software IT, currently I’m working as a DevOps Engineer for one of the healthcare project as a part of Truven Health(merative)
-●	I have done my B.Tech from DBS Institute of Technology with the specialization in Electronics and communications Engineering
-●	Currently I am looking for an opportunity to work with an innovative company like yours. That’s all from me thank you.
-Roles and Responsibilities
-●	Used to create the CI/CD pipelines by using Jenkins weather it is continuous deployment and continuous delivery.
-●	We have some environments in the project such as DEV, STAGE, (TEST, PRE-PROD) and PROD. I use to deploy the (CommOps) applications based on the requirement into these feature environments.
-●	Worked with some automation process for Artifactory by using groovy script
-●	We used to create an Ansible playbooks and roles for application deployments or installing the packages in remote server.
-●	Worked with the IBM Cloud, we have some custom toolchains are created for deployment process to each environment (DEV, STAGE and PROD).
-●	We used to deploy the applications into the Azure kubernetes services. 
-●	We use to resolve the issues which we face while deployment
-●	Worked with the terraform to provision the infrastructure.
-●	Upgrading the kubernetes cluster by using the terraform for all CommOps tools.
-●	Creating the Active Directory Groups for the user in Azure Active Directory
-●	Worked with the Pager Duty in order to resolve the issues.
+## Introduction:
 
+- Good Moring, Thank you for shortlisting for the interview
+- I am Vinod I am from Hyderabad.
+- I have around 6 years of experience in software IT, currently I’m working as a DevOps Engineer for one of the healthcare project as a part of Truven Health(merative)
+- I have done my B.Tech from DBS Institute of Technology with the specialization in Electronics and communications Engineering
+- Currently I am looking for an opportunity to work with an innovative company like yours. That’s all from me thank you.
+
+### Roles and Responsibilities
+- Used to create the CI/CD pipelines by using Jenkins weather it is continuous deployment and continuous delivery.
+- We have some environments in the project such as DEV, STAGE, (TEST, PRE-PROD) and PROD. I use to deploy the (CommOps) applications based on the requirement into these feature environments.
+- Worked with some automation process for Artifactory by using groovy script
+- We used to create an Ansible playbooks and roles for application deployments or installing the packages in remote server.
+- Worked with the IBM Cloud, we have some custom toolchains are created for deployment process to each environment (DEV, STAGE and PROD).
+- We used to deploy the applications into the Azure kubernetes services. 
+- We use to resolve the issues which we face while deployment
+- Worked with the terraform to provision the infrastructure.
+- Upgrading the kubernetes cluster by using the terraform for all CommOps tools.
+- Creating the Active Directory Groups for the user in Azure Active Directory
+- Worked with the Pager Duty in order to resolve the issues.
+
+---
 
  
-						JENKINS
+## JENKINS
 
-1.	What is Jenkins?
+## 1.	What is Jenkins?
 Ans: Jenkins is an open-source automation tool. Which is used to build for Continuous Integration purposes. Jenkins is used to build and test your software projects continuously making it easier for developers to integrate changes to the project, and making it easier for users to obtain a fresh build. It also allows you to continuously deliver your software by integrating with a large number of testing and deployment technologies.
-2.	What are the other tools for CI/CD?
+### 2.	What are the other tools for CI/CD?
 Ans: Buddy, Jenkins, TeamCity, Bamboo, Gitlab CI, Integrity etc.
 Buddy: is a smart CI/CD tool for web developers designed to lower the entry threshold to DevOps. It uses delivery pipelines to build, test and deploy software.
-3.	What is the use of GitHub WebHook?
+### 3.	What is the use of GitHub WebHook?
 Ans: As soon as we commit any change in git to the particular branch, it will automatically triggers in to the Jenkins. This is known as git hub WebHook.
-4.	How to configure WebHook?
-Ans: Goto repository in git that you want to configure in jenkins->click on settings icon->click on WebHook at left side panel->click on add WebHook->enter the payload URL(Jenkins URL ex: 12.234.56:8080/github-webhook/)->change the content type Json->click on Add webhook button.
-5.	What is Difference between Continuous Deployment and Continuous Delivery?
-Ans: Continuous Deployment: For example we have an environment called DEV assume that this is our destination. Suppose the code pull from git to Jenkins here it compiled by maven. Later it gets created Docker Image or docker container and It move or deploy automatically to the DEV environment this process is known as deployment. Up to here not required any Manuel intervention this process is known as Continuous Deployment.
-Continuous Delivery: For example we have an environment called PROD (Production) assume that this is our destination. Suppose the code pull from git to Jenkins here it compiled by maven later it gets created Docker Image or docker container and It move or deploy to the PROD environment by the Manuel approval from the manger or higher authority or client then we can trigger the delivery job, then only it moved to the PROD this is known as Continuous Delivery. Here manual intervention (Manager, client, or lead) is required.
-•	Max UAT and Prod we need to follow the continuous delivery. And DEV and PT follows continuous deployment
-•	Dev: Development Environment (Code)
-•	PT: Performance Testing (For Testing)
-•	UAT: User Acceptance Testing (Client)
-•	Prod: Production Environment
-6.	What is the SSH port number?
+### 4.	How to configure WebHook?
+Ans: Goto repository in git that you want to configure in `jenkins->click on settings icon->click on WebHook at left side panel->click on add WebHook->enter the payload URL(Jenkins URL ex: 12.234.56:8080/github-webhook/)->change the content type Json->click on Add webhook button.`
+### 5.	What is Difference between Continuous Deployment and Continuous Delivery?
+Ans: 
+
+**Continuous Deployment:** For example we have an environment called DEV assume that this is our destination. Suppose the code pull from git to Jenkins here it compiled by maven. Later it gets created Docker Image or docker container and It move or deploy automatically to the DEV environment this process is known as deployment. Up to here not required any Manuel intervention this process is known as Continuous Deployment.
+
+**Continuous Delivery:** For example we have an environment called PROD (Production) assume that this is our destination. Suppose the code pull from git to Jenkins here it compiled by maven later it gets created Docker Image or docker container and It move or deploy to the PROD environment by the Manuel approval from the manger or higher authority or client then we can trigger the delivery job, then only it moved to the PROD this is known as Continuous Delivery. Here manual intervention (Manager, client, or lead) is required.
+
+- Max UAT and Prod we need to follow the continuous delivery. And DEV and PT follows continuous deployment
+- `Dev:` Development Environment (Code)
+- `PT:` Performance Testing (For Testing)
+- `UAT:` User Acceptance Testing (Client)
+- `Prod:` Production Environment
+### 6.	What is the SSH port number?
 Ans: SSH (Secure Shell or Secure Socket Shell) port is used to Communication between one servers to another server.
 *	SSH Port Number is: 22
-7.	How to manage Private Plugins?
-Ans: Goto->Manage Jenkins->Manage Plugins->click on advanced tab->scroll down, there you can find the Upload Plugin option, there we can choose the plug-in file and upload it.
-8.	How many executors we can run in the node?
+### 7.	How to manage Private Plugins?
+Ans: `Goto->Manage Jenkins->Manage Plugins->click on advanced tab->scroll down, there you can find the Upload Plugin option, there we can choose the plug-in file and upload it.`
+### 8.	How many executors we can run in the node?
 Ans: While we create the Slave node, there is an option called no of executers. Here we define the required no.of executers. For Example if you define 5. So at a time 5 pipelines or concurrent builds will run. So we can give as for our requirement.
-9.	What is the process to connect between Master node to Slave Nodes?
-Ans: Goto Manage Jenkins->click on Manage Nodes->select New Node->Enetr the name of the node->selet Permanent Agent->click OK->Enter the hostname in the Host field->select Add button to add credentials and click Jenkins.->enter Username, Password, ID, and Description.->Select the dropdown menu to add credentials in the Credentials field.->Select the next dropdown to add the Host Key Verification Strategy under Non verifying Verification Strategy.->Select Keep this agent online as much as possible in the Availability field.->Click Save Button.
-10.	How to configure the Node?
-Ans: Go to manage Jenkins->manage nodes->click on node->click on Configure Node option. Here we can configure the node.
-11.	How to do safe restart the Jenkins?
+### 9.	What is the process to connect between Master node to Slave Nodes?
+Ans: `Goto Manage Jenkins->click on Manage Nodes->select New Node->Enetr the name of the node->selet Permanent Agent->click OK->Enter the hostname in the Host field->select Add button to add credentials and click Jenkins.->enter Username, Password, ID, and Description.->Select the dropdown menu to add credentials in the Credentials field.->Select the next dropdown to add the Host Key Verification Strategy under Non verifying Verification Strategy.->Select Keep this agent online as much as possible in the Availability field.->Click Save Button.`
+### 10.	How to configure the Node?
+Ans: `Go to manage Jenkins->manage nodes->click on node->click on Configure Node option. Here we can configure the node.`
+### 11.	How to do safe restart the Jenkins?
 Ans: By using the “prepare for shutdown” option we can do safe restart the Jenkins. Here we need to define the Shutdown reason.
-12.	Difference between Restart and Safe Restart in Jenkins?
-Ans: Restart: If we give at the URL “ipaddress:Jenkins_port_number/restart”	It restarts
+### 12.	Difference between Restart and Safe Restart in Jenkins?
+Ans: Restart: If we give at the URL `ipaddress:Jenkins_port_number/restart`	It restarts
 the Jenkins even the pipelines are running it cancels all the pipelines. And restarts the Jenkins.
 Ex: 44.201.216.47:8080/restart
-●	If we run the Jenkins as service in the server we can restart the jenkins by the command,
-●	“systemctl restart jenkins”
-Safe Restart: Here we use” prepare for shut down “option by defining the shutdown reason in Jenkins, it waits until all the pipelines are finished then it restarts the Jenkins.  
-13.	What is the use of Reload Configuration from disk in jenkins?
+- If we run the Jenkins as service in the server we can restart the jenkins by the command,
+- `systemctl restart jenkins`
+
+`Safe Restart:` Here we use” prepare for shut down “option by defining the shutdown reason in Jenkins, it waits until all the pipelines are finished then it restarts the Jenkins.  
+### 13.	What is the use of Reload Configuration from disk in jenkins?
 Ans: Here all the jobs will reload to the Jenkins UI by using the Reload Configuration from disk option even after we delete the jobs.
-14.	What is the use of workspace in jenkins?
+### 14.	What is the use of workspace in jenkins?
 Ans: Every time we create the job and build the job, workspace got created. In workspace all the files that are related the application will be available.
-15.	What is the use of global tool Configuration in Jenkins?
+### 15.	What is the use of global tool Configuration in Jenkins?
 Ans: If we want to integrate the Jenkins to some other tools like Gradle, Ant, Maven, and Git we use the Global Tool Configuration option in Jenkins.
+
 Suppose if you want to integrate the Maven to Jenkins, Maven installed in some other server so we need to add the Maven path at the Jenkins under the Global Tool Configuration option.
-16.	How to configure the single sign-in (only one username and password) option for all services?
+### 16.	How to configure the single sign-in (only one username and password) option for all services?
 Ans: By using LDAP (Lightweight Directory Access Protocol) we can configure the single sign in option. By using the same credentials we can sign in all the tools and services that we have access.
-17.	Where we configure the LDAP in Jenkins?
+### 17.	Where we configure the LDAP in Jenkins?
 Ans: Go to manage Jenkins->Configure Global Security.
-18.	Difference between scripted pipeline and declarative pipeline?
-Ans: Declarative pipelines: It break down stages into individual stages that can contain multiple steps.
-Scripted pipelines: It use Groovy code and references to the Jenkins pipeline DSL within the stage elements without the need for steps.
-Ex: node('master') { stage('Say Hello') { echo 'Hello World'
+### 18.	Difference between scripted pipeline and declarative pipeline?
+Ans: 
+
+**Declarative pipelines:** It break down stages into individual stages that can contain multiple steps.
+
+**Scripted pipelines:** It use Groovy code and references to the Jenkins pipeline DSL within the stage elements without the need for steps.
+```groovy
+Ex: node('master') 
+{ 
+    stage('Say Hello') { 
+    echo 'Hello World'
 }
 }
-19.	What are the stages in Jenkins pipeline?
+```
+### 19.	What are the stages in Jenkins pipeline?
 Ans:
-pipeline{
-agent any stages{
-stage('Build'){ steps {
-echo ‘This is Building Stage
+```groovy
+pipeline {
+    agent any stages {
+        stage('Build') {
+            steps {
+                echo ‘This is Building Stage
+            }
+        }
+        stage('Test') {
+            steps {
+                echo ‘This is Test Stage’
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo ‘This is Deploy Stage’
+            }
+        }
+        stage('Monitor') {
+            steps {
+                echo ‘This is Monitor Stage’
+            }
+        }
+    }
 }
-}
-stage('Test'){
-steps {
-echo ‘This is Test Stage’
-}
-}
-stage('Deploy'){
-steps {
-echo ‘This is Deploy Stage’
-}
-}
-stage('Monitor'){
-steps {
-echo ‘This is Monitor Stage’
-}
-}
-}
-}
-20.	What is the meaning of execute concurrent builds?
+```
+### 20.	What is the meaning of execute concurrent builds?
 Ans: Suppose if you add the file in git that is already building in the Jenkins. And again if you commit something in the same file that won’t run until enable this option called execute concurrent builds. Because already previous build is running. So after completing the previous build then only it will build.
-21.	What is throttle builds?
+### 21.	What is throttle builds?
 Ans: This way, the pipeline that would be able to run several builds at the same time, with some "upper limit" on how many builds.
-22.	What is GitHub hook trigger for GITScm polling?
+### 22.	What is GitHub hook trigger for GITScm polling?
 Ans: By enabling this option every time we commit the changes in git that will trigger and build the pipeline that we configured in the Jenkins.
 To Configure this,
-Goto Jenkins Dash board->click on job that you created->In general tab->Source Code Management Tab->select Git->add Repository path->specify the branch name(Ex: main or master)->Enable the Github hook trigger for GitScm polling option->click on apply and save.
-23.	Difference between poll SCM and GitHub hook?
+`Goto Jenkins Dash board->click on job that you created->In general tab->Source Code Management Tab->select Git->add Repository path->specify the branch name(Ex: main or master)->Enable the Github hook trigger for GitScm polling option->click on apply and save.`
+### 23.	Difference between poll SCM and GitHub hook?
 Ans: In Poll Scm, we schedule the time (H/15***) but here it checks the git repository for every 15 minutes if any new commit is available or not. If commit is there it builds the pipeline otherwise it will’nt build.
-GitHub Hook: By enabling this option every time we commit the changes in git that will trigger and build the pipeline that we configured in the Jenkins.
-24.	Difference between poll SCM and build periodically?
+
+`GitHub Hook:` By enabling this option every time we commit the changes in git that will trigger and build the pipeline that we configured in the Jenkins.
+### 24.	Difference between poll SCM and build periodically?
 Ans: In build periodically it builds the pipeline based on time intervals. So it fetch the code from Git and builds as per the scheduled timings by using the cron job.
+
 Ex: H/15*day*month*year. So here for every 15minits it trigger and builds the pipeline even if there is no new commit.
+
 In Poll Scm, we schedule the time (H/15***) but here it checks the git repository for every 15 minutes if any new commit is available or not. If commit is there it builds otherwise it will’nt build.
-25.	How to change the Jenkins port in tomcat server?
-Ans: Step1: java –jar Jenkins. War –httpPort-8080(Here we can change the port number ex. 8082, 8083)
-Step2: Whenever we install the Jenkins In tomcat server there we have server.xml file, here we have a parameter called connector port there we change the Jenkins port number.
-*By default Jenkins port number is 8080
-26.	How to restart the Jenkins?
+### 25.	How to change the Jenkins port in tomcat server?
+Ans: 
+`Step1:` java –jar Jenkins. War –httpPort-8080(Here we can change the port number ex. 8082, 8083)
+
+`Step2:` Whenever we install the Jenkins In tomcat server there we have server.xml file, here we have a parameter called connector port there we change the Jenkins port number.
+
+* By default Jenkins port number is 8080
+### 26.	How to restart the Jenkins?
 Ans: In the URL we just give the ‘/restart’ beside the server ip and Jenkins port. Ex. 34.209.88.191:8080/restart
-27.	How to secure the Jenkins?
-Ans: Go to->Manage-Jenkins->Configure Global Security->under Security Realm select Jenkins own user database->select checkbox select Allow user to sign up or LDAP
-Go to Authorization -> project based matrix authorization strategy we give the permissions to the user.
-28.	Why do we need to configure Jenkins slave nodes?
+### 27.	How to secure the Jenkins?
+Ans: `Go to->Manage-Jenkins->Configure Global Security->under Security Realm select Jenkins own user database->select checkbox select Allow user to sign up or LDAP`
+
+`Go to Authorization -> project based matrix authorization strategy` we give the permissions to the user.
+### 28.	Why do we need to configure Jenkins slave nodes?
 Ans: If you want to perform the building and testing the application regularly we need to create the Jenkins slave nodes and we run the building in that nodes.
+
 If we have multiple pipelines or jobs, one Jenkins master node cannot manage the job. So in order to increase the performance we create the slave nodes and we give the slave node label name in build configuration. Then that particular build will run in that slave node.
-29.	How to configure the Nodes in Jenkins?
-Ans: Manage-Jenkins->Nodes->New Node->give the node name->select permanent agent->0k
+### 29.	How to configure the Nodes in Jenkins?
+Ans: `Manage-Jenkins->Nodes->New Node->give the node name->select permanent agent->ok`
 Name of the node, no.of executors, remote directory, labels, Launch method based on these details we configure the Jenkins nodes.
-31.What are the plugins do you used in Jenkins?
-Ans: 1. Git Plugin: To interact with Git.
-2.	Rebuilder: whenever we build the Jenkins pipeline we give some choice parameters. If you face any issue while building. If you want to run the failed builds with same parameters we use the Rebuilder plugins.
-3.	Job Configuration History Plugin: If you do the changes in pipeline or job configuration all the changes are available by installing the Job Configuration plugin.
-4.	ThinBackup : By using this plugin we can back up the Jenkins as per the schedule. By using the cronjob we can schedule.
-5.	SSH: This plug in used to execute the commands remotely.
-6.	Greenball plugin: This plug-in is an user interface for build success or failed
-7.	Parameterized trigger plugin: This plugin is used to trigger the second job after first job executed. Here first job is called upstream project second job is called Downstream project.
-8.	HTML Publisher: This plugin publish HTML reports.
+### 31.What are the plugins do you used in Jenkins?
+Ans: 
 
-32	What is Jenkins Home directory?
-Ans: /var/jenkins_home
-The Jenkins home directory consist of all the information about jobs, nodes, plugins, users, workspace, secrets etc.
-33.How many executers can we execute in the server?
+**1. Git Plugin:** To interact with Git.
+
+**2. Rebuilder:** whenever we build the Jenkins pipeline we give some choice parameters. If you face any issue while building. If you want to run the failed builds with same parameters we use the Rebuilder plugins.
+
+**3. Job Configuration History Plugin:** If you do the changes in pipeline or job configuration all the changes are available by installing the Job Configuration plugin.
+
+**4. ThinBackup :** By using this plugin we can back up the Jenkins as per the schedule. By using the cronjob we can schedule.
+
+**5. SSH:** This plug in used to execute the commands remotely.
+
+**6. Greenball plugin:** This plug-in is an user interface for build success or failed
+
+**7. Parameterized trigger plugin:** This plugin is used to trigger the second job after first job executed. Here first job is called upstream project second job is called Downstream project.
+
+**8. HTML Publisher:** This plugin publish HTML reports.
+
+### 32	What is Jenkins Home directory?
+Ans: 
+`/var/jenkins_home`
+- The Jenkins home directory consist of all the information about jobs, nodes, plugins, users, workspace, secrets etc.
+### 33.How many executers can we execute in the server?
 Ans: By Default 2 executers, after that we can use as per our requirement. If you have 2 executers at a time, these two pipelines will run first and rest of the pipelines are in waiting state till the first 2 pipeline are complete.
-34.	How to change the Jenkins users password?
-Ans: Goto->manage jenkins->manage users->click on user name ->click on configure
-35	Where you can find the Jenkins version?
-Ans: Go to manage-Jenkins->About Jenkins->(About Jenkins 2.319.1) Here we can find The Jenkins version.
-36	What is prepare for shutdown option in Jenkins (or) difference between restart and safe restart?
-Ans: Prepare for shutdown: If you use this option it waits until the current jobs or pipelines are completed, then Jenkins will shut down. If you give the shutdown option in URL it shut down immediately even the pipelines are running.
-37	What is Global Tool Configuration in Jenkins?
-Ans: Here we configure all the tools like git, maven, jdk tools paths in jenkins.
-38. How to create the job in Jenkins?
-Ans: click on New Item->Enter the item name->choose freestyle project->Ok
-   39 .What are the different types of projects available in the jenkins and explain?
-Ans: Free Style, Pipeline, Multi-configuration project, Folder, Multibranch pipeline, Organization folder.
-Free Style: Every build system like Maven, Ant the free style project will integrate to the SCM (git/svn).
-Folder: Here we create the folder for each environment and create the jobs into that folder. Ex: DEV, PT, PRE-PROD and PROD
-Multibrnach Pipeline: While we create the branch in git, that branch will trigger to Jenkins pipeline automatically.
-Pipeline: By choose this project we need to define the pipeline stages by using declarative pipeline and scripted pipeline. We basically use the declarative pipeline
+### 34.	How to change the Jenkins users password?
+Ans: `Goto->manage jenkins->manage users->click on user name ->click on configure`
+### 35	Where you can find the Jenkins version?
+Ans: `Go to manage-Jenkins->About Jenkins->(About Jenkins 2.319.1)` Here we can find The Jenkins version.
+### 36	What is prepare for shutdown option in Jenkins (or) difference between restart and safe restart?
+Ans: 
 
-Ex: pipeline {
-Agent any 
-stages {
-stage(“Hello”) {
-stage {
-echo “Hello World”
+**Prepare for shutdown:** If you use this option it waits until the current jobs or pipelines are completed, then Jenkins will shut down. If you give the shutdown option in URL it shut down immediately even the pipelines are running.
+### 37	What is Global Tool Configuration in Jenkins?
+Ans: Here we configure all the tools like git, maven, jdk tools paths in jenkins.
+### 38. How to create the job in Jenkins?
+Ans: `click on New Item->Enter the item name->choose freestyle project->Ok`
+### 39 .What are the different types of projects available in the jenkins and explain?
+Ans: 
+Free Style, Pipeline, Multi-configuration project, Folder, Multibranch pipeline, Organization folder.
+
+**Free Style:** Every build system like Maven, Ant the free style project will integrate to the SCM (git/svn).
+
+**Folder:** Here we create the folder for each environment and create the jobs into that folder. Ex: DEV, PT, PRE-PROD and PROD
+
+**Multibrnach Pipeline:** While we create the branch in git, that branch will trigger to Jenkins pipeline automatically.
+
+**Pipeline:** By choose this project we need to define the pipeline stages by using declarative pipeline and scripted pipeline. We basically use the declarative pipeline
+
+Ex: 
+```groovy
+pipeline {
+    Agent any
+    stages {
+        stage(“Hello”) {
+            stage {
+                echo “Hello World”
+            }
+        }
+    }
 }
-}
-}
-*	Pipeline script from SCM in drop down means we already define the pipeline script and stored in the Git/SVN from that only we can pull the code.
-*	Generally we use Freestyle Project.
-40	How to configure the Job in Jenkins?
-Ans: Select the Job->
-*Go to general Tab,
-Execute the concurrent builds—Need to explain to the interviewer
-*Source code management tab, Git
-*Build Triggers—here we choose the build options Build after other projects are build
-Build Periodically
-GitHub hook trigger for GitScm polling Poll SCM
-*Add Build Actions in Build Environment Tab
-*Click Apply and Save
-41	Write the Jenkins pipeline file and explain its stages?
+```
+
+* Pipeline script from SCM in drop down means we already define the pipeline script and stored in the Git/SVN from that only we can pull the code.
+* Generally we use Freestyle Project.
+### 40	How to configure the Job in Jenkins?
+Ans: `Select the Job->Go to general Tab-Execute the concurrent builds`— Need to explain to the interviewer
+* Source code management tab, Git - Build Triggers—here we choose the build options Build after other projects are build
+- Build Periodically
+- GitHub hook trigger for GitScm polling Poll SCM
+- Add Build Actions in Build Environment Tab
+- Click Apply and Save
+### 41	Write the Jenkins pipeline file and explain its stages?
 Ans: Already available
-42	Jenkins installation using Ansible?
+### 42	Jenkins installation using Ansible?
 ----check the harish shared link for reference in skype----
 
+---
 
+## MAVEN
 
-MAVEN
-1.	What is the local repository in Maven?
+### 1.	What is the local repository in Maven?
 Ans: Local Repository: If you define the any plugin in POM.XML file that plug-in will install in local repository while building. Second time if you building the application it checks in the local repository weather the plug in is available or not.
-●	“.m2” is the local repository in maven.
-Or
+- “.m2” is the local repository in maven.
+
+`Or`
+
 In Maven, a local repository refers to a local storage location on a developer's machine where Maven stores project artifacts, plugins, and other dependencies that are downloaded from remote repositories. The local repository is typically located in the `.m2` directory in the user's home directory.
-Here's a breakdown of what you might find in the local repository:
-1. Local Project Artifacts:
+#### Here's a breakdown of what you might find in the local repository:
+#### 1. Local Project Artifacts:
    - When you build a Maven project, the project's artifacts (e.g., JAR files, WAR files) are generated during the build process. These artifacts are stored in the local repository for future use and can be referenced by other projects on the same machine.
-2. Downloaded Dependencies:
+#### 2. Downloaded Dependencies:
    - Maven automatically downloads dependencies (libraries, plugins, etc.) from remote repositories specified in the project's `pom.xml` file. Once downloaded, these dependencies are cached in the local repository to avoid redundant downloads.
-3. Plugin JARs:
+#### 3. Plugin JARs:
    - Maven plugins required for the build process are also stored in the local repository. These plugins are retrieved from remote repositories the first time they are needed and cached locally for subsequent builds.
-4. Metadata:
+#### 4. Metadata:
    - Metadata about the artifacts and dependencies is stored in the form of XML files. This metadata includes information about versions, checksums, and other details that Maven uses for resolution and consistency.
-5. Repository Structure:
+#### 5. Repository Structure:
    - The local repository has a specific structure with directories organized by group ID, artifact ID, and version. For example:
-     ```
+     ```bash
      ~/.m2/repository/com/example/myproject/
          myproject-1.0/
              myproject-1.0.jar
              myproject-1.0.pom
-             ...
      ```
 The local repository is a crucial part of Maven's dependency management system. It allows Maven to avoid redundant downloads by storing artifacts locally, which is beneficial for offline development and ensures consistency across builds on the same machine. Developers can also share artifacts with other developers on the same team, reducing the need for external network requests during the build process.
-2.	Difference between local repository and remote repository?
-Ans: Local Repository: If you define the any plugin in POM.XML file that plug-in will install in local repository while building. Second time if you building the application it checks in the local repository weather the plug in is available or not.
-●	“.m2” is the local repository in maven.
-Remote Repository: Here Developers will creates their own or custom repository, they store the dependencies or plug-ins and project related files in that repository. So while we building the application it checks the central repo if not available it downloads and install from remote repository.
-Or
+### 2.	Difference between local repository and remote repository?
+Ans: 
+
+**Local Repository:** If you define the any plugin in POM.XML file that plug-in will install in local repository while building. Second time if you building the application it checks in the local repository weather the plug in is available or not.
+
+- “.m2” is the local repository in maven.
+
+**Remote Repository:** Here Developers will creates their own or custom repository, they store the dependencies or plug-ins and project related files in that repository. So while we building the application it checks the central repo if not available it downloads and install from remote repository.
+
+`Or`
+
 The local repository and remote repository in Maven serve different purposes and are part of Maven's dependency management system. Here are the key differences between them:
-Local Repository:
-1. Location:
-   - Local: Stored on the developer's machine.
-   - Path: Typically located in the `.m2` directory in the user's home directory.
-2. Purpose:
-   - Storage: Used to store project-specific artifacts, dependencies, and plugins locally.
-   - Caching: Caches artifacts and dependencies downloaded from remote repositories to avoid redundant downloads.
-3. Access:
-   - Private: Accessible only to the local machine and the projects on it.
-   - Use Case: Allows for offline development and builds consistency across multiple projects on the same machine.
-4. Contents:
-   - Project Artifacts: Includes artifacts generated by the local project during the build process.
-   - Downloaded Dependencies: Contains dependencies and plugins downloaded from remote repositories.
-5. Structure:
-   - Organization: Organized by group ID, artifact ID, and version in a specific directory structure.
-   - Metadata: Stores XML files with metadata about artifacts and dependencies.
-Remote Repository:
-1. Location:
-   - Remote: Hosted on a central or remote server.
-   - Examples: Maven Central Repository, JCenter, or a custom repository managed by an organization.
-2. Purpose:
-   - Distribution: Serves as a central location for sharing and distributing artifacts across multiple developers and projects.
-   - Public Access: Allows artifacts to be shared with the wider development community.
-3. Access:
-   - Public: Accessible to developers across different machines and organizations.
-   - Use Case: Enables collaboration by providing a centralized location for sharing and retrieving dependencies.
-4. Contents:
-   - Public Artifacts: Contains publicly available libraries, plugins, and other dependencies.
-   - Published Artifacts: Hosts artifacts published by developers or organizations for wider consumption.
-5. Structure:
-   - Organized: Follows a similar directory structure as the local repository, but on a larger scale.
-   - Metadata: Maintains metadata files for indexing and search capabilities.
+
+#### Local Repository:
+#### 1. Location:
+   `- Local:` Stored on the developer's machine.
+   `- Path:` Typically located in the `.m2` directory in the user's home directory.
+#### 2. Purpose:
+   `- Storage:` Used to store project-specific artifacts, dependencies, and plugins locally.
+   `- Caching:` Caches artifacts and dependencies downloaded from remote repositories to avoid redundant downloads.
+#### 3. Access:
+   `- Private:` Accessible only to the local machine and the projects on it.
+   `- Use Case:` Allows for offline development and builds consistency across multiple projects on the same machine.
+#### 4. Contents:
+   `- Project Artifacts:` Includes artifacts generated by the local project during the build process.
+   `- Downloaded Dependencies:` Contains dependencies and plugins downloaded from remote repositories.
+#### 5. Structure:
+   `- Organization:` Organized by group ID, artifact ID, and version in a specific directory structure.
+   `- Metadata:` Stores XML files with metadata about artifacts and dependencies.
+#### Remote Repository:
+#### 1. Location:
+   `- Remote:` Hosted on a central or remote server.
+   `- Examples:` Maven Central Repository, JCenter, or a custom repository managed by an organization.
+#### 2. Purpose:
+   `- Distribution:` Serves as a central location for sharing and distributing artifacts across multiple developers and projects.
+   `- Public Access:` Allows artifacts to be shared with the wider development community.
+#### 3. Access:
+   `- Public:` Accessible to developers across different machines and organizations.
+   `- Use Case:` Enables collaboration by providing a centralized location for sharing and retrieving dependencies.
+#### 4. Contents:
+   `- Public Artifacts:` Contains publicly available libraries, plugins, and other dependencies.
+   `- Published Artifacts:` Hosts artifacts published by developers or organizations for wider consumption.
+#### 5. Structure:
+   `- Organized:` Follows a similar directory structure as the local repository, but on a larger scale.
+   `- Metadata:` Maintains metadata files for indexing and search capabilities.
 In summary, the local repository is a local storage location on an individual developer's machine, primarily used for caching and managing project-specific artifacts. The remote repository is a centralized or public repository accessible over the network, facilitating the sharing and distribution of dependencies among multiple developers and projects. Maven uses both local and remote repositories to ensure efficient and consistent dependency management in the development process.
-3.	Difference between central repository and remote repository?
-Ans: Central Repository: If the plug in is not available in maven local repository it downloads from the central repository (Google) through the internet access and stores in the local repository
-Remote Repository: Here Developers will creates their own or custom repository, they store the dependencies or plug-ins and project related files in that repository. So while we building the application it checks the central repo if not available it downloads and install from remote repository.
-Or
+### 3.	Difference between central repository and remote repository?
+Ans: 
+
+**Central Repository:** If the plug in is not available in maven local repository it downloads from the central repository (Google) through the internet access and stores in the local repository
+
+**Remote Repository:** Here Developers will creates their own or custom repository, they store the dependencies or plug-ins and project related files in that repository. So while we building the application it checks the central repo if not available it downloads and install from remote repository.
+
+`Or`
+
 The terms "Central Repository" and "Remote Repository" are often used interchangeably, but in the context of Maven, they might refer to different things. Let's clarify the distinction:
-Central Repository:
-1. Identity:
-   - Specific Repository: The Central Repository refers specifically to the default repository for Maven known as the Maven Central Repository.
-2. Managed by:
-   - Managed by Sonatype: The Maven Central Repository is managed and hosted by Sonatype.
-3. Purpose:
-   - Global Repository: It serves as a global, public repository for open-source Java libraries and artifacts. 
-4. Access:
-   - Public: It is a public repository accessible to developers worldwide.
-5. Contents:
-   - Public Artifacts: Hosts a vast collection of open-source Java libraries and artifacts. 
-6. Use Case:
-   - Default Source: Maven projects are configured by default to retrieve dependencies from the Maven Central Repository.
-Remote Repository:
-1. Identity:
-   - General Term: "Remote Repository" is a more general term that can refer to any repository accessed remotely.
-2. Managed by:
-   - Varied Ownership: A remote repository could be managed by various entities, including organizations or individuals.
-3. Purpose:
-   - Varied Purpose: A remote repository, in a broader sense, could be any repository located remotely, including public or private repositories.
-4. Access:
-   - Varied Access Control: Access control can vary; it could be public or private based on the repository's configuration.
-5. Contents:
-   - Varied Contents: A remote repository can contain a wide range of artifacts, including both public and private dependencies.
-6. Use Case:
-   - Custom Repositories: Organizations often set up remote repositories to store and share internal artifacts or dependencies not available in public repositories.
+
+**Central Repository:**
+#### 1. Identity:
+   `- Specific Repository:` The Central Repository refers specifically to the default repository for Maven known as the Maven Central Repository.
+#### 2. Managed by:
+   `- Managed by Sonatype:` The Maven Central Repository is managed and hosted by Sonatype.
+#### 3. Purpose:
+   `- Global Repository:` It serves as a global, public repository for open-source Java libraries and artifacts. 
+#### 4. Access:
+   `- Public:` It is a public repository accessible to developers worldwide.
+#### 5. Contents:
+   `- Public Artifacts:` Hosts a vast collection of open-source Java libraries and artifacts. 
+#### 6. Use Case:
+   `- Default Source:` Maven projects are configured by default to retrieve dependencies from the Maven Central Repository.
+#### Remote Repository:
+#### 1. Identity:
+   `- General Term:` "Remote Repository" is a more general term that can refer to any repository accessed remotely.
+#### 2. Managed by:
+   `- Varied Ownership:` A remote repository could be managed by various entities, including organizations or individuals.
+#### 3. Purpose:
+   `- Varied Purpose:` A remote repository, in a broader sense, could be any repository located remotely, including public or private repositories.
+#### 4. Access:
+   `- Varied Access Control:` Access control can vary; it could be public or private based on the repository's configuration.
+#### 5. Contents:
+   `- Varied Contents:` A remote repository can contain a wide range of artifacts, including both public and private dependencies.
+#### 6. Use Case:
+   `- Custom Repositories:` Organizations often set up remote repositories to store and share internal artifacts or dependencies not available in public repositories.
+
 In summary, the Maven Central Repository is a specific instance of a remote repository that is publicly available and managed by Sonatype. However, when using the term "remote repository" more broadly, it could refer to any repository accessed remotely, and it might include public repositories like Maven Central or private repositories set up by organizations for their specific needs.
-4.	What are the repositories available in the Maven?
+### 4.	What are the repositories available in the Maven?
 Ans: local, central and remote repositories.
-Or
+
+`Or`
 Maven supports various repositories to store and retrieve artifacts (dependencies, plugins, and other build components). The main types of repositories in Maven are:
-1. Local Repository:
-   - Location: Stored on the developer's machine.
-   - Path: Typically located in the `.m2` directory in the user's home directory.
-   - Purpose: Caches artifacts and dependencies downloaded from remote repositories, ensuring offline development and build consistency.
-2. Central Repository (Maven Central):
-   - Location: Global, public repository.
-   - Managed by: Hosted and managed by Sonatype.
-   - Purpose: Default repository for open-source Java libraries and artifacts.
-   - Access: Public and accessible to developers worldwide.
-3. Remote Repositories:
-   - Location: External repositories accessed remotely over the network.
-   - Managed by: Can be public or private repositories managed by organizations or individuals.
-   - Purpose: Used to host and share dependencies not available in the Central Repository or for internal project-specific artifacts.
-   - Access: Public or private based on repository configuration.
-4. Custom Repositories:
-   - Location: Can be hosted internally within an organization or externally.
-   - Managed by: Set up and managed by organizations to store and share internal artifacts or dependencies.
-   - Purpose: Provides control over the artifacts used in a project and facilitates collaboration within the organization.
-   - Access: Internal and may require authentication.
-5. Snapshot Repositories:
-   - Location: Can be local, remote, or custom repositories.
-   - Managed by: Often set up to host snapshot versions of projects.
-   - Purpose: Used for hosting artifacts with version numbers ending in "-SNAPSHOT," which indicates a work in progress.
-   - Access: Can be configured in the project's `pom.xml` file.
-6. Repository Groups (Aggregated Repositories):
-   - Location: Aggregation of multiple repositories.
-   - Managed by: Defined in the Maven settings or in the project's `pom.xml`.
-   - Purpose: Allows combining multiple repositories into a single logical repository for simplified dependency management.
-   - Access: Aggregated from multiple repositories.
+#### 1. Local Repository:
+   `- Location: `Stored on the developer's machine.
+   `- Path:` Typically located in the `.m2` directory in the user's home directory.
+   `- Purpose:` Caches artifacts and dependencies downloaded from remote repositories, ensuring offline development and build consistency.
+#### 2. Central Repository (Maven Central):
+   `- Location:` Global, public repository.
+   `- Managed by:` Hosted and managed by Sonatype.
+   `- Purpose:` Default repository for open-source Java libraries and artifacts.
+   `- Access:` Public and accessible to developers worldwide.
+#### 3. Remote Repositories:
+   `- Location:` External repositories accessed remotely over the network.
+   `- Managed by:` Can be public or private repositories managed by organizations or individuals.
+   `- Purpose:` Used to host and share dependencies not available in the Central Repository or for internal project-specific artifacts.
+   `- Access:` Public or private based on repository configuration.
+#### 4. Custom Repositories:
+   `- Location:` Can be hosted internally within an organization or externally.
+   `- Managed by:` Set up and managed by organizations to store and share internal artifacts or dependencies.
+   `- Purpose:` Provides control over the artifacts used in a project and facilitates collaboration within the organization.
+   `- Access:` Internal and may require authentication.
+#### 5. Snapshot Repositories:
+   `- Location:` Can be local, remote, or custom repositories.
+   `- Managed by:` Often set up to host snapshot versions of projects.
+   `- Purpose:` Used for hosting artifacts with version numbers ending in "-SNAPSHOT," which indicates a work in progress.
+   `- Access:` Can be configured in the project's `pom.xml` file.
+#### 6. Repository Groups (Aggregated Repositories):
+   `- Location:` Aggregation of multiple repositories.
+   `- Managed by:` Defined in the Maven settings or in the project's `pom.xml`.
+   `- Purpose:` Allows combining multiple repositories into a single logical repository for simplified dependency management.
+   `- Access:` Aggregated from multiple repositories.
 These repositories work together to facilitate the resolution and retrieval of dependencies during the Maven build process. Maven uses a predefined order (local, central, remote) to search for artifacts, and developers can customize the repositories in the Maven settings or the project's `pom.xml` file.
-5.	What is Mean by Artifacts?
+### 5.	What is Mean by Artifacts?
 Ans: All project related files are nothing but arttifacts.project design and project structure jar and war, ear files.
-Or
+
+`Or`
+
 In the context of software development, an "artifact" refers to a deployable component of a project. Artifacts are the result of a build process and can include executable files, libraries, documentation, or any other output that is produced during the development and build of a software project.
-Here are a few common types of artifacts:
-1. JAR (Java Archive):
+#### Here are a few common types of artifacts:
+#### 1. JAR (Java Archive):
    - In Java projects, a JAR file is a common artifact. It is a compressed file format that bundles Java classes and metadata. JAR files are executable and can be used as libraries in other projects.
-2. WAR (Web Archive):
+#### 2. WAR (Web Archive):
    - In Java web development, a WAR file is an artifact that packages a web application, including servlets, JSP pages, HTML, and other resources. WAR files are deployed to web servers like Apache Tomcat.
-3. EAR (Enterprise Archive):
+#### 3. EAR (Enterprise Archive):
    - An EAR file is used in Java Enterprise Edition (Java EE) projects. It contains multiple Java modules (JAR, WAR, etc.) along with deployment descriptors.
-4. Executable Binaries:
+#### 4. Executable Binaries:
    - For native applications, artifacts may include compiled executable files for specific platforms (e.g., EXE files on Windows, ELF binaries on Unix-like systems).
-5. Libraries and DLLs:
+#### 5. Libraries and DLLs:
    - Shared libraries or Dynamic Link Libraries (DLLs) are artifacts in projects that can be dynamically linked at runtime.
-6. Documentation:
+#### 6. Documentation:
    - Artifacts can also include documentation files such as READMEs, manuals, or API documentation.
-7. Container Images:
+#### 7. Container Images:
    - In containerized applications, artifacts may include Docker images or other container images that encapsulate the application and its dependencies.
-8. Installer Packages:
+#### 8. Installer Packages:
    - For desktop applications, artifacts may be installer packages (e.g., MSI on Windows, DMG on macOS, DEB/RPM on Linux).
 The specific type of artifact depends on the nature of the project and the technologies used. Artifacts are created during the build process and are often versioned to keep track of changes over time. They play a crucial role in the deployment and distribution of software. Maven, a popular build tool, manages dependencies and produces artifacts in the form of JARs, WARs, and other formats.
-6.	What are the three important parameters in POM.xml file (Project Object Model)? 
+### 6.	What are the three important parameters in POM.xml file (Project Object Model)? 
 Ans: Group ID, Artifact ID, and Packaging
-Packaging: Here we define the final output package format like (JAR/WAR/EAR). 
+`Packaging:` Here we define the final output package format like (JAR/WAR/EAR). 
 Group ID: here we define the reverse organization name (Ex: com.myApp.app) Artifact ID: Here we define our application name (Ex: myApp).
 Finally it creates like “myApp.jar”
 
-Or
+`Or`
 
 The `pom.xml` file in Maven (Project Object Model) is a configuration file that contains information about a project and configuration details used by Maven to build the project. While there are many parameters that can be configured in a `pom.xml` file, three key and commonly used parameters are:
 
-1. `<groupId>`:
-   - Description: Identifies the project's group or organization.
+### 1. `<groupId>`:
+   `- Description:` Identifies the project's group or organization.
    - Example:
      ```xml
      <groupId>com.example</groupId>
      ```
-   - Usage: Typically, this is set to a reversed domain name to ensure uniqueness.
+   `- Usage:` Typically, this is set to a reversed domain name to ensure uniqueness.
 
-2. `<artifactId>`:
-   - Description: Specifies the unique identifier of the project (artifact) within the group.
+#### 2. `<artifactId>`:
+   `- Description:` Specifies the unique identifier of the project (artifact) within the group.
    - Example:
      ```xml
      <artifactId>myproject</artifactId>
@@ -371,16 +438,14 @@ The `pom.xml` file in Maven (Project Object Model) is a configuration file that 
    - Usage: This is the name of the project or module. Together with `groupId` and `version`, it uniquely identifies the artifact.
 
 3. `<version>`:
-   - Description: Specifies the version of the project.
+   `- Description:` Specifies the version of the project.
    - Example:
      ```xml
      <version>1.0-SNAPSHOT</version>
      ```
-   - Usage: Maven uses this to differentiate between different releases of the project. It could be a specific version number or a placeholder like "SNAPSHOT" for a development version.
+   `- Usage:` Maven uses this to differentiate between different releases of the project. It could be a specific version number or a placeholder like "SNAPSHOT" for a development version.
 
 These three parameters (`groupId`, `artifactId`, and `version`) together uniquely identify a Maven project and are often referred to as the GAV coordinates (Group, Artifact, Version). They play a crucial role in Maven's dependency resolution and are used when retrieving dependencies from repositories.
-
-
 
 Here's an example of how they are structured in a `pom.xml` file:
 
@@ -393,143 +458,180 @@ Here's an example of how they are structured in a `pom.xml` file:
 </project>
 ```
 In addition to these, there are other important sections and parameters in a `pom.xml` file, such as `<dependencies>`, `<build>`, `<plugins>`, `<repositories>`, and more, each serving a specific purpose in Maven's build lifecycle.
-7.	Difference between SNAPSHOT and version in POM.XML?
+### 7.	Difference between SNAPSHOT and version in POM.XML?
 Ans: <version>1.0-SNAPSHOT</version> --- It means this particular version is in under development stage. Currently it is in testing stage. Once the testing was done we remove the SNAPSHOT. And finally we give the stable version number like “1.0” .
-Version: Stable release version
-SNAPSHOT: under development or testing version.
-Or
+`Version:` Stable release version
+`SNAPSHOT:` under development or testing version.
+
+`Or`
+
 In Maven's `pom.xml` file, the `<version>` element specifies the version of the project, and it can take various forms. Two common conventions for versions are:
-1. Regular Version:
+#### 1. Regular Version:
    - Example: `<version>1.0</version>`
    - A regular version number indicates a stable release or a specific release of the project.
-2. SNAPSHOT Version:
+#### 2. SNAPSHOT Version:
    - Example: `<version>1.1-SNAPSHOT</version>`
    - A version with "SNAPSHOT" indicates that the project is under active development, and it's a work in progress or a development version.
-Key Differences:
-1. Stable Release vs. Development Version:
-   - Regular Version: Implies a stable release or a specific version of the project that is considered finalized and suitable for production use.
-   - SNAPSHOT Version: Indicates a development version that is subject to changes. SNAPSHOT versions are placeholders for works in progress and are not considered stable releases.
-2. Snapshot Dependency Resolution:
-   - Regular Version: Maven attempts to download the specific version declared in the `<version>` tag from repositories.
-   - SNAPSHOT Version: Maven always attempts to download the latest snapshot, meaning it checks for updates each time a build is triggered.
-3. Caching and Local Repository:
-   - Regular Version: Once Maven downloads a regular version, it is cached locally, and subsequent builds use the cached version unless explicitly updated.
-   - SNAPSHOT Version: Maven checks for updates each time a build is triggered, ensuring that the latest snapshot is used.
-4. Repository Considerations:
-   - Regular Version: Regular releases are typically deployed to release repositories.
-   - SNAPSHOT Version: SNAPSHOT versions are usually deployed to snapshot repositories, which are intended for works in progress.
-5. Release Lifecycle:
-   - Regular Version: Represents a release that has been finalized and is suitable for distribution.
-   - SNAPSHOT Version: Represents a version under active development, and it may undergo changes until it becomes a stable release.
-6. Usage in Dependency Management:
-   - Regular Version: Used for stable dependencies in other projects.
-   - SNAPSHOT Version: Used when a project depends on the latest development version of another project.
+#### Key Differences:
+#### 1. Stable Release vs. Development Version:
+   `- Regular Version:` Implies a stable release or a specific version of the project that is considered finalized and suitable for production use.
+   `- SNAPSHOT Version:` Indicates a development version that is subject to changes. SNAPSHOT versions are placeholders for works in progress and are not considered stable releases.
+#### 2. Snapshot Dependency Resolution:
+   `- Regular Version:` Maven attempts to download the specific version declared in the `<version>` tag from repositories.
+   `- SNAPSHOT Version:` Maven always attempts to download the latest snapshot, meaning it checks for updates each time a build is triggered.
+#### 3. Caching and Local Repository:
+   `- Regular Version:` Once Maven downloads a regular version, it is cached locally, and subsequent builds use the cached version unless explicitly updated.
+   `- SNAPSHOT Version:` Maven checks for updates each time a build is triggered, ensuring that the latest snapshot is used.
+#### 4. Repository Considerations:
+   `- Regular Version:` Regular releases are typically deployed to release repositories.
+   `- SNAPSHOT Version:` SNAPSHOT versions are usually deployed to snapshot repositories, which are intended for works in progress.
+#### 5. Release Lifecycle:
+   `- Regular Version:` Represents a release that has been finalized and is suitable for distribution.
+   `- SNAPSHOT Version:` Represents a version under active development, and it may undergo changes until it becomes a stable release.
+#### 6. Usage in Dependency Management:
+   `- Regular Version:` Used for stable dependencies in other projects.
+   `- SNAPSHOT Version:` Used when a project depends on the latest development version of another project.
 In summary, the choice between regular and SNAPSHOT versions in Maven depends on the project's lifecycle stage. Regular versions are for stable releases, while SNAPSHOT versions are for works in progress and continuous development.
-8.	What is the local repository in maven? 
+### 8.	What is the local repository in maven? 
 Ans: .m2
-9.	What are the plugins that you used in maven?
+### 9.	What are the plugins that you used in maven?
 Ans: maven-compiler-plugin, maven-sure-fire-plugin, maven install plug-in, maven deployment plug-in, exec-maven-plugin, maven-dependency-plugin, maven-resources-plugin.
-Or
+
+`Or`
+
 Maven supports a wide range of plugins that developers commonly use in their projects for various purposes. Some popular Maven plugins include:
-1. maven-compiler-plugin:
+#### 1. maven-compiler-plugin:
    - Compiles Java source code.
-2. maven-surefire-plugin:
+#### 2. maven-surefire-plugin:
    - Runs unit tests during the build process.
-3. maven-jar-plugin:
+#### 3. maven-jar-plugin:
    - Creates a JAR (Java Archive) file from project classes and resources.
-4. maven-war-plugin:
+#### 4. maven-war-plugin:
    - Packages the project into a web application archive (WAR) for deployment.
-5. maven-resources-plugin:
+#### 5. maven-resources-plugin:
    - Handles the copying of project resources to the output directory.
-6. maven-clean-plugin:
+#### 6. maven-clean-plugin:
    - Cleans the project by removing the build directory.
-7. maven-install-plugin:
+#### 7. maven-install-plugin:
    - Installs the project artifacts into the local repository.
 8. maven-deploy-plugin:
    - Deploys project artifacts to a remote repository.
-9. maven-dependency-plugin:
+#### 9. maven-dependency-plugin:
    - Manages project dependencies, including copying dependencies and analyzing the classpath.
-10. maven-release-plugin:
+#### 10. maven-release-plugin:
     - Facilitates the release process, including versioning, tagging, and deployment.
-11. maven-site-plugin:
+#### 11. maven-site-plugin:
     - Generates a project site or documentation.
-12. maven-assembly-plugin:
+#### 12. maven-assembly-plugin:
     - Creates an assembly of the project, allowing for the creation of custom distribution packages.
-13. maven-checkstyle-plugin:
+#### 13. maven-checkstyle-plugin:
     - Enforces coding standards using Checkstyle.
-14. maven-spring-boot-plugin:
+#### 14. maven-spring-boot-plugin:
     - Provides support for building and running Spring Boot applications.
-15. maven-sonarqube-plugin:
+#### 15. maven-sonarqube-plugin:
     - Integrates with SonarQube for code quality analysis.
 Remember that the plugins used in a Maven project depend on the specific requirements and technologies of that project. Developers choose plugins based on the goals they want to achieve during the build process and the nature of their projects. Additionally, new plugins may be introduced, and existing ones may receive updates, so it's essential to refer to the official Maven documentation and plugin documentation for the latest information.
-10.	What is maven sure-fire plugin?
+#### 10.	What is maven sure-fire plugin?
 Ans: To compile any unit test files we used the plugin called Maven-surefire-plugin.
-11.	What is maven?
+#### 11.	What is maven?
 Ans : maven is a build tool
-Or
+
+`Or`
 Apache Maven is a powerful and widely used build automation and project management tool. It is part of the Apache Software Foundation and is designed to manage the build lifecycle of a software project. Maven simplifies the process of building, testing, and packaging Java applications, and it helps manage project dependencies.
-Key features and aspects of Maven include:
-1. Project Object Model (POM): Maven uses a Project Object Model, defined in an XML file called `pom.xml`, to manage project information, dependencies, and build configurations. The POM serves as the project's configuration and a central place for project metadata.
-2. Convention over Configuration: Maven follows the principle of "convention over configuration," meaning that it uses sensible defaults and conventions to reduce the need for explicit configuration. This allows developers to focus on coding rather than extensive build configurations.
-3. Dependency Management: Maven simplifies the management of project dependencies. It automatically downloads required libraries from repositories, such as the Maven Central Repository, and ensures consistent versions across projects.
-4. Build Lifecycle: Maven defines a standard build lifecycle consisting of phases (e.g., compile, test, package) and goals (specific tasks within phases). Developers can execute specific goals to perform tasks at various stages of the build process.
-5. Plugin System: Maven is extensible through a plugin system. A wide range of plugins is available to extend and customize Maven's functionality, enabling integration with different tools and services.
-6. Repository System: Maven uses a central repository system for storing and retrieving project artifacts (e.g., JAR files). The Maven Central Repository is a public repository that hosts a vast collection of open-source Java libraries.
-7. Consistent Project Structure: Maven encourages a standardized project structure, making it easier for developers to navigate and understand the layout of a project.
-8. Incremental Builds: Maven optimizes builds by performing incremental builds. It only compiles and processes the code that has changed since the last build, improving build efficiency.
-9. Multi-Module Projects: Maven supports multi-module projects, allowing developers to manage and build multiple related projects as a single unit.
+#### Key features and aspects of Maven include:
+
+**1. Project Object Model (POM):** Maven uses a Project Object Model, defined in an XML file called `pom.xml`, to manage project information, dependencies, and build configurations. The POM serves as the project's configuration and a central place for project metadata.
+
+**2. Convention over Configuration:** Maven follows the principle of "convention over configuration," meaning that it uses sensible defaults and conventions to reduce the need for explicit configuration. This allows developers to focus on coding rather than extensive build configurations.
+
+**3. Dependency Management:** Maven simplifies the management of project dependencies. It automatically downloads required libraries from repositories, such as the Maven Central Repository, and ensures consistent versions across projects.
+
+**4. Build Lifecycle:** Maven defines a standard build lifecycle consisting of phases (e.g., compile, test, package) and goals (specific tasks within phases). Developers can execute specific goals to perform tasks at various stages of the build process.
+
+**5. Plugin System:** Maven is extensible through a plugin system. A wide range of plugins is available to extend and customize Maven's functionality, enabling integration with different tools and services.
+
+**6. Repository System:** Maven uses a central repository system for storing and retrieving project artifacts (e.g., JAR files). The Maven Central Repository is a public repository that hosts a vast collection of open-source Java libraries.
+
+**7. Consistent Project Structure:** Maven encourages a standardized project structure, making it easier for developers to navigate and understand the layout of a project.
+
+**8. Incremental Builds:** Maven optimizes builds by performing incremental builds. It only compiles and processes the code that has changed since the last build, improving build efficiency.
+
+**9. Multi-Module Projects:** Maven supports multi-module projects, allowing developers to manage and build multiple related projects as a single unit.
 Maven is widely used in the Java development community, but it can also be used for other languages and projects. It provides a standardized and efficient way to manage the software development lifecycle, making it easier to maintain and collaborate on projects.
-12.	What is maven life cycle?
+### 12.	What is maven life cycle?
 Ans: First need to compile, run the unit tests, JAR/WAR files creation, install the JAR/WAR files to the local repository.
-Or
+
+`Or`
+
 In Apache Maven, the build process is organized into a series of phases and goals, collectively referred to as the Maven build lifecycle. The build lifecycle represents a sequence of well-defined stages that a project goes through during the build process. Each stage is associated with a set of standard goals that are executed in a specific order. The Maven build lifecycle consists of three built-in lifecycles: default, clean, and site.
-1. Default Lifecycle:
+#### 1. Default Lifecycle:
 The default lifecycle is the most commonly used and includes the following phases:
-1. validate: Validates the project's structure and configuration.
-2. compile: Compiles source code into bytecode.
-3. test: Runs unit tests using a testing framework.
-4. package: Packages compiled code into a distributable format (e.g., JAR, WAR).
-5. verify: Runs integration tests to verify the correctness of the package.
-6. install: Installs the package into the local repository.
-7. deploy: Copies the final package to a remote repository for sharing with other developers or projects.
+
+**1. validate:** Validates the project's structure and configuration.
+**2. compile:** Compiles source code into bytecode.
+**3. test:** Runs unit tests using a testing framework.
+**4. package:** Packages compiled code into a distributable format (e.g., JAR, WAR).
+**5. verify:** Runs integration tests to verify the correctness of the package.
+**6. install:** Installs the package into the local repository.
+**7. deploy:** Copies the final package to a remote repository for sharing with other developers or projects.
 To execute a specific phase in the default lifecycle, you can run a command like `mvn <phase>`.
-2. Clean Lifecycle:
+#### 2. Clean Lifecycle:
 The clean lifecycle focuses on cleaning and removing artifacts generated in previous builds. It includes the following phases:
-1. pre-clean: Executes tasks before the clean process starts.
-2. clean: Removes files generated during the build.
-3. post-clean: Executes tasks after the clean process completes.
+
+**1. pre-clean:** Executes tasks before the clean process starts.
+
+**2. clean:** Removes files generated during the build.
+
+**3. post-clean:** Executes tasks after the clean process completes.
+
 To clean a project, you can use the command `mvn clean`.
-3. Site Lifecycle:
+#### 3. Site Lifecycle:
 The site lifecycle generates project documentation and reports. It includes the following phases:
-1. pre-site: Executes tasks before generating the site documentation.
-2. site: Generates the project's site documentation.
-3. post-site: Executes tasks after generating the site documentation.
-4. site-deploy: Deploys the generated site to a specified server or location.
+
+**1. pre-site:** Executes tasks before generating the site documentation.
+
+**2. site:** Generates the project's site documentation.
+
+**3. post-site:** Executes tasks after generating the site documentation.
+
+**4. site-deploy:** Deploys the generated site to a specified server or location.
 To generate and deploy site documentation, you can use the command `mvn site`.
 
-Custom Lifecycles:
+#### Custom Lifecycles:
 In addition to the built-in lifecycles, Maven allows developers to define custom lifecycles to suit the specific needs of a project. Custom lifecycles can be configured in the `pom.xml` file.
-Goals:
-Each phase in a lifecycle is associated with one or more goals. A goal represents a specific task or operation. Goals are executed sequentially within a phase. For example, the `compile` phase includes the `compile` goal, which compiles the source code.
-Understanding the Maven build lifecycle helps developers automate various tasks in a consistent and standardized manner throughout the development process.
-13.	What is local repository, central repository and remote repository in maven?
-Ans: Local Repository: If you define the any plugin in POM.XML file that plug-in will install in local repository while building. Second time if you building the application it checks in the local repository weather the plug in is available or not.
-Central Repository: If the plug in is not available in maven local repository it downloads from the central repository (Google) through the internet access and stores in the local repository
-Remote Repository: Here Developers will creates their own or custom repository, they store the dependencies or plug-ins and project related files in that repository. So while we building the application it checks the central repo if not available it downloads and install from remote repository.
-14.	What is Parent POM and Child POM.XML in maven?
+#### Goals:
+- Each phase in a lifecycle is associated with one or more goals. A goal represents a specific task or operation. Goals are executed sequentially within a phase. For example, the `compile` phase includes the `compile` goal, which compiles the source code.
+
+- Understanding the Maven build lifecycle helps developers automate various tasks in a consistent and standardized manner throughout the development process.
+### 13.	What is local repository, central repository and remote repository in maven?
+Ans: 
+
+**Local Repository:** If you define the any plugin in POM.XML file that plug-in will install in local repository while building. Second time if you building the application it checks in the local repository weather the plug in is available or not.
+
+**Central Repository:** If the plug in is not available in maven local repository it downloads from the central repository (Google) through the internet access and stores in the local repository
+
+**Remote Repository:** Here Developers will creates their own or custom repository, they store the dependencies or plug-ins and project related files in that repository. So while we building the application it checks the central repo if not available it downloads and install from remote repository.
+### 14.	What is Parent POM and Child POM.XML in maven?
 Ans: Here we can’t define all the plug-ins that are related to the project so that we create the parent POM and Child Pom.xml files.
-In Parent Pom we define necessary plugins dependencies
-In Child POM we define the application related micro services. In child POM we need to define the Parent POM Name (ArtifactId), Version, Group Id. Whenever we run the application Child POM connects to Parent POM and it install the plugins.
-Or
+
+- In Parent Pom we define necessary plugins dependencies
+- In Child POM we define the application related micro services. In child POM we need to define the Parent POM Name (ArtifactId), Version, Group Id. Whenever we run the application Child POM connects to Parent POM and it install the plugins.
+
+`Or`
+
 In Maven, the concepts of Parent POM (Project Object Model) and Child POM are part of a mechanism for managing common configurations and dependencies across multiple projects. This hierarchical structure helps in maintaining consistency and simplifies the management of projects within an organization.
-Parent POM (pom.xml):
+#### Parent POM (pom.xml):
 A Parent POM is a Maven project that defines common configurations, plugin settings, and dependencies shared among multiple child projects. The Parent POM is typically placed in a separate directory and contains information relevant to all its child projects. The parent-child relationship is established by specifying the `<parent>` element in the child POMs.
-Key characteristics of a Parent POM:
-1. Common Configurations: The Parent POM contains configurations that are shared among its child projects, such as plugin configurations, properties, and build settings.
-2. Dependency Management: It can define common dependencies, versions, and exclusions that are inherited by the child projects.
-3. Inheritance: Child projects inherit configurations and settings from the Parent POM.
-4. Project Aggregation: Parent POMs are often used for project aggregation, where multiple child projects are grouped under a common parent.
-Example of a simple Parent POM (`parent-pom.xml`):
+#### Key characteristics of a Parent POM:
+
+**1. Common Configurations:** The Parent POM contains configurations that are shared among its child projects, such as plugin configurations, properties, and build settings.
+
+**2. Dependency Management:** It can define common dependencies, versions, and exclusions that are inherited by the child projects.
+
+**3. Inheritance:** Child projects inherit configurations and settings from the Parent POM.
+
+**4. Project Aggregation:** Parent POMs are often used for project aggregation, where multiple child projects are grouped under a common parent.
+#### Example of a simple Parent POM (`parent-pom.xml`):
 ```xml
 <!-- parent-pom.xml -->
 <project>
@@ -539,13 +641,16 @@ Example of a simple Parent POM (`parent-pom.xml`):
     <!-- Common configurations, dependencies, and properties go here -->
 </project>
 ```
-Child POM (pom.xml):
-A Child POM is a Maven project that inherits configurations and dependencies from a parent POM. The child project specifies its parent using the `<parent>` element in its own `pom.xml` file.
-Key characteristics of a Child POM:
-1. Inheritance: Child projects inherit configurations and settings from their parent POM.
-2. Override: Child projects can override or add to configurations inherited from the parent.
-3. Specific Configurations: Child projects can include configurations specific to their needs.
-Example of a simple Child POM (`child-project/pom.xml`):
+#### Child POM (pom.xml):
+- A Child POM is a Maven project that inherits configurations and dependencies from a parent POM. The child project specifies its parent using the `<parent>` element in its own `pom.xml` file.
+#### Key characteristics of a Child POM:
+
+**1. Inheritance:** Child projects inherit configurations and settings from their parent POM.
+
+**2. Override:** Child projects can override or add to configurations inherited from the parent.
+
+**3. Specific Configurations:** Child projects can include configurations specific to their needs.
+#### Example of a simple Child POM (`child-project/pom.xml`):
 ```xml
 <!-- child-project/pom.xml -->
 <project>
@@ -558,49 +663,63 @@ Example of a simple Child POM (`child-project/pom.xml`):
     <!-- Project-specific configurations go here -->
 </project>
 ```
-Benefits:
-- Consistency: Parent POMs provide a way to maintain consistency across multiple projects by centralizing common configurations.
-- Simplified Maintenance: Changes to common configurations in the parent POM are automatically inherited by all child projects, simplifying maintenance.
-- Dependency Management: Centralized dependency management allows the parent POM to define versions and dependencies, reducing duplication in child projects.
+#### Benefits:
+
+`- Consistency:` Parent POMs provide a way to maintain consistency across multiple projects by centralizing common configurations.
+`- Simplified Maintenance:` Changes to common configurations in the parent POM are automatically inherited by all child projects, simplifying maintenance.
+`- Dependency Management:` Centralized dependency management allows the parent POM to define versions and dependencies, reducing duplication in child projects.
 Using Parent POMs and Child POMs is a best practice in Maven development for managing multi-module projects and promoting code reuse and consistency.
 
+---
 
-DOCKER
-1.	What is Docker, Docker image and Docker container?
+
+## DOCKER
+
+### 1.	What is Docker, Docker image and Docker container?
 Ans: Docker is a container platform. We can create the containers by using docker.
-Docker Image: Docker Image contains operating system (windows/Linux), and its system files and all related information will be available in the Docker image
-Docker Container: Docker container is a running instance of the Docker image, whenever we run the docker image the container will be created.
-Or
-Docker is a platform that enables developers to automate the deployment of applications within lightweight, portable, and self-sufficient containers. Containers are isolated environments that encapsulate an application along with its dependencies, runtime, libraries, and other necessary components. Docker provides a consistent and reproducible environment across different stages of the software development lifecycle.
-Here are key concepts related to Docker:
-1. Docker Image:
+
+**Docker Image:** Docker Image contains operating system (windows/Linux), and its system files and all related information will be available in the Docker image
+
+**Docker Container:** Docker container is a running instance of the Docker image, whenever we run the docker image the container will be created.
+
+`Or`
+
+Docker is a platform that enables developers to automate the deployment of applications within lightweight, portable, and self-sufficient containers. Containers are isolated environments that encapsulate an application along with its dependencies, runtime, libraries, and other necessary components.
+
+ Docker provides a consistent and reproducible environment across different stages of the software development lifecycle.
+#### Here are key concepts related to Docker:
+#### 1. Docker Image:
 A Docker image is a lightweight, standalone, and executable package that includes everything needed to run a piece of software, including the code, runtime, libraries, and system tools. Docker images are built from a set of instructions called a Dockerfile. Images are versioned and can be stored in repositories, such as Docker Hub, for sharing and distribution.
-2. Docker Container:
+#### 2. Docker Container:
 A Docker container is a running instance of a Docker image. Containers are isolated from each other and the host system, providing consistency and predictability across different environments. Containers are portable, meaning they can run on any system that supports Docker, making it easy to move applications between development, testing, and production environments.
-3. Dockerfile:
+#### 3. Dockerfile:
 A Dockerfile is a script that contains a set of instructions for building a Docker image. It specifies the base image, adds files and dependencies, sets environment variables, and configures the runtime behavior of the application. Dockerfiles are used to create reproducible and automated builds.
-Parent POM and Child POM in Maven:
+#### Parent POM and Child POM in Maven:
 In Maven, a Parent POM (Project Object Model) is a way to share common configurations, dependencies, and settings among multiple Maven projects. It helps in maintaining consistency across related projects. A Parent POM is typically used to define common configurations and can be inherited by multiple Child POMs.
-Relationship with Docker:
+#### Relationship with Docker:
 While Docker and Maven serve different purposes in the software development lifecycle, they can be used together. For example, you might use Maven to build your application and create a Docker image that encapsulates the application and its dependencies. The Docker image can then be deployed as a container in various environments.
+
 In summary, Docker is a platform for containerization, Docker images are packages that encapsulate applications and dependencies, Docker containers are running instances of Docker images, and Maven is a build automation and project management tool. Together, they contribute to creating a consistent and reproducible development and deployment environment.
-2.	What are the Docker client commands?
+### 2.	What are the Docker client commands?
 Ans: docker pull, docker push, docker run, docker build
-Docker pull: If you give this command image will be download from the Docker hub. 
-Docker push: If you give this command image will be push to the Docker hub.
-Docker run: If you give this command container will be created.
-docker –-help : You will find the all information and commands about the service
-Or
+
+- `Docker pull:` If you give this command image will be download from the Docker hub. 
+- `Docker push:` If you give this command image will be push to the Docker hub.
+- `Docker run:` If you give this command container will be created.
+- `docker –-help :` You will find the all information and commands about the service
+
+`Or`
+
 Docker provides a command-line interface (CLI) that allows users to interact with the Docker daemon. Here are some commonly used Docker client commands:
-1. General Commands:
+#### 1. General Commands:
    - `docker version`: Display Docker version information.
    - `docker info`: Display system-wide information about Docker and its components.
-2. Image Commands:
+#### 2. Image Commands:
    - `docker images` (or `docker image ls`): List available images on the local machine.
    - `docker pull <image>`: Download a Docker image from a registry.
    - `docker rmi <image>`: Remove one or more images.
    - `docker build -t <tag> .`: Build a Docker image from a Dockerfile.
-3. Container Commands:
+#### 3. Container Commands:
    - `docker ps` (or `docker container ls`): List of running containers.
    - `docker ps -a` (or `docker container ls -a`): List all containers, including stopped ones.
    - `docker run <image>`: Create and start a container based on an image.
@@ -609,33 +728,35 @@ Docker provides a command-line interface (CLI) that allows users to interact wit
    - `docker start <container>`: Start a stopped container.
    - `docker restart <container>`: Restart a running or stopped container.
    - `docker rm <container>`: Remove one or more containers.
-4. Registry and Repository Commands:
+#### 4. Registry and Repository Commands:
    - `docker login`: Log in to a Docker registry.
    - `docker logout`: Log out from a Docker registry.
    - `docker push <image>`: Push an image to a Docker registry.
-5. Network Commands:
+#### 5. Network Commands:
    - `docker network ls`: List Docker networks.
    - `docker network create <network>`: Create a Docker network.
    - `docker network connect <network> <container>`: Connect a container to a network.
-6. Volume Commands:
+#### 6. Volume Commands:
    - `docker volume ls`: List Docker volumes.
    - `docker volume create <volume>`: Create a Docker volume.
    - `docker volume rm <volume>`: Remove one or more volumes.
-7. System Commands:
+#### 7. System Commands:
    - `docker system prune`: Remove unused data (containers, networks, volumes, and images) to free up space.
    - `docker system df`: Display disk space usage for Docker.
-8. Container Logs and Inspect:
+#### 8. Container Logs and Inspect:
    - `docker logs <container>`: View the logs of a container.
    - `docker inspect <container>`: Display detailed information about a container.
 These commands cover some of the basic operations with Docker. To get more details and options for each command, you can use the `--help` flag, such as `docker run --help` or `docker image --help`.
-3.	How to enter into the Docker container?
+### 3.	How to enter into the Docker container?
 Ans: by using exec or attach commands we can enter into the container
-Or
+
+`Or`
+
 To enter into a Docker container, you can use the `docker exec` command. Here's the basic syntax:
 ```bash
 docker exec -it <container_id_or_name> /bin/bash
 ```
-Explanation of the options used:
+#### Explanation of the options used:
 - `-it`: This combines the interactive (`-i`) and pseudo-TTY (`-t`) options, allowing you to interact with the container's shell.
 - `<container_id_or_name>`: Replace this with the actual ID or name of your container.
 - `/bin/bash`: This specifies the command to run inside the container. In this case, it starts an interactive Bash shell. You can use a different shell if it's available in the container.
@@ -643,44 +764,53 @@ Here's an example using a practical command:
 ```bash
 docker exec -it my_container_name /bin/bash
 ```
-Replace `my_container_name` with the actual name or ID of your container. Once you run this command, you'll be dropped into a Bash shell within the container, and you can execute commands and interact with the container's environment.
+- Replace `my_container_name` with the actual name or ID of your container. Once you run this command, you'll be dropped into a Bash shell within the container, and you can execute commands and interact with the container's environment.
+
 Keep in mind that for this to work, the container needs to be running. If the container is stopped, you can start it using `docker start <container_id_or_name>` before attempting to enter into it.
 Remember that the ability to enter into a container depends on the presence of a shell or command-line interface inside the container. Some minimalistic images or specialized containers may not have a shell installed, in which case you might need to modify the command accordingly.
-4.	Difference between docker engine and docker hub?
-Ans: Docker Engine: Docker 
-Docker Hub: It is the web based location of storing the all Docker Images (or) Docker Hub is Docker’s official cloud-based registry for Docker images.
-Docker Registry: A Docker registry is a service that hosts and distributes Docker images.
+### 4.	Difference between docker engine and docker hub?
+Ans: 
+
+**Docker Engine:** Docker 
+
+**Docker Hub:** It is the web based location of storing the all Docker Images (or) Docker Hub is Docker’s official cloud-based registry for Docker images.
+
+**Docker Registry:** A Docker registry is a service that hosts and distributes Docker images.
 In many cases, a registry will consist of multiple repositories which contain images related to a specific project.
-Or
+
+`Or`
+
 Docker Engine and Docker Hub serve different purposes in the Docker ecosystem.
-1. Docker Engine:
-- Definition: Docker Engine is the core software that enables the creation, management, and running of Docker containers on a host system.
-- Components:
-  - Docker Daemon: The Docker daemon is a background process that manages Docker containers on a host system. It listens for Docker API requests and manages container lifecycles.
-  - Docker CLI (Command-Line Interface): The Docker CLI is a command-line tool that allows users to interact with the Docker daemon, issuing commands to build, run, and manage containers.
-- Responsibilities:
-  - Containerization: Docker Engine enables the containerization of applications by providing a runtime environment and isolation for applications and their dependencies.
-  - Image Building: Docker Engine facilitates the creation of Docker images using Dockerfiles.
-  - Container Orchestration: While Docker Engine itself provides basic orchestration capabilities, additional tools like Docker Swarm or Kubernetes are often used for large-scale container orchestration.
-- Installation: Docker Engine needs to be installed on the host machine where containers are intended to run.
-2. Docker Hub:
-- Definition: Docker Hub is a cloud-based registry service provided by Docker. It serves as a centralized repository for Docker images.
-- Features:
-  - Image Hosting: Docker Hub stores Docker images, making it a centralized location for sharing and distributing container images.
-  - Collaboration: Developers can share and collaborate on Docker images by pushing them to Docker Hub. It supports both public and private repositories.
+#### 1. Docker Engine:
+`- Definition:` Docker Engine is the core software that enables the creation, management, and running of Docker containers on a host system.
+- Components:`
+ - ` Docker Daemon:` The Docker daemon is a background process that manages Docker containers on a host system. It listens for Docker API requests and manages container lifecycles.
+  - `Docker CLI (Command-Line Interface):` The Docker CLI is a command-line tool that allows users to interact with the Docker daemon, issuing commands to build, run, and manage containers.
+#### - Responsibilities:
+  - `Containerization:` Docker Engine enables the containerization of applications by providing a runtime environment and isolation for applications and their dependencies.
+  - `Image Building:` Docker Engine facilitates the creation of Docker images using Dockerfiles.
+  - `Container Orchestration:` While Docker Engine itself provides basic orchestration capabilities, additional tools like Docker Swarm or Kubernetes are often used for large-scale container orchestration.
+- `Installation:` Docker Engine needs to be installed on the host machine where containers are intended to run.
+#### 2. Docker Hub:
+- `Definition:` Docker Hub is a cloud-based registry service provided by Docker. It serves as a centralized repository for Docker images.
+- `Features:`
+  - `Image Hosting:` Docker Hub stores Docker images, making it a centralized location for sharing and distributing container images.
+  - `Collaboration:` Developers can share and collaborate on Docker images by pushing them to Docker Hub. It supports both public and private repositories.
   - Automated Builds: Docker Hub can be configured for automated builds, triggering builds when changes are pushed to source code repositories.
-- Public and Private Repositories:
-  - Public Repositories: Docker Hub offers public repositories where users can share Docker images publicly.
-  - Private Repositories: Docker Hub provides private repositories for users and organizations to store and share images privately.
-- Authentication: Users can authenticate to Docker Hub using their Docker ID credentials.
-- Integration: Docker CLI can pull images from Docker Hub, making it convenient for users to access and use publicly available images.
+#### - Public and Private Repositories:
+  - `Public Repositories:` Docker Hub offers public repositories where users can share Docker images publicly.
+  - `Private Repositories:` Docker Hub provides private repositories for users and organizations to store and share images privately.
+- `Authentication:` Users can authenticate to Docker Hub using their Docker ID credentials.
+- `Integration:` Docker CLI can pull images from Docker Hub, making it convenient for users to access and use publicly available images.
+
 In summary, Docker Engine is the software responsible for running containers on a host, while Docker Hub is a cloud-based registry service that acts as a central repository for storing and sharing Docker images. Docker Engine is installed on the local machine, while Docker Hub is a cloud service used for image hosting and collaboration.
-5.	How to store the container changes into the Image?
+### 5.	How to store the container changes into the Image?
 Ans: by using docker commit command
-Ex: docker commit container-id image-name
-Or
+```yaml
+docker commit container-id image-name
+```
 To store the changes made in a running Docker container into a new Docker image, you typically follow these steps:
-1. Commit Changes:
+#### 1. Commit Changes:
 Use the `docker commit` command to create a new image from the changes made in a container. The basic syntax is:
 ```bash
 docker commit <container_id> <new_image_name>
@@ -692,20 +822,20 @@ Example:
 docker commit my_running_container my_custom_image
 ```
 This command creates a new image named `my_custom_image` based on the changes made in the `my_running_container` container.
-2. Verify the New Image:
+#### 2. Verify the New Image:
 Use the `docker images` command to verify that the new image has been created:
 
 ```bash
 docker images
 ```
 You should see the newly created image in the list.
-3. Tag the Image (Optional):
+#### 3. Tag the Image (Optional):
 Optionally, you can use the `docker tag` command to add tags to the image:
 ```bash
 docker tag my_custom_image:latest my_custom_image:tag1
 ```
 This example adds a tag named `tag1` to the `my_custom_image` image.
-4. Push the Image to a Registry (Optional):
+#### 4. Push the Image to a Registry (Optional):
 If you want to share the image or make it available on a registry like Docker Hub, you can use the `docker push` command:
 ```bash
 docker push my_custom_image
@@ -725,38 +855,44 @@ docker tag my_custom_image:latest my_custom_image:tag1
 # (Optional) Push the image to a registry
 docker push my_custom_image
 ```
-Keep in mind that using `docker commit` to create images based on container changes is a straightforward approach, but it might not be the best practice for all scenarios, especially in production environments. In production, it's often recommended to use Dockerfiles to define the image configuration and version control for better reproducibility and tracking of changes.
-6.	I have a Docker image I want to move the docker image to another server , but I don’t want to use “copy command” to move the image into the server then what is the process to move the docker image to another server?
+Keep in mind that using `docker commit` to create images based on container changes is a straightforward approach, but it might not be the best practice for all scenarios, especially in production environments. 
+In production, it's often recommended to use Dockerfiles to define the image configuration and version control for better reproducibility and tracking of changes.
+### 6.	I have a Docker image I want to move the docker image to another server , but I don’t want to use “copy command” to move the image into the server then what is the process to move the docker image to another server?
 Ans: Here we move the docker image as Zip file by using save command.
-Ex: docker save image-name > zip_file	//Here image is moved to the Zip file
-Step2: copy the Zip-file to the another server and type the “docker load” command in that server.
-Ex: docker load zip-file //Here the image will load from the zip-file into the server
-Or
+```yaml
+docker save image-name > zip_file	//Here image is moved to the Zip file
+```
+`Step2:` copy the Zip-file to the another server and type the “docker load” command in that server.
+```yaml
+docker load zip-file //Here the image will load from the zip-file into the server
+```
+`Or`
+
 To move a Docker image from one server to another without using the "copy command" directly, you can follow these general steps:
-Method 1: Using a Registry (Recommended)
-1. Push the Image to a Registry:
+#### Method 1: Using a Registry (Recommended)
+#### 1. Push the Image to a Registry:
    - Use `docker push` to push the image to a Docker registry. This is often the most straightforward method.
     ```bash
     docker push <your_image_name>
     ```
-2. Pull the Image on the Target Server:
+#### 2. Pull the Image on the Target Server:
    - On the target server, use `docker pull` to pull the image from the registry.
     ```bash
     docker pull <your_image_name>
     ```
    - Ensure that the target server has access to the registry, and if it's a private registry, authenticate accordingly.
-Method 2: Save and Load (Alternative)
-1. Save the Image as a Tarball:
+#### Method 2: Save and Load (Alternative)
+#### 1. Save the Image as a Tarball:
    - Use `docker save` to save the image as a tarball.
     ```bash
     docker save -o <your_image_name>.tar <your_image_name>
     ```
-2. Transfer the Tarball to the Target Server:
+#### 2. Transfer the Tarball to the Target Server:
    - Use a secure method (scp, rsync, etc.) to transfer the tarball to the target server.
     ```bash
     scp <your_image_name>.tar user@target_server:/path/to/destination
     ```
-3. Load the Image on the Target Server:
+#### 3. Load the Image on the Target Server:
    - On the target server, use `docker load` to load the image from the tarball.
     ```bash
     docker load -i /path/to/destination/<your_image_name>.tar
@@ -765,33 +901,52 @@ Method 2: Save and Load (Alternative)
 Notes:
 - Registries: Using a registry is a common and recommended practice, especially for production scenarios. Docker Hub is a public registry, and you can also set up private registries.
 - Tarball Method: While the tarball method works, it may be less efficient for large images, and transferring the tarball manually requires additional steps.
+
 Choose the method that best fits your use case and infrastructure. If the servers are part of the same infrastructure and security allows, using a registry is often the most seamless solution. If direct access to a registry is not possible, the tarball method provides an alternative.
-7.	What are all the Docker commands?
+### 7.	What are all the Docker commands?
 Ans: 
-	To list the docker running container:
-     docker ps		//Only for running container
- docker ps –a 	//it shows all the containers including stopped containers
-Rename the container:
- docker rename old-container-name new-name 
-Restart the Container: 
- docker restart container-id  remove the contaniers:   docker rm container-id
-remove the docker images:
- docker rmi image-id
-Note: if you want to remove the container we need to stop the container first and remove. 
-To stop the container : 
- docker stop container-id 
-To start the container : 
- docker start container-id
-To display live stream of container resource: 
+- To list the docker running container:
+```bash
+    docker ps		//Only for running container
+    docker ps –a 	//it shows all the containers including stopped containers
+```
+- Rename the container:
+```bash
+docker rename old-container-name new-name 
+```
+- Restart the Container: 
+```bash
+docker restart container-id  remove the contaniers:   docker rm container-id
+```
+- remove the docker images:
+
+```
+docker rmi image-id
+```
+`Note:` if you want to remove the container we need to stop the container first and remove. 
+
+- To stop the container : 
+```yaml
+docker stop container-id 
+```
+- To start the container : 
+```
+docker start container-id
+```
+#### To display live stream of container resource: 
 usage statistics “stats” 
-Ex: docker stats container-id //It shows the containers CPU and Memory utilization information
+```bash
+docker stats container-id //It shows the containers CPU and Memory utilization information
 docker build: This command is used to create the custom image from the docker file .
 docker exec: to enter into the container we use the command “docker exec”
-8.	Which version of Docker are you using?
+```
+### 8.	Which version of Docker are you using?
 Ans: Ex: 20.10.7
-9.	How to search the docker Image?
+### 9.	How to search the docker Image?
 Ans: Ex: docker search nginx
-Or
+
+`Or`
+
 To search for Docker images, you can use the `docker search` command. Here is the basic syntax:
 ```bash
 docker search <image_name>
@@ -808,184 +963,202 @@ docker inspect <image_name>
 ```
 Replace `<image_name>` with the actual name of the image you are interested in.
 Remember that you need an internet connection to perform a search, as the search is conducted against the Docker Hub repository by default. If you are using a private registry or another registry, you may need to adjust the command accordingly.
-10.	How to update the resource in container?
+### 10.	How to update the resource in container?
 Ans: By using docker update
-Or
+
+`Or`
+
 To update the resources (such as CPU and memory limits) for a running Docker container, you can use the `docker update` command. Here's a general overview:
-1. Identify the Container ID or Name:
+#### 1. Identify the Container ID or Name:
 Use the `docker ps` command to list the running containers and identify the Container ID or Name of the container you want to update.
 ```bash
 docker ps
 ```
-2. Update the Container Resources:
+#### 2. Update the Container Resources:
 Use the `docker update` command to modify the container's resource constraints. The basic syntax is:
 ```bash
 docker update --<resource_flag>=<value> <container_id_or_name>
 ```
 Replace `<resource_flag>` with the resource you want to update (e.g., `--memory`, `--cpus`), `<value>` with the new value, and `<container_id_or_name>` with the actual Container ID or Name.
 Examples
-Update Memory Limit:
+#### Update Memory Limit:
 ```bash
 docker update --memory 512m <container_id_or_name>
 ```
 This sets the memory limit to 512 megabytes.
-Update CPU Limit:
+#### Update CPU Limit:
 ```bash
 docker update --cpus 1.5 <container_id_or_name>
 ```
 This sets the CPU limit to 1.5 CPUs.
-3. Verify the Changes:
+#### 3. Verify the Changes:
 You can use the `docker inspect` command to verify that the resource limits have been updated:
 ```bash
 docker inspect <container_id_or_name>
 ```
 Look for the "HostConfig" section in the output, where you can find information about the container's resource constraints.
-Notes:
+`Notes:`
 - Resource updates are only possible for certain configurations. For example, you cannot update the `--cpus` flag if the container was initially started without it.
 - The `docker update` command is primarily used for changing certain configurations without stopping and restarting the container. However, keep in mind that not all container configurations can be updated dynamically.
 - For more complex updates or changes to other settings, consider stopping the container (`docker stop`) and then starting it with the updated configurations.
 - Always test changes in a safe environment to ensure they have the desired effect on your application.
 Remember that the ability to update certain configurations depends on the Docker version and the container's initial configuration. Always refer to the Docker documentation for the version you are using for the most accurate and up-to-date information.
-11.	What are the types of networks available in docker?
+#### 11.	What are the types of networks available in docker?
 Ans: bridge, host and none. By default it uses the bridge network while we run the docker image.
-Bridge network: Suppose if you need to communicate between one networks to another network we use the bridge network. Here a container is equals to an individual server. The connection between one container to another container will work based on the bridge network.
-●	In bridge network each and every container is isolate or individual. Each container will have an IP address and have an network interface
+
+**Bridge network:** Suppose if you need to communicate between one networks to another network we use the bridge network. Here a container is equals to an individual server. The connection between one container to another container will work based on the bridge network.
+
+- In bridge network each and every container is isolate or individual. Each container will have an IP address and have an network interface
+```bash
 docker network create my_bridge_network
 docker run --network=my_bridge_network -d my_image
-None Network: In this network there no network. If you run the container under this none network it does not provide any IP address to the container. So it does not communicate with other containers.
+```
+**None Network:** In this network there no network. If you run the container under this none network it does not provide any IP address to the container. So it does not communicate with other containers.
+```bash
 docker run --network=none -d my_image
-Host Network: In Host Network, IP address and network interface will not create for the container, by using the host network (server) the container will run.
+```
+**Host Network:** In Host Network, IP address and network interface will not create for the container, by using the host network (server) the container will run.
+```bash
 docker run --network=host -d my_image
+```
 Command for Run the container on Particular Network,
 Ex:: docker run –itd –name nginx-container –p 8082:80 nginx –network host.
-12.	Difference between docker and kubernetes?
+### 12.	Difference between docker and kubernetes?
 Ans: Docker is used for containerization purpose. Kubernetes is used to manage the containers
 Docker is a container platform. We can create the containers by using docker. Kubernetes is a container management system 
-13.	Difference between Virtual Machine and Docker? 
-Ans:
+### 13.	Difference between Virtual Machine and Docker? 
 
+Ans: ![Docker Architecture](./Images/docker-arch.png "docker architecture")
 
-
-
-
-
-
-
-
-
-
-
-
-
-Differences	Docker	Virtual Machine
-Operating system	1.	Docker is a container-based model where containers are software packages used for executing an application on any operating system
+#### Differences between Docker and	Virtual Machine
+#### Operating system	
+#### Docker
+1.	Docker is a container-based model where containers are software packages used for executing an application on any operating system
 2.	In Docker, the containers share the host OS kernel
-3.	Here, multiple workloads can run on a single OS	1.	It is not a container-based model; they use user space along with the kernel space of an OS
+3.	Here, multiple workloads can run on a single OS	
+
+#### Virtual Machine
+1.	It is not a container-based model; they use user space along with the kernel space of an OS
 2.	It does not share the host kernel
 3.	Each workload needs a complete OS or hypervisor
-Performance	1.	Docker containers result in
+
+#### Performance
+#### dOCKER	
+1.	Docker containers result in
 high-performance as they use the same operating system with no additional software (like hypervisor)
-2.	Docker containers can start up quickly and result in less boot-up time	1.	Since VM uses a separate OS; it causes more resources to be used
+2.	Docker containers can start up quickly and result in less boot-up time	
+
+#### Virtual Machine
+1.	Since VM uses a separate OS; it causes more resources to be used
 2.	Virtual machines don’t start quickly and lead to poor performance
 
 
-Speed	The application in Docker containers starts with no delay since the OS is already up and running	It takes a much longer time than it takes for a container to run applications
+#### Speed	
+
+The application in Docker containers starts with no delay since the OS is already up and running	It takes a much longer time than it takes for a container to run applications
 To deploy a single application, Virtual Machines
  
+These containers were	need to start the entire OS,
+basically designed to save	which would cause a full boot
+time in the deployment	process
+process of an application	
 
-	These containers were	need to start the entire OS,
-	basically designed to save	which would cause a full boot
-	time in the deployment	process
-	process of an application	
-
-Or
+`Or`
 
 Virtual Machines (VMs) and Docker containers are both technologies used for virtualization, but they have distinct differences in terms of architecture, resource utilization, and deployment. Here's a comparison between Virtual Machines and Docker containers:
 
-1. Architecture:
+#### 1. Architecture:
 
-Virtual Machines:
-- Hypervisor: VMs run on a hypervisor, which is a software or hardware layer that emulates the entire physical computer.
-- Guest OS: Each VM includes its own complete operating system (Guest OS) along with the application and binaries.
-- Resource Overhead: VMs have higher resource overhead due to the need to run multiple complete operating systems.
+#### Virtual Machines:
+`- Hypervisor:` VMs run on a hypervisor, which is a software or hardware layer that emulates the entire physical computer.
+`- Guest OS:` Each VM includes its own complete operating system (Guest OS) along with the application and binaries.
+`- Resource Overhead:` VMs have higher resource overhead due to the need to run multiple complete operating systems.
 
-Docker Containers:
-- Container Engine: Containers run on a container engine (like Docker), which leverages the host OS's kernel.
-- Shared Kernel: Containers share the host OS's kernel, eliminating the need for a separate Guest OS for each container.
-- Resource Efficiency: Containers have lower resource overhead as they share the host OS's resources and only include application-specific binaries and libraries.
+#### Docker Containers:
+`- Container Engine:` Containers run on a container engine (like Docker), which leverages the host OS's kernel.
+`- Shared Kernel:` Containers share the host OS's kernel, eliminating the need for a separate Guest OS for each container.
+`- Resource Efficiency:` Containers have lower resource overhead as they share the host OS's resources and only include application-specific binaries and libraries.
 
-2. Resource Utilization:
+#### 2. Resource Utilization:
 
-Virtual Machines:
-- Resource Isolation: VMs provide strong isolation, and each VM has its own set of allocated resources (CPU, memory, storage).
-- Resource Consumption: VMs typically consume more resources due to running complete operating systems.
+#### Virtual Machines:
+`- Resource Isolation:` VMs provide strong isolation, and each VM has its own set of allocated resources (CPU, memory, storage).
+`- Resource Consumption:` VMs typically consume more resources due to running complete operating systems.
 
-Docker Containers:
-- Resource Sharing: Containers share the host OS's resources, which makes them lightweight and faster to start.
-- Resource Efficiency: Containers are more resource-efficient as they don't carry the overhead of a complete operating system.
+#### Docker Containers:
+`- Resource Sharing:` Containers share the host OS's resources, which makes them lightweight and faster to start.
+`- Resource Efficiency:` Containers are more resource-efficient as they don't carry the overhead of a complete operating system.
 
-3. Deployment and Portability:
+#### 3. Deployment and Portability:
 
-Virtual Machines:
-- Deployment: VMs are deployed as a package containing the entire VM image, including the Guest OS.
-- Portability: VMs may have compatibility issues when moving between different hypervisors or cloud environments.
+#### Virtual Machines:
+`- Deployment:` VMs are deployed as a package containing the entire VM image, including the Guest OS.
+`- Portability:` VMs may have compatibility issues when moving between different hypervisors or cloud environments.
 
-Docker Containers:
-- Deployment: Containers are deployed as lightweight, portable units containing the application and its dependencies.
-- Portability: Containers are highly portable, and they can run consistently across different environments, as long as the host has a compatible container engine.
+#### Docker Containers:
+`- Deployment:` Containers are deployed as lightweight, portable units containing the application and its dependencies.
+`- Portability:` Containers are highly portable, and they can run consistently across different environments, as long as the host has a compatible container engine.
 
-4. Isolation:
+#### 4. Isolation:
 
-Virtual Machines:
-- Isolation: VMs provide strong isolation as each VM has its own kernel and emulates a complete physical computer.
+#### Virtual Machines:
+`- Isolation:` VMs provide strong isolation as each VM has its own kernel and emulates a complete physical computer.
 
-Docker Containers:
-- Isolation: Containers provide process-level isolation, and they share the host OS's kernel. While containers are generally secure, VMs offer stronger isolation.
+#### Docker Containers:
+`- Isolation:` Containers provide process-level isolation, and they share the host OS's kernel. While containers are generally secure, VMs offer stronger isolation.
 
-5. Startup Time:
+#### 5. Startup Time:
 
-Virtual Machines:
-- Startup Time: VMs have longer startup times as they need to boot a complete operating system.
+#### Virtual Machines:
+`- Startup Time:` VMs have longer startup times as they need to boot a complete operating system.
 
-Docker Containers:
-- Startup Time: Containers have faster startup times as they only need to start the application process and its dependencies.
+#### Docker Containers:
+`- Startup Time:` Containers have faster startup times as they only need to start the application process and its dependencies.
 
-6. Use Cases:
+#### 6. Use Cases:
 
-Virtual Machines:
-- Use Cases: VMs are suitable for running multiple different operating systems on a single host, supporting applications with diverse OS requirements.
+#### Virtual Machines:
+`- Use Cases:` VMs are suitable for running multiple different operating systems on a single host, supporting applications with diverse OS requirements.
 
-Docker Containers:
-- Use Cases: Containers are ideal for microservices architectures, where lightweight, portable units are required. They are well-suited for applications that can share the same OS kernel.
+#### Docker Containers:
+`- Use Cases:` Containers are ideal for microservices architectures, where lightweight, portable units are required. They are well-suited for applications that can share the same OS kernel.
 
-Conclusion:
+#### Conclusion:
 
-- VMs: Provide strong isolation and are suitable for diverse workloads.
-- Containers: Offer lightweight, efficient deployment units, ideal for microservices and scalable applications.
+`- VMs:` Provide strong isolation and are suitable for diverse workloads.
+`- Containers:` Offer lightweight, efficient deployment units, ideal for microservices and scalable applications.
 
 Both VMs and containers have their strengths, and the choice depends on the specific requirements of the application and the infrastructure. In many modern architectures, VMs and containers are used together to leverage the benefits of both technologies.
 
-14.	Difference between Docker and Docker compose? 
+### 14.	Difference between Docker and Docker compose? 
 Ans:
 When working with Docker, there are two concepts: Image and Container. Images are like mini operating systems stored in a file which is built specifically with our application in mind. Think of it like a custom operating system which is sitting on your hard disk when your computer is switched off.
 Containers are running instances of your image.
+
 Docker is the underlying technology which manages (creates, stores or shares) images, and runs containers.
 We provide the Dockerfile to tell Docker how to create our images. For example, we say: starts from the Python 3 base image, then install these requirements, then creates these folders, then switch to this user, etc… (I’m oversimplifying the actual steps, but this is just to explain the point).
+
 Once we have done that, we can create an image using Docker, by running docker build .. If you run that, Docker will execute each step in our Dockerfile and store the result as an image on the system.
 Once the image is build, you can run it manually using something like this:
-●	docker run <IMAGE_ID>
-However, if you need to setup volumes, you need to run them like this:
-* Docker run -v /path/to/vol:/path/to/vol -p 8000:8000 <IMAGE_ID>
+
+```bash
+docker run <IMAGE_ID>
+```
+- However, if you need to setup volumes, you need to run them like this:
+
+```bash
+Docker run -v /path/to/vol:/path/to/vol -p 8000:8000 <IMAGE_ID>
+```
 Often applications need multiple images to run. For example, you might have an application and a database, and you may also need to setup networks and shared volumes between them.
+
 So you would need to write the above commands with the appropriate configurations and ID’s for each container you want to run, every time you want to start your service…
 As you might expect, this could become complex, tedious and difficult to manage very quickly…
 
-
 This is where Docker Compose comes in…
-
 
 Docker Compose is a tool used to define how Docker runs our images in a yaml file which is can be stored with our code and reused. 
 So, if we need to run our app image as a container, share port 8000 and map a volume, we can do this:
+```bash
 services:
 app:
 build:
@@ -993,152 +1166,200 @@ context: . ports:
 - 8000:8000
 volumes:
 - app/:/app
+```
 
+- Then, every time we need to start our app, we just run docker-compose up, and Docker Compose will handle all the complex docker commands behind the scenes.
 
-Then, every time we need to start our app, we just run docker-compose up, and Docker Compose will handle all the complex docker commands behind the scenes.
-So basically, the purpose of Docker Compose is to configure how our running service should work together to serve our application.
+- So basically, the purpose of Docker Compose is to configure how our running service should work together to serve our application.
+
 When we run docker-compose build, Docker Compose will run all the necessary docker build commands, to build all images needed for our project and tag them appropriately to keep track of them in the system.
-In summary, Docker is the underlying technology used to create images and run them as containers, and Docker Compose is a tool that configures how Docker should run multiple containers to serve our application.
-(Or)
-Docker vs. Docker Compose:
-Docker:
-Purpose:
-Docker: Used for creating, managing, and running individual containers.
-Docker Compose: Used for defining and running multi-container Docker applications.
-Configuration:
-Docker: Configures containers using the docker run command or Dockerfiles.
-Docker Compose: Configures multiple containers and their relationships in a single YAML file.
-Orchestration:
-Docker: Basic orchestration features for managing individual containers.
-Docker Compose: Provides a higher-level orchestration for multiple containers, defining services, networks, and volumes.
-Single vs. Multiple Containers:
-Docker: Primarily focused on managing a single container.
-Docker Compose: Specifically designed for orchestrating multiple containers that work together.
-Usage:
-Docker: Suitable for standalone applications or microservices.
-Docker Compose: Suitable for complex applications with multiple interconnected services.
-Command Usage:
-Docker: Commands like docker run, docker build, etc.
-Docker Compose: Commands like docker-compose up, docker-compose down, etc.
-File Format:
-Docker: Uses Dockerfiles for building images and command-line arguments for configuration.
-Docker Compose: Uses a YAML file (docker-compose.yml) for defining services, networks, and volumes.
-In summary, Docker is the platform for containerization, while Docker Compose is a tool for defining and running multi-container applications. Docker is used for managing individual containers, and Docker Compose is used for orchestrating multiple containers and their dependencies.
-15.	Difference between Docker compose and Kubernetes?
-Ans: Docker Compose vs Kubernetes: What are the differences?
-What is Docker Compose? Define and run multi-container applications with Docker. With Compose, you define a multi-container application in a single file, then spin your application up in a single command which does everything that needs to be done to get it running.
-What is Kubernetes? Manage a cluster of containers as a single system to accelerate Dev and simplify Ops. Kubernetes is an open source orchestration system for Docker containers. It handles scheduling onto nodes in a compute cluster and actively manages workloads to ensure that their state matches the users declared intentions.
-(Or)
-docker-compose: is a tool that takes a YAML file which describes your multi-container application and helps you create, start/stop, remove all those containers without having to type multiple docker ... commands for each container.
-Kubernetes: is a platform for managing containerized workloads and services that facilitates both declarative configuration and automation.
-(Or)
-Docker Compose
-Docker Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services. Then, with a single command, you create and start all the services from your configuration. Compose has commands for managing the whole lifecycle of your application:
-●	Start, stop, and rebuild services
-●	View the status of running services
-●	Stream the log output of running services
-●	Run a one-off command on a service
-Kubernetes
-Kubernetes is a container orchestrator tool like Docker Swarm, Amazon ECS, Hashicorp Nomad. Container orchestrators are the tools which group hosts together to form a cluster, and help us make sure applications: are
-●	fault-tolerant,
-●	can scale, and do this on-demand
-●	use resources optimally
-●	can discover other applications automatically, and communicate with each other
-●	are accessible from the external world
-* can update/rollback without any downtime.
-Or)
-Docker Compose and Kubernetes are both container orchestration tools, but they differ in their scope, architecture, and use cases. Here are the key differences between Docker Compose and Kubernetes:
-1. Scope and Use Cases:
-- Docker Compose:
-  - Scope: Primarily designed for defining and running multi-container Docker applications on a single host.
-  - Use Cases: Suitable for development, testing, and simple production scenarios where a single host is sufficient.
-- Kubernetes:
-  - Scope: A container orchestration platform designed for automating the deployment, scaling, and management of containerized applications across clusters of machines.
-  - Use Cases: Suited for large-scale, production-grade deployments where high availability, scalability, and distributed architecture are essential.
-2. Architecture:
-- Docker Compose:
-  - Architecture: Single-host architecture where the `docker-compose` tool manages the deployment of containers on the local machine.
-  - Scaling: Limited to a single host.
-- Kubernetes:
-  - Architecture: Multi-node, distributed architecture with a master node managing the cluster and worker nodes running containers.
-  - Scaling: Scales across multiple nodes, enabling the orchestration of containers in a cluster.
-3. Deployment Model:
-- Docker Compose:
-  - Deployment: Typically used for deploying applications on a single host for development or testing purposes.
-  - Scalability: Limited to the resources available on a single host.
-- Kubernetes:
-  - Deployment: Designed for large-scale, distributed deployments across multiple nodes in a cluster.
-  - Scalability: Scales horizontally by adding more nodes to the cluster.
-4. High Availability:
-- Docker Compose:
-  - High Availability: Limited high availability features. Primarily used for local development and testing.
-- Kubernetes:
-  - High Availability: Provides advanced features for high availability, fault tolerance, and self-healing. Can distribute containers across multiple nodes to ensure availability.
-5. Scaling:
-- Docker Compose:
-  - Scaling: Limited scaling capabilities. Typically used for defining and running a fixed number of containers.
-- Kubernetes:
-  - Scaling: Provides robust scaling mechanisms, including manual and automatic scaling based on resource usage or custom metrics.
-6. Configuration:
-- Docker Compose:
-  - Configuration: Uses a YAML file (`docker-compose.yml`) to define services, networks, and volumes.
-- Kubernetes:
-  - Configuration: Uses YAML or JSON manifests to define resources such as Pods, Deployments, Services, etc.
-7. Service Discovery and Load Balancing:
 
-- Docker Compose:
-  - Service Discovery: Limited service discovery capabilities for containers on the same host.
-  - Load Balancing: Basic load balancing for services running on the same host.
-- Kubernetes:
-  - Service Discovery: Provides built-in service discovery for containers across the entire cluster.
-  - Load Balancing: Automatic load balancing for services, including traffic distribution and endpoint discovery.
-8. Ecosystem:
-- Docker Compose:
-  - Ecosystem: Primarily used with the Docker ecosystem and tools.
-- Kubernetes:
-  - Ecosystem: Has a rich ecosystem with support from major cloud providers, extensive tooling, and a large community.
+In summary, Docker is the underlying technology used to create images and run them as containers, and Docker Compose is a tool that configures how Docker should run multiple containers to serve our application.
+
+`(Or)`
+
+#### Docker vs. Docker Compose:
+#### Docker:
+#### Purpose:
+
+**Docker:** Used for creating, managing, and running individual containers.
+
+**Docker Compose:** Used for defining and running multi-container Docker applications.
+
+#### Configuration:
+
+**Docker:** Configures containers using the docker run command or Dockerfiles.
+
+**Docker Compose:** Configures multiple containers and their relationships in a single YAML file.
+
+#### Orchestration:
+
+**Docker:** Basic orchestration features for managing individual containers.
+
+**Docker Compose:** Provides a higher-level orchestration for multiple containers, defining services, networks, and volumes.
+
+#### Single vs. Multiple Containers:
+
+**Docker:** Primarily focused on managing a single container.
+
+**Docker Compose:** Specifically designed for orchestrating multiple containers that work together.
+
+#### Usage:
+
+**Docker:** Suitable for standalone applications or microservices.
+
+**Docker Compose:** Suitable for complex applications with multiple interconnected services.
+
+#### Command Usage:
+
+**Docker:** Commands like docker run, docker build, etc.
+
+**Docker Compose:** Commands like docker-compose up, docker-compose down, etc.
+
+#### File Format:
+
+**Docker:** Uses Dockerfiles for building images and command-line arguments for configuration.
+Docker Compose: Uses a YAML file (docker-compose.yml) for defining services, networks, and volumes.
+
+In summary, Docker is the platform for containerization, while Docker Compose is a tool for defining and running multi-container applications. Docker is used for managing individual containers, and Docker Compose is used for orchestrating multiple containers and their dependencies.
+### 15.	Difference between Docker compose and Kubernetes?
+Ans: 
+- Docker Compose vs Kubernetes: What are the differences?
+
+**What is Docker Compose?**
+
+ Define and run multi-container applications with Docker. With Compose, you define a multi-container application in a single file, then spin your application up in a single command which does everything that needs to be done to get it running.
+
+#### What is Kubernetes? 
+
+Manage a cluster of containers as a single system to accelerate Dev and simplify Ops. Kubernetes is an open source orchestration system for Docker containers. It handles scheduling onto nodes in a compute cluster and actively manages workloads to ensure that their state matches the users declared intentions.
+
+`(Or)`
+
+**docker-compose:** is a tool that takes a YAML file which describes your multi-container application and helps you create, start/stop, remove all those containers without having to type multiple docker ... commands for each container.
+
+**Kubernetes:** is a platform for managing containerized workloads and services that facilitates both declarative configuration and automation.
+
+`(Or)`
+
+#### Docker Compose
+
+Docker Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services. Then, with a single command, you create and start all the services from your configuration. Compose has commands for managing the whole lifecycle of your application:
+
+- Start, stop, and rebuild services
+- View the status of running services
+- Stream the log output of running services
+- Run a one-off command on a service
+#### Kubernetes
+
+Kubernetes is a container orchestrator tool like Docker Swarm, Amazon ECS, Hashicorp Nomad. Container orchestrators are the tools which group hosts together to form a cluster, and help us make sure applications: are
+
+- fault-tolerant,
+- can scale, and do this on-demand
+- use resources optimally
+- can discover other applications automatically, and communicate with each other
+- are accessible from the external world
+- can update/rollback without any downtime.
+
+`(Or)`
+
+Docker Compose and Kubernetes are both container orchestration tools, but they differ in their scope, architecture, and use cases. Here are the key differences between Docker Compose and Kubernetes:
+#### 1. Scope and Use Cases:
+#### - Docker Compose:
+  `- Scope:` Primarily designed for defining and running multi-container Docker applications on a single host.
+
+  `- Use Cases:` Suitable for development, testing, and simple production scenarios where a single host is sufficient.
+#### - Kubernetes:
+  `- Scope:` A container orchestration platform designed for automating the deployment, scaling, and management of containerized applications across clusters of machines.
+  `- Use Cases:` Suited for large-scale, production-grade deployments where high availability, scalability, and distributed architecture are essential.
+#### 2. Architecture:
+`- Docker Compose:`
+  `- Architecture:` Single-host architecture where the `docker-compose` tool manages the deployment of containers on the local machine.
+  `- Scaling:` Limited to a single host.
+#### - Kubernetes:
+  `- Architecture:` Multi-node, distributed architecture with a master node managing the cluster and worker nodes running containers.
+  `- Scaling:` Scales across multiple nodes, enabling the orchestration of containers in a cluster.
+#### 3. Deployment Model:
+#### - Docker Compose:
+  `- Deployment:` Typically used for deploying applications on a single host for development or testing purposes.
+  `- Scalability:` Limited to the resources available on a single host.
+#### - Kubernetes:
+  `- Deployment:` Designed for large-scale, distributed deployments across multiple nodes in a cluster.
+  `- Scalability:` Scales horizontally by adding more nodes to the cluster.
+#### 4. High Availability:
+#### - Docker Compose:
+  `- High Availability:` Limited high availability features. Primarily used for local development and testing.
+#### - Kubernetes:
+  `- High Availability:` Provides advanced features for high availability, fault tolerance, and self-healing. Can distribute containers across multiple nodes to ensure availability.
+#### 5. Scaling:
+#### - Docker Compose:
+  `- Scaling:` Limited scaling capabilities. Typically used for defining and running a fixed number of containers.
+#### - Kubernetes:
+  `- Scaling:` Provides robust scaling mechanisms, including manual and automatic scaling based on resource usage or custom metrics.
+#### 6. Configuration:
+#### - Docker Compose:
+  `- Configuration:` Uses a YAML file (`docker-compose.yml`) to define services, networks, and volumes.
+#### - Kubernetes:
+  `- Configuration:` Uses YAML or JSON manifests to define resources such as Pods, Deployments, Services, etc.
+#### 7. Service Discovery and Load Balancing:
+
+#### - Docker Compose:
+  `- Service Discovery:` Limited service discovery capabilities for containers on the same host.
+  `- Load Balancing:` Basic load balancing for services running on the same host.
+#### - Kubernetes:
+  `- Service Discovery:` Provides built-in service discovery for containers across the entire cluster.
+  `- Load Balancing:` Automatic load balancing for services, including traffic distribution and endpoint discovery.
+#### 8. Ecosystem:
+#### - Docker Compose:
+  `- Ecosystem:` Primarily used with the Docker ecosystem and tools.
+#### - Kubernetes:
+  `- Ecosystem:` Has a rich ecosystem with support from major cloud providers, extensive tooling, and a large community.
+
 In summary, Docker Compose is suitable for smaller-scale deployments on a single host, such as local development or testing environments. Kubernetes is designed for large-scale, production-grade container orchestration across clusters, providing advanced features for scalability, high availability, and service management. The choice between Docker Compose and Kubernetes depends on the scale and complexity of your deployment requirements.
-16.	How to display the running containers in docker?
+### 16.	How to display the running containers in docker?
 Ans: docker ps
-17.	How to display the stopped and running containers in Docker?
+### 17.	How to display the stopped and running containers in Docker?
 Ans: docker ps –a
 by using ctrl+pq we come out from the container it runs in the backend. If you type exit. It stops the container and exist.
-18.	What is the use of inspect command in docker?
+### 18.	What is the use of inspect command in docker?
 Ans: Ans: To get the detailed information about one or more networks, image and container. We use the command below,
-Ex: docker inspect Network Bridge
-Or
+```bash
+docker inspect Network Bridge
+```
+`Or`
+
 The `docker inspect` command in Docker is used to retrieve detailed information about Docker objects, such as containers, images, volumes, networks, and more. This command provides a JSON representation of the specified Docker object, offering a comprehensive view of its configuration, settings, and status. The information obtained from `docker inspect` can be useful for troubleshooting, debugging, and understanding the configuration of Docker resources.
-Usage Examples:
-1. Inspect a Container:
+#### Usage Examples:
+#### 1. Inspect a Container:
    ```bash
    docker inspect <container_id_or_name>
    ```
    Retrieve detailed information about a specific running or stopped container. This includes details such as container configuration, environment variables, network settings, volume mounts, and more.
-2. Inspect an Image:
+#### 2. Inspect an Image:
    ```bash
    docker inspect <image_id_or_name>
    ```
    Obtain detailed information about a Docker image, including its layers, labels, and configuration settings.
-3. Inspect a Volume:
+#### 3. Inspect a Volume:
    ```bash
    docker inspect <volume_name>
    ```
    Retrieve information about a Docker volume, such as its mount point, driver, and other configuration details.
-4. Inspect a Network:
+#### 4. Inspect a Network:
    ```bash
    docker inspect <network_id_or_name>
    ```
    Get details about a Docker network, including its subnet, gateway, connected containers, and more.
-Use Cases:
-- Debugging and Troubleshooting:
+#### Use Cases:
+#### - Debugging and Troubleshooting:
   - Inspecting containers can help diagnose issues by providing a detailed view of their configuration and runtime information.
-- Understanding Image Details:
+#### - Understanding Image Details:
   - Before using an image, inspecting it helps understand its structure, layers, and configuration.
-- Network and Volume Configuration:
+#### - Network and Volume Configuration:
   - When working with Docker networks or volumes, `docker inspect` can provide insights into their configurations and relationships.
-- Integration with Scripts:
+#### - Integration with Scripts:
   - The JSON output of `docker inspect` can be parsed by scripts or tools for further automation and processing.
-Example:
+#### Example:
 ```bash
 # Inspect a running container
 docker inspect my_container
@@ -1150,28 +1371,42 @@ docker inspect my_volume
 docker inspect my_network
 ```
 The `docker inspect` command is a versatile tool for exploring and understanding the details of various Docker objects, contributing to effective container management and troubleshooting.
-19.	Difference between Copy and Add command in docker file?
-Ans: COPY: If you want to copy the particular files to docker image or container we use the COPY command. Here we need to define the source and destination.
-Ex: COPY /etc/hosts/opt/	//here /etc is our source path /opt is destination (server) path.
+### 19.	Difference between Copy and Add command in docker file?
+Ans: 
+
+`COPY:` If you want to copy the particular files to docker image or container we use the COPY command. Here we need to define the source and destination.
+```bash
+COPY /etc/hosts/opt/	//here /etc is our source path /opt is destination (server) path.
+```
 By using this copy command we can copy the files and directories. It is just copy purpose
-ADD: This command is also used to copy the files and directories but here by using ADD command if you give the zip file, this zip file will extract in the container automatically.
+`ADD: `This command is also used to copy the files and directories but here by using ADD command if you give the zip file, this zip file will extract in the container automatically.
+
 Suppose if you give a path or location of the zip file from the remote, the ADD command will download and keep it in the container. It download and extract the remote URLs.
-20.	Difference between CMD and ENTRYPOINT in Docker file? Ans: CMD/ENTRYPOINT
-CMD: Suppose if I want to give some message to the docker image ex: echo “this image is for dev”.So while we build the docker image we can overwrite the message that we defined already. Ex: echo “this image is for Test”.
-ENTRYPOINT: Here we cannot overwrite but we can append the message if you use the ENTRYPOINT command
-21.	How to build the Docker file that are defined in another location?
-Ans: docker build –t image-name –f file-name file-path
-Or
-To build a Docker image using a Dockerfile defined in another location, you can use the `-f` or `--file` option with the `docker build` command to specify the path to the Dockerfile. Here's the basic syntax:
+### 20.	Difference between CMD and ENTRYPOINT in Docker file? Ans: CMD/ENTRYPOINT
+
+**CMD:** Suppose if I want to give some message to the docker image ex: echo “this image is for dev”.So while we build the docker image we can overwrite the message that we defined already. Ex: echo “this image is for Test”.
+
+**ENTRYPOINT:** Here we cannot overwrite but we can append the message if you use the ENTRYPOINT command
+
+### 21.	How to build the Docker file that are defined in another location?
+```bash
+docker build –t image-name –f file-name file-path
+```
+`Or`
+
+- To build a Docker image using a Dockerfile defined in another location, you can use the `-f` or `--file` option with the `docker build` command to specify the path to the Dockerfile. Here's the basic 
+
+`syntax:`
+
 ```bash
 docker build -f /path/to/Dockerfile -t <image_name> <build_context>
 ```
 - `-f /path/to/Dockerfile`: Specifies the path to the Dockerfile.
 - `-t <image_name>`: Tags the built image with a name and optionally a tag.
 - `<build_context>`: Specifies the build context, which is the path to the directory containing the build context and Dockerfile.
-Example:
+`Example:`
 Let's say your Dockerfile is located in a directory called `myapp` on your local machine. The structure might look like this:
-```
+```plaintext
 myapp/
 |-- Dockerfile
 |-- src/
@@ -1182,22 +1417,28 @@ To build the Docker image, navigate to the parent directory of `myapp` (the buil
 docker build -f myapp/Dockerfile -t my_image_name myapp
 ```
 This assumes that your current working directory is the parent directory of `myapp`, and the build context is correctly specified as `myapp`.
-Additional Tips:
+#### Additional Tips:
 - Ensure that you are in the correct directory or provide the correct path to the build context.
 - You can use an absolute or relative path for the Dockerfile.
 - If the Dockerfile is named differently or located in a subdirectory, adjust the `-f` option accordingly.
 - If your Dockerfile is named `Dockerfile` and is in the root of the build context, you don't need to use the `-f` option; Docker will use the default.
+
 ```bash
 docker build -t my_image_name /path/to/build/context
 ```
 Remember that the build context includes all the files and directories in the specified path, so only include necessary files to avoid unnecessary data transfer during the build process.
-22.	How to check the properties in Linux System?
+### 22.	How to check the properties in Linux System?
 Ans: df -h
-23.	What is the use of “prune” command in docker volumes?
-Ans: ex: docker image prune //It deletes all unused volumes
-Or
+### 23.	What is the use of “prune” command in docker volumes?
+
+```bash
+docker image prune //It deletes all unused volumes
+```
+`Or`
+
 The `docker volume prune` command is used to remove all unused volumes from a Docker system. Docker volumes are used to persist data outside of container file systems, and over time, unused volumes can accumulate, taking up disk space. The `prune` command helps to clean up these unused volumes, improving disk space utilization.
-Here's how to use the `docker volume prune` command:
+
+#### Here's how to use the `docker volume prune` command:
 ```bash
 docker volume prune
 ```
@@ -1205,15 +1446,15 @@ This command will prompt you for confirmation before removing any unused volumes
 ```bash
 docker volume prune -f
 ```
-Use Cases:
-1. Cleanup Unused Volumes:
+#### Use Cases:
+#### 1. Cleanup Unused Volumes:
    - Over time, as you create and remove containers, unused volumes can accumulate. The `prune` command helps to identify and remove those volumes that are no longer associated with any running or stopped containers.
-2. Free Up Disk Space:
+#### 2. Free Up Disk Space:
    - By removing unused volumes, you can free up disk space on the host system.
-Caution:
-- Data Loss Risk:
+#### Caution:
+#### - Data Loss Risk:
   - Be cautious when using `docker volume prune` as it removes all unused volumes, and any data stored in those volumes will be permanently deleted.
-Example:
+#### Example:
 ```bash
 # Prune unused volumes with confirmation
 docker volume prune
@@ -1221,12 +1462,12 @@ docker volume prune
 docker volume prune -f
 ```
 It's a good practice to periodically run `docker volume prune` in environments where volumes are frequently created and removed to keep the system tidy and avoid unnecessary disk space usage.
-24.	Difference between “p” and “P”?
+### 24.	Difference between “p” and “P”?
 Ans: In Linux commands, especially when dealing with options and arguments, the lowercase "p" (`-p`) and uppercase "P" (`-P`) often have different meanings. The exact interpretation depends on the specific command being used. Here are some common distinctions:
-1. Generic Meaning:
+#### 1. Generic Meaning:
    - Lowercase "p" (`-p`): Often used for specifying a particular port or path.
    - Uppercase "P" (`-P`): Can have various meanings depending on the command.
-2. Example: `docker run`:
+#### 2. Example: `docker run`:
    - `-p`: Maps a host port to a container port.
      ```bash
      docker run -p 8080:80 my_image
@@ -1235,7 +1476,7 @@ Ans: In Linux commands, especially when dealing with options and arguments, the 
      ```bash
      docker run -P my_image
      ```
-3. Example: `scp` (Secure Copy):
+#### 3. Example: `scp` (Secure Copy):
    - `-p`: Preserves modification times, access times, and modes from the original file.
      ```bash
      scp -p file.txt user@remote:/path/
@@ -1244,7 +1485,7 @@ Ans: In Linux commands, especially when dealing with options and arguments, the 
      ```bash
      scp -P 2222 file.txt user@remote:/path/
      ```
-4. Example: `sshd_config` (SSH Daemon Configuration):
+#### 4. Example: `sshd_config` (SSH Daemon Configuration):
    - `-p`: Specifies the port on which the SSH server listens.
      ```bash
      Port 2222
@@ -1253,7 +1494,7 @@ Ans: In Linux commands, especially when dealing with options and arguments, the 
      ```bash
      PidFile /var/run/sshd.pid
      ```
-5. Example: `curl`:
+#### 5. Example: `curl`:
    - `-p`: Used for proxy operations.
      ```bash
      curl -x proxy.example.com:8080 http://example.com
@@ -1262,7 +1503,7 @@ Ans: In Linux commands, especially when dealing with options and arguments, the 
      ```bash
      curl -x http://proxy.example.com:8080 -P HTTP,HTTPS http://example.com
      ```
-6. Example: `netstat`:
+#### 6. Example: `netstat`:
    - `-p`: Displays the process ID (PID) and program name of the processes that opened the sockets.
      ```bash
      netstat -p
@@ -1273,115 +1514,146 @@ Ans: In Linux commands, especially when dealing with options and arguments, the 
      ```
 These are just a few examples, and the meaning of `-p` and `-P` can vary depending on the context and the command being used. Always refer to the specific documentation or help menu of the command you are working with to understand the options and their meanings.
 
-25.	What is docker file?
+### 25.	What is docker file?
+Ans: The file which is having list of instructions, by using this instructions we create the custom image. That image consists of all the files that are related to the application. As soon as we run that docker image container will create
+Some of the instructions in docker file, FROM
 Ans: The file which is having list of instructions, by using this instructions we create the custom image. That image consists of all the files that are related to the application. As soon as we run that docker image container will create
 Some of the instructions in docker file, FROM
 MAINTAINER RUN, COPY ADD
 CMD/ENTRYPOINT ENV
-FROM: From instruction is used to get the base image from the registery or docker hub. If we want to create the custom image we need one base image that was get by the FROM instruction.
-Ex: FROM nginx
+
+`FROM:` From instruction is used to get the base image from the registery or docker hub. If we want to create the custom image we need one base image that was get by the FROM instruction.
+Ex: 
+```Dockerfile
+FROM nginx
 MAINTAINER: Maintainer is an user or author name that name can be any (Ex:vinod)
-RUN: Run instruction is used to install any package. Ex: RUN yum install httpd -y
+RUN: Run instruction is used to install any package. Ex: RUN yum install httpd -y 
 COPY: If you want to copy the particular files to docker image or container we use the COPY command. Here we need to define the source and destination.
-Ex: COPY /etc/hosts/opt/	//here /etc is our source path /opt is destination (server) path.
-By using this copy command we can copy the files and directories. It is just copy purpose
-ADD: This command is also used to copy the files and directories but here by using ADD command if you give the zip file, this zip file will extract in the container automatically.
+```
+
+```bash
+COPY /etc/hosts/opt/	//here /etc is our source path /opt is destination (server) path.
+```
+- By using this copy command we can copy the files and directories. It is just copy purpose
+
+`ADD:` This command is also used to copy the files and directories but here by using ADD command if you give the zip file, this zip file will extract in the container automatically.
 Suppose if you give a path or location of the zip file from the remote, the ADD command will download and keep it in the container. It download and extract the remote URLs
-CMD/ENTRYPOINT
-CMD: Suppose if I want to give some message to the docker image ex: echo “this image is for dev”.So while we build the docker image we can overwrite the message that we defined already. Ex: echo “this image is for Test”.
-ENTRYPOINT: Here we cannot overwrite but we can append the message if you use the ENTRYPOINT command
-ENV: Here we define the environmental variables.
-Dockerfile Example FROM nginx MAINTAINER vinod COPY testfile /opt/testfile
-ENTRYPOINT [“echo”, “hello”] CMD [“image”]
-23. What is the use of docker volumes?
+#### CMD/ENTRYPOINT
+
+**CMD:** Suppose if I want to give some message to the docker image ex: echo “this image is for dev”.So while we build the docker image we can overwrite the message that we defined already. Ex: echo “this image is for Test”.
+
+**ENTRYPOINT:** Here we cannot overwrite but we can append the message if you use the ENTRYPOINT command
+
+**ENV:** Here we define the environmental variables.
+
+- Dockerfile Example FROM nginx MAINTAINER vinod COPY testfile /opt/testfile
+- ENTRYPOINT [“echo”, “hello”] CMD [“image”]
+### 27. What is the use of docker volumes?
 Ans: Suppose we have container we install the application in the container so here all the data that is related to the application will store in the container.
-->So after sometime if you delete the container all the application data will be deleted but we need that data from the container. We required the data if all application data gets deleted we need to start from the beginning.
-->In order to overcome this problem we use Volumes in docker.
-->While we creating the containers we create the volume to store those container data by specifying the container path.(Ex: /etc/var). So here the data which is present in the container will store into the volumes.
-->The data will sync between container and volumes
-->After if you delete the container. The data will remain safe in the volume. That’s the reason why we use the volumes in docker
-->By using the Bind Mount we can move the data from the container to directory. We assign the directory to the container. So all the container data will move to the directory.mostly we use docker volumes.
--> we can assign the same volume to the different containers
+
+- So after sometime if you delete the container all the application data will be deleted but we need that data from the container. We required the data if all application data gets deleted we need to start from the beginning.
+- In order to overcome this problem we use Volumes in docker.
+- While we creating the containers we create the volume to store those container data by specifying the container path.(Ex: /etc/var). So here the data which is present in the container will store into the volumes.
+- The data will sync between container and volumes
+- After if you delete the container. The data will remain safe in the volume. That’s the reason why we use the volumes in docker
+- By using the Bind Mount we can move the data from the container to directory. We assign the directory to the container. So all the container data will move to the directory.mostly we use docker volumes.
+- we can assign the same volume to the different containers 
 Create the Docker Volume
-Ex: docker run –itd –name jenkins1 –v volume1:/var/jenkins_home –p 8081:8080 jenkins/jenkins:lts.
-We never modify the volume data. We always interact with the container data.
+
+```bash
+docker run –itd –name jenkins1 –v volume1:/var/jenkins_home –p 8081:8080 jenkins/jenkins:lts.
+```
+- We never modify the volume data. We always interact with the container data.
+
+---
 
 
-AWS (AMAZON WEB SERVICES):
+## AWS (AMAZON WEB SERVICES):
+
 1.	How to secure the IAM in AWS?
+### 1.	How to secure the IAM in AWS?
 Ans: Under the Account Information-> Click on Security Credentials we have some options below,
-Step 1: We enabling MFA (Multifactor Authentication)
-MFA (Multi Factor Authentication): MFA works by requiring additional verification information (factors). One of the most common MFA factors that users encounter are
-one-time passwords (OTP). OTPs are those 4-8 digit codes that you often receive via email, SMS or some sort of mobile app.
+
+`Step 1:` We enabling MFA (Multifactor Authentication)
+- MFA (Multi Factor Authentication): MFA works by requiring additional verification information (factors). One of the most common MFA factors that users encounter are
+- one-time passwords (OTP). OTPs are those 4-8 digit codes that you often receive via email, SMS or some sort of mobile app.
 * While we login the IAM account it asks to enter MFA code along with username and password.
-Or
+
+`Or`
+
 Securing Identity and Access Management (IAM) in AWS is crucial for maintaining the security of your cloud infrastructure. Here are some best practices and recommendations for securing IAM in AWS:
-1. Use Strong Passwords and MFA:
+#### 1. Use Strong Passwords and MFA:
 - Enforce the use of strong, complex passwords for IAM users.
 - Enable Multi-Factor Authentication (MFA) for added security. This requires users to provide a second form of authentication in addition to their password.
-2. Implement the Principle of Least Privilege:
+#### 2. Implement the Principle of Least Privilege:
 - Assign the minimum required permissions to IAM users and roles. Only grant the permissions necessary for their specific tasks.
 - Regularly review and audit IAM policies to ensure they align with the principle of least privilege.
-3. IAM Roles for EC2 Instances:
+#### 3. IAM Roles for EC2 Instances:
 - Use IAM roles for EC2 instances instead of storing access keys directly on instances. This allows you to assign temporary credentials to EC2 instances with specific permissions.
-4. Regularly Rotate Access Keys:
+#### 4. Regularly Rotate Access Keys:
 - Rotate access keys for IAM users and applications on a regular basis to mitigate the risk of compromised credentials.
 - Use IAM password policies to enforce key rotation.
-5. IAM Access Analyzer:
+#### 5. IAM Access Analyzer:
 - Use IAM Access Analyzer to review and analyze resource policies to identify unintended access and resource sharing.
-6. IAM Policy Conditions:
+#### 6. IAM Policy Conditions:
 - Implement IAM policy conditions to add additional security controls. For example, restrict access based on IP address ranges, require the use of SSL/TLS, etc.
-7. CloudTrail Logging:
+#### 7. CloudTrail Logging:
 - Enable AWS CloudTrail to log all AWS API calls. This helps in auditing and tracking changes to IAM configurations.
 - Store CloudTrail logs in a secure S3 bucket with restricted access.
-8. IAM Roles and Federated Users:
+#### 8. IAM Roles and Federated Users:
 - Use IAM roles for cross-account access instead of sharing IAM user credentials.
 - Implement federated access with identity providers (IdPs) such as Active Directory or SAML.
-9. IAM Credential Report:
+#### 9. IAM Credential Report:
 - Regularly generate and review the IAM credential report to identify inactive users and access keys.
-10. Secure IAM Users' and Roles' Permissions:
+#### 10. Secure IAM Users' and Roles' Permissions:
 - Avoid using wildcards in IAM policies whenever possible.
 - Deny permissions by default and grant only what is necessary.
-11. AWS Organizations:
+#### 11. AWS Organizations:
 - Use AWS Organizations to consolidate multiple AWS accounts and manage them centrally. This helps in applying consistent security policies across accounts.
-12. AWS Key Management Service (KMS):
+#### 12. AWS Key Management Service (KMS):
 - Use AWS KMS to encrypt sensitive data and manage encryption keys securely.
 - Implement key rotation and audit key usage.
-13. IAM Policy Simulations:
+#### 13. IAM Policy Simulations:
 - Use IAM policy simulations to test the effects of policies before applying them to users or roles.
-14. Monitor IAM Events:
+#### 14. Monitor IAM Events:
 - Set up AWS CloudWatch Alarms to alert on specific IAM events or suspicious activities.
-15. Security Training and Documentation:
+#### 15. Security Training and Documentation:
 - Provide security training for IAM users and administrators.
 - Maintain up-to-date documentation on IAM configurations and best practices.
 By following these best practices, you can enhance the security of IAM in AWS and reduce the risk of unauthorized access and data breaches. Regularly review and update security measures to adapt to changing requirements and emerging threats.
-2.	What are the Storage class available in AWS?
-The S3 storage classes include
-S3 Standard for frequently accessed data, if you create the s3 bucket in AWS it will create under S3 Standard frequent access by default. It creates the object in multiple Zones.
-S3 Standard-Infrequent Access (S3 Standard-IA) If you don’t want to access the data frequently we use this Standard-Infrequent Access storage class. It creates the object in multiple Zones
-S3 Intelligent-Tiering for automatic cost savings for data with unknown or changing access patterns. It is commination both standard and standard IA. If the user accessing the data frequently it moves to the Standard Storage class. It creates the object in multiple Zones
-If the user is not accessing the data frequently it moves to the Standard In frequent Storage class. These operations are managed by the S3 Intelligent Tiering.
-S3 One Zone-Infrequent Access (S3 One Zone-IA) for less frequently accessed data. It creates the object in only one Zones.
-S3 Glacier Instant Retrieval for archive data that needs immediate access,
-S3 Glacier Flexible Retrieval (formerly S3 Glacier) for rarely accessed long-term data that does not require immediate access.
-S3 Glacier Deep Archive (S3 Glacier Deep Archive) for long-term archive and digital preservation with retrieval in hours at the lowest cost storage in the cloud. It compress the data. For retrieval data takes the long time
-Or
-In Amazon Web Services (AWS), there are several storage classes designed to cater to different use cases and requirements. Each storage class offers a unique combination of performance, durability, and cost. Here are some commonly used storage classes in AWS:
-1. Amazon S3 Storage Classes:
-- Standard: 
+### 2.	What are the Storage class available in AWS?
+Ans:
+
+- The S3 storage classes include
+- `S3 Standard` for frequently accessed data, if you create the s3 bucket in AWS it will create under S3 Standard frequent access by default. It creates the object in multiple Zones.
+
+- `S3 Standard-Infrequent Access` (S3 Standard-IA) If you don’t want to access the data frequently we use this Standard-Infrequent Access storage class. It creates the object in multiple Zones
+
+- `S3 Intelligent-Tiering` for automatic cost savings for data with unknown or changing access patterns. It is commination both standard and standard IA. If the user accessing the data frequently it moves to the Standard Storage class. It creates the object in multiple Zones
+- If the user is not accessing the data frequently it moves to the Standard In frequent Storage class. These operations are managed by the S3 Intelligent Tiering.
+- `S3 One Zone-Infrequent Access` (S3 One Zone-IA) for less frequently accessed data. It creates the object in only one Zones.
+- `S3 Glacier` Instant Retrieval for archive data that needs immediate access,
+- `S3 Glacier Flexible Retrieval` (formerly S3 Glacier) for rarely accessed long-term data that does not require immediate access.
+- `S3 Glacier Deep Archive` (S3 Glacier Deep Archive) for long-term archive and digital preservation with retrieval in hours at the lowest cost storage in the cloud. It compress the data. For retrieval data takes the long time
+
+`Or`
+
+In Amazon Web Services (AWS), there are several storage classes designed to cater to different use cases and requirements. Each storage class offers a unique combination of performance, durability, and cost. #### Here are some commonly used storage classes in AWS:
+#### 1. Amazon S3 Storage Classes:
+#### - Standard: 
   - Provides low-latency and high-throughput performance. Suitable for frequently accessed data.
-- Intelligent-Tiering:
+#### - Intelligent-Tiering:
   - Automatically moves objects between two access tiers (frequent and infrequent) based on changing access patterns. It's designed to optimize costs.
-- Standard-IA (Infrequent Access):
+#### - Standard-IA (Infrequent Access):
   - For infrequently accessed data but requires rapid access when needed.
-- One Zone-IA:
+#### - One Zone-IA:
   - Similar to Standard-IA but stores data in a single Availability Zone, making it less durable than other options.
-- Glacier:
+#### - Glacier:
   - Suitable for long-term archival. Retrieval times are configurable, and costs are lower compared to standard storage classes.
-- Glacier Deep Archive:
+#### - Glacier Deep Archive:
   - The lowest-cost storage class for archival data with a retrieval time of 12 hours.
-2. Amazon EBS (Elastic Block Store) Volume Types:
-- General Purpose (gp2):
+#### 2. Amazon EBS (Elastic Block Store) Volume Types:
+#### - General Purpose (gp2):
   - Provides a balance of price and performance for a wide variety of workloads.
 - Provisioned IOPS (io1):
   - Offers high-performance, consistent I/O for critical business applications.
@@ -1391,70 +1663,75 @@ In Amazon Web Services (AWS), there are several storage classes designed to cate
   - Offers the lowest cost per gigabyte for infrequently accessed data.
 - Amazon EBS Snapshot:
   - Snapshots are point-in-time copies of Amazon EBS volumes. They can be used for backup and to create new EBS volumes.
-3. Amazon RDS Storage Types:
-- General Purpose (SSD):
+#### 3. Amazon RDS Storage Types:
+#### - General Purpose (SSD):
   - Suitable for a broad range of database workloads.
-- Provisioned IOPS (SSD):
+#### - Provisioned IOPS (SSD):
   - Offers high performance for I/O-intensive database workloads.
-- Magnetic:
+#### - Magnetic:
   - Suitable for workloads with light or burst I/O requirements.
-4. Amazon Glacier Storage Classes:
-- Glacier:
+#### 4. Amazon Glacier Storage Classes:
+#### - Glacier:
   - Suitable for long-term archival. Retrieval times are configurable, and costs are lower compared to standard storage classes.
-- Glacier Deep Archive:
+#### - Glacier Deep Archive:
   - The lowest-cost storage class for archival data with a retrieval time of 12 hours.
-5. Amazon EFS (Elastic File System):
-- Standard:
+#### 5. Amazon EFS (Elastic File System):
+#### - Standard:
   - Standard storage class suitable for general-purpose file storage.
-- Infrequent Access (IA):
+#### - Infrequent Access (IA):
   - Provides lower storage costs for infrequently accessed files.
-6. Amazon S3 Transfer Acceleration:
-- Transfer Acceleration:
+#### 6. Amazon S3 Transfer Acceleration:
+#### - Transfer Acceleration:
   - Speeds up transferring files to and from Amazon S3 by using the Amazon CloudFront globally distributed edge locations.
 These storage classes offer flexibility to choose the right combination of performance, durability, and cost for specific workloads and use cases. It's essential to analyze your application requirements and data access patterns to select the most appropriate storage class for your needs.
-3.	What is Intelligent Storage class?
+### 3.	What is Intelligent Storage class?
 Ans: Amazon S3 Intelligent-Tiering (S3 Intelligent-Tiering) is the first cloud storage that automatically reduces your storage costs on a granular object level by automatically moving data to the most cost-effective access tier based on access frequency, without performance impact, retrieval fees, or operational overhead.
+
 S3 Intelligent-Tiering delivers milliseconds latency and high throughput performance for frequently, infrequently, and rarely accessed data in the Frequent, Infrequent, and Archive Instant Access tiers. You can use S3 Intelligent-Tiering as the default storage class for virtually any workload, especially data lakes, data analytics, new applications, and
 user-generated content.
-4.	 What is Replication rules in AWS S3?
+### 4.	 What is Replication rules in AWS S3?
 Ans: Suppose if you create the s3 bucket in some region (Ex: us-east-1). So if want to send or replicate the same object in another region or another bucket in the same region we use this replication rule.
-Click on->create replication rule->source bucket->bucket name
-Or
+
+`Click on->create replication rule->source bucket->bucket name`
+
+`Or`
+
 In Amazon S3 (Simple Storage Service), replication rules are configurations that define how and where objects should be replicated across different S3 buckets. S3 replication is a feature that enables automatic and asynchronous copying of objects from one bucket to another. Replication can be useful for data backup, compliance, disaster recovery, and ensuring data consistency across regions.
 Replication rules are part of S3 Cross-Region Replication (CRR) or Same-Region Replication (SRR). Here are key aspects of replication rules:
-1. Replication Configuration:
+#### 1. Replication Configuration:
 - Replication rules are defined within the replication configuration of an S3 bucket.
 - The replication configuration specifies the source and destination buckets and includes rules that define which objects to replicate, the destination storage class, and other replication-related settings.
-2. Replication Rules Components:
-A replication rule consists of several components:
-- ID (Rule Name):
+#### 2. Replication Rules Components:
+#### A replication rule consists of several components:
+#### - ID (Rule Name):
   - A unique identifier for the rule.
-- Status:
+#### - Status:
   - Indicates whether the rule is enabled or disabled.
-- Priority:
+#### - Priority:
   - Specifies the order of execution for multiple rules within the same configuration.
-- Prefix:
+#### - Prefix:
   - Defines the objects within the bucket that should be replicated. Objects matching the specified prefix will be replicated.
-- Filter:
+#### - Filter:
   - Allows you to filter objects based on tags or object metadata.
-- Destination:
+#### - Destination:
   - Specifies the destination bucket and optional destination prefix within the target bucket.
-- Storage Class:
+#### - Storage Class:
   - Defines the storage class of the replicated objects in the destination bucket.
-3. Cross-Region Replication (CRR):
+#### 3. Cross-Region Replication (CRR):
 - If you want to replicate objects from one S3 bucket in one AWS region to another bucket in a different region, you use Cross-Region Replication.
 - The source and destination buckets can be in different AWS regions.
-4. Same-Region Replication (SRR):
+#### 4. Same-Region Replication (SRR):
 - If you want to replicate objects within the same AWS region, you use Same-Region Replication.
 - The source and destination buckets must be in the same AWS region.
-5. Versioning:
+#### 5. Versioning:
 - Replication works with versioned objects in S3. If versioning is enabled, all versions of an object, including delete markers, are replicated.
-6. Deletion Markers:
+#### 6. Deletion Markers:
 - Replication can replicate delete markers to ensure that the destination bucket has the same deletion state as the source.
-7. Handling Conflicts:
+### 7. Handling Conflicts:
 - Replication configuration allows you to define how to handle conflicts between existing objects in the source and destination buckets.
-Example Replication Rule (S3 Console):
-Here's an example of creating a replication rule through the AWS S3 Management Console:
+#### Example Replication Rule (S3 Console):
+
+- Here's an example of creating a replication rule through the AWS S3 Management Console:
 
 1. Open the S3 Management Console.
 2. Select the source bucket.
@@ -1462,411 +1739,466 @@ Here's an example of creating a replication rule through the AWS S3 Management C
 4. In the "Management" tab, navigate to "Replication."
 5. Add a replication rule by specifying the source and destination buckets, prefix, and other settings.
 Replication rules provide a flexible way to control and automate the replication of objects between S3 buckets, helping you achieve redundancy, compliance, and data consistency in different scenarios.
-5.	Does static website hosting support https in AWS?
+### 5.	Does static website hosting support https in AWS?
 Ans: By using Amazon S3 bucket we can create the Static Website hosting. But https is not support
-Or
+
+`Or`
+
 Yes, AWS supports HTTPS for static websites hosted on Amazon S3 using the Amazon S3 Static Website Hosting feature. However, the HTTPS support is facilitated through Amazon CloudFront, AWS's content delivery network (CDN) service.
-Here's a general overview of the process to enable HTTPS for a static website hosted on Amazon S3:
-1. Set Up Your Static Website on Amazon S3:
+- Here's a general overview of the process to enable HTTPS for a static website hosted on Amazon S3:
+#### 1. Set Up Your Static Website on Amazon S3:
    - First, you need to host your static website on Amazon S3. You can do this by creating an S3 bucket, uploading your static files, and configuring the bucket for static website hosting.
-2. Enable Amazon CloudFront Distribution:
+#### 2. Enable Amazon CloudFront Distribution:
    - Create a CloudFront distribution and configure it to use your S3 bucket as the origin. CloudFront will act as a CDN, accelerating the delivery of your content and enabling HTTPS.
-3. Configure CloudFront for HTTPS:
+#### 3. Configure CloudFront for HTTPS:
    - While configuring your CloudFront distribution, you can specify whether you want to use HTTP or HTTPS. Choose "Redirect HTTP to HTTPS" if you want to enforce secure connections.
-4. Set Up SSL Certificate:
+#### 4. Set Up SSL Certificate:
    - To enable HTTPS, you need to associate an SSL/TLS certificate with your CloudFront distribution. You can use AWS Certificate Manager (ACM) to provision a free SSL/TLS certificate.
-5. Update DNS Settings (Optional):
+#### 5. Update DNS Settings (Optional):
    - If your website has a custom domain, update your DNS settings to point to the CloudFront distribution. You can use Route 53 or another DNS provider for this step.
-6. Access Your Website Over HTTPS:
+#### 6. Access Your Website Over HTTPS:
    - After completing the setup, you can access your static website securely over HTTPS using the CloudFront distribution URL or your custom domain.
 Enabling HTTPS ensures that the communication between your users and your static website is encrypted, providing a secure browsing experience. It's recommended to use HTTPS to protect sensitive information and establish trust with your users.
+
 Keep in mind that AWS Certificate Manager (ACM) provides free SSL/TLS certificates for use with CloudFront, making it easier to secure your static website without additional costs for the certificate.
-6.	How to select the availability zone in subnet while launching the instance?
+### 6.	How to select the availability zone in subnet while launching the instance?
 Ans: By default instance picks the existing subnets zone.
-Or
+
+`Or`
+
 When launching an EC2 (Elastic Compute Cloud) instance in AWS, you can specify the Availability Zone (AZ) by selecting a subnet that is associated with a specific Availability Zone. Here are the steps to select the Availability Zone during the instance launch:
-1. Open the EC2 Console:
+#### 1. Open the EC2 Console:
    - Log in to the AWS Management Console and navigate to the EC2 service.
-2. Launch Instance:
+#### 2. Launch Instance:
    - Click on the "Launch Instance" button to start the process of launching a new EC2 instance.
-3. Choose an Amazon Machine Image (AMI):
+#### 3. Choose an Amazon Machine Image (AMI):
    - Select the AMI (Amazon Machine Image) that you want to use for your instance.
-4. Choose an Instance Type:
+#### 4. Choose an Instance Type:
    - Choose the instance type that best suits your application's requirements.
-5. Configure Instance Details:
+#### 5. Configure Instance Details:
    - In the "Configure Instance Details" step, you can set various configuration options, including the network settings and subnet. Here's where you can select the Availability Zone:
      - In the "Network" section, choose the Virtual Private Cloud (VPC) where you want to launch the instance.
      - In the "Subnet" section, select the subnet from the drop-down list. Each subnet is associated with a specific Availability Zone.
-6. Add Storage:
+#### 6. Add Storage:
    - Configure the storage settings for your instance.
-7. Add Tags (Optional):
+#### 7. Add Tags (Optional):
    - Optionally, add tags to your instance for better organization and identification.
-8. Configure Security Group:
+#### 8. Configure Security Group:
    - Configure the security group settings for your instance.
-9. Review and Launch:
+#### 9. Review and Launch:
    - Review your configuration settings and click the "Launch" button.
-10. Select Key Pair:
-    - Choose an existing key pair or create a new one to secure access to your instance.
-11. Launch Instances:
-    - Click the "Launch Instances" button to finalize the process.
-Important Considerations:
-- Subnet and Availability Zone:
+#### 10. Select Key Pair:
+- Choose an existing key pair or create a new one to secure access to your instance.
+#### 11. Launch Instances:
+- Click the "Launch Instances" button to finalize the process.
+#### Important Considerations:
+#### - Subnet and Availability Zone:
   - The subnet you select determines the Availability Zone in which your EC2 instance will be launched. Make sure to choose the correct subnet associated with the desired Availability Zone.
-- Multi-AZ Deployments:
+#### - Multi-AZ Deployments:
   - If you are deploying instances in a multi-Availability Zone architecture for high availability, you might launch instances in different subnets across multiple Availability Zones.
-- Reserved Instances:
+#### - Reserved Instances:
   - If you have Reserved Instances, they are tied to a specific Availability Zone. Make sure your chosen Availability Zone is consistent with your Reserved Instance allocation.
 By selecting the appropriate subnet associated with a specific Availability Zone, you can control the placement of your EC2 instances within the AWS infrastructure. This flexibility is valuable for achieving fault tolerance and designing resilient architectures.
-7.	If you launch instance in public and private IP’s in the subnet respectively. After stop and again start the instance does new IP’s are created or old IP’s are exist?
+### 7.	If you launch instance in public and private IP’s in the subnet respectively. After stop and again start the instance does new IP’s are created or old IP’s are exist?
 Ans: Here Private IP doesn’t change. Only public IP gets change. This is only if you stop the instance .But if you reboot the instance both IP’s will not change.
-Or
+
+`Or`
+
 When you stop and then start an EC2 instance in AWS, the public and private IP addresses associated with the instance generally remain the same. The IP addresses are typically retained through a stop and start operation.
-Here's a more detailed explanation:
-1. Stopping an Instance:
+#### Here's a more detailed explanation:
+#### 1. Stopping an Instance:
    - When you stop an EC2 instance, it essentially puts the instance into a stopped state, and the associated resources like EBS volumes and IP addresses are retained.
-2. Starting an Instance:
+#### 2. Starting an Instance:
    - When you start the instance again, it resumes with the same configuration, including the same private and public IP addresses that were associated with it before stopping.
-3. Elastic IP Addresses (EIPs):
+#### 3. Elastic IP Addresses (EIPs):
    - If you've associated an Elastic IP Address (EIP) with your instance, the EIP remains associated with the instance, and your public IP address remains the same across stop and start operations.
-4. Instance in a Virtual Private Cloud (VPC):
+#### 4. Instance in a Virtual Private Cloud (VPC):
    - In a VPC, instances typically get their private IP addresses from the subnet's IP address range. When you stop and start the instance, it retains the same private IP address.
-Keep in mind that there are a few exceptions:
-- If you terminate an instance and launch a new one:
+#### Keep in mind that there are a few exceptions:
+#### - If you terminate an instance and launch a new one:
   - In this case, the new instance will receive new private and public IP addresses.
-- Spot Instances:
+#### - Spot Instances:
   - For Spot Instances, if you stop and start a Spot Instance, the public and private IP addresses may change because a Spot Instance is a separate allocation compared to a regular On-Demand or Reserved Instance.
 Always check the AWS documentation and be aware of the specific configurations of your instances, especially if you are using features like Elastic IP Addresses or have specific networking requirements in a Virtual Private Cloud (VPC).
 IAM (Identity and Access Management)
-8.	What is role in IAM?
+### 8.	What is role in IAM?
 Ans: Role is nothing but group of policies. We can attach many policies to the single role and give the access to the services and finally we attach this role to the particular user. That user can have access to the services that we attached.
-*	Instead of accessing the services directly by the user we create the Role to interact with these services. Suppose I want to call the S3 buckets by using EC2 instance. Now we create the role and assign to the instance.
-*	While we create the EC2 instance we can select the role under IAM role option.
-*	Generally we can’t pass the Access key and secret key directly we always use the role to access the services.
-9.	What are the types of policies in AWS?
+* Instead of accessing the services directly by the user we create the Role to interact with these services. Suppose I want to call the S3 buckets by using EC2 instance. Now we create the role and assign to the instance.
+* While we create the EC2 instance we can select the role under IAM role option.
+* Generally we can’t pass the Access key and secret key directly we always use the role to access the services.
+### 9.	What are the types of policies in AWS?
 Ans: In AWS we have Managed Policies, custom policy and In-line policy.
 *	Managed Policies: are managed by the AWS. These policies are already created we cannot edit or modify these policies
-*	AWS provides a set of pre-built policies called managed policies that cover common use cases.
-*	These policies are created and managed by AWS and can be attached to multiple users, groups, or roles.
-*	Examples include AWS managed policies for AdministratorAccess, PowerUserAccess, and ReadOnlyAccess.
-*	Custom-Policies are designed by the user or developer by using AWS policy generator. 
-*	In-line policy: Here we create the policy for the particular user or group. It is applicable only for that user or group.
-*	These policies are directly embedded within a specific IAM user, group, or role.
-*	Inline policies are created and managed directly within the IAM entity to which they are attached.
+* AWS provides a set of pre-built policies called managed policies that cover common use cases.
+* These policies are created and managed by AWS and can be attached to multiple users, groups, or roles.
+* Examples include AWS managed policies for AdministratorAccess, PowerUserAccess, and ReadOnlyAccess.
+* Custom-Policies are designed by the user or developer by using AWS policy generator. 
+* In-line policy: Here we create the policy for the particular user or group. It is applicable only for that user or group.
+* These policies are directly embedded within a specific IAM user, group, or role.
+* Inline policies are created and managed directly within the IAM entity to which they are attached.
 *	They are useful when policies need to be tightly associated with a specific user, group, or role.
-10.	Difference between role and policy in AWS?
+### 10. Difference between role and policy in AWS?
 Ans: Answer already written above.
-Or
+
+`Or`
+
 In AWS, roles and policies serve different but related purposes. Let's break down the key differences between roles and policies:
-1. Role:
-   - Definition: A role in AWS IAM (Identity and Access Management) is an entity that defines a set of permissions for making AWS service requests.
-   - Purpose: Roles are assumed by AWS identities, such as IAM users, AWS services, or even federated users (users authenticated by an external identity provider).
-   - Use Case: Roles are often used to delegate permissions to AWS services or temporary access to users or applications. For example, an EC2 instance can assume a role to access other AWS resources.
-2. Policy:
-   - Definition: A policy in AWS is a document that defines permissions and is associated with an identity (user, group, role) or a resource (like an S3 bucket or Lambda function).
-   - Purpose: Policies determine what actions are allowed or denied, and they are used to grant or restrict access to AWS resources.
-   - Use Case: Policies are attached to IAM identities (identity-based policies) or AWS resources (resource-based policies) to define the permissions associated with that identity or resource.
-Key Differences:
-- Granularity:
-  - Role: Defines a set of permissions and is assumed by an identity to temporarily acquire those permissions.
-  - Policy: Specifies permissions and is attached directly to an identity (user, group, role) or a resource.
-- Association:
-  - Role: Associated with identities that assume the role to gain temporary permissions.
-  - Policy: Attached directly to identities or resources to define their permissions.
-- Lifecycle:
-  - Role: Can be assumed and released by identities as needed, and roles can be assumed by different entities.
-  - Policy: Remains attached to an identity or resource until explicitly detached or deleted.
-- Usage:
-  - Role: Often used for cross-account access, allowing entities from one AWS account to access resources in another account.
-  - Policy: Used to define permissions at a fine-grained level for IAM identities or resources.
+#### 1. Role:
+   `- Definition:` A role in AWS IAM (Identity and Access Management) is an entity that defines a set of permissions for making AWS service requests.
+   `- Purpose:` Roles are assumed by AWS identities, such as IAM users, AWS services, or even federated users (users authenticated by an external identity provider).
+   `- Use Case:` Roles are often used to delegate permissions to AWS services or temporary access to users or applications. For example, an EC2 instance can assume a role to access other AWS resources.
+#### 2. Policy:
+   `- Definition:` A policy in AWS is a document that defines permissions and is associated with an identity (user, group, role) or a resource (like an S3 bucket or Lambda function).
+   `- Purpose:` Policies determine what actions are allowed or denied, and they are used to grant or restrict access to AWS resources.
+   `- Use Case:` Policies are attached to IAM identities (identity-based policies) or AWS resources (resource-based policies) to define the permissions associated with that identity or resource.
+#### Key Differences:
+#### - Granularity:
+  `- Role:` Defines a set of permissions and is assumed by an identity to temporarily acquire those permissions.
+  `- Policy:` Specifies permissions and is attached directly to an identity (user, group, role) or a resource.
+`- Association:`
+  `- Role:` Associated with identities that assume the role to gain temporary permissions.
+  `- Policy:` Attached directly to identities or resources to define their permissions.
+#### - Lifecycle:
+  `- Role:` Can be assumed and released by identities as needed, and roles can be assumed by different entities.
+  `- Policy:` Remains attached to an identity or resource until explicitly detached or deleted.
+`- Usage:`
+  `- Role:` Often used for cross-account access, allowing entities from one AWS account to access resources in another account.
+  `- Policy:` Used to define permissions at a fine-grained level for IAM identities or resources.
+
 In summary, roles provide a way to delegate and assume permissions, while policies define the specific permissions associated with IAM identities or AWS resources. Roles are often used in scenarios involving temporary access and cross-account permissions, while policies are the building blocks that specify what actions are allowed or denied.
-Q) What is policy in IAM?
+
+### 11. What is policy in IAM?
 Ans: Policy is nothing but permissions.
-11.	What is account settings in IAM?
+### 12.	What is account settings in IAM?
 Ans: Here we can do the settings Password Policy of the user.
- Or
+ 
+ `Or`
+
 In AWS IAM (Identity and Access Management), "Account Settings" generally refers to the configuration options and global settings associated with your AWS account's IAM service. These settings help define the overall behavior and security policies for identity and access management within your AWS environment. Here are some key aspects of account settings in IAM:
-1. Password Policy:
+#### 1. Password Policy:
    - You can define a password policy that specifies rules for creating and managing IAM user passwords. This includes requirements such as minimum length, character types, and password expiration.
-2. Account Alias:
+#### 2. Account Alias:
    - You can set an account alias, which provides a human-readable name for your AWS account. This alias is often used in the AWS Management Console login URL.
-3. Access Keys:
+#### 3. Access Keys:
    - IAM users can have access keys for programmatic access to AWS services. Account settings may include configurations related to access key rotation, usage, and security.
-4. IAM Users and Groups:
+#### 4. IAM Users and Groups:
    - Account settings may include a list of IAM users and groups within the account. Users and groups have associated policies that define their permissions.
-5. Roles:
+#### 5. Roles:
    - IAM roles can be created and configured within the account settings. Roles define permissions for AWS resources and can be assumed by IAM users, AWS services, or identities outside of AWS.
-6. MFA (Multi-Factor Authentication):
+#### 6. MFA (Multi-Factor Authentication):
    - You can configure MFA settings, requiring users to use an additional authentication method (such as a hardware token or mobile app) along with their username and password.
-7. Security Token Service (STS) Settings:
+#### 7. Security Token Service (STS) Settings:
    - Account settings may include configurations related to AWS Security Token Service, which is used for requesting temporary security credentials.
-8. Credential Report:
+#### 8. Credential Report:
    - IAM account settings can generate a credential report that provides information about the status of IAM user credentials, including password last used, access key age, and more.
-9. Account-Level Permissions:
+#### 9. Account-Level Permissions:
    - Account settings may include configurations related to account-level permissions and policies that apply globally to the entire AWS account.
 To access and manage these IAM account settings, you typically use the AWS Management Console, AWS Command Line Interface (CLI), or AWS SDKs. Keep in mind that AWS IAM is a crucial service for managing access and security in your AWS environment, and configuring account settings properly is essential for maintaining a secure and well-controlled infrastructure.
-12.	What is In-Line policy and managed policy? 
+### 13.	What is In-Line policy and managed policy? 
 Ans: Answer already written above.
-13.	What is cross account access (or) Assume role?
+### 13.	What is cross account access (or) Assume role?
 Ans: cross account access is, If the developer want to access the data from one account to another account, in second account we create one role and this role ARN we will give at the first account user after creating the In-line policy and define that ARN. This all process will be perform based on assume role. This assume role is managed by STS (simple Token Service) at the backend.
-Or
+
+`Or`
+
 Cross-account access, or assuming a role, is a feature in AWS (Amazon Web Services) that allows IAM (Identity and Access Management) entities in one AWS account to temporarily take on permissions of a role defined in another AWS account. This is a powerful mechanism for securely delegating access across AWS accounts while maintaining control and ensuring the principle of least privilege.
-Here's a breakdown of how cross-account access or assuming a role works:
-1. Roles in the Target (Destination) Account:
+- Here's a breakdown of how cross-account access or assuming a role works:
+#### 1. Roles in the Target (Destination) Account:
    - The AWS account that owns the resources (the "target" or "destination" account) defines an IAM role with specific permissions that it wants to grant to entities from other accounts.
-2. IAM Entities in the Source (Origin) Account:
+#### 2. IAM Entities in the Source (Origin) Account:
    - In the AWS account where the IAM entities (users, applications, or services) reside and need access to resources in the target account (the "source" or "origin" account), these entities initiate the process of assuming the role in the target account.
-3. Assuming the Role:
+#### 3. Assuming the Role:
    - An IAM entity in the source account assumes the role in the target account by making an AssumeRole API call.
    - To make this call, the entity needs to have the ARN (Amazon Resource Name) of the role in the target account and the necessary permissions to assume that role.
-4. Temporary Security Credentials:
+#### 4. Temporary Security Credentials:
    - When the role is assumed successfully, AWS returns temporary security credentials, including an access key, secret key, and session token, to the entity in the source account.
    - These temporary credentials have the permissions defined by the assumed role and are valid for a specified duration.
-5. Accessing Resources:
+#### 5. Accessing Resources:
    - With the temporary security credentials, the IAM entity in the source account can access resources in the target account based on the permissions granted by the assumed role.
    - The entity can make API calls and perform actions as if it were a user or service in the target account.
-Benefits and Use Cases:
-- Security and Least Privilege:
+#### Benefits and Use Cases:
+#### - Security and Least Privilege:
   - Cross-account access helps enforce the principle of least privilege, allowing entities to assume roles with only the necessary permissions for a specific task.
-- Centralized Control:
+#### - Centralized Control:
   - The target account maintains control over its resources and defines the roles that can be assumed, ensuring security and governance.
-- Resource Sharing:
+#### - Resource Sharing:
   - Organizations with multiple AWS accounts can share resources securely without the need for sharing long-term credentials.
-- Temporary Access:
+#### - Temporary Access:
   - Temporary credentials obtained by assuming a role are short-lived, reducing the risk of prolonged exposure if credentials are compromised.
 Cross-account access is commonly used in scenarios where different AWS accounts need to collaborate or share resources, such as centralized management of security policies, resource sharing, or enabling third-party access to resources securely. The IAM roles and policies involved in this process need careful configuration to ensure secure and controlled access.
-14.	What is IAM in AWS?
+### 14.	What is IAM in AWS?
 Ans: IAM is the centralized system to manage access for all the services in AWS. IAM is global specific.
 Or
 Already available
-15.	What is Account Alias in IAM?
+### 15.	What is Account Alias in IAM?
 Ans: Here we can get the sign-in URL for IAM user in the AWS account. Here we can create the username instead of account ID.
-Or
+
+`Or`
+
 In AWS IAM (Identity and Access Management), an Account Alias is a user-defined, human-readable name for an AWS account. Instead of referring to an AWS account by its long and complex account ID, you can create an account alias to make it more recognizable and easier to remember. The account alias is used primarily in the AWS Management Console login URL.
-Here's how Account Alias works:
-1. Setting up an Account Alias:
+#### Here's how Account Alias works:
+#### 1. Setting up an Account Alias:
    - You can set up an account alias during the initial AWS account creation process or later through the AWS Management Console.
    - When you set up an alias, you choose a unique name that is linked to your AWS account.
-2. Usage in Console URL:
+#### 2. Usage in Console URL:
    - Once an account alias is set, the AWS Management Console login URL is updated to include the alias.
    - The URL format is: `https://<account-alias>.signin.aws.amazon.com/console/`
-3. Example:
+#### 3. Example:
    - If your AWS account alias is set to "mycompany," the login URL would be: `https://mycompany.signin.aws.amazon.com/console/`
 Setting up an account alias is optional, but it can enhance the user experience by providing a more user-friendly identifier for your AWS account. It is especially useful in scenarios where multiple AWS accounts are managed, making it easier for users to remember and access the correct account.
-To set or update an account alias:
-1. Using the AWS Management Console:
+#### To set or update an account alias:
+#### 1. Using the AWS Management Console:
    - Navigate to the AWS Management Console.
    - Open the IAM console.
    - In the navigation pane, choose "Dashboard."
    - In the Security Status section, find the Account aliases row and choose "Add or edit account alias."
-2. Using AWS CLI:
+#### 2. Using AWS CLI:
    - You can use the AWS Command Line Interface (CLI) to set or update an account alias using the `create-account-alias` or `update-account-alias` commands.
 Example using AWS CLI:
 ```bash
 aws iam create-account-alias --account-alias MyCompanyAlias
 ```
 Keep in mind that the account alias must be unique across all AWS accounts, and it can only contain letters, digits, and hyphens. Once set, it's a good practice to communicate the alias to relevant users for easier access to the AWS Management Console.
-16.	How to change the password policy in IAM?
+### 16.	How to change the password policy in IAM?
 Ans: Under IAM we have an option called Account Setting, here we can give the password policy to the user.
-Or
-To change the password policy in AWS IAM (Identity and Access Management), you can use the AWS Management Console, AWS CLI (Command Line Interface), or one of the AWS SDKs (Software Development Kits). The password policy includes rules and requirements for creating and managing IAM user passwords.
+
+`Or`
+
+To change the password policy in AWS IAM (Identity and Access Management), you can use the AWS Management Console, AWS CLI (Command Line Interface), or one of the AWS SDKs (Software Development Kits). 
+
+The password policy includes rules and requirements for creating and managing IAM user passwords.
 Here are steps to change the password policy using both the AWS Management Console and AWS CLI:
-Using AWS Management Console:
-1. Navigate to IAM Console:
+#### Using AWS Management Console:
+#### 1. Navigate to IAM Console:
    - Open the AWS Management Console and navigate to the IAM service.
-2. Access the Account Settings:
+#### 2. Access the Account Settings:
    - In the IAM console, click on "Account settings" in the navigation pane.
-3. Update Password Policy:
+#### 3. Update Password Policy:
    - Under the "IAM users and roles" section, you'll find a link to "Change password policy."
    - Click on the link to access the password policy configuration page.
-4. Modify Password Policy:
+#### 4. Modify Password Policy:
    - On the password policy configuration page, you can update various settings such as minimum password length, requirements for uppercase letters, lowercase letters, symbols, etc.
-5. Save Changes:
+#### 5. Save Changes:
    - After making the desired changes, scroll down and click on the "Save changes" button.
 
-Using AWS CLI:
-1. Open a Terminal or Command Prompt:
+#### Using AWS CLI:
+#### 1. Open a Terminal or Command Prompt:
    - Ensure that you have the AWS CLI installed and configured with the necessary credentials.
-2. Run the `update-account-password-policy` Command:
+#### 2. Run the `update-account-password-policy` Command:
    - Use the following AWS CLI command to update the password policy:
    ```bash
    aws iam update-account-password-policy --minimum-password-length <length> --require-uppercase-characters <true|false> --require-lowercase-characters <true|false> --require-symbols <true|false> --require-numbers <true|false> --allow-users-to-change-password <true|false> --max-password-age <max_age_days> --password-reuse-prevention <num_of_reuse> --hard-expiry <true|false>
    ```
    Replace `<length>`, `<true|false>`, `<max_age_days>`, and `<num_of_reuse>` with your desired values.
    Example:
+
    ```bash
    aws iam update-account-password-policy --minimum-password-length 12 --require-uppercase-characters true --require-lowercase-characters true --require-symbols true --require-numbers true --allow-users-to-change-password true --max-password-age 90 --password-reuse-prevention 5 --hard-expiry false
    ```
    This example sets a password policy with a minimum length of 12 characters, requiring uppercase letters, lowercase letters, symbols, and numbers. It allows users to change their passwords, sets a maximum password age of 90 days, allows password reuse up to 5 times, and does not enforce a hard expiry.
 After executing the command, the password policy for your AWS account will be updated. Keep in mind that changes to the password policy affect all IAM users in the account.
-17.	What is cloud watch in AWS?
+### 17.	What is cloud watch in AWS?
 Ans: Cloud Watch is the Monitoring service for all AWS services. As soon as we enable this cloud watch to any service, it creates the folder in this folder all the logs will be available.
-●	Cloud Watch is used for monitoring purpose in AWS. It monitor all the services whenever we create or launch the services we need to enable the Cloud Watch.
-●	While we enabling the Cloud watch we need to define that weather it is basic monitoring or Detailed Monitoring.
-or
+- Cloud Watch is used for monitoring purpose in AWS. It monitor all the services whenever we create or launch the services we need to enable the Cloud Watch.
+- While we enabling the Cloud watch we need to define that weather it is basic monitoring or Detailed Monitoring.
+
+`or`
+
 Amazon CloudWatch is a monitoring and observability service provided by AWS (Amazon Web Services) that enables you to collect and track various metrics, collect and monitor log files, and set alarms. CloudWatch allows you to gain insights into the performance, operational health, and resource utilization of your AWS resources and applications.
-Here are key features and components of Amazon CloudWatch:
-1. Metrics:
+#### Here are key features and components of Amazon CloudWatch:
+#### 1. Metrics:
    - CloudWatch collects and stores data in the form of metrics. Metrics represent the fundamental data points associated with resources in your AWS environment.
    - Examples of metrics include CPU utilization, network traffic, and disk I/O.
-2. Dashboards:
+#### 2. Dashboards:
    - CloudWatch Dashboards allow you to create customizable visualizations of your metrics data. You can create dashboards to monitor the performance and health of your AWS resources at a glance.
-3. Alarms:
+#### 3. Alarms:
    - Alarms in CloudWatch enable you to set thresholds on your metrics and trigger actions when the thresholds are breached. For example, you can receive notifications or automatically scale your resources in response to an alarm state.
-4. Logs:
+#### 4. Logs:
    - CloudWatch Logs allows you to aggregate, monitor, and analyze log data generated by your applications and AWS resources. You can search, filter, and gain insights into log events.
-5. Events:
+#### 5. Events:
    - CloudWatch Events helps you respond to changes in your AWS resources by allowing you to define rules that match events and take actions in response.
    - For example, you can automatically stop or terminate an EC2 instance when it is no longer needed.
-6. Synthetics:
+#### 6. Synthetics:
    - CloudWatch Synthetics enables you to monitor the availability and performance of your applications by creating canaries. Canaries are scripts that run on a schedule to simulate user interactions with your applications.
-7. Insights:
+#### 7. Insights:
    - CloudWatch Insights provides interactive and powerful log query capabilities. It helps you quickly analyze and visualize log data to troubleshoot issues and gain operational insights.
-8. Contributors:
+#### 8. Contributors:
    - CloudWatch Contributors helps you identify the top contributors to changes in your metrics. It provides insights into which AWS resources are contributing the most to changes in the selected metric.
+
 CloudWatch is a fundamental tool for managing and optimizing the performance of your AWS resources, monitoring application health, and ensuring the overall reliability and availability of your cloud-based infrastructure. It integrates with various AWS services, allowing you to collect and analyze data from different sources in one centralized location.
 
-CloudFront Distribution.
-18.	What is cloudFront?
+## CloudFront Distribution.
+
+### 18.	What is cloudFront?
 Ans: Cloud front distribution is a content delivery network. It delivers the data or content to the user without latency.
-*	Suppose our application data is available in s3 bucket, now the user is trying to get the data but the user doesn’t hit the S3 bucket directly in between the service will run.
-*	We have an Edge Location in cloud front. Suppose as soon as the user trying to hit our application from US location he get the data nearest location to the US that is called Edge location. So as soon as the user hit the application at beginning no data at the Edge location. In the first request the CloudFront will fetch the data from the S3 and keep it in the Edge Location.
+* Suppose our application data is available in s3 bucket, now the user is trying to get the data but the user doesn’t hit the S3 bucket directly in between the service will run.
+* We have an Edge Location in cloud front. Suppose as soon as the user trying to hit our application from US location he get the data nearest location to the US that is called Edge location. So as soon as the user hit the application at beginning no data at the Edge location. In the first request the CloudFront will fetch the data from the S3 and keep it in the Edge Location.
+
 Second time if the user hits the same data it will get from the Edge Location. So now we will get the data without latency.
-Or
-Amazon CloudFront is a content delivery network (CDN) service provided by Amazon Web Services (AWS). It enables efficient and secure distribution of static and dynamic web content, including images, videos, scripts, and other assets, to users across the globe. CloudFront accelerates the delivery of content by caching it at edge locations, which are strategically distributed around the world.
-Key features and concepts related to Amazon CloudFront include:
-1. Content Delivery Network (CDN):
+
+`Or`
+
+Amazon CloudFront is a content delivery network (CDN) service provided by Amazon Web Services (AWS). It enables efficient and secure distribution of static and dynamic web content, including images, videos, scripts, and other assets, to users across the globe. 
+
+CloudFront accelerates the delivery of content by caching it at edge locations, which are strategically distributed around the world.
+#### Key features and concepts related to Amazon CloudFront include:
+#### 1. Content Delivery Network (CDN):
    - CloudFront is a globally distributed CDN that caches and delivers content from edge locations closer to end-users. This reduces latency and improves the overall performance of web applications.
-2. Edge Locations:
+#### 2. Edge Locations:
    - CloudFront has a network of edge locations strategically located in various geographic regions. These edge locations serve as caching endpoints where content is stored and delivered to users.
-3. Origins:
+#### 3. Origins:
    - An origin is the source of the content that CloudFront delivers. Origins can be an S3 bucket, an EC2 instance, an Elastic Load Balancer, or even a custom HTTP server. CloudFront pulls content from the origin and caches it at edge locations.
-4. Distributions:
+#### 4. Distributions:
    - A CloudFront distribution is the configuration of settings, including the origin(s) and behavior, that defines how content is distributed. There are two types of distributions: web distributions for websites and RTMP distributions for streaming media.
-5. Caching:
+#### 5. Caching:
    - CloudFront caches content at edge locations based on the TTL (Time to Live) specified in the cache settings. This reduces the need to fetch the content from the origin each time a user requests it.
-6. Security Features:
+#### 6. Security Features:
    - CloudFront provides several security features, including SSL/TLS encryption for secure data transfer, custom SSL certificates, and integration with AWS Web Application Firewall (WAF) for application layer security.
-7. Integration with AWS Services:
+#### 7. Integration with AWS Services:
    - CloudFront seamlessly integrates with other AWS services such as Amazon S3, EC2, Elastic Load Balancing, and Lambda@Edge. This allows you to easily configure CloudFront to distribute content stored in these services.
-8. Signed URLs and Cookies:
+#### 8. Signed URLs and Cookies:
    - CloudFront supports the generation of signed URLs and cookies to control access to content. This is useful for restricting access to certain resources and ensuring secure content delivery.
-9. Logging and Monitoring:
+#### 9. Logging and Monitoring:
    - CloudFront provides detailed logs and metrics, allowing you to monitor the performance and usage of your CDN. You can use these logs for analysis and troubleshooting.
 By using Amazon CloudFront, organizations can improve the speed and reliability of their web applications, reduce latency for end-users, and scale globally without the need for significant infrastructure investments. It is a scalable and cost-effective solution for delivering content with high performance and low latency.
-19.	What is edge location?
+### 19.	What is edge location?
 Ans: We have an Edge Location in cloud front. Suppose as soon as the user trying to hit our application from US location he get the data nearest location to the US that is called Edge location.
-Or
+
+`Or`
+
 An edge location, in the context of Amazon CloudFront and content delivery networks (CDNs), refers to a physical point in the global network where cached copies of your content are stored. Edge locations play a crucial role in improving the performance and latency of content delivery to end-users by reducing the physical distance between the user and the content.
-Key points about edge locations:
-1. Global Distribution:
+#### Key points about edge locations:
+#### 1. Global Distribution:
    - Amazon CloudFront has a network of edge locations distributed strategically around the world. These locations are present in multiple geographic regions, including North America, South America, Europe, Asia, Australia, and others.
-2. Caching and Content Delivery:
+#### 2. Caching and Content Delivery:
    - When a user requests content (such as images, videos, or web pages), CloudFront delivers the content from the nearest edge location rather than fetching it from the original server (origin) every time. This reduces latency and improves the overall performance of web applications.
-3. Low Latency:
+#### 3. Low Latency:
    - Edge locations are designed to provide low-latency access to content for end-users. By storing cached copies of frequently requested content at these locations, CloudFront minimizes the time it takes for users to retrieve the content.
-4. Content Replication:
+#### 4. Content Replication:
    - CloudFront automatically replicates and caches content at edge locations based on user requests. The content is distributed across the global network, ensuring that users in different regions can quickly access the content without waiting for it to be fetched from the origin.
-5. Dynamic Content Delivery:
+#### 5. Dynamic Content Delivery:
    - In addition to caching static content, CloudFront supports dynamic content delivery. Dynamic content, such as personalized responses or content generated in real-time, can also benefit from the global distribution of edge locations.
-6. SSL/TLS Termination:
+#### 6. SSL/TLS Termination:
    - Edge locations can terminate SSL/TLS connections for secure content delivery. This offloads the burden of encryption and decryption from the origin server, improving performance.
-7. Lambda@Edge Integration:
+#### 7. Lambda@Edge Integration:
    - CloudFront integrates with AWS Lambda through a feature called Lambda@Edge. This allows you to run serverless functions at the edge locations, enabling customization and manipulation of content in response to user requests.
-8. Distributed Architecture:
+#### 8. Distributed Architecture:
    - The distributed architecture of edge locations aligns with the principles of a CDN, providing scalability and redundancy. Users are directed to the nearest edge location based on factors like geographic proximity and network conditions.
+
 In summary, edge locations act as caching endpoints in a global CDN, bringing content closer to end-users and significantly improving the speed and efficiency of content delivery. Amazon CloudFront leverages these edge locations to provide a scalable and high-performance content delivery solution for web applications and websites.
 
-20.	What is Origin Access Identity (OAI)?
+### 20.	What is Origin Access Identity (OAI)?
 Ans: While creating the cloudFront distribution, under S3 bucket permissions a permission will be enabled that is called as Origin Access Identity. This means only this particular CloudFront distribution will access the particular bucket.
-Or
+
+`Or`
+
 An Origin Access Identity (OAI) is a feature in Amazon CloudFront, the content delivery network (CDN) service provided by Amazon Web Services (AWS). OAI helps enhance the security of your CloudFront distributions by restricting access to the original, or "origin," of your content (such as an Amazon S3 bucket).
 When you use CloudFront to distribute content from an S3 bucket as the origin, you typically configure the S3 bucket to allow public read access so that CloudFront can serve the content to end-users. However, this could potentially expose your S3 content directly to the public, bypassing CloudFront.
 To address this security concern, you can use an Origin Access Identity. Here's how it works:
-1. Creating an Origin Access Identity:
+
+#### 1. Creating an Origin Access Identity:
    - You create an Origin Access Identity within your CloudFront distribution settings.
-2. Associating the OAI with a CloudFront Distribution:
+#### 2. Associating the OAI with a CloudFront Distribution:
    - Once created, you associate the OAI with your CloudFront distribution. This establishes a secure communication channel between CloudFront and the S3 bucket.
-3. Configuring S3 Bucket Permissions:
+#### 3. Configuring S3 Bucket Permissions:
    - You update the S3 bucket's permissions to allow access only from the CloudFront distribution. Specifically, you grant read permission to the OAI.
-4. Restricted Access:
+#### 4. Restricted Access:
    - With the OAI in place, direct access to the S3 content is restricted. Users can only access the content through the CloudFront distribution, which acts as a secure intermediary.
-This architecture provides several benefits:
-- Enhanced Security: OAI helps protect the origin content in the S3 bucket by ensuring that users can only access it through the CloudFront distribution.
-- Prevents Direct Access: By using an OAI, you prevent users from directly accessing your S3 content using the S3 bucket URL, ensuring that all requests go through CloudFront.
-- Granular Access Control: The permissions for the S3 bucket can be fine-tuned to allow read access only to the OAI. This restricts access to the content even if users have the S3 bucket URL.
+#### This architecture provides several benefits:
+
+**- Enhanced Security:** OAI helps protect the origin content in the S3 bucket by ensuring that users can only access it through the CloudFront distribution.
+
+**- Prevents Direct Access:** By using an OAI, you prevent users from directly accessing your S3 content using the S3 bucket URL, ensuring that all requests go through CloudFront.
+
+**- Granular Access Control:** The permissions for the S3 bucket can be fine-tuned to allow read access only to the OAI. This restricts access to the content even if users have the S3 bucket URL.
 When you configure an OAI, CloudFront automatically adds a special CloudFront user ID to the request headers when fetching content from the S3 bucket. This user ID is associated with the OAI and allows S3 to verify that the request is coming from CloudFront.
+
 Using an Origin Access Identity is a recommended practice for securing the origin content when using CloudFront with an S3 bucket as the origin. It adds an additional layer of protection and control over who can access your original content.
-21.	What are ACM certificates in AWS?
+### 21.	What are ACM certificates in AWS?
 Ans: AWS Certificate Manager (ACM) is designed to simplify and automate many of the tasks traditionally associated with provisioning and managing SSL (Secure Socket Layer)/TLS (Transport Layer Security) certificates. ACM takes care of the complexity surrounding the provisioning, deployment, and renewal of digital certificates for no extra cost!
-Or
+
+`Or`
+
 ACM stands for AWS Certificate Manager, and ACM certificates refer to SSL/TLS (Secure Sockets Layer/Transport Layer Security) certificates provided by AWS Certificate Manager. These certificates are used to secure network communications and establish encrypted connections between clients (such as web browsers) and servers (such as web applications) over the Internet.
-Here are key aspects of ACM certificates in AWS:
-1. SSL/TLS Certificates:
+#### Here are key aspects of ACM certificates in AWS:
+#### 1. SSL/TLS Certificates:
    - ACM provides SSL/TLS certificates that enable secure communication between clients and servers by encrypting the data exchanged between them.
-2. Free Public SSL/TLS Certificates:
+#### 2. Free Public SSL/TLS Certificates:
    - ACM offers free SSL/TLS certificates for use with AWS services. These certificates are issued by the Amazon Trust Services Certificate Authority (CA).
-3. Managed Certificates:
+#### 3. Managed Certificates:
    - ACM is a fully managed service, meaning that it handles the complexity of certificate provisioning, deployment, renewal, and maintenance. AWS takes care of the underlying certificate management tasks, and you don't need to worry about manually renewing certificates.
-4. Integration with AWS Services:
+#### 4. Integration with AWS Services:
    - ACM certificates can be easily integrated with various AWS services, including Amazon CloudFront, Elastic Load Balancing (ELB), Amazon API Gateway, and AWS Elastic Beanstalk, to enable secure connections for applications and websites hosted on these services.
-5. Automatic Renewal:
+#### 5. Automatic Renewal:
    - ACM certificates are automatically renewed before they expire, provided that the associated resources are still in use and properly configured to use the renewed certificate.
-6. Private Certificates:
+#### 6. Private Certificates:
    - In addition to public SSL/TLS certificates for use with external-facing websites, ACM also supports private certificates for internal resources within your Virtual Private Cloud (VPC).
-7. Validation Methods:
+#### 7. Validation Methods:
    - ACM supports various validation methods to verify that the requester owns or controls the domain for which they are requesting a certificate. These methods include email validation, DNS validation, and validation through AWS services like Amazon Route 53.
-8. Usage with Custom Domains:
+#### 8. Usage with Custom Domains:
    - ACM certificates can be used with custom domains, allowing you to secure your own domain names with SSL/TLS encryption.
-9. Wildcard Certificates:
+#### 9. Wildcard Certificates:
    - ACM supports wildcard certificates, allowing you to secure multiple subdomains under a single certificate. For example, a wildcard certificate for `*.example.com` secures `www.example.com`, `api.example.com`, and any other subdomain.
+
 Using ACM certificates simplifies the process of obtaining, managing, and renewing SSL/TLS certificates for your applications and websites hosted on AWS. It contributes to improved security and data privacy by encrypting data in transit.
 
-Rout53
-22.	What is rout53?
+## Rout53
+
+### 22.	What is rout53?
 Ans: Route53 is the DNS (Domain Name System) service in Linux. The port number of the DNS is ‘53’. So that we called it as “Route 53” in AWS.
-Or
+
+`Or`
+
 Already available
-23.	What are the different routing policies available in the rout53?
+### 23.	What are the different routing policies available in the rout53?
 Ans: Simple routing policy – Use for a single resource that performs a given function for your domain, for example, a web server that serves content for the example.com website.
-*	It is just used for one server to access.
+* It is just used for one server to access.
 Failover routing policy – Use when you want to configure active-passive failover.
-*	Here one server is in Active and one server is in back up, if first server is down automatically request goes to second server.
-Geolocation routing policy – Use when you want to route traffic based on the location of your users.
-Geoproximity routing policy – Use when you want to route traffic based on the location of your resources and, optionally, shift traffic from resources in one location to resources in another.
+* Here one server is in Active and one server is in back up, if first server is down automatically request goes to second server.
+
+**Geolocation routing policy** – Use when you want to route traffic based on the location of your users.
+
+**Geoproximity routing policy** – Use when you want to route traffic based on the location of your resources and, optionally, shift traffic from resources in one location to resources in another.
 Latency routing policy – Use when you have resources in multiple AWS Regions and you want to route traffic to the Region that provides the best latency with less round-trip time.
-*	Here, for suppose they create the two servers at us-east-region and Europe region. So if I want to access the application it redirects to the nearby region to avoid the latency
+* Here, for suppose they create the two servers at us-east-region and Europe region. So if I want to access the application it redirects to the nearby region to avoid the latency
 Multivalue answer routing policy – Use when you want Route 53 to respond to DNS queries with up to eight healthy records selected at random.
 Weighted routing policy – Use to route traffic to multiple resources in proportions that you specify.
-*	Here we distribute the traffic to multiple server, suppose we have two servers we assign the traffic 70% to one server and 30% to second server.
-S3 (Simple Storage Service)
-24.	What are the storage classes in s3?
+* Here we distribute the traffic to multiple server, suppose we have two servers we assign the traffic 70% to one server and 30% to second server.
+
+## S3 (Simple Storage Service)
+
+### 24.	What are the storage classes in s3?
 Ans: Standard, standard in frequent, Intelligent Tiering, One Zone IA, Glacier, and deep archive.
-Or
+
+`Or`
 Already available
-25.	What is the life cycle policy in s3?
+
+### 25.	What is the life cycle policy in s3?
 Ans: First the file is stored in standard storage class while we create. Later it moves to the different storage class as we defined. We can move the objects across all the storage classes as per the requirement. This is called management life cycle in s3 bucket.
-Or
+
+`Or`
+
 In Amazon S3 (Simple Storage Service), a lifecycle policy is a set of rules that define actions to be taken on objects stored in a bucket over time. These rules are configured to automatically transition objects between different storage classes or delete them based on factors such as age, versioning, or other criteria. Lifecycle policies help optimize storage costs, automate data management, and ensure compliance with data retention policies.
-Key components and features of S3 lifecycle policies include:
-1. Transition Actions:
+#### Key components and features of S3 lifecycle policies include:
+#### 1. Transition Actions:
    - Lifecycle policies can specify rules for transitioning objects between storage classes as they age. For example, you can automatically move objects from the Standard storage class to the Infrequent Access storage class after a certain number of days.
-2. Expiration Actions:
+#### 2. Expiration Actions:
    - You can set rules to automatically delete objects after a specified period. This helps manage data retention and compliance with data privacy policies.
-3. Filtering Rules:
+#### 3. Filtering Rules:
    - Lifecycle policies use filtering rules to define which objects are affected by the policy. You can filter objects based on prefixes, tags, or other criteria.
-4. Object Versioning:
+#### 4. Object Versioning:
    - If versioning is enabled for a bucket, lifecycle policies can apply to both current and previous versions of objects. This allows for the management of object versions over time.
-5. Graceful Decommissioning:
+#### 5. Graceful Decommissioning:
    - When you transition objects to lower-cost storage classes, S3 provides a "graceful decommissioning" period during which the object remains in its current storage class. This allows ongoing access to the object without incurring additional charges.
-6. S3 Batch Operations Integration:
+#### 6. S3 Batch Operations Integration:
    - Lifecycle policies can be used in conjunction with S3 Batch Operations to perform actions on a large number of objects in a bucket efficiently.
-To create a lifecycle policy for an S3 bucket:
-1. Using AWS Management Console:
+#### To create a lifecycle policy for an S3 bucket:
+#### 1. Using AWS Management Console:
    - Navigate to the S3 console, select the bucket, and go to the "Management" tab.
    - Click on "Add lifecycle rule" and configure the rule with transition and expiration actions.
-2. Using AWS CLI:
+#### 2. Using AWS CLI:
    - Use the `put-bucket-lifecycle` command to create or update a lifecycle policy for a bucket. Specify the transition and expiration rules in the command.
-Example AWS CLI command for setting a lifecycle policy:
+#### Example AWS CLI command for setting a lifecycle policy:
 ```bash
 aws s3api put-bucket-lifecycle --bucket YOUR_BUCKET_NAME --lifecycle-configuration file://lifecycle-policy.json
 ```
@@ -1894,52 +2226,57 @@ Example content of `lifecycle-policy.json`:
 }
 ```
 Lifecycle policies in S3 provide a powerful mechanism for automating data management tasks, optimizing storage costs, and ensuring efficient use of storage resources over time.
-26.	How to access the object or bucket in S3?
+### 26.	How to access the object or bucket in S3?
 Ans: If the option “Block all public access” is enabled, we can’t access the bucket. So make it public and access the objects.
-Or
+
+`Or`
+
 Accessing objects or buckets in Amazon S3 (Simple Storage Service) can be done using various methods, including the AWS Management Console, AWS CLI (Command Line Interface), SDKs (Software Development Kits), and direct HTTP requests. Here's an overview of these methods:
-1. AWS Management Console:
-   - Accessing Objects:
+#### 1. AWS Management Console:
+   #### - Accessing Objects:
      - Navigate to the S3 section in the AWS Management Console.
      - Locate the bucket containing the object and click on the bucket name.
      - Navigate through the folder structure or search for the specific object.
      - Click on the object name to view details or download it.
-   - Accessing Buckets:
+   #### - Accessing Buckets:
      - Navigate to the S3 section in the AWS Management Console.
      - A list of buckets associated with your account is displayed on the main page.
      - Click on the bucket name to view its contents.
-2. AWS CLI:
-   - Accessing Objects:
-     - Use the `aws s3 cp` or `aws s3 sync` command to copy objects to your local machine.
+#### 2. AWS CLI:
+   #### - Accessing Objects:
+- Use the `aws s3 cp` or `aws s3 sync` command to copy objects to your local machine.
      - Example: `aws s3 cp s3://bucket-name/object-key local-file-path`
-   - Accessing Buckets:
+   #### - Accessing Buckets:
      - Use the `aws s3 ls` command to list the contents of a bucket.
      - Example: `aws s3 ls s3://bucket-name`
-3. SDKs (Software Development Kits):
+#### 3. SDKs (Software Development Kits):
    - Use AWS SDKs for various programming languages (e.g., Boto3 for Python, AWS SDK for Java) to interact with S3 programmatically.
    - Access objects by specifying the bucket name and object key in your code.
    - Access buckets by listing their contents or using SDK functions to retrieve information.
-4. Direct HTTP Requests:
+#### 4. Direct HTTP Requests:
    - S3 supports direct HTTP requests using standard HTTP methods (GET, PUT, DELETE, etc.).
    - Accessing Objects: Use the object's URL, typically in the format `https://s3.amazonaws.com/bucket-name/object-key`.
    - Accessing Buckets: S3 bucket URLs follow the pattern `https://bucket-name.s3.amazonaws.com`.
-5. Presigned URLs:
+#### 5. Presigned URLs:
    - Generate presigned URLs for temporary, time-limited access to objects in S3.
    - Useful for providing temporary access to private objects without exposing credentials.
    - Can be generated using the AWS CLI (`aws s3 presign`) or SDKs.
 It's important to note that access to S3 resources is controlled by AWS Identity and Access Management (IAM) policies. Ensure that your IAM user or role has the necessary permissions to list buckets, read objects, or perform other actions in S3. Additionally, consider using Bucket Policies and Access Control Lists (ACLs) for fine-grained access control.
-Always follow security best practices and implement the principle of least privilege to ensure secure access to your S3 resources.
-27.	How to give the permission to S3 buckets?
-Ans: By using ACL (Access Control List) or bucket policy.
-Or
-To grant permissions to Amazon S3 buckets, you can use AWS Identity and Access Management (IAM) policies. IAM policies define what actions are allowed or denied on S3 resources and can be attached to IAM users, groups, or roles. Here are the general steps to give permissions to S3 buckets:
-Using AWS Management Console:
-1. Open the IAM Console:
-   - Navigate to the AWS Management Console and open the IAM service.
-2. Create or Select a User, Group, or Role:
-   - Choose the IAM user, group, or role to which you want to grant S3 permissions.
 
-3. Attach or Create IAM Policy:
+Always follow security best practices and implement the principle of least privilege to ensure secure access to your S3 resources.
+
+### 27.	How to give the permission to S3 buckets?
+Ans: By using ACL (Access Control List) or bucket policy.
+
+`Or`
+
+To grant permissions to Amazon S3 buckets, you can use AWS Identity and Access Management (IAM) policies. IAM policies define what actions are allowed or denied on S3 resources and can be attached to IAM users, groups, or roles. Here are the general steps to give permissions to S3 buckets:
+#### Using AWS Management Console:
+#### 1. Open the IAM Console:
+   - Navigate to the AWS Management Console and open the IAM service.
+#### 2. Create or Select a User, Group, or Role:
+   - Choose the IAM user, group, or role to which you want to grant S3 permissions.
+#### 3. Attach or Create IAM Policy:
    - In the "Permissions" tab, you can either attach an existing policy or create a new policy.
    - Attach Existing Policy:
      - Click "Attach policies."
@@ -1950,14 +2287,14 @@ Using AWS Management Console:
      - Click "Add permissions" and then "Attach policies."
      - Create a new policy by selecting the JSON tab and entering the policy document.
      - Click "Review policy" and then "Attach policy."
-Using AWS CLI:
-1. Grant S3 Permissions via Command Line:
+#### Using AWS CLI:
+#### 1. Grant S3 Permissions via Command Line:
    - Use the `aws iam put-user-policy`, `aws iam put-group-policy`, or `aws iam put-role-policy` command to attach a policy to a user, group, or role.
    - Example:
      ```bash
      aws iam put-user-policy --user-name <UserName> --policy-name <PolicyName> --policy-document file://path/to/policy.json
      ```
-Example S3 Policy:
+#### Example S3 Policy:
 Here is a simple example of an IAM policy that grants read access to a specific S3 bucket:
 ```json
 {
@@ -1977,283 +2314,346 @@ Here is a simple example of an IAM policy that grants read access to a specific 
 }
 ```
 This policy grants permission to list the contents of the bucket (`s3:ListBucket`) and to retrieve objects within the bucket (`s3:GetObject`).
+
 Ensure that you customize the policy according to your specific requirements, and follow the principle of least privilege, granting only the permissions necessary for the intended tasks. After attaching or creating the policy, the user, group, or role will have the specified permissions on the designated S3 bucket.
-28.	What is static website hosting?
+### 28.	What is static website hosting?
 Ans: This is unsecure
-Or
+
+`Or`
+
 Static website hosting refers to the process of deploying and serving static web content directly to users through a web server, without the need for dynamic server-side processing. In a static website, the content remains fixed and doesn't change based on user interactions or data from a database. Common types of static content include HTML, CSS, JavaScript, images, and other client-side assets.
-Key characteristics of static website hosting:
-1. Content Stability:
+#### Key characteristics of static website hosting:
+#### 1. Content Stability:
    - Static websites present fixed content to users, which doesn't change dynamically based on user inputs or server-side processing. Each page is a standalone HTML file.
-2. Performance:
+#### 2. Performance:
    - Static websites often offer faster load times compared to dynamic websites because there is no server-side processing or database queries involved in generating content.
-3. Simplicity:
+#### 3. Simplicity:
    - Static websites are typically simpler to design, build, and maintain since there's no need for a backend server, database, or server-side scripting languages.
-4. Cost-Effectiveness:
+#### 4. Cost-Effectiveness:
    - Hosting static websites can be cost-effective, especially when using cloud storage solutions and Content Delivery Networks (CDNs) for efficient content delivery.
-5. Security:
+#### 5. Security:
    - Static websites can have a smaller attack surface and reduced security concerns since they don't rely on server-side processing or expose potential vulnerabilities in backend systems.
-Hosting Static Websites on AWS S3:
+#### Hosting Static Websites on AWS S3:
 Amazon S3 (Simple Storage Service) is commonly used for hosting static websites due to its simplicity, scalability, and cost-effectiveness. Here's a general process for hosting a static website on AWS S3:
-1. Create an S3 Bucket:
+#### 1. Create an S3 Bucket:
    - Create an S3 bucket with a name that matches the desired domain or subdomain of your website.
-2. Upload Content:
+#### 2. Upload Content:
    - Upload your static website content (HTML, CSS, JavaScript, images, etc.) to the S3 bucket.
-3. Configure Bucket for Static Website Hosting:
+#### 3. Configure Bucket for Static Website Hosting:
    - Enable static website hosting on the S3 bucket and specify the default HTML file (e.g., "index.html").
-4. Set Permissions:
+#### 4. Set Permissions:
    - Adjust bucket permissions to allow public read access for the website content.
-5. Configure DNS:
+#### 5. Configure DNS:
    - Create or update DNS records to point to the S3 bucket endpoint. You can use Route 53 or another DNS provider for this step.
-6. Testing:
+#### 6. Testing:
    - Test your static website by accessing the configured domain or subdomain.
-Advantages of Static Website Hosting:
-- Performance: Faster load times due to reduced server-side processing.
-- Simplicity: Easier to design and maintain, with fewer moving parts.
-- Cost-Effectiveness: Hosting costs can be lower, especially for low-traffic websites.
-- Scalability: Scales easily with the use of cloud storage and CDNs.
+#### Advantages of Static Website Hosting:
+`- Performance:` Faster load times due to reduced server-side processing.
+`- Simplicity:` Easier to design and maintain, with fewer moving parts.
+`- Cost-Effectiveness:` Hosting costs can be lower, especially for low-traffic websites.
+`- Scalability:` Scales easily with the use of cloud storage and CDNs.
 Static website hosting is suitable for a wide range of use cases, such as personal blogs, portfolio websites, documentation sites, and marketing landing pages. For more complex applications that require dynamic content or user interactions, dynamic hosting solutions may be more appropriate.
-EC2 (Elastic Compute Cloud)
-29.	What are different types of Instances in EC2?
+
+## EC2 (Elastic Compute Cloud)
+
+### 29.	What are different types of Instances in EC2?
 Ans: Reserved Instance, On-Demand Instance, Spot Instances and Dedicated Host, Scheduled Instances. By default if we install the instance that will be created in On-Demand Instance type.
 * If you want reserved instance we need to purchase it.
-30.	What is AMI (Amazon Machine Image)?
-Ans: AMI (Amazon Machine Image) is a template, we can choose the type of AMI Ex: Linux and Windows and Ubuntu). It is just like the docker Image if we run the docker image we can get the all application data. Here AMI has all the data i.e O.S information once we run the AMI we will get the Instance.
-*	By using the AMI we take server backup.
-*	Suppose I have installed 4 applications in the server. I want to launch the server with these same 4 applications. Here we take the entire server backup by using AMI.
-*	While  we launching the instance we choose this AMI and we get the server with 4 applications.
-Or
+### 30.	What is AMI (Amazon Machine Image)?
+Ans: AMI (Amazon Machine Image) is a template, we can choose the type of AMI Ex: Linux and Windows and Ubuntu. It is just like the docker Image if we run the docker image we can get the all application data. Here AMI has all the data i.e O.S information once we run the AMI we will get the Instance.
+
+* By using the AMI we take server backup.
+* Suppose I have installed 4 applications in the server. I want to launch the server with these same 4 applications. Here we take the entire server backup by using AMI.
+* While  we launching the instance we choose this AMI and we get the server with 4 applications.
+
+`Or`
+
 An Amazon Machine Image (AMI) is a pre-configured virtual machine image, which is used to create Amazon EC2 (Elastic Compute Cloud) instances. In simpler terms, an AMI is a template that contains the necessary information to launch an instance, including the operating system, application server, and applications.
-Key characteristics and components of an AMI:
-1. Operating System and Software:
+#### Key characteristics and components of an AMI:
+#### 1. Operating System and Software:
    - An AMI includes the operating system (e.g., Amazon Linux, Ubuntu, Windows Server) and any additional software or applications that are configured on the virtual machine.
-2. Instance Configuration:
+#### 2. Instance Configuration:
    - The AMI contains information about the instance type, such as the number of vCPUs, amount of memory, and storage volumes.
-3. Root Device Volume:
+#### 3. Root Device Volume:
    - An AMI includes a snapshot of the root device volume, which is used as the root file system for the instances launched from the AMI.
-4. Block Device Mapping:
+#### 4. Block Device Mapping:
    - AMIs can specify additional block device mappings for data volumes. These can be EBS (Elastic Block Store) volumes attached to the instance.
-5. Launch Permissions:
+#### 5. Launch Permissions:
    - AMIs can have launch permissions that determine which AWS accounts are allowed to use the AMI to launch instances.
-6. Lifecycle:
+#### 6. Lifecycle:
    - AMIs have a lifecycle that includes creation, copying, and deregistration. Once an AMI is created, it can be used to launch multiple instances.
-7. Public and Private AMIs:
+#### 7. Public and Private AMIs:
    - AMIs can be public, meaning they are available for anyone to use, or private, limited to specific AWS accounts.
-8. Customization:
+#### 8. Customization:
    - Users can create custom AMIs by taking snapshots of their existing instances, customizing them to meet specific requirements, and then creating an AMI from the modified instance.
-Using AMIs:
-- Launching Instances:
+#### Using AMIs:
+#### - Launching Instances:
   - To launch an EC2 instance, you select an AMI, specify the instance type, configure networking and storage, and launch the instance.
-- Creating and Managing Images:
+#### - Creating and Managing Images:
   - Users can create custom AMIs based on existing instances, allowing them to capture specific configurations and settings.
-- Sharing and Copying AMIs:
+#### - Sharing and Copying AMIs:
   - AMIs can be shared between AWS accounts, regions, or made public. Users can also copy AMIs to different regions for redundancy and scalability.
-- Updating Instances:
+#### - Updating Instances:
   - When updates or changes are required, users can create new AMIs with the updated configurations and use them to launch instances.
 AMIs play a crucial role in the scalability, flexibility, and reproducibility of cloud computing environments. They enable users to create consistent and reproducible instances, ensuring that multiple instances can be launched with identical configurations.
-31.	 What is Volumes in AWS?
+### 31.	 What is Volumes in AWS?
 Ans: While we launching the EC2 instances, there we find some storage or volumes. Here we can add the Volumes.
-Or
+
+`Or`
+
 In AWS, a "volume" typically refers to an Elastic Block Store (EBS) volume. Amazon Elastic Block Store provides scalable and high-performance block storage that you can attach to an Amazon EC2 instance. EBS volumes are used as durable block-level storage devices that persist independently of the life of an instance.
-Key features and characteristics of EBS volumes:
-1. Persistence:
+#### Key features and characteristics of EBS volumes:
+#### 1. Persistence:
    - EBS volumes persist independently of the running state of an EC2 instance. You can attach a volume to one instance, detach it, and then attach it to another instance.
-2. Block-Level Storage:
+#### 2. Block-Level Storage:
    - EBS volumes provide block-level storage, which means they can be treated as individual hard drives or partitions. This is different from instance store volumes, which are ephemeral and tied to the life of the instance.
-3. Scalability:
+#### 3. Scalability:
    - EBS volumes can be created and attached to EC2 instances as needed. You can also change the size or type of an existing volume without requiring changes to the underlying data.
-4. Types of EBS Volumes:
+#### 4. Types of EBS Volumes:
    - Amazon EBS provides different types of volumes, including General Purpose (SSD), Provisioned IOPS (SSD), Throughput Optimized HDD, Cold HDD, and Magnetic. Each type is optimized for different use cases in terms of performance and cost.
-5. Snapshots:
+#### 5. Snapshots:
    - EBS volumes can be backed up by taking point-in-time snapshots. These snapshots are stored in Amazon S3 and can be used to create new volumes or migrate data to other regions.
-6. Encryption:
+#### 6. Encryption:
    - EBS volumes can be encrypted using AWS Key Management Service (KMS) to enhance data security and meet compliance requirements.
-7. Attachment to EC2 Instances:
+#### 7. Attachment to EC2 Instances:
    - EBS volumes can be attached to EC2 instances during instance creation or later as needed. Multiple volumes can be attached to a single instance.
-8. Lifecycle:
+#### 8. Lifecycle:
    - EBS volumes have a lifecycle independent of EC2 instances. They can exist before an instance is launched, during the instance's lifetime, and can persist even after the instance is terminated.
-9. Use Cases:
+#### 9. Use Cases:
    - EBS volumes are commonly used for various purposes, including storing operating system data, application data, databases, and serving as additional storage for instances.
-10. Elasticity:
+#### 10. Elasticity:
     - You can dynamically adjust the size and performance characteristics of EBS volumes without disrupting the attached EC2 instance.
-11. Multi-AZ Volumes:
-    - Some EBS volume types (e.g., io1 and gp2) support multi-AZ deployments, providing resilience against the failure of a single Availability Zone.
+#### 11. Multi-AZ Volumes:
+- Some EBS volume types (e.g., io1 and gp2) support multi-AZ deployments, providing resilience against the failure of a single Availability Zone.
 EBS volumes play a crucial role in providing scalable and reliable block storage for EC2 instances in the AWS cloud. They are fundamental for storing and managing data in a flexible and durable manner.
-32.	 What is Snapshot in AWS?
+#### 32.	 What is Snapshot in AWS?
 Ans: The data that we take back up from the volumes is known as Snapshot. This snapshot is only take the back up from the volumes not the entire server.
-Or
+
+`Or`
+
 In Amazon Web Services (AWS), a snapshot refers to a point-in-time copy of an Amazon Elastic Block Store (EBS) volume. EBS snapshots capture the data and configuration of an EBS volume, providing a backup or a starting point for new volumes. Snapshots are stored in Amazon Simple Storage Service (S3) and are incremental, meaning that only the changes made since the last snapshot are saved.
-Key characteristics and use cases of EBS snapshots:
-1. Backup and Recovery:
+#### Key characteristics and use cases of EBS snapshots:
+#### 1. Backup and Recovery:
    - Snapshots serve as a backup mechanism for EBS volumes. If data is accidentally deleted or becomes corrupted, you can use a snapshot to restore the volume to a specific point in time.
-2. Data Migration:
+#### 2. Data Migration:
    - Snapshots can be used to migrate data between regions or AWS accounts. You can create a snapshot, copy it to another region or account, and use it to create a new volume in the target location.
-3. Volume Creation:
+#### 3. Volume Creation:
    - Snapshots can be used to create new EBS volumes. You can create a new volume based on an existing snapshot, and the new volume will be an exact copy of the original volume at the time the snapshot was taken.
-4. Incremental Backups:
+#### 4. Incremental Backups:
    - Snapshots are incremental, meaning that only the changes made to the data since the last snapshot are saved. This reduces the amount of time and resources required to create and manage backups.
-5. Scheduled Backups:
+#### 5. Scheduled Backups:
    - AWS provides the ability to schedule automated snapshots at regular intervals using Amazon Data Lifecycle Manager (DLM). This simplifies the process of managing backups.
-6. Snapshot Encryption:
+#### 6. Snapshot Encryption:
    - EBS snapshots can be encrypted using AWS Key Management Service (KMS) keys, enhancing data security and compliance with encryption requirements.
-7. Sharing Snapshots:
+#### 7. Sharing Snapshots:
    - Snapshots can be shared with other AWS accounts, allowing you to share data across different accounts while maintaining the ability to control access.
-8. Copying Snapshots:
+#### 8. Copying Snapshots:
    - Snapshots can be copied to other regions or accounts, enabling data replication and disaster recovery scenarios.
-9. Snapshot Lifecycle Management:
+#### 9. Snapshot Lifecycle Management:
    - AWS provides tools to manage the lifecycle of snapshots, including retention policies, allowing you to automate the deletion of older snapshots.
-10. Point-in-Time Recovery:
-    - Snapshots can be used for point-in-time recovery. You can create a new volume based on a specific snapshot and specify a timestamp to restore the volume to a specific point in time.
+#### 10. Point-in-Time Recovery:
+- Snapshots can be used for point-in-time recovery. You can create a new volume based on a specific snapshot and specify a timestamp to restore the volume to a specific point in time.
 To create an EBS snapshot, you can use the AWS Management Console, AWS Command Line Interface (CLI), or AWS SDKs. EBS snapshots play a critical role in ensuring data durability, availability, and recovery capabilities in AWS environments.
-33.	What is Network ACL?
+### 33.	What is Network ACL?
 Ans: Network ACL is used to create the in-bound and out-bound rules to the subnet. In other words, ACLs monitor and filter traffic moving in and out of a network.
 Suppose, we launch the instance (EC2) in the particular subnet. Here we need to assign the security group to the subnet. In Security group also we define the In-bound and out-bound rules.
 Security Group is an inner layer and N/W ACL is upper layer in security purpose.
-Or
+
+`Or`
+
 In Amazon Web Services (AWS), a Network Access Control List (ACL) is a virtual firewall that controls traffic at the subnet level. It acts as an additional layer of security for your Virtual Private Cloud (VPC) by allowing or denying traffic based on rules defined for inbound and outbound traffic.
-Key features and characteristics of Network ACLs:
-1. Subnet-Level Security:
+#### Key features and characteristics of Network ACLs:
+#### 1. Subnet-Level Security:
    - Network ACLs are associated with subnets in a VPC. Each subnet in a VPC can be associated with only one Network ACL, but a single Network ACL can be associated with multiple subnets.
-2. Rule-Based Filtering:
+#### 2. Rule-Based Filtering:
    - Network ACLs operate based on rules that define whether to allow or deny traffic based on source and destination IP addresses, ports, and protocols. Rules are evaluated in a numbered sequence, starting with the lowest rule number.
-3. Stateless:
+#### 3. Stateless:
    - Network ACLs are stateless, meaning that they do not keep track of the state of established connections. Each rule is evaluated independently.
-4. Default Deny All:
+#### 4. Default Deny All:
    - By default, a Network ACL denies all inbound and outbound traffic. You need to explicitly define rules to allow desired traffic.
-5. Rule Numbering:
+#### 5. Rule Numbering:
    - Rules in a Network ACL are assigned rule numbers to specify the order in which they are evaluated. Rule numbers must be unique within an ACL, and lower numbers are evaluated first.
-6. Implicit Rules:
+#### 6. Implicit Rules:
    - Network ACLs come with implicit rules for inbound and outbound traffic. For example, there is an implicit rule that allows all outbound traffic and an implicit rule that denies all inbound traffic.
-7. Associating with Subnets:
+#### 7. Associating with Subnets:
    - You associate a Network ACL with a subnet by specifying the ACL when you create the subnet or by associating the ACL with an existing subnet.
-8. Logging:
+#### 8. Logging:
    - Network ACLs can be configured to log information about allowed and denied traffic. Logging helps in monitoring and troubleshooting network traffic.
-9. Ephemeral Ports:
+#### 9. Ephemeral Ports:
    - Ephemeral ports (port numbers used for temporary connections) are often considered in Network ACL rules to allow or deny traffic to and from these ports.
-10. ACL Rule Changes:
-    - Changes to Network ACL rules take effect immediately. There is no need to restart instances or the network infrastructure.
+#### 10. ACL Rule Changes:
+- Changes to Network ACL rules take effect immediately. There is no need to restart instances or the network infrastructure.
+
 Network ACLs provide an additional layer of security beyond security groups in a VPC. While security groups operate at the instance level and are stateful, Network ACLs operate at the subnet level and are stateless. Security groups are recommended for controlling traffic at the instance level, while Network ACLs are useful for defining broader controls at the subnet level.
-34.	What is security Group?
+
+### 34.	What is security Group?
 Ans: Here we can add the In-bound and out-bound rules to the Instance.
-Or
+
+`Or`
+
 A security group, in the context of computer networking and security, typically refers to a feature found in various network environments, such as cloud computing platforms like Amazon Web Services (AWS) or Microsoft Azure. The term might also be used in other networking contexts, but I'll focus on its usage in cloud computing.
+
 In AWS, for example, a security group is essentially a virtual firewall for your instances to control inbound and outbound traffic. It acts as a set of rules that filter traffic based on protocols, ports, and IP addresses. Each security group is associated with one or more EC2 instances, and the rules define the type of traffic allowed to reach these instances.
-Key points about security groups:
-1. Inbound and Outbound Rules: Security groups have separate sets of rules for inbound and outbound traffic. Inbound rules control the traffic coming into your instances, while outbound rules control the traffic leaving your instances.
-2. Stateful: Security groups are stateful, meaning if you allow inbound traffic for a specific IP and port, the corresponding outbound traffic for responses is automatically allowed. You don't need to create separate rules for inbound and outbound traffic for the same connection.
-3. Implicit Deny: By default, all inbound and outbound traffic is denied. You must specify the rules to allow the desired traffic.
-4. Instance Level: Security groups are associated with instances, not subnets. A single instance can be associated with multiple security groups, and a security group can be associated with multiple instances.
-5. Dynamic Updates: Changes to security group rules are applied immediately. You don't need to restart your instances for the changes to take effect.
+#### Key points about security groups:
+
+**1. Inbound and Outbound Rules:** Security groups have separate sets of rules for inbound and outbound traffic. Inbound rules control the traffic coming into your instances, while outbound rules control the traffic leaving your instances.
+
+**2. Stateful:** Security groups are stateful, meaning if you allow inbound traffic for a specific IP and port, the corresponding outbound traffic for responses is automatically allowed. You don't need to create separate rules for inbound and outbound traffic for the same connection.
+
+**3. Implicit Deny:** By default, all inbound and outbound traffic is denied. You must specify the rules to allow the desired traffic.
+
+**4. Instance Level:** Security groups are associated with instances, not subnets. A single instance can be associated with multiple security groups, and a security group can be associated with multiple instances.
+
+**5. Dynamic Updates:** Changes to security group rules are applied immediately. You don't need to restart your instances for the changes to take effect.
+
 In other cloud platforms or networking environments, the concept of a security group might be similar in terms of controlling and managing network traffic for security purposes. Always refer to the specific documentation of the platform or system you are working with for precise details and implementation.
-35.	What is Static IP (or) Elastic IPs?
+### 35.	What is Static IP (or) Elastic IPs?
 Ans: Elastic IP is the permanent IP address for our instance but it is more cost. Only few instances will use the Elastic IP.
 Suppose if you launch the instance in Subnet A you get a public IP so here as soon as you stop the instance the public IP will removed and after if you start the instance again it creates the new IP.
 * If you want to use Static or Elastic IP, we create one Elastic IP and we give this IP at the time of launching the server.
-Or
+
+`Or`
+
 Static IP and Elastic IP are terms commonly used in the context of networking and cloud computing, particularly in cloud service providers like Amazon Web Services (AWS). Let's explore each term:
-1. Static IP (or Static Public IP):
+#### 1. Static IP (or Static Public IP):
    A static IP address, in a general networking sense, refers to an IP address that doesn't change. It is manually configured for a device and remains constant unless changed by a network administrator. Static IP addresses are often used for servers, network devices, and other critical infrastructure where a consistent and predictable address is essential.
+
    In cloud computing, when you launch an instance (virtual server), it is typically assigned a dynamic IP address by default. This address may change if the instance is stopped and restarted. If you need a persistent and unchanging IP address for your cloud instance, you can allocate a static IP. This ensures that the IP address remains the same even if the instance is stopped and started.
-2. Elastic IP (EIP):
+#### 2. Elastic IP (EIP):
    Elastic IP is a term specifically used in Amazon Web Services (AWS). An Elastic IP is a static IPv4 address designed for dynamic cloud computing. It is associated with your AWS account rather than a specific instance. With an Elastic IP, you can quickly remap your public IP address from one instance to another within the same AWS region.
-   Key features of Elastic IP:
-   - Persistence: Once allocated, an Elastic IP remains associated with your AWS account until you choose to release it.
-   - Remapping: You can remap an Elastic IP to another instance in the same region, allowing for high availability and easy recovery in case of instance failure.
-   - Avoiding Downtime: If you use an Elastic IP, you can avoid updating DNS records when your instance's public IP changes.
+   #### Key features of Elastic IP:
+
+   **- Persistence:** Once allocated, an Elastic IP remains associated with your AWS account until you choose to release it.
+
+   **- Remapping:** You can remap an Elastic IP to another instance in the same region, allowing for high availability and easy recovery in case of instance failure.
+
+   **- Avoiding Downtime:** If you use an Elastic IP, you can avoid updating DNS records when your instance's public IP changes.
+
    It's important to note that while Elastic IPs provide flexibility and convenience, AWS charges for unused Elastic IPs that are not associated with a running instance. Therefore, it's a good practice to release Elastic IPs that are not actively in use to avoid unnecessary costs.
+
 In summary, both static IP and Elastic IP refer to the concept of having a consistent, unchanging IP address. Static IP is a more general term, while Elastic IP is specific to the AWS environment.
-36.	What are the different types of Load Balancer (or) Difference between Application, Classic, and Network Load Balancer?
-Ans: Network Load Balancer, Application Load Balancer, Classic Load Balancer and Gateway Load Balancer.
-Classic Load Balancer: In classic load balancer, suppose we have a 4 servers having the same data. So the request will share across all servers. It is a simple routing policy.
-Application load Balancer: In Application Load Balancer data is different the data will be different in each server. So while we hit the application based on the path or path based.
+### 36.	What are the different types of Load Balancer (or) Difference between Application, Classic, and Network Load Balancer?
+Ans: 
+Network Load Balancer, Application Load Balancer, Classic Load Balancer and Gateway Load Balancer.
+
+**Classic Load Balancer:** In classic load balancer, suppose we have a 4 servers having the same data. So the request will share across all servers. It is a simple routing policy.
+
+**Application load Balancer:** In Application Load Balancer data is different the data will be different in each server. So while we hit the application based on the path or path based.
+
 Routing. It redirects to one server, for ex: url/image, and url/login---it redirects to other server. It is a path based routing policy. Here we use http and https protocols.
-Network Load Balancer: In Network Load Balancer there is no http and https protocols. It has TCP, UDP and TLS. While we hit the port it redirects the server. It is PORT based routing. If we want a static IP to our application by using Network Load Balancer we can get this. If we want perform our application with ultra-high performance we use Network Load Balancer.
-37.	What is Auto Scaling?
-Ans: Amazon EC2 Auto Scaling helps you ensure that you have the correct number of Amazon EC2 instances available to handle the load for your application. You create collections of EC2 instances, called Auto Scaling groups. You can specify the minimum number of instances in each Auto Scaling group, and Amazon EC2 Auto Scaling ensures that your group never goes below this size. You can specify the maximum number of instances in each Auto Scaling group, and Amazon EC2 Auto Scaling ensures that your group never goes above this size. If you specify the desired capacity, either when you create the group or at any time thereafter, Amazon EC2 Auto Scaling ensures that your group has this many instances. If you specify scaling policies, then Amazon EC2 Auto Scaling can launch or terminate instances as demand on your application increases or decreases.
+
+**Network Load Balancer:** In Network Load Balancer there is no http and https protocols. It has TCP, UDP and TLS. While we hit the port it redirects the server. It is PORT based routing. If we want a static IP to our application by using Network Load Balancer we can get this. If we want perform our application with ultra-high performance we use Network Load Balancer.
+
+### 37.	What is Auto Scaling?
+Ans: 
+![Auto Scaling](./Images/auto-scaling.png "Auto Scaling")
+
+Amazon EC2 Auto Scaling helps you ensure that you have the correct number of Amazon EC2 instances available to handle the load for your application. You create collections of EC2 instances, called Auto Scaling groups. You can specify the minimum number of instances in each Auto Scaling group, and Amazon EC2 Auto Scaling ensures that your group never goes below this size. You can specify the maximum number of instances in each Auto Scaling group, and Amazon EC2 Auto Scaling ensures that your group never goes above this size. If you specify the desired capacity, either when you create the group or at any time thereafter, Amazon EC2 Auto Scaling ensures that your group has this many instances. If you specify scaling policies, then Amazon EC2 Auto Scaling can launch or terminate instances as demand on your application increases or decreases.
+
 For example, the following Auto Scaling group has a minimum size of one instance, a desired capacity of two instances, and a maximum size of four instances. The scaling policies that you define adjust the number of instances, within your minimum and maximum number of instances, based on the criteria that you specify.
 
-
-
-
-38.	What is Launch Configuration?
+### 38.	What is Launch Configuration?
 Ans: Suppose we have server and it has the application. So here we back up the server as AMI back up, and we choose this AMI back while we create the Launch Configuration and we create the Launch configuration.
 * Later we assign this Launch Configuration to the Auto Scaling. Suppose we have a server and it has an application as soon as the load gets increased the servers need to scale or increase while creating the Auto Scaling we define the launch configuration with minimum and maximum servers and desired capacity.
-Or
+
+`Or`
+
 In the context of cloud computing, a Launch Configuration is a term commonly associated with auto-scaling services, particularly in Amazon Web Services (AWS). A Launch Configuration is a template that describes the various settings and configurations necessary for launching instances (virtual servers) within an Auto Scaling Group.
-Here are the key components and concepts related to a Launch Configuration:
-1. Instance Specifications:
-   - Amazon Machine Image (AMI): The AMI provides the base operating system and other software for the instances. The Launch Configuration specifies the AMI that the Auto Scaling Group should use.
-   - Instance Type: It defines the hardware of the instances, specifying characteristics such as CPU, memory, and storage.
-   - Key Pair: If the instances need to be accessed securely using SSH (Secure Shell) or a similar protocol, a key pair is specified in the Launch Configuration.
-   - Security Groups: Security groups define the firewall rules for the instances, controlling inbound and outbound traffic.
-2. User Data:
-   - User data scripts: Launch Configurations often allow the inclusion of user data scripts. These scripts can be used to configure instances at launch time, performing tasks such as software installations or custom configurations.
-3. IAM Role:
-   - IAM (Identity and Access Management) role: The Launch Configuration can specify an IAM role that provides permissions to AWS services and resources. This role is assumed by the instances launched from the configuration.
-4. EBS (Elastic Block Store) Volumes:
-   - EBS volumes: The Launch Configuration can specify the EBS volumes to attach to the instances. These volumes provide block-level storage for data and can be used to persist data beyond the lifecycle of an instance.
-5. Auto Scaling Group Association:
+
+#### Here are the key components and concepts related to a Launch Configuration:
+#### 1. Instance Specifications:
+
+   **- Amazon Machine Image (AMI):** The AMI provides the base operating system and other software for the instances. The Launch Configuration specifies the AMI that the Auto Scaling Group should use.
+   
+   **- Instance Type:** It defines the hardware of the instances, specifying characteristics such as CPU, memory, and storage.
+
+   **- Key Pair:** If the instances need to be accessed securely using SSH (Secure Shell) or a similar protocol, a key pair is specified in the Launch Configuration.
+
+   **- Security Groups:** Security groups define the firewall rules for the instances, controlling inbound and outbound traffic.
+#### 2. User Data:
+
+   **- User data scripts:** Launch Configurations often allow the inclusion of user data scripts. These scripts can be used to configure instances at launch time, performing tasks such as software installations or custom configurations.
+#### 3. IAM Role:
+   
+   **- IAM (Identity and Access Management) role:** The Launch Configuration can specify an IAM role that provides permissions to AWS services and resources. This role is assumed by the instances launched from the configuration.
+#### 4. EBS (Elastic Block Store) Volumes:
+   
+   **- EBS volumes:** The Launch Configuration can specify the EBS volumes to attach to the instances. These volumes provide block-level storage for data and can be used to persist data beyond the lifecycle of an instance.
+#### 5. Auto Scaling Group Association:
    - Association with Auto Scaling Group: The Launch Configuration is used as a template for creating instances in an Auto Scaling Group. When you create an Auto Scaling Group, you reference a Launch Configuration to define how instances in the group should be launched.
+
 Using Launch Configurations in conjunction with Auto Scaling Groups allows for dynamic scaling of resources based on demand. As the demand for resources increases or decreases, the Auto Scaling Group can automatically adjust the number of instances by launching or terminating them, maintaining the desired capacity and ensuring high availability and efficient resource utilization.
-39.	What is API Gateway?
+### 39.	What is API Gateway?
 Ans: An API Gateway is a server that acts as an API front-end, receiving API requests, enforcing throttling and security policies, passing requests to the back-end service, and then passing the response back to the requester. It acts as a reverse proxy to accept all application programming interface (API) calls, aggregate the various services required to fulfill them, and return the appropriate result.
-Key features and functionalities of an API Gateway include:
-1. Request Routing:
+#### Key features and functionalities of an API Gateway include:
+#### 1. Request Routing:
    - API Gateways handle incoming API requests and route them to the appropriate microservices or backend services.
-2. Protocol Translation:
+#### 2. Protocol Translation:
    - They can translate between client-side protocols (such as HTTP/HTTPS, WebSocket) and the protocols used internally by microservices.
-3. Request and Response Transformation:
+#### 3. Request and Response Transformation:
    - API Gateways can transform requests and responses between different data formats, such as JSON to XML, to ensure compatibility between clients and services.
-4. Security and Authentication:
+#### 4. Security and Authentication:
    - API Gateways often provide security features such as authentication and authorization. They can enforce API keys, OAuth tokens, or other authentication mechanisms to control access to APIs.
-5. Rate Limiting and Throttling:
+#### 5. Rate Limiting and Throttling:
    - To protect backend services from being overwhelmed, API Gateways can enforce rate limiting and throttling policies, ensuring fair usage and preventing abuse.
-6. Logging and Monitoring:
+#### 6. Logging and Monitoring:
    - API Gateways typically offer logging and monitoring capabilities to track API usage, performance metrics, and error rates. This information is valuable for debugging, optimization, and analytics.
-7. Caching:
+#### 7. Caching:
    - API Gateways can cache responses from backend services, reducing the load on those services and improving response times for frequently requested data.
-8. Load Balancing:
+#### 8. Load Balancing:
    - In a microservices architecture, an API Gateway may include load balancing functionality to distribute incoming requests across multiple instances of a service for improved scalability and fault tolerance.
-9. API Versioning:
+#### 9. API Versioning:
    - They may support API versioning, allowing for the coexistence of different versions of an API to ensure backward compatibility for existing clients while introducing new features.
-10. Cross-Origin Resource Sharing (CORS):
+#### 10. Cross-Origin Resource Sharing (CORS):
     - API Gateways can handle CORS-related issues, allowing web applications running at one origin to request resources from a different origin.
+
 API Gateways are crucial components in modern software architectures, especially in microservices-based applications, serverless architectures, and when building APIs for web and mobile applications. They provide a centralized point for managing, securing, and optimizing API traffic, simplifying the development and operation of complex systems. Popular cloud providers, such as AWS, Azure, and Google Cloud, offer API Gateway services as part of their cloud offerings.
-40.	What is Lambda in AWS?
+### 40.	What is Lambda in AWS?
 Ans: Lambda is a Server less Compute Service. Suppose if you want to run or test the application in some particular timings so that we launched the EC2 instance for 1 year period of time for access but here we need the only for some particular timings for maintaining the instance for one year cost will be high.
-*	So here Lambda comes into the picture, Lambda Is a server less, we keep our application in the lambda and we run the application in backend AWS manages this application either in containers or server whatever it may be. Lambda will not be useful if workloads are high like 24x7 interact with the server in this case lambda will not use.
-*	It does not have any separate URL, if we want to hit this lambda we will create the events (like s3 event, SNS services and API gateway)
-*	As soon as we hit the API gateway, this API gateway will hit the lambda and Lambda will hit the Database and get the data or put the data.
-*	In this API gate we define that , who should hit our Lambda like which IP address and Range we define here
-*	API Gateway---🡪Lambda-🡪Database
-*	Sometimes we use SNS service if any event takes place lambda will be invoke
-*	Sometime we use s3 events and SQS event to invoke the Lambda.
-We can create the Lambda by using Terraform.
-Creating the Lambda function
-Go to Lambda->click on create Function->select Author from Scratch->add Function Name->Select Run time based on application->Click on Create Function button.
- Adding Trigger to the Lambda Function
-Click on Add trigger button under Lambda Function-->Select Trigger as API Gateway->select REST API ->select open Under Security Option🡪click on Add button.
-*	Trigger is created
-Now, Open API gateway in AWS 🡪 click on API Gateway that we created🡪click on stages at left side panel there we have the URL for API Gateway copy this URL and Add the
-/resource name. Ex: URL/vinod
-We can create the API directly without lambda,
-Click on🡪create API button🡪click on REST API Build button🡪Add API name (Ex: Vinod)click on Create API.
-API Created., now create the resources in Action dropdown🡪Give the Resource Name (Ex: Vinod)click on create resource button.
-Again create the Method in Action Dropdown🡪Select Get Method🡪Now, choose the lambad function that we created already🡪click on Save Button.
-Now, Create the Deploy API🡪Add the Deployment🡪click on new Stage name (Ex: Dev) click on Deploy🡪Now copy the Dev stage URL/Resource name.
-*	In API gateway under resource policy we define Range and
-41.	 What is CloudFormation in AWS?
+* So here Lambda comes into the picture, Lambda Is a server less, we keep our application in the lambda and we run the application in backend AWS manages this application either in containers or server whatever it may be. Lambda will not be useful if workloads are high like 24x7 interact with the server in this case lambda will not use.
+* It does not have any separate URL, if we want to hit this lambda we will create the events (like s3 event, SNS services and API gateway)
+* As soon as we hit the API gateway, this API gateway will hit the lambda and Lambda will hit the Database and get the data or put the data.
+* In this API gate we define that , who should hit our Lambda like which IP address and Range we define here
+* API Gateway---🡪Lambda-🡪Database
+* Sometimes we use SNS service if any event takes place lambda will be invoke
+* Sometime we use s3 events and SQS event to invoke the Lambda.
+* We can create the Lambda by using Terraform.
+* Creating the Lambda function
+`Go to Lambda->click on create Function->select Author from Scratch->add Function Name->Select Run time based on application->Click on Create Function button.`
+- Adding Trigger to the Lambda Function
+`Click on Add trigger button under Lambda Function-->Select Trigger as API Gateway->select REST API`
+`->select open Under Security Option🡪click on Add button.`
+* Trigger is created
+Now, 
+`Open API gateway in AWS 🡪 click on API Gateway that we created🡪click on stages at left side panel `
+there we have the URL for API Gateway copy this URL and Add the
+`/resource name. Ex: URL/vinod`
+- We can create the API directly without lambda,
+`Click on🡪create API button🡪click on REST API Build button🡪Add API name (Ex: Vinod)click on Create API.`
+API Created., 
+- Now create the resources in Action dropdown🡪Give the Resource Name (Ex: Vinod)click on create resource button.
+- Again create the `Method in Action Dropdown🡪Select Get Method🡪Now, choose the lambad function that we created already🡪click on Save Button.`
+- Now, `Create the Deploy API🡪Add the Deployment🡪click on new Stage name (Ex: Dev) click on Deploy🡪Now copy the Dev stage URL/Resource name.`
+- In API gateway under resource policy we define Range and
+### 41.	 What is CloudFormation in AWS?
 Ans: CloudFormation is a template which is used to create any service in AWS. It creates and Manage Resources by using templates.
-*	Mostly people will use Terraform
-Or
+* Mostly people will use Terraform
+
+`Or`
+
 AWS CloudFormation is a service provided by Amazon Web Services (AWS) that allows you to define and provision AWS infrastructure as code. Instead of manually creating and configuring resources, you can use CloudFormation templates to describe the resources needed for your application. This approach is often referred to as Infrastructure as Code (IaC).
-Here's a brief overview of how CloudFormation works:
-1. Templates: CloudFormation uses templates written in JSON or YAML to describe the AWS resources and properties needed for your application. These templates define a stack, which is a collection of AWS resources that you can manage as a single unit.
-2. Stacks: A stack is an instantiation of a CloudFormation template. When you create a stack, CloudFormation provisions the specified resources according to the template. Stacks can be created, updated, and deleted as a whole, making it easier to manage and version your infrastructure.
-3. Resources: Resources are the individual components that make up your infrastructure, such as EC2 instances, S3 buckets, databases, and more. The CloudFormation template defines the properties and configurations for each resource.
-4. Stack Events and Changes: When you create, update, or delete a stack, CloudFormation generates events to track the progress. During updates, CloudFormation determines the differences (changesets) between the current stack and the desired stack and makes the necessary modifications.
+#### Here's a brief overview of how CloudFormation works:
+
+**1. Templates:** CloudFormation uses templates written in JSON or YAML to describe the AWS resources and properties needed for your application. These templates define a stack, which is a collection of AWS resources that you can manage as a single unit.
+
+**2. Stacks:** A stack is an instantiation of a CloudFormation template. When you create a stack, CloudFormation provisions the specified resources according to the template. Stacks can be created, updated, and deleted as a whole, making it easier to manage and version your infrastructure.
+
+**3. Resources:** Resources are the individual components that make up your infrastructure, such as EC2 instances, S3 buckets, databases, and more. The CloudFormation template defines the properties and configurations for each resource.
+
+**4. Stack Events and Changes:** When you create, update, or delete a stack, CloudFormation generates events to track the progress. During updates, CloudFormation determines the differences (changesets) between the current stack and the desired stack and makes the necessary modifications.
 Example of a CloudFormation Template:
-Here's a simple example of a CloudFormation template written in YAML that defines an AWS EC2 instance:
+
+- Here's a simple example of a CloudFormation template written in YAML that defines an AWS EC2 instance:
 ```yaml
 AWSTemplateFormatVersion: "2010-09-09"
 Description: "AWS CloudFormation Sample Template for EC2 Instance"
@@ -2264,7 +2664,7 @@ Resources:
       ImageId: "ami-0c55b159cbfafe1f0"
       InstanceType: "t2.micro"
 ```
-Explanation:
+#### Explanation:
 - `AWSTemplateFormatVersion`: Specifies the CloudFormation template version.
 - `Description`: Provides a description of the template.
 - `Resources`: Defines the AWS resources to be created. In this case, it's an EC2 instance.
@@ -2272,176 +2672,206 @@ Explanation:
 - `Type`: Specifies the type of resource, in this case, an EC2 instance.
 - `Properties`: Configures the properties of the EC2 instance, such as the Amazon Machine Image (AMI) and the instance type.
 To use this template, you would create a stack in the AWS CloudFormation console or use the AWS Command Line Interface (CLI) to launch the EC2 instance defined in the template.
+
 This is a basic example, and CloudFormation supports more complex scenarios, including the creation of multiple resources, dependencies, parameterization, and custom scripts for resource initialization.
-42.	What is code commit, code build and code deploy in AWS? 
+### 42.	What is code commit, code build and code deploy in AWS? 
 Ans: In Amazon Web Services (AWS), CodeCommit, CodeBuild, and CodeDeploy are services that together form a set of tools known as the AWS Developer Tools suite. These services help developers manage and automate the processes of source code storage, continuous integration, and application deployment.
-1. AWS CodeCommit:
-   - Purpose: CodeCommit is a fully-managed source control service that makes it easy for teams to host secure and scalable Git repositories.
-   - Key Features:
-      - Version Control: It provides version control for your code, allowing multiple developers to collaborate and manage changes.
-      - Branching and Merging: Supports branching and merging strategies to manage code changes and development workflows.
-      - Security: CodeCommit provides secure and scalable Git-based repositories with access control and encryption features.
-      - Integration: Integrates with other AWS services and supports popular Git tools.
-2. AWS CodeBuild:
-   - Purpose: CodeBuild is a fully-managed continuous integration service that compiles source code, runs tests, and produces deployable artifacts.
-   - Key Features:
-      - Build Environments: CodeBuild provides pre-configured build environments for popular programming languages and runtime environments.
-      - Scalability: It scales horizontally, allowing parallel builds to accelerate the build process.
-      - Integration: CodeBuild integrates with other AWS services and supports various build scenarios.
-      - Customization: You can customize build environments, and it supports build specifications defined in build files.
-3. AWS CodeDeploy:
-   - Purpose: CodeDeploy automates the deployment of applications to Amazon EC2 instances, on-premises instances, or serverless Lambda functions.
-   - Key Features:
-      - Automated Deployments: CodeDeploy allows you to automate deployments to different environments, reducing deployment errors and minimizing downtime.
-      - Rollbacks: It supports automatic rollback to a previous version if issues are detected during deployment.
-      - Deployment Configurations: CodeDeploy allows you to define deployment configurations, such as deployment strategies, to control how updates are rolled out.
-      - Integration: Integrates with various AWS services and supports deployments from different sources, including CodeCommit and Amazon S3.
+#### 1. AWS CodeCommit:
+   `- Purpose:` CodeCommit is a fully-managed source control service that makes it easy for teams to host secure and scalable Git repositories.
+   `- Key Features:`
+      `- Version Control:` It provides version control for your code, allowing multiple developers to collaborate and manage changes.
+      `- Branching and Merging:` Supports branching and merging strategies to manage code changes and development workflows.
+      `- Security:` CodeCommit provides secure and scalable Git-based repositories with access control and encryption features.
+      `- Integration:` Integrates with other AWS services and supports popular Git tools.
+#### 2. AWS CodeBuild:
+   `- Purpose:` CodeBuild is a fully-managed continuous integration service that compiles source code, runs tests, and produces deployable artifacts.
+   `- Key Features:`
+      `- Build Environments:` CodeBuild provides pre-configured build environments for popular programming languages and runtime environments.
+      `- Scalability:` It scales horizontally, allowing parallel builds to accelerate the build process.
+      `- Integration:` CodeBuild integrates with other AWS services and supports various build scenarios.
+      `- Customization:` You can customize build environments, and it supports build specifications defined in build files.
+#### 3. AWS CodeDeploy:
+   `- Purpose:` CodeDeploy automates the deployment of applications to Amazon EC2 instances, on-premises instances, or serverless Lambda functions.
+   `- Key Features:`
+      `- Automated Deployments:` CodeDeploy allows you to automate deployments to different environments, reducing deployment errors and minimizing downtime.
+      `- Rollbacks:` It supports automatic rollback to a previous version if issues are detected during deployment.
+      `- Deployment Configurations:` CodeDeploy allows you to define deployment configurations, such as deployment strategies, to control how updates are rolled out.
+      `- Integration:` Integrates with various AWS services and supports deployments from different sources, including CodeCommit and Amazon S3.
 Together, these services provide a comprehensive set of tools for managing the entire software development lifecycle, from version control and continuous integration to automated deployment. Developers can use these tools to build, test, and deploy their applications efficiently and reliably on the AWS cloud.
-43.	What is Web Application Firewall (WAF) or How to secure the application from web explodes?
+### 43.	What is Web Application Firewall (WAF) or How to secure the application from web explodes?
 Ans: Suppose hackers try to hack our application. So they increase the load to our application in other ways and sometimes it downs by the high load. So these kind of issues resolved by the WAF. The Web Application Firewall will protects the application. WAF is mainly used for CloudFront distribution and API Gateway. We can enable WAF to these services
-44.	What is VPC?
+### 44.	What is VPC?
 Ans: Amazon Virtual Private Cloud (Amazon VPC) enables you to launch AWS resources into a virtual network that you've defined.
 
+![VPC](./Images/vpc.png "VPC")
 
 Suppose I have 10 servers, I want to access these servers internally as one server to another server, I don’t want to access to public for that we take the CIDR range we create some subnets under CIDR and we launch the instances into that subnets
 
-*	We can create 5 VPC’s, including 1 VPC’s given by default. If we want more than that we need to send request to the AWS Service people.
-*	As soon as we create the VPC by default a route table will create
+* We can create 5 VPC’s, including 1 VPC’s given by default. If we want more than that we need to send request to the AWS Service people.
+* As soon as we create the VPC by default a route table will create
 
-45.	 What is CIDR Range?
+### 45.	 What is CIDR Range?
 Ans: CIDR block —Classless Inter-Domain Routing. An internet protocol address allocation and route aggregation methodology.
-Or
+
+`Or`
+
 CIDR, which stands for Classless Inter-Domain Routing, is a method for efficiently allocating and specifying IP addresses. CIDR notation expresses IP addresses and their associated routing prefix in a concise format.
+
 In CIDR notation, an IP address is followed by a forward slash ("/") and a decimal number representing the routing prefix. The number after the slash indicates how many bits of the address are used for the network portion, leaving the remaining bits for host addresses.
+
 The CIDR range defines a range of IP addresses using this notation. It's expressed as follows:
-```
+```xml
 <IP_address>/<prefix_length>
 ```
-For example:
+#### For example:
 - `192.168.1.0/24` represents the CIDR range where the first 24 bits are the network portion, and the remaining 8 bits are available for host addresses. In binary, the first three octets (24 bits) are fixed, and the last octet (8 bits) can vary.
+
 CIDR notation is commonly used in networking, routing tables, and firewall configurations to efficiently represent IP address ranges and subnets. It provides a flexible way to allocate IP addresses based on network and subnet requirements, allowing for more efficient use of available address space.
 CIDR notation is particularly useful for summarizing IP address ranges and reducing the size of routing tables on the internet. It is a key component in the transition from traditional class-based IP addressing (Class A, B, C) to a more flexible and scalable system.
-46.	What are subnets?
+### 46.	What are subnets?
 Ans: Subnet is nothing but range of IP Address in our VPC.
-*	We calculate the subnets by the 2^32-16 = 2^16 = 65536 IP’s will be available While we create the Subnets we select the availability Zones
-Or
+* We calculate the subnets by the 2^32-16 = 2^16 = 65536 IP’s will be available While we create the Subnets we select the availability Zones
+
+`Or`
+
 In computer networking, a subnet (short for subnetwork) is a logical subdivision of an IP network. Subnetting involves breaking down a larger network into smaller, more manageable segments to improve performance, security, and overall network efficiency. Each subnet is identified by its own unique subnet address within the larger network.
-Key concepts related to subnets include:
-1. IP Addressing:
+#### Key concepts related to subnets include:
+#### 1. IP Addressing:
    - IP addresses consist of two parts: the network address and the host address. Subnetting allows an organization to divide its IP address space into smaller groups, assigning specific ranges to individual subnets.
-2. Subnet Mask:
+#### 2. Subnet Mask:
    - The subnet mask is a 32-bit numeric address used to divide an IP address into network and host portions. It is expressed in dotted-decimal format (e.g., 255.255.255.0) or using CIDR notation (e.g., /24). The subnet mask helps devices determine whether a destination IP address is on the same subnet or a different one.
-3. Benefits of Subnetting:
-   - Improved Network Performance: Smaller subnets reduce broadcast traffic and enhance network performance.
-   - Enhanced Security: Subnets act as natural security boundaries, limiting the scope of broadcast domains and making it easier to implement security policies.
-   - Efficient IP Address Utilization: Subnetting allows organizations to allocate IP addresses more efficiently by matching the size of subnets to the specific needs of different network segments.
-4. Subnetting Example:
+#### 3. Benefits of Subnetting:
+
+   **- Improved Network Performance:** Smaller subnets reduce broadcast traffic and enhance network performance.
+
+   **- Enhanced Security:** Subnets act as natural security boundaries, limiting the scope of broadcast domains and making it easier to implement security policies.
+
+   **- Efficient IP Address Utilization:** Subnetting allows organizations to allocate IP addresses more efficiently by matching the size of subnets to the specific needs of different network segments.
+#### 4. Subnetting Example:
    - Suppose you have the IP address range 192.168.1.0/24. With subnetting, you can divide this range into smaller subnets. For instance:
  - Subnet 1: 192.168.1.0/26 (64 addresses, usable range 192.168.1.1 to 192.168.1.62)
 - Subnet 2: 192.168.1.64/26 (64 addresses, usable range 192.168.1.65 to 192.168.1.126) - ... and so on.
    This example creates smaller subnets with specific address ranges that can be assigned to different departments, floors, or purposes within an organization.
-5. VLSM (Variable Length Subnet Masking):
+#### 5. VLSM (Variable Length Subnet Masking):
    - VLSM allows the use of different subnet mask lengths within the same network. This provides more flexibility in allocating address space and can lead to more efficient utilization of IP addresses.
 Subnetting is a fundamental concept in IP networking, allowing organizations to manage their IP address space effectively and optimize network performance and security.
-47.	 Why we need to divide the subnets in AWS?
+#### 47.	 Why we need to divide the subnets in AWS?
 Ans: Suppose we have a 4(Ex: A, B, C, D) subnets are available Sometimes if we want to use A and B subnets for public and C and D for Private. If you want to launch the service In private network we use C and D subnets. If you want to launch the service in public network we use A and B subnets.
-*	I have launched 10 instances in subnet A and Subnet B, now we need to assign these subnets to the route tables then only the request will go to the internet gateway.
-*	We can explicitly assign the subnets to the route tables by selecting the subnets. If we are not done the subnet associations all the subnets will associates to the default route table
-(or)
+* I have launched 10 instances in subnet A and Subnet B, now we need to assign these subnets to the route tables then only the request will go to the internet gateway.
+* We can explicitly assign the subnets to the route tables by selecting the subnets. If we are not done the subnet associations all the subnets will associates to the default route table
+
+`(or)`
+
 In Amazon Web Services (AWS), dividing subnets is a fundamental practice that aligns with broader networking and cloud architecture principles. AWS uses the Virtual Private Cloud (VPC) service to create isolated and logically segmented sections within the AWS cloud. Subnetting within a VPC provides several benefits, and here are some reasons why it's done:
-1. Isolation and Security:
+#### 1. Isolation and Security:
    - Subnetting allows you to create isolated sections within your VPC, known as subnets. Each subnet is associated with a specific availability zone, and the IP address range is further divided. This isolation enhances security by limiting the blast radius of potential security incidents or breaches. If a security group or network access control list (NACL) rule is misconfigured or compromised, its impact is contained within that subnet.
-2. Resource Organization:
+#### 2. Resource Organization:
    - Subnets help in organizing and managing resources efficiently. You can allocate specific subnets for different purposes or teams within your organization. For example, you might have subnets dedicated to web servers, application servers, and databases. This organization makes it easier to manage and apply security policies to specific groups of resources.
-3. Routing and Traffic Control:
+#### 3. Routing and Traffic Control:
    - AWS uses route tables to control the flow of traffic between subnets. Subnetting allows you to define routing policies for each subnet independently, directing traffic to the appropriate destination. This fine-grained control is essential for optimizing network traffic and implementing specific routing policies.
-4. High Availability and Fault Tolerance:
+#### 4. High Availability and Fault Tolerance:
    - AWS recommends deploying resources across multiple availability zones (AZs) for high availability and fault tolerance. Subnetting aligns with this best practice, as each subnet is associated with a specific AZ. In the event of an AZ failure, resources in other subnets and AZs remain operational.
-5. IP Address Management:
+#### 5. IP Address Management:
    - Subnetting allows you to efficiently manage IP address space. By dividing the IP address range into smaller subnets, you can allocate addresses based on the needs of different segments of your architecture. This prevents IP address exhaustion and supports the principles of address space optimization.
-6. Resource Placement Strategies:
+#### 6. Resource Placement Strategies:
    - AWS services, such as Elastic Load Balancers (ELB) and Auto Scaling groups, are often deployed in specific subnets to optimize resource availability and performance. Subnetting enables you to strategically place these resources based on their specific requirements.
-7. Regulatory Compliance:
+#### 7. Regulatory Compliance:
    - Some regulatory requirements or compliance standards may dictate specific network architecture practices, including subnetting for isolation and security. Dividing subnets allows you to align with such requirements and demonstrate adherence to industry standards.
+
 In summary, subnetting in AWS provides a foundation for secure, well-organized, and optimized network architectures. It aligns with best practices for resource management, security, and fault tolerance within the AWS cloud environment.
-48.	What is the use of route tables?
+### 48.	What is the use of route tables?
 Ans: A set of rules, called routes that are used to determine where network traffic is directed.
-Or
+
+`Or`
+
 Route tables in networking, including within cloud services like Amazon Web Services (AWS), play a crucial role in determining how network traffic is directed. Here's an overview of the use of route tables:
-1. Routing Decisions:
+#### 1. Routing Decisions:
    - Route tables contain a set of rules, known as routes, that define how network traffic should be directed. These rules specify the next hop or destination for traffic based on its destination IP address.
-2. Associating with Subnets:
+#### 2. Associating with Subnets:
    - In AWS, each subnet in a Virtual Private Cloud (VPC) is associated with a specific route table. This association determines how the traffic within that subnet is routed. Multiple subnets can share the same route table, or you can associate different route tables with different subnets based on your network architecture needs.
-3. Default Routes:
+#### 3. Default Routes:
    - Route tables often include a default route (0.0.0.0/0), which serves as a catch-all route for traffic not matching any specific routes. This default route typically points to an Internet Gateway (IGW) for public subnets or a Virtual Private Gateway (VGW) for private subnets in AWS.
-4. Custom Routes:
+#### 4. Custom Routes:
    - You can add custom routes to route tables to direct traffic to specific destinations. For example, you might have a custom route that directs traffic to a specific VPN connection or Direct Connect gateway. This flexibility allows you to define routing policies tailored to your network architecture.
-5. High Availability and Redundancy:
+#### 5. High Availability and Redundancy:
    - Route tables support the concept of high availability and redundancy by allowing the definition of multiple routes with different next-hop targets. In AWS, this often involves associating subnets with route tables in different availability zones (AZs) and configuring routes to direct traffic across redundant paths.
-6. Network Segmentation:
+#### 6. Network Segmentation:
    - Route tables enable network segmentation by allowing you to control the flow of traffic between different subnets. By associating subnets with different route tables, you can define specific routing policies, effectively isolating and controlling traffic within your VPC.
-7. Security Considerations:
+#### 7. Security Considerations:
    - Route tables are a part of the overall network security model. By controlling how traffic is routed, you can implement security measures, such as routing sensitive traffic through network appliances like firewalls or intrusion detection/prevention systems.
-8. Dynamic Routing:
+#### 8. Dynamic Routing:
    - Some advanced networking scenarios involve dynamic routing protocols. AWS supports BGP (Border Gateway Protocol) for dynamic routing, allowing route tables to learn and dynamically update routes based on changes in the network.
+
 In summary, route tables are a critical component of network configuration in AWS and other networking environments. They determine how traffic is directed within a VPC, enabling administrators to implement routing policies, control network flow, and ensure high availability and security.
-49.	What is the use of NAT (Network address Translation) gateway?
+### 49.	What is the use of NAT (Network address Translation) gateway?
 Ans: A managed AWS service that allows EC2 instances in private subnets to connect to the internet, other VPCs, or on-premises networks.
+
 Suppose, we assign internet Gateway to the two subnets that are created in private route table and we are not assign the internet gateway to that route table. If any instance launched in private subnets that instance should not get the internet gateway. In this case if we want the internet access for that particular private instance, for that we use the NAT gateway.
-*	We create the NAT gateway we assign the instance to the NAT gateway. Now the request comes to NAT gateway.
-*	Here NAT Gateway is used for Private Instances
-*	Internet gateway is for public instances
-Or
+* We create the NAT gateway we assign the instance to the NAT gateway. Now the request comes to NAT gateway.
+* Here NAT Gateway is used for Private Instances
+* Internet gateway is for public instances
+
+`Or`
+
 A Network Address Translation (NAT) Gateway is a service or device that allows multiple devices within a private network to share a single public IP address for outbound internet traffic. The primary purpose of a NAT Gateway is to provide a layer of security and privacy for the internal network while conserving public IP addresses.
-Here are key uses and benefits of a NAT Gateway:
-1. Internet Connectivity for Private Subnets:
+
+#### Here are key uses and benefits of a NAT Gateway:
+#### 1. Internet Connectivity for Private Subnets:
    - In a cloud environment, like Amazon Web Services (AWS), you might have private subnets that contain resources (e.g., databases or application servers) that should not have direct exposure to the internet. The NAT Gateway enables instances in these private subnets to initiate outbound connections to the internet.
-2. Outbound Traffic Source IP Masking:
+#### 2. Outbound Traffic Source IP Masking:
    - When instances in a private subnet communicate with resources on the internet, the NAT Gateway replaces the private IP address of the instance with its own public IP address. This masking helps protect the internal network structure and provides a level of anonymity for outbound connections.
-3. Security and Control:
+#### 3. Security and Control:
    - The NAT Gateway acts as a barrier between the private subnet and the public internet. It allows outbound traffic initiated by instances in the private subnet but prevents unsolicited inbound traffic from reaching those instances. This enhances security by reducing the attack surface.
-4. Conservation of Public IP Addresses:
+#### 4. Conservation of Public IP Addresses:
    - Public IP addresses are a finite resource, and using a NAT Gateway allows multiple instances in a private subnet to share a single public IP address for internet connectivity. This conserves public IP addresses, especially in scenarios where a large number of internal resources need internet access.
-5. Scalability and Redundancy:
+#### 5. Scalability and Redundancy:
    - NAT Gateways are designed for high availability and scalability. They automatically scale based on demand, and AWS distributes traffic across multiple NAT Gateway instances in different Availability Zones (AZs) for redundancy. This ensures that outbound connectivity remains available even if one AZ becomes unavailable.
-6. Support for Stateful Connections:
+#### 6. Support for Stateful Connections:
    - NAT Gateways maintain stateful information about outbound connections, allowing responses to return to the correct internal instances. This is crucial for protocols that involve dynamic port assignments, such as FTP or protocols that require bidirectional communication.
-7. Logging and Monitoring:
+#### 7. Logging and Monitoring:
    - NAT Gateways provide logging and monitoring capabilities, allowing you to track outbound traffic patterns and troubleshoot connectivity issues. You can view information such as the source and destination IP addresses, ports, and data transfer volumes.
+
 In summary, NAT Gateways serve as a secure and efficient way to enable outbound internet connectivity for instances in private subnets while preserving public IP addresses and enhancing security by acting as a gateway between the private subnet and the public internet.
-50.	What is the use of Internet Gateway?
+### 50.	What is the use of Internet Gateway?
 Ans: A gateway that you attach to your VPC to enable communication between resources in your VPC and the internet.
-*	Suppose the instance that we launch under the particular subnet in VPC range, that instance must need the internet gateway. Thats why we define the internet gateway in the routing
-*	Internet gateway is for public instances
-Or
+* Suppose the instance that we launch under the particular subnet in VPC range, that instance must need the internet gateway. Thats why we define the internet gateway in the routing
+* Internet gateway is for public instances
+
+`Or`
+
 An Internet Gateway (IGW) is a key component in Amazon Web Services (AWS) and other cloud platforms that provides a communication link between a Virtual Private Cloud (VPC) and the internet. It allows resources within the VPC to connect to the internet and vice versa. The primary use and functionalities of an Internet Gateway include:
-1. Outbound Internet Connectivity:
+#### 1. Outbound Internet Connectivity:
    - The most common use of an Internet Gateway is to enable instances within a public subnet of a VPC to access resources on the internet. Instances in the public subnet can have public IP addresses or use private IP addresses with Network Address Translation (NAT) through the Internet Gateway to access the internet for tasks such as software updates or fetching external data.
-2. Inbound Internet Connectivity (for Public-Facing Services):
+#### 2. Inbound Internet Connectivity (for Public-Facing Services):
    - Internet-facing resources, such as web servers or load balancers, deployed in a public subnet can use an Internet Gateway to accept incoming connections from the internet. The Internet Gateway serves as the entry point for internet traffic directed to these resources.
-3. Bidirectional Communication:
+#### 3. Bidirectional Communication:
    - An Internet Gateway allows bidirectional communication between instances in a VPC and the internet. Instances in the public subnet can initiate outbound connections, and responses can flow back through the Internet Gateway to the instances.
-4. Public and Private Subnet Architecture:
+#### 4. Public and Private Subnet Architecture:
    - In a typical VPC design, public and private subnets are created. Resources that need direct internet access, such as web servers, are placed in the public subnet and have a route to the Internet Gateway. Resources that should not be directly accessible from the internet, such as databases, are placed in the private subnet.
-5. Routing:
+#### 5. Routing:
    - The Internet Gateway is associated with a route table in the VPC. This route table is configured to direct internet-bound traffic to the Internet Gateway. Subnets associated with this route table can communicate with the internet.
-6. Support for Elastic IP Addresses:
+#### 6. Support for Elastic IP Addresses:
    - Elastic IP addresses can be associated with instances in the public subnet, allowing them to have static, public IP addresses. The Internet Gateway facilitates communication between instances and the internet, using these Elastic IP addresses as the public-facing addresses.
-7. Security:
+#### 7. Security:
    - The Internet Gateway enhances security by acting as a controlled point for internet-bound and internet-originating traffic. Security groups and network access control lists (NACLs) can be configured to control inbound and outbound traffic, adding an additional layer of security.
-8. Logging and Monitoring:
+#### 8. Logging and Monitoring:
    - AWS provides logging and monitoring capabilities for Internet Gateways. You can track usage, view traffic patterns, and monitor data transfer volumes associated with the Internet Gateway.
 In summary, an Internet Gateway is a critical component for enabling internet connectivity in AWS VPCs. It facilitates outbound communication from instances in public subnets, supports inbound connections to internet-facing resources, and plays a crucial role in the overall networking architecture of a VPC.
-51.	What is the difference between public subnet and private subnets?
+### 51.	What is the difference between public subnet and private subnets?
 	Ans: Public subnets and private subnets are terms used in the context of Virtual Private Clouds (VPCs) in cloud computing, such as in Amazon Web Services (AWS). These subnets serve different purposes and have distinct characteristics based on their connectivity to the internet. Here are the key differences between public and private subnets:
 
-	1. Connectivity to the Internet:
-   - Public Subnet: Instances in a public subnet have direct access to the internet. They can send outbound traffic to the internet and can receive inbound traffic initiated from the internet. Public subnets are typically associated with an Internet Gateway, allowing instances to have public IP addresses or use Elastic IP addresses for communication with the internet.
-   - Private Subnet: Instances in a private subnet do not have direct access to the internet. They can initiate outbound traffic to the internet through a Network Address Translation (NAT) gateway or a NAT instance in the public subnet. However, they do not have public IP addresses, and inbound traffic from the internet is not allowed.
-2. Use Cases:
-   - Public Subnet: Public subnets are commonly used for resources that need to be directly accessible from the internet, such as web servers, load balancers, or other public-facing services. Instances in public subnets often host components of applications that require internet connectivity.
-   - Private Subnet: Private subnets are used for resources that should not be directly accessible from the internet. Examples include databases, application servers, or backend services that require a higher level of security. These instances rely on a NAT gateway or NAT instance for internet-bound traffic.
-	3. Routing:
+#### 1. Connectivity to the Internet:
+
+   **- Public Subnet:** Instances in a public subnet have direct access to the internet. They can send outbound traffic to the internet and can receive inbound traffic initiated from the internet. Public subnets are typically associated with an Internet Gateway, allowing instances to have public IP addresses or use Elastic IP addresses for communication with the internet.
+   
+   **- Private Subnet:** Instances in a private subnet do not have direct access to the internet. They can initiate outbound traffic to the internet through a Network Address Translation (NAT) gateway or a NAT instance in the public subnet. However, they do not have public IP addresses, and inbound traffic from the internet is not allowed.
+#### 2. Use Cases:
+
+   **- Public Subnet:** Public subnets are commonly used for resources that need to be directly accessible from the internet, such as web servers, load balancers, or other public-facing services. Instances in public subnets often host components of applications that require internet connectivity.
+   
+   **- Private Subnet:** Private subnets are used for resources that should not be directly accessible from the internet. Examples include databases, application servers, or backend services that require a higher level of security. These instances rely on a NAT gateway or NAT instance for internet-bound traffic.
+	
+#### 3. Routing:
    - Public Subnet: The route table associated with a public subnet typically includes a route to the Internet Gateway, allowing instances to send internet-bound traffic directly to the internet.
    - Private Subnet: The route table associated with a private subnet may include a route to a NAT gateway or a NAT instance in the public subnet. This enables instances in the private subnet to send outbound traffic to the internet through the NAT device.
 	4. Security:
