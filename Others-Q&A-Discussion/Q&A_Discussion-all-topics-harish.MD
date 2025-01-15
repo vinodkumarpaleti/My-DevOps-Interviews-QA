@@ -1068,49 +1068,49 @@ we create our recreate deployment by saving the following yaml to a file recreat
  
 **2. Rolling Update strategy:** In this strategy old versions (replicas) are still available and it creates the versions one by one. After new version deployment works fine, now old versions are deleted at the backend one by one.
 
+![Rolling Update](./Images/rolling-update.jpg "Rolling update strategy")
 
 The rolling deployment is the default deployment strategy in Kubernetes. It replaces pods, one by one, of the previous version of our application with pods of the new version without any cluster downtime. A rolling deployment slowly replaces instances of the previous version of an application with instances of the new version of the application.
 
 **3. Blue-Green Deployment:** In this deployment we create two versions at a time that is followed by Blue and Green.
 Now, first we will work on the Blue. For example we create two deployments i.e deployment 1 is for blue and deployment 2 is for green. 
  
+![Blue Green](./Images/blue-green.jpg "Blue-Green Deployment Strategy")
 
-In a blue/green deployment strategy (sometimes also referred to as red/black),
+- In a blue/green deployment strategy (sometimes also referred to as red/black),
 The blue represents the current application version, and green represents the new application version.
-In this, only one version is live at a time. Traffic is routed to the blue deployment while the green deployment is created and tested.
+- In this, only one version is live at a time. Traffic is routed to the blue deployment while the green deployment is created and tested.
 After we are finished testing, we then route traffic to the new version.
 
+![Blue Green](./Images/blue-green-final.jpg "Blue green deployment final copy")
 
+- After the deployment succeeds, we can either keep the blue deployment for a possible rollback or decommission it.
 
-
-After the deployment succeeds, we can either keep the blue deployment for a possible rollback or decommission it.
-4.	Canary deployment: In this canary deployment now we have two revisions (versions) blue and green. Suppose in blue we have old updates and green has new updates. Now we allows the 50% traffic to the old revision i.e blue, and also we allow another 50% traffic to the new revision i.e green. Here we test the new version as well weather it is working or not. If the new version working fine the 50% traffic that we allows to old revision is also shift to the new version i.e green revision now it has 100% traffic.
+**4.	Canary deployment:** In this canary deployment now we have two revisions (versions) blue and green. Suppose in blue we have old updates and green has new updates. Now we allows the 50% traffic to the old revision i.e blue, and also we allow another 50% traffic to the new revision i.e green. Here we test the new version as well weather it is working or not. If the new version working fine the 50% traffic that we allows to old revision is also shift to the new version i.e green revision now it has 100% traffic.
 
 The canary update strategy is a partial update process that allows us to test our new program version on a real user base without a commitment to a full rollout. Similar to 
 blue/green deployments, but they are more controlled, and they use a more progressive delivery where deployment is in a phased approach.
+
 There are a number of strategies that fall under the umbrella of canary, including dark launches or A/B testing.
 In canary deployment, the new version of the application is gradually deployed to the Kubernetes cluster while getting a very small amount of live traffic (i.e., a subset of live users are connecting to the new version while the rest are still using the previous version).
+
 In this approach, we have two almost identical servers: one that goes to all the current active users and another with the new features that gets rolled out to a subset of users and then compared. When no errors are reported and the confidence increases, the new version can gradually roll out to the rest of the infrastructure.
 In the end, all live traffic goes to canaries, making the canary version the new production version.
 
+![Canary Deployment](./Images/canary-deployment.jpg "Canary Deployment")
 
+`Note :` Most commonly used strategy in our projects is Rollingupdate Deployment Strategy.
 
-
-
-*Note : Most commonly used strategy in our projects is Rollingupdate Deployment Strategy.
-33.	Which deployment strategy are you using in your project?
+### 33.	Which deployment strategy are you using in your project?
 Ans: Rollingupdate Deployment Strategy.
-34.	Difference between blue green and rolling update deployment?
+### 34.	Difference between blue green and rolling update deployment?
 Ans: Refer above Answer
-35.	Difference between blue green and canary deployment?
+### 35.	Difference between blue green and canary deployment?
 Ans: refer above Answer
-36.	In which namespace the deployment will run by the command” kubectl create deployment”?
+### 36.	In which namespace the deployment will run by the command” kubectl create deployment”?
 Ans: Default namespace. While we create any deployment without define any namespace it creates under “Default Namespace.”
-37.	Write the kubernetes manifest or deployment file and explain its stages? 
- 
-
-
-
+### 37.	Write the kubernetes manifest or deployment file and explain its stages? 
+```yaml
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
@@ -1136,24 +1136,19 @@ metadata:
 deploy: example spec:
 containers:
 - name: nginx image: nginx:1.7.9
+```
 
+`(or)`
 
-
-
-(or)
-
-
- 
- 
-
-●	Here the “kind:Deployment” in yaml file is manage our PODs
-●	Here the “kind:Pod” also we can give, but POD IPaddress will change always
-●	Every micro service has a file
-●	At beginning replication controllers was introduced, it is outdated. Now, we have replica set instead of replication controller. But in replica set has a disadvantage i.e RollingUpdateFeature is not available.
-●	Details about YAML file parameters: apiVersion: apps/v1	//It is deployment version metadata:
-name: rollingupdate-strategy	//name of the deployment
-version: nanoserver-1709	//version
-under metadata we can also give the “namespace” i.e in which namespace this deployment needs to be deploy.
+- Here the `kind:Deployment` in yaml file is manage our PODs
+- Here the `kind:Pod` also we can give, but POD IPaddress will change always
+- Every micro service has a file
+- At beginning replication controllers was introduced, it is outdated. Now, we have replica set instead of replication controller. But in replica set has a disadvantage i.e RollingUpdateFeature is not available.
+- Details about YAML file parameters: `apiVersion: apps/v1`	//It is deployment version metadata:
+- `name: rollingupdate-strategy`	//name of the deployment
+- `version:` nanoserver-1709	//version
+- under metadata we can also give the “namespace” i.e in which namespace this deployment needs to be deploy.
+```yaml
 Spec: //Here we define how many replicas are required
 strategy:
 type: RollingUpdate rollingUpdate:
@@ -1177,8 +1172,10 @@ containers:
 - name: web-app-rollingupdate-strategy //Container Name
 image: hello-world:nanoserver-1709 //Docker-Image for creating the container While we deploy container will create with name called web-app-rollingupdate-strategy
 from the image hello-world:nanoserver-1709
-*	Here we can also define the container port under the container section.
-*	Here we need to define in which node the PODs are needs to run. It is called node selector. It should be define under the container.
+```
+* Here we can also define the container port under the container section.
+* Here we need to define in which node the PODs are needs to run. It is called node selector. It should be define under the container.
+```yaml
 Ex: spec: //Here we define the container related information
 containers:
 - name: web-app-rollingupdate-strategy //Container Name
@@ -1190,267 +1187,307 @@ While we creating the node selector we use the command below,
 Ex: kubectl label nodes master on-master=true	#Create a label on the master node Here, master = node name
 on-master = label –name 
 true = label value
-*	As soon as we attach the on-master true label name to the master node, the label name which we assign to the particular POD, all these PODs will run on the master node
-
-
-*	Once we have a deployment template, we can provide a way to access the instances of the deployment by creating a Service.
-
-
-*	Here First request goes to Service Port, then reached to target port i.e PODs port or container port
-*	In selector we give name of the labels as that we defined for the PODs label.
-*	So now, this service will attach and redirect to the particular POD. As soon as we hit this service, this service will redirect to the POD and we get the data
-*	type: LoadBalancer	//this is service type. This service type may have load balancer,
+```
+* As soon as we attach the on-master true label name to the master node, the label name which we assign to the particular POD, all these PODs will run on the master node
+* Once we have a deployment template, we can provide a way to access the instances of the deployment by creating a Service.
+* Here First request goes to Service Port, then reached to target port i.e PODs port or container port
+* In selector we give name of the labels as that we defined for the PODs label.
+* So now, this service will attach and redirect to the particular POD. As soon as we hit this service, this service will redirect to the POD and we get the data
+* `type: LoadBalancer`	//this is service type. This service type may have load balancer,
 cluster ip and node port.
+* command for apply the service “kubectl apply -f service.yaml”
+* Run kubectl get deployments to check if the Deployment is created.
 
-
-*	command for apply the service “kubectl apply -f service.yaml”
-*	Run kubectl get deployments to check if the Deployment is created.
 If the Deployment is still being created, the output should be similar to the following:
 
+```yaml
 $ kubectl get deployments
+```
+```plaintext
 NAME
 rollingupdate-strategy	
 0/3	READY 0	UP-TO-DATE 0	AVAILABLE
 1s	AGE
-
-If we run the kubectl get deployments again a few seconds later. The output should be similar to this:
+```
+- If we run the kubectl get deployments again a few seconds later. The output should be similar to this:
+```yaml
 $ kubectl get deployments
+```
+```plaintext
 NAME
 rollingupdate-strategy	
 3/3	READY 0	UP-TO-DATE 0	AVAILABLE
 7s	AGE
- 
-To see the ReplicaSet (rs) created by the Deployment, run kubectl get rs. The output should be similar to this:
+```
 
+- To see the ReplicaSet (rs) created by the Deployment, run kubectl get rs. The output should be similar to this:
+
+```yaml
 kubectl get rs	
+```
+```plaintext
 NAME	DESIRED	CURRENT	READY	AGE
 rollingupdate-strategy-87875f5897	3	3	3	18s
+```
 
-To see the 3 pods running for deployment, run kubectl get pods. The created ReplicaSet ensures that there are three Pods running. The output should be similar to the below.
+- To see the 3 pods running for deployment, run kubectl get pods. The created ReplicaSet ensures that there are three Pods running. The output should be similar to the below.
+
+```yaml
 kubectl get pods	
+```
+```plaintext
 NAME	READY	STATUS	RESTARTS	AGE
 rollingupdate-strategy-87875f5897-55i7o	1/1	Running	0	12s
 rollingupdate-strategy-87875f5897-abszs	1/1	Running	0	12s
 rollingupdate-strategy-87875f5897-qazrt	1/1	Running	0	12s
+```
 
-*	Here in deployment file we haven’t define any namespace .In kubernetes we have 3 default namespaces i.e default, kube-pubilc and kube-system. So we haven’t define any namespace it creates under the “default namespace”.
-*	If the health of the POD is not good it restarts automatically.
+* Here in deployment file we haven’t define any namespace .In kubernetes we have 3 default namespaces i.e default, kube-pubilc and kube-system. So we haven’t define any namespace it creates under the “default namespace”.
+* If the health of the POD is not good it restarts automatically.
+* The kubectl's rollout command is very useful here. We can use it to check how our deployment is doing
+* Here we have already existing version or revision and also we create the new revision. Now if you want to get back to old revision we use the below command
+* We can also get back to older revisions by using the version numbers.
 
-
-●	The kubectl's rollout command is very useful here. We can use it to check how our deployment is doing
-
-
-
-
-●	Here we have already existing version or revision and also we create the new revision. Now if you want to get back to old revision we use the below command
-
-
-*	We can also get back to older revisions by using the version numbers.
-
-
-38.	Difference between PORT and Target Port in Kubernetes service?
+### 38.	Difference between PORT and Target Port in Kubernetes service?
 Ans: Port is the service port and tagetPort is the containers Port. Here First request goes to Service Port, then reached to target port i.e PODs port or container port.
 
-39.	How to install the kubernetes in On-Premises, not on the cloud kubernetes so which command do you use for install?
-Ans: kubeadm
-●	”kubeadm” is a tool by busing this tool we can install the kubernetes in the server.
+### 39.	How to install the kubernetes in On-Premises, not on the cloud kubernetes so which command do you use for install?
+Ans: 
+`kubeadm`
 
-40.	How to get the cluster information or by which command do you get the cluster information?
+”kubeadm” is a tool by busing this tool we can install the kubernetes in the server.
+
+### 40.	How to get the cluster information or by which command do you get the cluster information?
 Ans: kubectl cluster –info
-41.	What is default namespaces available in kubernetes?
+### 41.	What is default namespaces available in kubernetes?
 Ans: kube-system, kube-public, and default.
-42.	What are the static PODs in kubernetes?
+### 42.	What are the static PODs in kubernetes?
 Ans: The kubernetes resources (or) control plane (or) master node components are nothing but static PODs (i.e Scheduler, controller manager, API Server and etcd)
-43.	What is ingress in kubernetes?
+### 43.	What is ingress in kubernetes?
 Ans: Ingress is used to routing the request to the multiple services at a time based on path. In ingress we have a configuration file called ingress configuration file, suppose in ingress configuration file we have some service1, service2 and service3, so our ingress has a port number now we take the IP address and ingress port and service name. So the request goes to the corresponding service as we define in the ingress configuration file.
-Ex: ipaddress: ingress-port-number/payment	//request go to the service1
-Ex: ipaddress: ingress-port-number/login	//request go to the service2
-Ex: ipaddress: ingress-port-number/registration	//request go to the service3
-●	Ingress has IP Address i.e host name, here host name is common. So here no need to take the Node IP Address. It directly takes the ingress IP Address and ingress controller port and path and hit the request goes automatically to the specific service.
 
-44.	What is the command for deployment in kubernetes?
-Ans: kubectl apply -f rollingupdate.yaml
-*	We can also use create command instead of apply
-45.	What is the command for delete the deployment in kubernetes?
+```plaintext
+ipaddress: ingress-port-number/payment	//request go to the service1
+ipaddress: ingress-port-number/login	//request go to the service2
+ipaddress: ingress-port-number/registration	//request go to the service3
+```
+- Ingress has IP Address i.e host name, here host name is common. So here no need to take the Node IP Address. It directly takes the ingress IP Address and ingress controller port and path and hit the request goes automatically to the specific service.
+
+### 44.	What is the command for deployment in kubernetes?
+```yaml
+kubectl apply -f rollingupdate.yaml
+```
+* We can also use create command instead of apply
+### 45.	What is the command for delete the deployment in kubernetes?
 Ex: kubectl delete –f yaml_file_name.yaml
-*	We always avoid delete the deployment 
-46.	What is Auto-Scaling In kubernetes?
+* We always avoid delete the deployment 
+### 46.	What is Auto-Scaling In kubernetes?
 Ans: As we know, Kubernetes is a container resources management and orchestration tool or, in simple words, a container management technology to manage containerized applications in pods across physical, Virtual, and Cloud environments. Kubernetes is inherently scalable with many tools that allow both applications as well as infrastructure nodes; to scale in and out based on demand, efficiency, threshold/limits and several other metrics. We have three kinds of Autoscaling available,
 1.	Horizontal Pod Autoscaling (HPA)
 2.	Vertical Pod Autoscaling (VPA)
 3.	Cluster Autoscaling (CA)
 
 
-1.	Horizontal Pod Autoscaling (HPA): The HPA is what you can say is the main functionality of Kubernetes and will be using mostly. HPA can change the number of replicas of a pod, scale pods to add or remove pod container collections as needed. HPA achieves its goal by checking various metrics to see whether present thresholds have been met and reacting accordingly. HPA takes care of scaling and distributing pods over the entire available nodes.
+**1. Horizontal Pod Autoscaling (HPA):** The HPA is what you can say is the main functionality of Kubernetes and will be using mostly. HPA can change the number of replicas of a pod, scale pods to add or remove pod container collections as needed. HPA achieves its goal by checking various metrics to see whether present thresholds have been met and reacting accordingly. HPA takes care of scaling and distributing pods over the entire available nodes.
+
 In simple terms, for suppose our POD consumes some 70% of CPU and memory, now new PODs will be created based on our condition. This is known as Horizontal POD Auto Scaling.
 First, create a Deployment using a Yaml file named “ngnix.yaml” like below:
+
+![Horizontal Pod Autoscaling](./Images/HPA.jpg "HPA")
  
 Then use the kubectl command to apply it and implement it.
 
-
+![Horizontal Pod Autoscaling](./Images/hpa-op.jpg "HPA output")
 
 Check the number of pods deployed in this deployment. As you can see, there are 3 pods replicas created.
 
-
+![Horizontal Pod Autoscaling](./Images/hpa-op-2.jpg "HPA output")
 
 Create an HPA file like below: –
 
+![Horizontal Pod Autoscaling](./Images/hpa-manifest-file.jpg "HPA manifest file")
 
-●		Here while the deployment starts with minimum replicas is: 1 and when the load increases the maximum replicas will be: 10
-●	The “targetCPUUtilizationPercentage” reached to 50, the replicas will increase one by one up to 10.
+- Here while the deployment starts with minimum replicas is: 1 and when the load increases the maximum replicas will be: 10
+- The “targetCPUUtilizationPercentage” reached to 50, the replicas will increase one by one up to 10.
 Then apply this using
 
-
+![Horizontal Pod Autoscaling](./Images/hpa-apply.jpg "HPA manifest apply")
 
 You can check HPA status:
 
-
+![Horizontal Pod Autoscaling](./Images/hpa-status.jpg "HPA get status")
 
 To get details about the HPA, you can use “kubectl get hpa” with the “-o yaml.” 
  
+![Horizontal Pod Autoscaling](./Images/hpa-details.jpg "HPA details")
 
 
+**2. Vertical Pod Autoscaling (VPA):** The VPA is only concerned with increasing the resources available to a pod that resides on a node by giving you control by automatically adding or reducing CPU and memory to a pod. VPA can detect out of memory events and use this as a trigger to scale the pod. You can set both minimum and maximum limits for resource allocation.
 
-2.	Vertical Pod Autoscaling (VPA): The VPA is only concerned with increasing the resources available to a pod that resides on a node by giving you control by automatically adding or reducing CPU and memory to a pod. VPA can detect out of memory events and use this as a trigger to scale the pod. You can set both minimum and maximum limits for resource allocation.
 In simple terms, for suppose our POD consumes some 70% of CPU and memory, this will just increase or allocates the resources to the existing POD, it doesn’t create the new PODs.
-*Note: We generally use Horizontal Pod Autoscaling in our projects.
-3.	Cluster Autoscaling (CA)
+`Note:` We generally use Horizontal Pod Autoscaling in our projects.
+
+#### 3.	Cluster Autoscaling (CA)
 CA automatically adds or removes nodes from a cluster node pool in order to meet demand and save money. It scales up or down the number of nodes inside your cluster. CA scales your cluster nodes based on pending pods. It periodically checks whether there are any pending pods and increases the size of the cluster if more resources are needed and if the scaled-up cluster is still within the user-provided constraints.
-47.	In which namespace the cluster related PODs are available? 
+
+### 47.	In which namespace the cluster related PODs are available? 
 Ans: The cluster related components and PODs are created under kube-system namespace.
-48.	What is kubernetes Secret?
+### 48.	What is kubernetes Secret?
 Ans: Kubernetes Secret lets you store sensitive and confidential information in a Kubernetes object in such a way that is more secure and more flexible rather than putting this information in Pod’s definition or in Kubernetes ConfigMap or in the container image.
-49.	Difference between Kubernetes Secret and ConfigMap?
-*	ConfigMap and Secret is used to store application related configuration files but the difference is the secret is in Base64 (encrypted) Format. Like user name password and keys. In secret file sensitive content will not be display.
-*	In ConfigMap the data is available in form of plain text file. Here it displays all the content from the file.
-*	Mostly username and password will store in the Secret file because it is confidential
-*	Command for creating the secret,
+### 49.	Difference between Kubernetes Secret and ConfigMap?
+* ConfigMap and Secret is used to store application related configuration files but the difference is the secret is in Base64 (encrypted) Format. Like user name password and keys. In secret file sensitive content will not be display.
+* In ConfigMap the data is available in form of plain text file. Here it displays all the content from the file.
+* Mostly username and password will store in the Secret file because it is confidential
+* Command for creating the secret,
 kubectl create secret generic get-cred --from-file=./username.txt --form-file=./password.txt To get the yaml secret file information,
 *	kubectl get secrets get-cred -0 yaml
 
+![Kubernetes Secret](./Images/k8s-secret.jpg "k8s secret ")
 
-
-50.	What is Image pull policy in kubernetes?
+### 50.	What is Image pull policy in kubernetes?
 Ans: Whenever we create the docker image, this docker image will stored in registery. This registery may be the docker hub, ECR (Elastic Container Registery).
 Here, if we define as “imagepullpolicy: Always” means it pull the image from the registery while we deploy and creates the container. 
+
 If we define as “imagepullpolicy: none” it considered as the image has already available in the host so no need to pull.
+
+```yaml
 spec:
 containers:
 -name: my-assets
 image: our-img : our-release imagepullpolicy: Always
-* Note: maximum we use “imagepullpolicy: Always” in our projects.
-51.	What is Init Containers in kubernetes?
+```
+`Note:` maximum we use “imagepullpolicy: Always” in our projects.
+
+### 51.	What is Init Containers in kubernetes?
 Ans: In our deployment file we define the containers, and we also define the Init containers in our deployment file. Before starting the actual containers , Init containers will start and it install the packages that are related to our environment, and creates some files and other related data. Later Init containers will delete.
-●	After deleting the Init Containers, actual containers will start.
-*	The main use of Init Containers is, suppose if you want to install some debug related tools such as curl VI our docker image size will be increase so the response of our application will slow while we hit the application. So we try to maintain the less docker image size.
-*	So here Init containers will install and delete later so it will not show impact on the docker image. But here actual containers just use those services that installed by the Init containers.
-52.	What is the Kubernetes Environment Variables?
+* After deleting the Init Containers, actual containers will start.
+* The main use of Init Containers is, suppose if you want to install some debug related tools such as curl VI our docker image size will be increase so the response of our application will slow while we hit the application. So we try to maintain the less docker image size.
+* So here Init containers will install and delete later so it will not show impact on the docker image. But here actual containers just use those services that installed by the Init containers.
+### 52.	What is the Kubernetes Environment Variables?
 Ans: Here we can define the Application or POD related Environment Variables
-Scenario: 1. Create a pod with a few environment variables and print on STDOUT after the container is started.
-Step: 1. First of all, we need to create a YAML file as shown below, here file name is demo-pod.yml: –
+
+**Scenario: 1.** Create a pod with a few environment variables and print on STDOUT after the container is started.
+
+`Step: 1.` First of all, we need to create a YAML file as shown below, here file name is demo-pod.yml: –
 🡺 demo-pod.yml
-Step 2. Let’s create the pod using the above YAML file as shown below: –
-🡺 $kubectl apply -f demo-pod.yml
-Step 3. Now, check the status of the pod, it should be in running state, to check the status of the pod, run the below command, you will see the pod named ‘demo-pod’: –
-🡺 $kubectl get pods
-Step 4. Finally, let’s check the environment is available in the container or not. To check the status, we have to connect to the pod and execute ‘printenv’ command as shown below: –
 
+`Step 2.` Let’s create the pod using the above YAML file as shown below: –
+```yaml
+$kubectl apply -f demo-pod.yml
+```
+`Step 3.` Now, check the status of the pod, it should be in running state, to check the status of the pod, run the below command, you will see the pod named ‘demo-pod’: –
+```yaml
+$kubectl get pods
+```
+`Step 4.` Finally, let’s check the environment is available in the container or not. To check the status, we have to connect to the pod and execute ‘printenv’ command as shown below: –
 
-🡺 $kubectl exec <POD_NAME> -- printenv
-🡺 $kubectl exec demo-pod -- printenv 
- 
+```yaml
+$kubectl exec <POD_NAME> -- printenv
+$kubectl exec demo-pod -- printenv 
+```
 
-Explanation: – In the above snapshot, we can see that the environment variables ‘APP_VERSION’ and ‘ENVIRONMENT’ mentioned in the yaml file are present in the container.
+![k8s env variables](./Images/k8s-env-variables.jpg "k8s environment variables")
 
+    Explanation:     – In the above snapshot, we can see that the environment variables ‘APP_VERSION’ and ‘ENVIRONMENT’ mentioned in the yaml file are present in the container.
 
-Scenario: 2. Create ConfigMap and reference the data of ConfigMap in the pod as environment variables.
+**Scenario: 2.** Create ConfigMap and reference the data of ConfigMap in the pod as environment variables.
 Step 1. First thing first, let’s create two ConfigMaps using below yaml file named ‘demo-configmap.yml’: –
 
+```yaml
+$kubectl apply -f demo-configmap.yml
+```
 
-demo-configmap.yml
-🡺 $kubectl apply -f demo-configmap.yml
-
-
-Step 2. Now, create a pod that is going to take reference from configMap for the value of the environment variable mentioned in the pod yaml file or container. Here file name is demo2-pod.yml: –
-
-
-demo2-pod.yml
-🡺 $kubectl apply -f demo2-pod.yml
+`Step 2.` Now, create a pod that is going to take reference from configMap for the value of the environment variable mentioned in the pod yaml file or container. Here file name is demo2-pod.yml: –
+```yaml
+$kubectl apply -f demo2-pod.yml
+```
+![k8s configmap](./Images/configmap.png "k8s ConfigMap")
  
-Explanation: In the above example, we can see that Kubernetes has created 2 configMap ‘env-config-file’ and ‘env-var-config’ and also created a pod named ‘demo2-pod’.
+`Explanation:` In the above example, we can see that Kubernetes has created 2 configMap ‘env-config-file’ and ‘env-var-config’ and also created a pod named ‘demo2-pod’.
+
+`Step 3.` Let’s go ahead and check the status of the pod and see if the value of the environment variables have been replaced successfully or not.
+
+```yaml
+$kubectl get pods
+```
+![k8s configmap output](./Images/configmap-op.png "k8s ConfigMap output")
+
+`Explanation:` In the above snapshot, we can see that the status is not running but completed because the container has stopped after running the command mentioned in the ‘demo2-pod.yml’ ﬁle.
 
 
-Step 3. Let’s go ahead and check the status of the pod and see if the value of the environment variables have been replaced successfully or not.
+`Step 4.` So let’s go ahead and check the logs of the pod and see if environment variables are available or not with correct values: –
 
+```yaml
+$kubectl logs <POD_NAME> (Note – It will only show the pods running in default namespace)
+$kubectl logs demo2-pod
+```
+![k8s logs](./Images/k8s-logs.jpg "k8s logs")
+![k8s logs](./Images/k8s-logs-2.jpg "k8s logs")
 
-🡺 $kubectl get pods
+`Explanation:` In the above snapshot, we can see that the value of environment variables has been assigned that is mentioned in the ConﬁgMap.
 
-Explanation: In the above snapshot, we can see that the status is not running but completed because the container has stopped after running the command mentioned in the ‘demo2-pod.yml’ ﬁle.
+#### Scenario: 3. Pass secrets as container environment variables.
+`Step 1.` In this scenario, first, we have to create a secret using the below yaml file: –
 
+```yaml
+test-secret.yml
+kubectl apply -f test-secret.yml
+```
+![Pass secret to container](./Images/secret-pass-container.png "pass secret to container")
 
-Step 4. So let’s go ahead and check the logs of the pod and see if environment variables are available or not with correct values: –
+`Step 2.` Next, create a pod using the below YAML file and as discussed earlier use the ‘envForm’ keyword to take the secret reference as shown in the below YAML file: –
+```yaml
+demo3-pod.yml
 
+kubectl apply -f demo3-pod.yml
+```
+![secret ref](./Images/secret-pass-ref.png "secret ref")
 
-🡺 $kubectl logs <POD_NAME> (Note – It will only show the pods running in default namespace)
-🡺 $kubectl logs demo2-pod
- 
- 
+`Step 3.` Let’s check the status of the pod and environment variables of the container ran under that container: –
 
-Explanation: In the above snapshot, we can see that the value of environment variables has been assigned that is mentioned in the ConﬁgMap.
-Scenario: 3. Pass secrets as container environment variables.
-Step 1. In this scenario, first, we have to create a secret using the below yaml file: –
+```yaml
+kubectl get pods
+```
+![Apply Secret](./Images/secret-file-apply.png "Apply secret")
 
+```yaml
+kubectl logs demo3-pod
+```
+![k8s logs](./Images/logs-demo.jpg "k8s logs")
+![k8s logs](./Images/logs-demo-2.jpg "k8s logs")
+`Explanation:` In the above snapshot, we can see that container has environment variables ‘PASSWORD’ and 
 
-🡺 test-secret.yml
-
-🡺 $kubectl apply -f test-secret.yml
-
-
-Step 2. Next, create a pod using the below YAML file and as discussed earlier use the ‘envForm’ keyword to take the secret reference as shown in the below YAML file: –
-
-
-🡺 demo3-pod.yml
-
-🡺 $kubectl apply -f demo3-pod.yml
-
-
-Step 3. Let’s check the status of the pod and environment variables of the container ran under that container: –
-
-
--> $kubectl get pods
-
-
--> $kubectl logs demo3-pod
- 
- 
-
-Explanation: In the above snapshot, we can see that container has environment variables ‘PASSWORD’ and ‘USER_NAME’ and it has a value that is not visible as text as it is coming from Kubernetes secret.
-53.	What is DNS (Domain Name System) in kubernetes?
+`USER_NAME` and it has a value that is not visible as text as it is coming from Kubernetes secret.
+### 53.	What is DNS (Domain Name System) in kubernetes?
 Ans: Whenever we create the deployment we use the service to redirect the deployment. So an Ip address got created for service. Suppose we have two services running along with the PODs in the backend. If we want to communicate from one POD to another POD it is by using IPAddress only we can communicate.
+
 While we hit from one service to another service we give service name and service port so that it redirect to cluster Ip that are assigned to particular service. This will work based on the DNS. While we install the kubernetes by default DNS service will run in kube-system namespace.
-●	Every service we have fully qualified domain name. By using this domain name we can access to the PODs that are running in another service.
-●	By using “ns look up” : we can get the IP Address that are assigned to the Fully Qualified domain name
-54.	What is Annotations in kubernetes?
+- Every service we have fully qualified domain name. By using this domain name we can access to the PODs that are running in another service.
+- By using “ns look up” : we can get the IP Address that are assigned to the Fully Qualified domain name
+### 54.	What is Annotations in kubernetes?
 Ans: While we create the deployment and get the yaml file of that particular deployment there we find the Annotations. Here we can get the information about the deployment, client details and owner details, application build, release version, name, git branch, registery address we can attach.
-55.	What is readiness and liveness?
+### 55.	What is readiness and liveness?
 Ans: readiness probe: suppose POD has created, we have the container in the POD, in container we have the application. Here readiness probe will checks status that the POD is in active state or not, if it is ready it forwards or (accept) the requests to the POD.
 liveness probe: Suppose if the application that is present in the container is not working, the liveness probe will restarts the POD
 
+---
 
+## TERRAFORM
 
-TERRAFORM: 
-1.	What is the use of ‘terraform fmt’ command?
+### 1.	What is the use of ‘terraform fmt’ command?
 Ans: Reformat our configuration file in the standard style.
-2.	Difference between terraform and CloudFormation?
+### 2.	Difference between terraform and CloudFormation?
 Ans: By using terraform we can install multiple resources at a time. We can divide the deployment in multiple files by using terraform.
 Backend concept is supports in Terraform but where as in CloudFormation backend will not support.
 Locking concept is supports in Terraform but in CloudFormation Locking will not support
-3.	What is terraform providers?
+### 3.	What is terraform providers?
 Ans: Terraform Provider is to interact with the many resources supported by AWS. You must configure the provider with the proper credentials before you can use it.
-*	Terraform Providers is used to create, manage, and update infrastructure resources such as physical machines, VMs, network switches, containers, and more.
-*	Credentials can be provided by adding an access key, secret key, and optionally token, to the AWS provider block.
-Usage:
-Ex:
+* Terraform Providers is used to create, manage, and update infrastructure resources such as physical machines, VMs, network switches, containers, and more.
+* Credentials can be provided by adding an access key, secret key, and optionally token, to the AWS provider block.
+
+`Ex:`
+
+```hcl
 provider "aws" {
 region	= "us-west-2" access_key = "my-access-key" secret_key = "my-secret-key"
 }
@@ -1462,77 +1499,103 @@ tags = {
 Name	= "My bucket" Environment = "Dev"
 }
 }
-4.	Difference between Ansible and Terraform?
-Ans: TERRAFORM:
-*	Terraform is a provisioning tool, and Cloud formation, puppet, etc., are few tools that consider the declarative form of code in their usage and suggest that they are designed to provision the server themselves. They also take care of other infrastructures, such as load balancer, database networking, etc. We should be aware that most provisioning tools will be capable of doing configuration management to some extent, and similarly, most of the configuration management tools can also provision to some extent, but when we focus on a particular aspect, then some tools are obviously better fit than the other tool.
-*	Terraform is completely declarative; in declarative, we declare what actually is needed, not the process by which the result can be achieved. While using the terraform, we will define the environment, and if the environment changes at a later time, it will be only applied to the next ‘Terraform Apply’. Here since declarative, the code always represents the present state of the infrastructure.
-ANSIBLE
-*	Ansible is one the configuration management tool and other similar tool includes chef, puppet, etc. The chef is one more tool that follows this sort of procedural approach.
-*	Ansible follows the procedural style with a step-by-step process to achieve the desired end and, unlike terraform, can accept the ad-hoc change queries. When we actually deal with the procedural type of tasks, the state of infrastructure is not completely considered. The reusability of procedural code is quite limited as the state is changing.
-5.	What is the terraform state file?
+```
+### 4.	Difference between Ansible and Terraform?
+Ans: 
+
+#### TERRAFORM:
+
+* Terraform is completely declarative; in declarative, we declare what actually is needed, not the process by which the result can be achieved. While using the terraform, we will define the environment, and if the environment changes at a later time, it will be only applied to the next ‘Terraform Apply’. Here since declarative, the code always represents the present state of the infrastructure.
+
+#### ANSIBLE:
+
+* Ansible is one the configuration management tool and other similar tool includes chef, puppet, etc. The chef is one more tool that follows this sort of procedural approach.
+* Ansible follows the procedural style with a step-by-step process to achieve the desired end and, unlike terraform, can accept the ad-hoc change queries. When we actually deal with the procedural type of tasks, the state of infrastructure is not completely considered. The reusability of procedural code is quite limited as the state is changing.
+
+### 5.	What is the terraform state file?
 Ans: Terraform must store state about your managed infrastructure and configuration.
-*	Suppose we created the S3 and EC2 instances, then after sometime if we want to delete these services, so that we need to login to AWS and delete the services one by one it may not correct way because ex: we created ec2 instance and we assign some of the services to the ec2 like VPC, Subnet, Internet gateway, Route Table etc. so we need to delete all the services one by one. So it is a time taking process and sometimes we did ‘not delete these services properly.
-*	So in Terraform while we create any service a file will be created i.e known as “terraform.tfstate”. Here we deployed one service (Ex: S3 bucket), so here it stores all the information about S3 bucket. Now If you want to install the EC2 instance the Terraform will check the state file first weather the file has EC2 instance or not. If not available EC2 instance will be created.
-*	Suppose If I want delete the 10 S3 buckets and 10 Ec2 instances, in terraform we use the destroy command for delete. As soon as we use the destroy command it checks the state file about S3 buckets and Ec2 instances and destroy it. So that we can delete by using single command.
-6.	What is the terraform Lock?
+* Suppose we created the S3 and EC2 instances, then after sometime if we want to delete these services, so that we need to login to AWS and delete the services one by one it may not correct way because ex: we created ec2 instance and we assign some of the services to the ec2 like VPC, Subnet, Internet gateway, Route Table etc. so we need to delete all the services one by one. So it is a time taking process and sometimes we did ‘not delete these services properly.
+* So in Terraform while we create any service a file will be created i.e known as “terraform.tfstate”. Here we deployed one service (Ex: S3 bucket), so here it stores all the information about S3 bucket. 
+
+* Now If you want to install the EC2 instance the Terraform will check the state file first weather the file has EC2 instance or not. If not available EC2 instance will be created.
+
+* Suppose If I want delete the 10 S3 buckets and 10 Ec2 instances, in terraform we use the destroy command for delete. As soon as we use the destroy command it checks the state file about S3 buckets and Ec2 instances and destroy it. So that we can delete by using single command.
+### 6.	What is the terraform Lock?
 Ans: Terraform will lock your state for all operations that could write state. This prevents others from acquiring the lock and potentially corrupting your state. 
+
 Suppose if you are involving the deployment process while another person trying to deploy with same deployment command the lock will stops the command. It says someone is already using, you need to wait for some time till the time period ends.
+
 The lock file is always named “ .terraform.lock.hcl,” and this name is intended to signify that it is a lock file for various items that Terraform caches in the .terraform subdirectory of your working directory.
 * This locking concept will not be available in the CloudFormation and ARM
-7.	What is the terraform backend?
+### 7.	What is the terraform backend?
 Ans: Terraform Backend define where Terraforms state snapshots are stored.
 
+![Terraform Backend](./Images/terraform-backend.jpg "Terraform Backend")
 
 Terraform backend should be configured like any other configuration in the configuration file and when you run the terraform init, Backed will be created. For example, we are going to configure the AWS S3 as a Terraform backend.
-●	Backend concept is not be available in AWS and Azure. 
+- Backend concept is not be available in AWS and Azure. 
+```hcl
 terraform {
 backend "s3" {
 bucket = "terraform-s3-bucket-name" key	= "s3 key path"
 region = "us-west-1"
 }
 }
-In the above configuration, AWS S3 is configured as the Terraform Backed. And this will be effective once you run the Terraform Backend. In this, we have configured S3 bucket name as “terraform-s3-bucket-name“, key and the region. Remember, you don’t have to 
+```
+- In the above configuration, AWS S3 is configured as the Terraform Backed. And this will be effective once you run the Terraform Backend. In this, we have configured S3 bucket name as “terraform-s3-bucket-name“, key and the region. Remember, you don’t have to 
 specify all the parameters inside the backend. There are many ways to declare the parameters of the Backend. We can do partial Configure the Terraform Backend and get the rest of the values in different ways.
-8.	What is Terraform?
+### 8.	What is Terraform?
 Ans: Terraform is Cloud agnostic by using this terraform we can provision the infrastructure. Terraform can be use with any cloud platforms like AWS, Azure and GCP with same syntax. By using Terraform we can launch services like EC2, S3 buckets, VPC’s, Internet gateways and auto scaling and Subnets etc.
-●	Terraform is very fast
+- Terraform is very fast
 Specific clouds have some specific services to provisioning the infrastructure like For AWS we use CloudFormation and Azure we use ARM templates and we upload the template in the services as mentioned above it will provisioning the infrastructure.
-●	CloudFormation>>>AWS Cloud
-●	ARM Template>>>Azure
-●	CloudFormation and ARM Templates are very slow while deployment.
-●	But by using the Terraform we can provision the infrastructure in any cloud.
-●	In CloudFormation and ARM we can’t create and delete multiple services at a time
-●	By using the same Terraform syntax we deploy the services in AWS and Azure
-●	Suppose I want to provision the S3 bucket and EC2 instance in AWS by using CloudFormation, in this case we write one template and we define both services(EC2 and S3 bucket) in that single template file. Ex: if you want to launch or provision 10 services we should define in single template files.
-●	But where as in Terraform we can define separate files for EC2 and S3 buckets. So here we can create separate files for each services. We can simply launch multiple instances by using loop in terraform
-9.	What are the main commands in Terraform?
-Ans: init : First We need to initialize the terraform configuration validate : It checks the configuration is valid or not.
-plan: It shows the services what we are going to provision ex: S3 and Ec2
-apply: To create the Resources and Provisioning the infrastructure. 
-destroy: To destroy the infrastructure
+- CloudFormation>>>AWS Cloud
+- ARM Template>>>Azure
+- CloudFormation and ARM Templates are very slow while deployment.
+- But by using the Terraform we can provision the infrastructure in any cloud.
+- In CloudFormation and ARM we can’t create and delete multiple services at a time
+- By using the same Terraform syntax we deploy the services in AWS and Azure
+- Suppose I want to provision the S3 bucket and EC2 instance in AWS by using CloudFormation, in this case we write one template and we define both services(EC2 and S3 bucket) in that single template file. Ex: if you want to launch or provision 10 services we should define in single template files.
+- But where as in Terraform we can define separate files for EC2 and S3 buckets. So here we can create separate files for each services. We can simply launch multiple instances by using loop in terraform
+### 9.	What are the main commands in Terraform?
+Ans: 
+
+**init :** First We need to initialize the terraform configuration 
+
+**validate :** It checks the configuration is valid or not.
+
+**plan:** It shows the services what we are going to provision ex: S3 and Ec2
+
+**apply:** To create the Resources and Provisioning the infrastructure. 
+
+**destroy:** To destroy the infrastructure
 	 
+---
 
+## OTHER QUESTIONS 
 
-1.	What is sonarQube?
- 
-OTHER QUESTIONS 
+### 1.	What is sonarQube?
 Ans: SonarQube is a tool which is used for code quality checks.
-2.	What is sonarqube quality Gate?
+### 2.	What is sonarqube quality Gate?
 Ans: In sonarqube quality gate we define some thresholds. Whenever sonarqube scans the code it checks the weather the thresholds are meet or not which we define. If it’s not meet the thresholds, the quality gate will fails.
-3.	What is sonarQube quality Profiles?
+### 3.	What is sonarQube quality Profiles?
 Ans: Each and every language has sonarQube quality profile. The Quality profile has collection of rules
-4.	What is PV and PVC?
+### 4.	What is PV and PVC?
 Ans: PV (Persistent Volume): We need some storage for our application and microservices. If we use the containers after we delete the containers our application data is also deletes. So that we need PV and PVC
-PV – means if we use external storage like NFS (Network File System). In NFS server we create the file system we invoke this NFS server in PV. While creating the persistence volume we give the NFS volume.
-PVC (Persistent Volume Claim): While we creating the PVC we need to give the PV name. Here PVC fetch the data from the PV. PV gets the directory to store the data from the NFS.
-*Note: These operations will perform on kubernetes.
-5.	What is cronjob?
+
+`PV` – means if we use external storage like NFS (Network File System). In NFS server we create the file system we invoke this NFS server in PV. While creating the persistence volume we give the NFS volume.
+
+`PVC (Persistent Volume Claim):` While we creating the PVC we need to give the PV name. Here PVC fetch the data from the PV. PV gets the directory to store the data from the NFS.
+
+`Note:` These operations will perform on kubernetes.
+### 5.	What is cronjob?
 Ans: If you want to schedule any service for particular period of time we use the cron job
-●	A cron job is a Linux command used for scheduling tasks to be executed sometime in the future.
+- A cron job is a Linux command used for scheduling tasks to be executed sometime in the future.
 The crontab File Entry Format
+
 A crontab file contains entries for each cron job. Entries are separated by newline characters. Each crontab file entry contains six fields separated by spaces or tabs in the following form:
 minute  hour  day_of_month  month  weekday  command
 
+```bash
 These fields accept the following values:
 Item	Description
 minute	0 through 59
@@ -1542,13 +1605,17 @@ month	1 through 12
 weekday	0 through 6 for Sunday through Saturday
 command	a shell command
 
-To run the calendar command at 6:30 a.m. every Monday, Wednesday, and Friday, enter:
+```
+- To run the calendar command at 6:30 a.m. every Monday, Wednesday, and Friday, enter:
 
+```bash
 minute  hour  day_of_month  month  weekday  command
 
-30 	6 	* 		*    1,3,5 	/usr/bin/calendar
+30 	    6 	    * 		    *       1,3,5 	/usr/bin/calendar
+```
 
-To run the calendar command every day of the year at 6:30, enter the following:
+- To run the calendar command every day of the year at 6:30, enter the following:
 
+```bash
 30	 * * * /usr/bin/calendar
-
+```
