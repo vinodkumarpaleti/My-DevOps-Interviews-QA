@@ -2872,57 +2872,69 @@ In summary, an Internet Gateway is a critical component for enabling internet co
    **- Private Subnet:** Private subnets are used for resources that should not be directly accessible from the internet. Examples include databases, application servers, or backend services that require a higher level of security. These instances rely on a NAT gateway or NAT instance for internet-bound traffic.
 	
 #### 3. Routing:
-   - Public Subnet: The route table associated with a public subnet typically includes a route to the Internet Gateway, allowing instances to send internet-bound traffic directly to the internet.
-   - Private Subnet: The route table associated with a private subnet may include a route to a NAT gateway or a NAT instance in the public subnet. This enables instances in the private subnet to send outbound traffic to the internet through the NAT device.
-	4. Security:
-   - Public Subnet: Public subnets often have security groups and network access control lists (NACLs) configured to control inbound and outbound traffic, providing security measures for instances that are directly accessible from the internet.
-   - Private Subnet: Security measures in private subnets are focused on controlling inbound and outbound traffic within the VPC. Instances in private subnets are shielded from direct internet access, enhancing security.
-	5. Elastic IP Addresses:
-   - Public Subnet: Instances in public subnets can have public IP addresses or use Elastic IP addresses, allowing them to maintain a static public IP address for internet communication.
-   - Private Subnet: Instances in private subnets typically do not have public IP addresses directly associated with them. They rely on a NAT device with a public IP address for outbound internet communication.
+
+   **- Public Subnet:** The route table associated with a public subnet typically includes a route to the Internet Gateway, allowing instances to send internet-bound traffic directly to the internet.
+
+   **- Private Subnet:** The route table associated with a private subnet may include a route to a NAT gateway or a NAT instance in the public subnet. This enables instances in the private subnet to send outbound traffic to the internet through the NAT device.
+	#### 4. Security:
+
+   **- Public Subnet:** Public subnets often have security groups and network access control lists (NACLs) configured to control inbound and outbound traffic, providing security measures for instances that are directly accessible from the internet.
+
+   **- Private Subnet:** Security measures in private subnets are focused on controlling inbound and outbound traffic within the VPC. Instances in private subnets are shielded from direct internet access, enhancing security.
+	
+    #### 5. Elastic IP Addresses:
+
+   **- Public Subnet:** Instances in public subnets can have public IP addresses or use Elastic IP addresses, allowing them to maintain a static public IP address for internet communication.
+   
+   **- Private Subnet:** Instances in private subnets typically do not have public IP addresses directly associated with them. They rely on a NAT device with a public IP address for outbound internet communication.
+
 In summary, public subnets are designed for resources that require direct internet access, while private subnets are used for resources that need a higher level of security and do not require direct internet connectivity. The use of public and private subnets allows for a secure and controlled network architecture within a VPC.
 
+---
 
+## GIT
 
-GIT
-1. Wht is Git? 
+### 1. Wht is Git? 
 	Ans: Git is a distributed version control system (DVCS) used for tracking changes in source code during software development. It was created by Linus Torvalds in 2005 and has become one of the most widely used version control systems in the world.
 	Key features and concepts of Git include:
-	1. Version Control:
- 	  - Git allows developers to track changes made to their codebase over time. This includes creating new files, modifying existing ones, and deleting files. Each change is recorded, and developers can view the entire history of changes.
-	2. Distributed System:
-  	 - Git is a distributed version control system, meaning that each developer has a complete copy of the entire repository, including its history. This allows for collaboration without the need for a centralized server, although centralized workflows are also possible.
-	3. Branching:
-   	- Branching is a fundamental concept in Git. Developers can create branches to work on new features or bug fixes independently of the main codebase. Branches can be merged back into the main branch (usually "master" or "main") when the changes are ready.
-	4. Merging:
-   - Git facilitates merging changes from one branch into another. When developers complete work on a feature branch, they can merge those changes into the main branch, integrating new features or bug fixes into the overall codebase.
-	5. Remote Repositories:
-   - Git supports remote repositories, which allow developers to collaborate with others. Popular hosting services like GitHub, GitLab, and Bitbucket provide platforms for hosting Git repositories, enabling distributed teams to work together seamlessly.
-	6. Pull Requests and Code Reviews:
-   - On platforms like GitHub and GitLab, developers use pull requests (PRs) to propose changes and request that they be reviewed and merged. This workflow facilitates code reviews, collaboration, and discussion about proposed changes.
-	7. Committing:
-   - Developers make changes to the codebase in the form of commits. Each commit represents a snapshot of the code at a specific point in time. Commit messages describe the changes made, providing context for future reference.
-	8. Staging Area:
-   - Git has a staging area (also called the index) where changes can be selectively added before committing. This allows developers to choose which changes to include in a commit.
-	9. Conflict Resolution:
-   - In collaborative environments, conflicts can arise when multiple developers modify the same file concurrently. Git provides tools for resolving conflicts during the merge process.
-	10. Tagging:
-    - Developers can create tags to mark specific points in the repository's history, such as releases or significant milestones. Tags provide a way to reference specific commits.
+#### 1. Version Control:
+ - Git allows developers to track changes made to their codebase over time. This includes creating new files, modifying existing ones, and deleting files. Each change is recorded, and developers can view the entire history of changes.
+#### 2. Distributed System:
+- Git is a distributed version control system, meaning that each developer has a complete copy of the entire repository, including its history. This allows for collaboration without the need for a centralized server, although centralized workflows are also possible.
+#### 3. Branching:
+- Branching is a fundamental concept in Git. Developers can create branches to work on new features or bug fixes independently of the main codebase. Branches can be merged back into the main branch (usually "master" or "main") when the changes are ready.
+#### 4. Merging:
+ - Git facilitates merging changes from one branch into another. When developers complete work on a feature branch, they can merge those changes into the main branch, integrating new features or bug fixes into the overall codebase.
+#### 5. Remote Repositories:
+- Git supports remote repositories, which allow developers to collaborate with others. Popular hosting services like GitHub, GitLab, and Bitbucket provide platforms for hosting Git repositories, enabling distributed teams to work together seamlessly.
+#### 6. Pull Requests and Code Reviews:
+- On platforms like GitHub and GitLab, developers use pull requests (PRs) to propose changes and request that they be reviewed and merged. This workflow facilitates code reviews, collaboration, and discussion about proposed changes.
+#### 7. Committing:
+- Developers make changes to the codebase in the form of commits. Each commit represents a snapshot of the code at a specific point in time. Commit messages describe the changes made, providing context for future reference.
+#### 8. Staging Area:
+- Git has a staging area (also called the index) where changes can be selectively added before committing. This allows developers to choose which changes to include in a commit.
+#### 9. Conflict Resolution:
+- In collaborative environments, conflicts can arise when multiple developers modify the same file concurrently. Git provides tools for resolving conflicts during the merge process.
+#### 10. Tagging:
+- Developers can create tags to mark specific points in the repository's history, such as releases or significant milestones. Tags provide a way to reference specific commits.
 Git is widely adopted in the software development community due to its flexibility, speed, and efficiency in managing version control. It forms the foundation for many collaborative software development workflows and is a critical tool for versioning and tracking changes in code repositories.
-2. What is the use of Git Status and Git log commands?
-	Ans: In Git, the `git status` and `git log` commands are essential tools for understanding the state of a repository and reviewing its commit history.
-	`git status`:
-	The `git status` command provides a summary of the current state of the working directory and the staging area. When you run `git status`, you get information about:
-	1. Untracked Files:
-   		- Files that are present in the working directory but have not been added to the staging area.
-	2. Changes to be Committed:
-   	- Files that have been modified and are staged for the next commit. This includes new files that have been added to the staging area.
-	3. Changes not Staged for Commit:
+### 2. What is the use of Git Status and Git log commands?
+Ans: In Git, the `git status` and `git log` commands are essential tools for understanding the state of a repository and reviewing its commit history.
+`git status`:
+The `git status` command provides a summary of the current state of the working directory and the staging area. When you run `git status`, you get information about:
+	
+#### 1. Untracked Files:
+- Files that are present in the working directory but have not been added to the staging area.
+#### 2. Changes to be Committed:
+- Files that have been modified and are staged for the next commit. This includes new files that have been added to the staging area.
+#### 3. Changes not Staged for Commit:
    	- Modified files in the working directory that haven't been added to the staging area.
-	4. Branch Information:
-  	 - The current branch and its status, including whether it's ahead or behind the remote branch.
-	The output of `git status` helps you understand which files are ready to be committed, which files are modified but not yet staged, and which files are untracked.
-	Example of `git status`:
+#### 4. Branch Information:
+- The current branch and its status, including whether it's ahead or behind the remote branch.
+	
+The output of `git status` helps you understand which files are ready to be committed, which files are modified but not yet staged, and which files are untracked.
+	
+Example of `git status`:
 ```bash
 $ git status
 On branch main
@@ -2943,7 +2955,8 @@ Untracked files:
 - `git log --oneline`: Displays a compact, one-line representation of each commit.
 - `git log -n`: Limits the number of displayed commits (e.g., `git log -5` shows the latest 5 commits).
 - `git log --graph`: Displays a text-based graph of the branch and merge history.
-	Example of `git log`:
+```
+#### Example of `git log`:
 ```bash
 $ git log
 commit 12345678901234567890abcdef1234567890abc (HEAD -> main, origin/main)
@@ -2954,125 +2967,143 @@ commit abcdef01234567890abcdef01234567890abcde
 Author: Jane Smith <jane.smith@example.com>
 Date:   Mon Feb 14 10:12:34 2022 -0500
     	Fix bug in existing feature
+```
 By using `git log`, you can explore the history of your repository, review commit details, and understand how the codebase has evolved over time. These commands are essential for effective version control and collaboration in a Git-based workflow.
-3.	Explain about the stages in git?
+### 3.	Explain about the stages in git?
 Ans: Work Space, Index and Local repository.
-Or
+
+`Or`
+
 In Git, the term "stages" refers to the different states that files can be in as you work with version control. The primary stages are the working directory, the staging area (also called the index), and the committed history. Understanding these stages is crucial for effective version control using Git
-1. Working Directory
-- Description:
-  - The working directory is the directory on your local machine where you have cloned or initialized a Git repository. It contains the actual files of your project
-- State:
-  - Files in the working directory can be in one of three states:
-    - Tracked and Unmodified: Files that have been previously staged and committed and have not been modified since the last commit.
-    - Tracked and Modified: Files that are part of the Git repository but have been modified since the last commit.
-    - Untracked: New files that have been created but have not yet been added to the staging area
-2. Staging Area (Index):
-- Description:
+#### 1. Working Directory
+#### - Description:
+- The working directory is the directory on your local machine where you have cloned or initialized a Git repository. It contains the actual files of your project
+#### - State:
+- Files in the working directory can be in one of three states:
+
+**- Tracked and Unmodified:** Files that have been previously staged and committed and have not been modified since the last commit.
+
+**- Tracked and Modified:** Files that are part of the Git repository but have been modified since the last commit.
+
+**- Untracked:** New files that have been created but have not yet been added to the staging area
+
+#### 2. Staging Area (Index):
+#### - Description:
   - The staging area is an intermediate area where you prepare changes to be committed. It allows you to selectively choose which changes you want to include in the next commit
-- State:
+#### - State:
   - Files in the staging area are those that have been marked for inclusion in the next commit. The staging area is like a "checkpoint" where you assemble the changes you want to commit.
-- Commands:
+#### - Commands:
   - To add changes to the staging area, you use the `git add` command. For example:
     ```bash
     git add filename
     ```
-3. Committed History (Repository):
-- Description:
+#### 3. Committed History (Repository):
+#### - Description:
   - The committed history, often referred to as the Git repository, is where all the committed changes are stored. Each commit represents a snapshot of the project at a specific point in time.
-- State:
+#### - State:
   - Files in the committed history are the versions that have been officially saved in the repository. Each commit is identified by a unique hash, and the commits form a history that you can traverse.
-- Commands:
+#### - Commands:
   - To commit changes to the repository, you use the `git commit` command. For example:
     ```bash
     git commit -m "Commit message"
     ```
-Summary:
-1. Working Directory: This is where you make changes to your files.
-2. Staging Area: This is where you assemble the changes you want to commit.
-3. Committed History (Repository): This is where the committed changes are stored in a versioned history.
-The staging area provides flexibility, allowing you to review and organize your changes before making them part of the permanent history in the repository. This staging process helps in creating clean and logical commits, making it easier to understand and manage the project's history. The Git staging model contributes to the efficiency and power of Git as a version control system.
-4.	Difference between SVN and Git? 
+#### Summary:
+**1. Working Directory:** This is where you make changes to your files.
+
+**2. Staging Area:** This is where you assemble the changes you want to commit.
+
+**3. Committed History (Repository):** This is where the committed changes are stored in a versioned history.
+- The staging area provides flexibility, allowing you to review and organize your changes before making them part of the permanent history in the repository. This staging process helps in creating clean and logical commits, making it easier to understand and manage the project's history. 
+
+The Git staging model contributes to the efficiency and power of Git as a version control system.
+#### 4.	Difference between SVN and Git? 
 Git has a Distributed Model.
-🡺 In git every user has their own copy of code on their local like their own branch.
-🡺 In git we do not required any Network to perform git operation.
+- In git every user has their own copy of code on their local like their own branch.
+- In git we do not required any Network to perform git operation.
 SVN has a Centralized Model.
-🡺 In SVN there is central repository has working copy that also make changes and committed in central repository.
-🡺 In SVN we required Network for runs the SVN operation.
-Or
+- In SVN there is central repository has working copy that also make changes and committed in central repository.
+- In SVN we required Network for runs the SVN operation.
+
+`Or`
+
 SVN (Apache Subversion) and Git are both version control systems, but they have different designs and workflows. Here are some key differences between SVN and Git:
-1. Centralized vs. Distributed:
-- SVN (Subversion):
+#### 1. Centralized vs. Distributed:
+#### - SVN (Subversion):
   - SVN is a centralized version control system, meaning that there is a single central repository that contains the entire version history of the project.
   - Developers typically commit changes directly to the central repository, and updates are obtained from and pushed to this central server.
-- Git:
+#### - Git:
   - Git is a distributed version control system. Each developer has a complete copy of the repository, including the entire version history, on their local machine.
   - Git allows for more flexibility in development, as developers can work offline and push changes to shared repositories when they have internet access.
-2. Branching and Merging:
-- SVN:
+#### 2. Branching and Merging:
+#### - SVN:
   - Branching and merging in SVN can be more complex and time-consuming. SVN uses a copy-modify-merge model, which involves creating branches as copies of the entire project directory.
-- Git:
+#### - Git:
   - Git excels in branching and merging. It uses a commit-based, distributed model, allowing lightweight branching and seamless merging. Developers can create branches quickly and switch between them effortlessly.
-3. Performance:
-- SVN:
+#### 3. Performance:
+#### - SVN:
   - SVN often requires network access to perform various operations, and commands like history retrieval can be slower, especially in larger repositories.
-- Git:
+#### - Git:
   - Git is known for its speed and performance. Most operations are performed locally, making Git faster, even for large repositories.
-4. Atomic Commits:
-- SVN:
+#### 4. Atomic Commits:
+#### - SVN:
   - SVN commits changes as a whole directory, making it difficult to commit changes to multiple files in a single atomic operation.
-- Git:
+#### - Git:
   - Git commits changes on a per-file basis, allowing developers to commit changes to different files in a single atomic operation.
-5. History Tracking:
-- SVN:
+#### 5. History Tracking:
+#### - SVN:
   - SVN tracks file changes but does not explicitly track renames or copies. Operations like renaming a file involve copying and deleting.
-- Git:
+#### - Git:
   - Git explicitly tracks renames and copies, making it more powerful in terms of understanding file history and evolution.
-6. Repository Structure:
-- SVN:
+#### 6. Repository Structure:
+#### - SVN:
   - SVN uses a centralized repository structure with a trunk, branches, and tags directory. Each developer may have a working copy checked out from the central repository.
-- Git:
+#### - Git:
   - Git repositories are distributed, and each local copy can act as a standalone repository. There is no strict requirement for a central server, though many projects use remote repositories for collaboration.
-7. Ease of Learning:
-- SVN:
+#### 7. Ease of Learning:
+#### - SVN:
   - SVN is often considered more straightforward for beginners due to its centralized model and familiar concepts.
-- Git:
+#### - Git:
   - Git has a steeper learning curve, especially for users accustomed to centralized version control systems. However, it provides more powerful and flexible workflows once mastered.
-8. Tooling and Ecosystem:
-- SVN:
+#### 8. Tooling and Ecosystem:
+#### - SVN:
   - SVN has a more centralized approach to tooling and relies on a centralized server for many operations.
-- Git:
+#### - Git:
   - Git has a rich ecosystem with a wide range of third-party tools, services (like GitHub and GitLab), and integrations. The distributed nature allows for a more diverse and decentralized tooling ecosystem.
 Both SVN and Git have their strengths and are used in various development scenarios. The choice between them often depends on the preferences of the development team, the nature of the project, and specific requirements. Git has gained widespread popularity in recent years, especially for open-source and collaborative projects.
-5.	What is Git Rebase and git merge?
+### 5.	What is Git Rebase and git merge?
 Ans: For example If you commit 5 commits in feature branch it consist all the information about each commit but by using git merge all these 5 commits will combine in a single commit and merges into the master branch. Here we have only one commit in the master branch but in feature branch we are having 5 commits.
 On the other hand by using the git rebase we can find all the five commits at the top of the Master Brach
-Or
+
+`Or`
 Already available
-6.	What is git pull and git clone?
+### 6.	What is git pull and git clone?
 Ans: By using git clone command we can clone the entire repository in our local repository
 By using git pull we can pull or get the updated files or changes from the remote repository or GitHub.
-Or
+
+`Or`
 Already availble
-7.	What is git fetch?
+### 7.	What is git fetch?
 Ans: It pulls the updated data or files from the remote repository but it doesn’t move the data to the local repository, now if you type the git merge command all the changes will store in the local repository.
-Or
+
+`Or`
+
 The `git fetch` command in Git is used to retrieve changes from a remote repository. It does not automatically merge the changes into your working directory or modify your local branches. Instead, it fetches the latest commits, branches, and tags from the remote repository and stores them in your local repository. This allows you to see what changes exist in the remote repository without making any local modifications.
-The basic syntax of the `git fetch` command is as follows:
+
+#### The basic syntax of the `git fetch` command is as follows:
 ```bash
 git fetch <remote>
 ```
 - `<remote>` is the name of the remote repository from which you want to fetch changes. This is typically named "origin" by default.
-The `git fetch` command performs the following actions:
-1. Fetches Remote Changes:
+#### The `git fetch` command performs the following actions:
+#### 1. Fetches Remote Changes:
    - Retrieves new branches, updates existing branches, and fetches new commits from the specified remote repository.
-2. Updates Remote Branches:
+#### 2. Updates Remote Branches:
    - If there are updates to remote branches, such as new commits or changes made by others, `git fetch` updates your local references to those branches.
-3. Downloads Objects:
+#### 3. Downloads Objects:
    - Downloads objects (commits, trees, and blobs) associated with the fetched changes but does not integrate them into your working directory.
-4. No Local Modifications:
+#### 4. No Local Modifications:
    - Your working directory and local branches remain unchanged after `git fetch`. You can review the fetched changes before deciding to merge or rebase.
-Example:
+`Example:`
 ```bash
 # Fetch changes from the remote repository (default: 'origin')
 git fetch
@@ -3081,57 +3112,60 @@ git fetch upstream
 ```
 After running `git fetch`, you can use other commands like `git log` or `git diff` to review the changes that were fetched. If you decide to integrate the changes into your local branches, you can use `git merge` or `git rebase` after the fetch.
 It's worth noting that `git fetch` is often used in combination with other commands, such as `git merge` or `git pull`, to bring remote changes into your local branches and working directory. The primary advantage of using `git fetch` is that it allows you to inspect and decide how to integrate changes before making any modifications to your local branches.
-8.	What is git stash?
+### 8.	What is git stash?
 Ans: Git stash is used to move the incomplete code to the stash. It is like a temporary storage area. We can move the not committed code to stash.
-Or
+
+`Or`
+
 In Git, `git stash` is a command that allows you to temporarily save changes in your working directory and index (staging area) without committing them. This is useful when you are in the middle of working on a set of changes, but you need to switch to another branch or address an urgent issue without committing incomplete work. The `git stash` command helps you save your changes, revert your working directory to the last commit, and then reapply the changes later.
-Here are the basic `git stash` commands and use cases:
-1. Stash Changes:
-To stash your changes, use the following command:
+#### Here are the basic `git stash` commands and use cases:
+#### 1. Stash Changes:
+- To stash your changes, use the following command:
+
 ```bash
 git stash save "Your stash message"
 ```
 - This command saves your working directory changes and index changes (staged changes) in a new stash.
 - You can include a message to describe the stash for reference.
-2. List Stashes:
+#### 2. List Stashes:
 To view a list of your stashes, use:
 ```bash
 git stash list
 ```
 - This command displays a list of all stashes in your repository.
-3. Apply Stash:
+#### 3. Apply Stash:
 To apply the changes from the latest stash, use:
 ```bash
 git stash apply
 ```
 - This command applies the changes from the latest stash to your working directory.
 - The stash remains in the stash list after applying.
-4. Apply a Specific Stash:
+#### 4. Apply a Specific Stash:
 To apply changes from a specific stash, use:
 ```bash
 git stash apply stash@{n}
 ```
 - Replace `n` with the index of the stash you want to apply (e.g., `stash@{0}`).
-5. Pop Stash:
+#### 5. Pop Stash:
 To apply and remove the latest stash from the stash list, use:
 ```bash
 git stash pop
 ```
 - This is equivalent to applying the stash with `git stash apply` and then removing it with `git stash drop`.
-6. Drop Stash:
+#### 6. Drop Stash:
 To remove a specific stash without applying its changes, use:
 ```bash
 git stash drop stash@{n}
 ```
 
 - This command removes a specific stash from the stash list.
-7. Clear All Stashes:
-To remove all stashes, use:
+#### 7. Clear All Stashes:
+- To remove all stashes, use:
 ```bash
 git stash clear
 ```
 - This command removes all stashes from the stash list.
-Example Workflow:
+`Example Workflow:`
 ```bash
 # Save changes in a stash
 git stash save "Work in progress"
@@ -3142,14 +3176,19 @@ git stash apply
 git stash pop
 ```
 `git stash` is a helpful tool for managing temporary changes and switching between branches without committing incomplete work. It provides flexibility and allows you to maintain a clean commit history while working on multiple tasks.
-9.	How to create and delete the branch in git?
+### 9.	How to create and delete the branch in git?
 Ans:
-🡪$ git branch sample_branch //For creating the branch
-🡪git branch –d branch-name //For deleting the branch
-Or
+```bash
+git branch sample_branch //For creating the branch
+git branch –d branch-name //For deleting the branch
+```
+
+`Or`
+
 In Git, branches are used to isolate changes and work on different features or fixes independently. Here are the basic commands to create and delete branches in Git:
 
-Creating a Branch:
+#### Creating a Branch:
+
 To create a new branch, you can use the `git branch` command followed by the branch name. After creating the branch, you can switch to it using `git checkout` or `git switch`. In Git 2.23 and later, you can use `git switch` as a more user-friendly alternative to `git checkout`.
 Using `git branch` and `git checkout`:
 ```bash
@@ -3164,8 +3203,8 @@ Using `git switch`:
 git switch -c new-branch-name
 ```
 This creates a new branch named "new-branch-name" and moves you to that branch. Now you can make changes in this branch independently of the main branch.
-Deleting a Branch:
-Deleting a Local Branch:
+#### Deleting a Branch:
+#### Deleting a Local Branch:
 To delete a local branch, you can use the `git branch` command with the `-d` option. If the branch contains changes that are not merged, you might need to force the deletion using `-D`. Make sure you are not on the branch you want to delete.
 ```bash
 # Delete a local branch (merged changes)
@@ -3173,13 +3212,13 @@ git branch -d branch-to-delete
 # Force delete a local branch (unmerged changes)
 git branch -D branch-to-delete
 ```
-Deleting a Remote Branch:
+#### Deleting a Remote Branch:
 To delete a remote branch, you need to use the `git push` command with the `--delete` option. This removes the branch from the remote repository.
 ```bash
 # Delete a remote branch
 git push origin --delete branch-to-delete
 ```
-Example Workflow:
+#### Example Workflow:
 
 ```bash
 # Create a new branch and switch to it
@@ -3198,234 +3237,261 @@ git push origin --delete feature-branch
 ```
 This example demonstrates creating a new branch, making changes, committing them, merging the changes back to the main branch, and then deleting the feature branch both locally and remotely. Adjust the branch names and workflow based on your specific requirements.
 
-	
+---
 
-KUBERNETES
+## KUBERNETES
 
-1.	What is kubernates?
+### 1.	What is kubernates?
 Ans: kubernates is container management system. We can scale our application within secons if the load gets high. We can’t scale the application manually. Each and every POD has its own deployment file (yaml file). We define the auto scaling in yaml file like horizontal scalling or vertical scalling
-*	In horizontal auto scaling we define as if the percentage of CPU and memory gets increased or decreased our defined limit it launches the no of replicas that we define in the yaml file
+* In horizontal auto scaling we define as if the percentage of CPU and memory gets increased or decreased our defined limit it launches the no of replicas that we define in the yaml file
 Ex: If we define need to launch the two replicas after it crossed the CPU percentage as 50% it launches two replicas.
-Or
+
+`Or`
+
 Already available
-2.	What is cooling periods or scaling up and scaling down period in kubernetes?
+#### 2.	What is cooling periods or scaling up and scaling down period in kubernetes?
 Ans: For Example as per our condition first limit of 50% of CPU utilization crossed it needs to launch two replicas as we defined but one POD will be scale up, again it crossed 50% cpu usage it waits for some time(ex: 180sec) while scaling up. So still same cpu usage is there it launches one more POD. It takes some time intervals in between POD to POD scaling. This is called scaling up and scaling down period. And also known as cooling periods
+
 If CPU usage <50% i.e some 30% so it waits for some time if still CPU usage is less than our defined number it remove the POD automatically. It is called scaling down period.
 If we define desired PODs as some 5. It reaches up to 5 PODS while scaling up, while scaling down it reaches 1 POD
-Or
+
+`Or`
+
 In Kubernetes, the terms "cooling period," "scaling up period," and "scaling down period" are not standard terminologies. However, the concepts they might refer to are related to how the Horizontal Pod Autoscaler (HPA) in Kubernetes adjusts the number of replicas for a set of pods based on observed metrics.
-Horizontal Pod Autoscaler (HPA):
+#### Horizontal Pod Autoscaler (HPA):
 The HPA automatically adjusts the number of replicas in a deployment or replica set based on observed CPU utilization or other custom metrics. It helps ensure that your application scales in or out based on demand, optimizing resource utilization.
-Scaling Up and Scaling Down:
-- Scaling Up:
+#### Scaling Up and Scaling Down:
+#### - Scaling Up:
   - When the observed metrics (e.g., CPU utilization) exceed a defined threshold, the HPA may decide to scale up the number of replicas. This means that Kubernetes will create additional instances of your pods to handle increased demand.
-- Scaling Down:
+#### - Scaling Down:
   - Conversely, when the observed metrics fall below a certain threshold, the HPA may decide to scale down the number of replicas. This involves reducing the number of running instances to avoid over-provisioning resources.
-Cooling Period:
+#### Cooling Period:
 The term "cooling period" is not a standard Kubernetes term, but it might be used informally to refer to the period during which the HPA waits before making additional scaling decisions. This delay helps prevent unnecessary oscillations in scaling, especially when dealing with fluctuating workloads.
 For example, if a sudden spike in traffic causes the HPA to scale up, a cooling period could be enforced to avoid immediately scaling down if the spike is short-lived. During the cooling period, the HPA observes the new state and ensures that scaling decisions are based on stable conditions, preventing rapid and unnecessary scaling actions.
-Configuration Parameters:
+#### Configuration Parameters:
 The behavior of the HPA, including any concept of a cooling period, is influenced by configuration parameters such as:
 
 - `--horizontal-pod-autoscaler-downscale-stabilization` (default: 5 minutes):
   - This parameter sets the duration for which the HPA should observe a stable decrease in resource usage before scaling down.
 - `--horizontal-pod-autoscaler-upscale-delay` (default: 3 minutes):
-  - This parameter sets the duration for which the HPA should wait before scaling up after a scale-down action.
+- This parameter sets the duration for which the HPA should wait before scaling up after a scale-down action.
 These parameters contribute to the overall behavior and stability of the HPA's scaling decisions.
 Remember, the exact terms and configurations might vary, and it's always a good practice to refer to the official Kubernetes documentation or specific cloud provider documentation for the most accurate and up-to-date information.
-3.	What is etcd in kubernetes?
+### 3.	What is etcd in kubernetes?
 Ans: “etcd” is distributed key value store. It stores the key-values in kubernetes. All API calls will stored in “etcd”, like requests, cluster state and secrets. And also all configuration data will store in etcd.
-Or
+
+`Or`
+
 etcd is a distributed key-value store that plays a crucial role in the architecture of Kubernetes. It serves as the primary data store and provides a reliable and highly available storage solution for managing the configuration data, state, and metadata of a Kubernetes cluster. etcd is an open-source project and is part of the Cloud Native Computing Foundation (CNCF).
 Key characteristics of etcd in the context of Kubernetes include:
-1. Consistent and Distributed Data Store:
+#### 1. Consistent and Distributed Data Store:
    - etcd ensures data consistency and reliability across a distributed environment. It uses the Raft consensus algorithm to maintain a consistent and fault-tolerant distributed log.
-2. Configuration and State Storage:
+#### 2. Configuration and State Storage:
    - Kubernetes uses etcd to store its configuration data, cluster state, and metadata. This includes information about nodes, pods, services, deployments, and other resources.
-3. Cluster Coordination:
+#### 3. Cluster Coordination:
    - etcd acts as the central coordination point for all nodes in a Kubernetes cluster. It helps in maintaining a consistent view of the cluster's state and ensures that all nodes have the latest information.
-4. Watchable Key-Value Pairs:
+#### 4. Watchable Key-Value Pairs:
    - Kubernetes components, such as the API server, watch specific key-value pairs in etcd to be notified of changes. This enables real-time communication and updates within the cluster.
-5. High Availability:
+#### 5. High Availability:
    - etcd is designed to be highly available and fault-tolerant. It achieves this by distributing the data across multiple nodes and ensuring that the cluster can continue to function even if some nodes become unavailable.
-6. Secure Communication:
+#### 6. Secure Communication:
    - Communication with etcd can be secured using Transport Layer Security (TLS) to encrypt data in transit. This helps in ensuring the confidentiality and integrity of communication between components.
-7. Backbone of Kubernetes Control Plane:
+#### 7. Backbone of Kubernetes Control Plane:
    - The Kubernetes control plane components, such as the API server, controller manager, and scheduler, rely on etcd for storing and retrieving cluster state information. etcd serves as a critical component in the backbone of the Kubernetes control plane.
-Role in Kubernetes Control Plane:
-In a typical Kubernetes cluster, the etcd cluster is part of the control plane. The control plane consists of components responsible for managing the overall state and operation of the cluster. The key components of the control plane interact with etcd to store and retrieve data related to the cluster's configuration and state.
-The etcd cluster is usually deployed separately from the other control plane components to provide high availability and avoid a single point of failure. Each node in the etcd cluster stores a copy of the entire dataset, and Raft consensus ensures that the nodes agree on the cluster's state.
-In summary, etcd is a distributed key-value store that forms the backbone of the Kubernetes control plane. It provides a reliable and consistent storage solution for managing the configuration and state of a Kubernetes cluster, contributing to the platform's scalability, fault tolerance, and real-time communication capabilities.
-4.	What is API server in kubernetes?
-Ans: The API server is an entry point to the kubernetes. The API Server is used to the user wants to interact to the kubernetes, for example he wants to list the PODs that are available in namespace, so first request goes to API server. All the In-Request and out-request will go through only API Server. And all the administration task will perform by the API Server
-*	The API Server checks the request weather it is valid or not. And process the request.
 
-*	Whenever the request reached to API server, the request information will stored in the “etcd”
-Or
+#### Role in Kubernetes Control Plane:
+In a typical Kubernetes cluster, the etcd cluster is part of the control plane. The control plane consists of components responsible for managing the overall state and operation of the cluster. The key components of the control plane interact with etcd to store and retrieve data related to the cluster's configuration and state.
+
+The etcd cluster is usually deployed separately from the other control plane components to provide high availability and avoid a single point of failure. Each node in the etcd cluster stores a copy of the entire dataset, and Raft consensus ensures that the nodes agree on the cluster's state.
+
+In summary, etcd is a distributed key-value store that forms the backbone of the Kubernetes control plane. It provides a reliable and consistent storage solution for managing the configuration and state of a Kubernetes cluster, contributing to the platform's scalability, fault tolerance, and real-time communication capabilities.
+
+### 4.	What is API server in kubernetes?
+Ans: The API server is an entry point to the kubernetes. The API Server is used to the user wants to interact to the kubernetes, for example he wants to list the PODs that are available in namespace, so first request goes to API server. All the In-Request and out-request will go through only API Server. And all the administration task will perform by the API Server
+* The API Server checks the request weather it is valid or not. And process the request.
+
+* Whenever the request reached to API server, the request information will stored in the “etcd”
+
+`Or`
+
 In Kubernetes, the API server is a core component of the control plane, serving as the primary management point for the entire cluster. It exposes the Kubernetes API, which allows users, administrators, and other components to interact with and control the cluster. The API server is responsible for validating and processing requests, maintaining the cluster state, and serving as the entry point for communication with the control plane.
-Key features and responsibilities of the API server include:
-1. Kubernetes API Endpoints:
+
+#### Key features and responsibilities of the API server include:
+#### 1. Kubernetes API Endpoints:
    - The API server exposes a set of RESTful endpoints that define the Kubernetes API. These endpoints allow users to perform operations such as creating, updating, and deleting resources like pods, services, deployments, and more.
-2. Authentication and Authorization:
+#### 2. Authentication and Authorization:
    - The API server handles authentication and authorization of requests. It verifies the identity of users or components making requests and checks whether they have the necessary permissions to perform the requested actions.
-3. Validation and Admission Control:
+#### 3. Validation and Admission Control:
    - Before modifying the cluster state, the API server performs validation checks to ensure that the requested changes are allowed and conform to the cluster's policies. Admission controllers, which are pluggable components, extend the validation process with additional custom checks.
-4. Cluster State Storage:
+#### 4. Cluster State Storage:
    - The API server stores the current state of the cluster, including information about nodes, pods, services, and other resources. The state is stored in etcd, a distributed key-value store that serves as the data store for the control plane.
-5. Watch Mechanism:
+#### 5. Watch Mechanism:
    - The API server supports a watch mechanism that allows clients to subscribe to changes in the cluster state. This enables real-time notification of modifications to resources, facilitating dynamic updates and synchronization.
-6. Communication with etcd:
+#### 6. Communication with etcd:
    - The API server communicates with etcd to read and update the cluster's configuration and state. It uses etcd as the backend storage for persistent storage of resource configurations.
 
-7. RESTful API:
+#### 7. RESTful API:
    - The Kubernetes API follows RESTful principles, using HTTP methods (GET, POST, PUT, DELETE, etc.) for operations on resources. Resources are represented in JSON or YAML format.
-8. Secured Communication:
+#### 8. Secured Communication:
    - Communication with the API server can be secured using Transport Layer Security (TLS) to encrypt data in transit. This helps ensure the confidentiality and integrity of communication between clients and the API server.
-9. Dynamic Admission Control:
+#### 9. Dynamic Admission Control:
    - The API server supports dynamic admission control, allowing administrators to introduce custom logic for processing requests and making decisions based on policies or external systems.
+
 The API server is a critical component that provides a unified and standardized interface for interacting with a Kubernetes cluster. It acts as the central point for managing and controlling the cluster's resources, making it a fundamental part of the Kubernetes control plane architecture.
-5.	What are the components that are run in Control Plane or Master Node?
+### 5.	What are the components that are run in Control Plane or Master Node?
 Ans: API Server, Scheduler, Controller Manger, etcd.
-6.	What is controller manager in kubernetes?
+### 6.	What is controller manager in kubernetes?
 Ans: for example in our deployment file we define the replicas as start with 5, so here its needs to launch with 5 replicas while deployment. Here the control manger checks every time how many desired PODs and current running PODs. For example desired is 5 that we defined already but if the current PODs are running 4 so now the controller manager creates the remaining one POD by following some steps. This is the job of the controller manager.
-*	Always it checks the desired PODs and also watch the current running PODs. The desired PODs number and current running PODs number always be equal. If it is not equal Controller manager will do that duty.
-Process of Equal the PODs by Controller Manager:
+
+- Always it checks the desired PODs and also watch the current running PODs. The desired PODs number and current running PODs number always be equal. If it is not equal Controller manager will do that duty.
+#### Process of Equal the PODs by Controller Manager:
 In Controller Manager it has some controller’s i.e Deployment, Replica Set, and Replication Controller.
 Here the request goes to the controller and these controllers will create the replicas that we require.
-Or
-In Kubernetes, the Controller Manager is one of the core components of the control plane. The control plane is responsible for managing and maintaining the desired state of the cluster, ensuring that the actual state converges toward the desired state. The Controller Manager consists of various controllers, each responsible for managing specific aspects of the cluster's resources and ensuring their proper functioning.
-Key responsibilities and components of the Controller Manager include:
 
-1. Replication Controller:
+`Or`
+
+In Kubernetes, the Controller Manager is one of the core components of the control plane. The control plane is responsible for managing and maintaining the desired state of the cluster, ensuring that the actual state converges toward the desired state. The Controller Manager consists of various controllers, each responsible for managing specific aspects of the cluster's resources and ensuring their proper functioning.
+#### Key responsibilities and components of the Controller Manager include:
+
+#### 1. Replication Controller:
    - Ensures that the specified number of replicas for a set of pods are running at all times. If a pod fails or is deleted, the Replication Controller takes corrective actions to maintain the desired number of replicas.
-2. Node Controller:
+#### 2. Node Controller:
    - Manages and monitors the state of nodes in the cluster. If a node becomes unreachable or is reported as unhealthy, the Node Controller takes actions to address the situation, such as rescheduling affected pods to other nodes.
-3. Namespace Controller:
+#### 3. Namespace Controller:
    - Observes the creation and deletion of namespaces within the cluster. It ensures that resources associated with a namespace are properly handled, and it reacts to namespace-related events.
-4. Service Account & Token Controllers:
+#### 4. Service Account & Token Controllers:
    - Create default accounts and API access tokens for new namespaces. These controllers automate the creation of service accounts and associated tokens to enhance security within the cluster.
-5. Endpoint Controller:
+#### 5. Endpoint Controller:
    - Populates the Endpoints object (representing a set of addresses for a service) based on the current state of the pods associated with the service.
-6. Service Controller:
+#### 6. Service Controller:
    - Monitors the creation, update, and deletion of services within the cluster. It ensures that services are properly configured and maintained based on changes to their specifications.
-7. Service External IP Controller:
+#### 7. Service External IP Controller:
    - Manages the assignment of external IP addresses to services of type LoadBalancer, working in conjunction with cloud providers or load balancer solutions.
-8. Volume Controller:
+### 8. Volume Controller:
    - Ensures that Persistent Volumes (PVs) and Persistent Volume Claims (PVCs) are correctly provisioned and bound. It reconciles the state of storage resources within the cluster.
-9. Replica Set Controller:
+#### 9. Replica Set Controller:
    - Similar to the Replication Controller, the Replica Set Controller manages the deployment and scaling of replica sets, allowing for more sophisticated pod management.
-10. Daemon Set Controller:
+#### 10. Daemon Set Controller:
     - Ensures that a specified set of pods (daemons) runs on every node in the cluster. Daemon sets are often used for system-level tasks, such as log collection or monitoring.
 
 These controllers continuously monitor the cluster state, detect any deviations from the desired state, and take corrective actions to converge the state back to the desired configuration. The Controller Manager ensures the high availability, reliability, and consistency of the cluster by managing a variety of resources and responding to changes within the system.
+
 Each controller operates independently, focusing on specific resource types and maintaining the desired state for those resources. Together, they collectively contribute to the overall health and operation of a Kubernetes cluster.
-7.	What is Scheduler in kubernetes?
+### 7.	What is Scheduler in kubernetes?
 Ans: Generally our PODs needs to be run on worker nodes (slave nodes). The scheduler will schedule the PODs on the worker nodes.
-Or
+
+`Or`
+
 In Kubernetes, the Scheduler is a core component of the control plane responsible for assigning pods to nodes in the cluster based on resource requirements, constraints, and other policies. The Scheduler enhances the efficiency of resource utilization and ensures that pods are placed on suitable nodes according to the specified criteria.
-Key responsibilities and characteristics of the Scheduler include:
-1. Pod Scheduling:
+#### Key responsibilities and characteristics of the Scheduler include:
+#### 1. Pod Scheduling:
    - The Scheduler decides on which node a newly created pod should run. It takes into account factors such as resource requirements, affinity/anti-affinity rules, node capacity, and other user-defined constraints.
-2. Decentralized Architecture:
+#### 2. Decentralized Architecture:
    - Unlike other control plane components, the Scheduler operates in a decentralized manner. Each node has its own instance of the Scheduler, and their primary function is to schedule pods on their respective nodes.
-3. Binding Decision:
+#### 3. Binding Decision:
    - The Scheduler makes a binding decision, determining the association between a pod and a specific node. The decision is based on the evaluation of multiple factors, including resource availability, node conditions, and any specified scheduling constraints.
-4. Custom Scheduling Policies:
+#### 4. Custom Scheduling Policies:
    - Users can customize scheduling policies using features like node affinity, node selectors, and taints/tolerations. These mechanisms allow users to influence the placement of pods based on node characteristics or relationships.
-5. Pod Priority and Preemption:
+#### 5. Pod Priority and Preemption:
    - Kubernetes allows users to assign priority to pods. The Scheduler takes pod priority into consideration when making scheduling decisions, and it can preempt lower-priority pods to make room for higher-priority ones when necessary.
-6. Extensibility:
+#### 6. Extensibility:
    - The Scheduler is designed to be extensible, and users can implement custom scheduling policies by creating their own scheduling plugins. This extensibility enables customization to meet specific cluster requirements.
-7. Interacts with the API Server:
+#### 7. Interacts with the API Server:
    - The Scheduler interacts with the Kubernetes API server to watch for newly created pods that need to be scheduled. It receives notifications about pod creation events and then determines the appropriate node for each pod.
-8. Pod Affinity and Anti-Affinity:
+#### 8. Pod Affinity and Anti-Affinity:
    - Pod affinity and anti-affinity rules allow users to influence the scheduling of pods based on their relationships with other pods. For example, users can specify that a pod should be scheduled on a node where certain other pods are running or should avoid being co-located with specific pods.
-Scheduling Process:
-1. Pod Creation:
+#### Scheduling Process:
+#### 1. Pod Creation:
    - When a user creates a new pod (or a deployment, StatefulSet, etc., creates a pod), the pod is submitted to the Kubernetes API server.
-2. Pod Added to the API Server:
+#### 2. Pod Added to the API Server:
    - The API server adds the pod to its datastore, making the information available for other components to watch.
-3. Scheduling Event:
+#### 3. Scheduling Event:
    - The Scheduler watches the API server for newly created pods or changes in existing pod configurations. Upon detecting a new pod or an update, the Scheduler initiates the scheduling process.
-4. Scheduling Decision:
+### 4. Scheduling Decision:
    - The Scheduler evaluates the pod's resource requirements, constraints, and policies to make a scheduling decision. It selects an appropriate node for the pod.
-5. Binding the Pod to a Node:
+#### 5. Binding the Pod to a Node:
    - The Scheduler binds the pod to a specific node by updating the pod's status in the API server.
-6. Kubelet Deploys the Pod:
+#### 6. Kubelet Deploys the Pod:
    - The selected node's Kubelet, which runs on each node, receives the scheduling decision and deploys the pod according to the Scheduler's instructions.
 The Scheduler continuously monitors the cluster state and makes scheduling decisions as new pods are created or as changes occur. Its goal is to distribute the workload across nodes efficiently, taking into account the cluster's overall health and resource availability.
-8.	Difference between scheduler and controller manager?
+### 8.	Difference between scheduler and controller manager?
 Ans: Already available
-9.	Difference between API Server and etcd?
+### 9.	Difference between API Server and etcd?
 Ans: Already available
-10.	How to attach the Worker node to the Master node in kuberenetes ?
+### 10.	How to attach the Worker node to the Master node in kuberenetes ?
 Ans: By using “kubeadm join” command we will attach the worker node to master node
 *	As soon as we attach the worker node to master node, kubelet and kube-proxy services will automatically create by using “Daemonset service”.
-Or
+
+`Or`
+
 In Kubernetes, attaching a worker node (also known as a minion or worker) to the master node involves configuring the worker node to communicate with the master node. This typically includes setting up the necessary components and ensuring that the worker node is properly authenticated and authorized to join the cluster. Below are the general steps to attach a worker node to the master node:
-1. Prerequisites:
+#### 1. Prerequisites:
    - Ensure that both the master and worker nodes have a compatible operating system (e.g., Linux).
    - Make sure that the necessary ports are open for communication between nodes.
-2. Install Docker (if not already installed):
+#### 2. Install Docker (if not already installed):
    - On both the master and worker nodes, install Docker or any other container runtime that Kubernetes supports.
-3. Install kubelet and kubeadm:
+#### 3. Install kubelet and kubeadm:
    - On both the master and worker nodes, install the Kubernetes components (`kubelet` and `kubeadm`). You can use a package manager or download the binaries directly from the Kubernetes release page.
    ```bash
    # On Ubuntu, for example
    sudo apt-get update && sudo apt-get install -y kubelet kubeadm
    ```
-4. Initialize the Master Node (if not done):
+#### 4. Initialize the Master Node (if not done):
    - On the master node, initialize the Kubernetes cluster using `kubeadm`. This typically involves running a command similar to the following:
    ```bash
    sudo kubeadm init --apiserver-advertise-address=<master-node-ip> --pod-network-cidr=<pod-network-cidr>
    ```
    - Note the output, especially the token and join command, as it will be needed to join worker nodes.
-5. Join the Worker Node:
+#### 5. Join the Worker Node:
    - On the worker node, run the `kubeadm join` command obtained from the output of the `kubeadm init` on the master node.
    ```bash
    sudo kubeadm join <master-node-ip>:<master-node-port> --token <token> --discovery-token-ca-cert-hash <ca-cert-hash>
    ```
    - Replace `<master-node-ip>`, `<master-node-port>`, `<token>`, and `<ca-cert-hash>` with the values obtained from the master node initialization.
-6. Copy kubeconfig to Worker Node:
+#### 6. Copy kubeconfig to Worker Node:
    - Copy the kubeconfig file from the master node to the worker node. The kubeconfig file typically resides at `/etc/kubernetes/admin.conf` on the master node.
    ```bash
    sudo scp <master-node-ip>:/etc/kubernetes/admin.conf /etc/kubernetes/kubeconfig
    ```
-7. Start kubelet on Worker Node:
+#### 7. Start kubelet on Worker Node:
    - Start the `kubelet` service on the worker node.
    ```bash
    sudo systemctl enable kubelet
    sudo systemctl start kubelet
    ```
-8. Verify Node Joining:
+#### 8. Verify Node Joining:
    - On the master node, run the following command to verify that the worker node has joined the cluster:
    ```bash
    kubectl get nodes
    ```
    - The output should show both the master and worker nodes with a `Ready` status.
 That's it! The worker node is now attached to the master node in the Kubernetes cluster. Repeat the process for additional worker nodes if needed. Note that the steps may vary slightly depending on your specific configuration and Kubernetes version. Always refer to the official Kubernetes documentation for the most up-to-date instructions.
-11.	What is the use of Daemonset in kubernetes?
+### 11.	What is the use of Daemonset in kubernetes?
 Ans: Suppose we have two nodes, I want to install the service in this two nodes for monitoring purpose so here that monitoring service will monitor all the details about the containers that are present in the two nodes like how much CPU usage and memory usage.
+
 So for that purpose we need to install the monitoring service in the worker nodes every time.
 So to avoid that we install monitoring service in Control Plan that is called metric server. This metric server is created by using Daemonset component. As soon as we attach the worker node to the master node, daemonset creates the metric server POD on the worker nodes.
 * kubelet and kube-proxy is also created by daemonset component that are created in the Control Plane.
-Or
+
+`Or`
+
 In Kubernetes, a DaemonSet is a resource object that ensures that a copy of a specific pod runs on all or a subset of nodes in a cluster. The primary use case for DaemonSets is to ensure that certain system-level services or monitoring agents are deployed on every node in the cluster. Unlike other controllers like Deployments or ReplicaSets, which manage a desired number of replicas across the entire cluster, DaemonSets focus on running at least one copy of a pod on each node.
-Key characteristics and use cases of DaemonSets include:
-1. One Pod Per Node:
+#### Key characteristics and use cases of DaemonSets include:
+#### 1. One Pod Per Node:
    - DaemonSets are designed to run exactly one instance of a pod on each node in the cluster. This ensures that the specified workload is deployed universally across the entire cluster.
-2. Node Affinity:
+#### 2. Node Affinity:
    - DaemonSets can be configured with node affinity rules, allowing users to control which nodes the pods are scheduled to based on node labels or other criteria. This provides flexibility in selecting the subset of nodes where the DaemonSet pods should run.
-3. System Services and Agents:
+#### 3. System Services and Agents:
    - DaemonSets are commonly used for deploying system-level services, agents, or infrastructure-related components that need to run on every node. Examples include log collectors, monitoring agents, network plugins, or any other services that require node-level visibility or interaction.
-4. Auto-Scaling with Nodes:
+#### 4. Auto-Scaling with Nodes:
    - When nodes are added to the cluster, DaemonSets automatically ensure that the specified pods are deployed on the new nodes, maintaining the desired state of one pod per node.
-5. Rolling Updates:
+#### 5. Rolling Updates:
    - DaemonSets support rolling updates, allowing for the controlled and gradual deployment of new versions or changes to the pods running on nodes. This helps in minimizing disruptions to the system services.
-6. Deletion of Pods:
+#### 6. Deletion of Pods:
    - When a node is removed from the cluster or a DaemonSet is deleted, the DaemonSet ensures that the corresponding pods on that node are terminated gracefully.
-Example DaemonSet YAML:
-Here's a simple example of a DaemonSet YAML file:
+#### Example DaemonSet YAML:
+#### Here's a simple example of a DaemonSet YAML file:
+
 ```yaml
 apiVersion: apps/v1
 kind: DaemonSet
@@ -3444,7 +3510,7 @@ spec:
       - name: example-container
         image: example-image:latest
 ```
-In this example:
+#### In this example:
 - The DaemonSet ensures that one pod with the label `app=example` runs on each node.
 - The pod template specifies a container (`example-container`) using a specific container image (`example-image:latest`).
 To deploy the DaemonSet, you can apply this YAML file using the `kubectl apply` command:
@@ -3453,116 +3519,129 @@ To deploy the DaemonSet, you can apply this YAML file using the `kubectl apply` 
 kubectl apply -f example-daemonset.yaml
 ```
 This DaemonSet will then ensure that one pod runs on each node, implementing the desired state across the cluster. Adjust the YAML configuration based on your specific requirements and container images.
-12.	What are the components that are run on the worker nodes?
+### 12.	What are the components that are run on the worker nodes?
 Ans: kubelet and kube-proxy.
-13.	What is the use of kubelet in kubernetes?
+### 13.	What is the use of kubelet in kubernetes?
 Ans: kubelet is a component or an agent. By using the kubelet we can communicate control plane to worker nodes. When the request starts from Control plane through the API Server it goes to the kubelet on the worker node. And if the request needs to go from the worker node to master node or control plane it should come from kubelet.
-●	Kubelet always checks the health of the PODs and send the report to the master node
-●	Communication between master nodes to worker node is responsible by the kubelet.
-Or
+- Kubelet always checks the health of the PODs and send the report to the master node
+- Communication between master nodes to worker node is responsible by the kubelet.
+
+`Or`
+
 In Kubernetes, the kubelet is a critical component that runs on each node in the cluster. It is responsible for maintaining the desired state of pods, ensuring that containers are running and healthy, and reporting the node's status to the control plane. The kubelet plays a key role in the orchestration and management of containers within a Kubernetes cluster
-Key responsibilities and functions of the kubelet include:
-1. Pod Execution:
+
+#### Key responsibilities and functions of the kubelet include:
+
+#### 1. Pod Execution:
    - The kubelet is responsible for ensuring that containers defined in pods are correctly launched and running on the node. It communicates with the container runtime (e.g., Docker, containerd) to start, stop, and manage containers.
-2. Pod Lifecycle Management:
+#### 2. Pod Lifecycle Management:
    - The kubelet monitors the state of pods on the node and takes appropriate actions to maintain the desired state. It can restart containers if they fail, reschedule pods to other nodes if needed, and respond to changes in pod specifications.
-3. Container Health Checks:
+#### 3. Container Health Checks:
    - The kubelet performs periodic health checks on containers within pods. It reports the health status to the control plane, allowing Kubernetes to take corrective actions if a container becomes unhealthy.
-4. Resource Monitoring:
+#### 4. Resource Monitoring:
    - The kubelet monitors the resource usage (CPU, memory, etc.) of containers on the node. This information is used for resource allocation decisions and can be exposed as metrics for monitoring.
-5. Node Status Reporting:
+#### 5. Node Status Reporting:
    - The kubelet regularly reports the status of the node, including its capacity, utilization, and conditions, to the Kubernetes API server. This information helps the control plane make informed scheduling decisions.
-6. Volume Management:
+#### 6. Volume Management:
    - The kubelet manages storage volumes associated with pods. It mounts volumes specified in pod configurations and ensures that the containers have access to the required storage.
-7. Kubelet API Server:
+#### 7. Kubelet API Server:
    - The kubelet exposes an API server on each node, allowing the control plane to interact with it. The API server is used for operations such as executing commands in containers, accessing container logs, and performing health checks.
-8. Eviction Policies:
+#### 8. Eviction Policies:
    - The kubelet enforces eviction policies to reclaim resources when the node is under pressure. It can evict pods based on criteria such as QoS class, pod priority, and resource constraints.
-9. Pod Annotations and Labels:
+#### 9. Pod Annotations and Labels:
    - The kubelet can read annotations and labels on pods to influence its behavior. For example, annotations may provide configuration details for a specific container runtime, and labels may be used for node affinity rules.
-10. Container Runtime Interface (CRI):
+#### 10. Container Runtime Interface (CRI):
     - The kubelet interacts with container runtimes through a standard interface known as the Container Runtime Interface (CRI). This abstraction allows Kubernetes to support multiple container runtimes.
-11. Runtime Configuration:
+#### 11. Runtime Configuration:
     - The kubelet is configurable, and administrators can specify various settings, including the container runtime, container image policies, and node-specific parameters.
 The kubelet is a fundamental component that bridges the gap between the control plane and the container runtime on each node. It ensures that the containers defined in pods are operational, healthy, and aligned with the desired state, contributing to the overall stability and reliability of the Kubernetes cluster.
 
-14.	What is kube-proxy in kubernetes?
+#### 14.	What is kube-proxy in kubernetes?
 Ans: kube-proxy is just like the internal load balancer. When the request comes to the container, the request first goes to the kube-proxy. In kube-proxy we have a service called name, so the PODs which are assigned to that particular service the request goes to that PODs.
-●	We assign the PODs to the service. Whenever we access the service it redirects traffic to the PODs.
-	Or
+- We assign the PODs to the service. Whenever we access the service it redirects traffic to the PODs.
+	
+    `Or`
+
 	In Kubernetes, `kube-proxy` is a network proxy and load balancer that runs on each node in the cluster. Its primary purpose is to maintain network rules on nodes and perform connection forwarding for the Kubernetes networking model. `kube-proxy` is responsible for ensuring that network traffic is correctly routed to the appropriate pods, enabling communication both within the cluster and with external services.
-Key responsibilities and functions of `kube-proxy` include:
-1. Service Abstraction:
+#### Key responsibilities and functions of `kube-proxy` include:
+#### 1. Service Abstraction:
    - `kube-proxy` abstracts the concept of a Kubernetes Service, which is a stable endpoint that can represent a set of pods. Services in Kubernetes provide a way to expose applications and microservices to other components within the cluster or externally.
-2. Service Discovery:
+#### 2. Service Discovery:
    - It implements service discovery by managing a set of virtual IP addresses (ClusterIP) for services. These virtual IP addresses are used by clients to access the service, and `kube-proxy` ensures that the traffic is correctly load-balanced across the pods backing the service.
-3. Load Balancing:
+#### 3. Load Balancing:
    - `kube-proxy` performs load balancing for services by distributing incoming connections among the available pods associated with the service. This ensures that the workload is evenly distributed and contributes to the high availability and reliability of applications.
-4. Endpoint Slices:
+#### 4. Endpoint Slices:
    - In newer Kubernetes versions, `kube-proxy` can use Endpoint Slices to efficiently manage the endpoints (pods) associated with a service. Endpoint Slices provide a more scalable and flexible approach compared to the previous Endpoints API.
-5. IPVS Mode:
+#### 5. IPVS Mode:
    - `kube-proxy` supports different proxy modes, and one of the modes is IPVS (IP Virtual Server). IPVS is a Linux kernel feature that provides advanced load balancing capabilities. It is often used for large-scale deployments.
-6. iptables Mode:
+#### 6. iptables Mode:
    - The default mode for `kube-proxy` is iptables. In this mode, `kube-proxy` uses iptables rules to implement service load balancing. While not as feature-rich as IPVS, it is simpler and sufficient for many clusters.
-7. Network Policies:
+#### 7. Network Policies:
    - `kube-proxy` enforces network policies by implementing rules that control the flow of traffic between pods. Network policies define how different groups of pods can communicate with each other, adding an additional layer of security.
-8. Health Checking:
+#### 8. Health Checking:
    - `kube-proxy` periodically checks the health of endpoints (pods) associated with a service. If an endpoint becomes unhealthy or goes offline, `kube-proxy` adjusts the load balancing accordingly.
-9. Proxy Watches API Server:
+#### 9. Proxy Watches API Server:
    - `kube-proxy` watches the Kubernetes API server for changes to services and endpoints. When changes occur (e.g., creation or deletion of services), `kube-proxy` updates its rules accordingly.
-10. NodePort Service Type:
+#### 10. NodePort Service Type:
     - For services of type NodePort, `kube-proxy` is responsible for implementing the NodePort functionality. It opens a port on each node, forwarding traffic to the appropriate backend pods.
 `kube-proxy` is a crucial component for ensuring network connectivity and load balancing in a Kubernetes cluster. Its ability to abstract services, manage endpoints, and handle different proxy modes makes it an integral part of the networking layer, contributing to the overall functionality and reliability of applications running in the cluster.	
-15.	What is kubernetes master and slave node?
+### 15.	What is kubernetes master and slave node?
 Ans: Master Node: Control Plane is called Master Node. In Master node, these services like API Server, Scheduler, Controller Manager and etcd will run.
-Slave Nodes: Worker nodes are called slave nodes
-All the PODs in kubernetes are run in the slave node that we define already.
-Or
+`Slave Nodes:` Worker nodes are called slave nodes
+- All the PODs in kubernetes are run in the slave node that we define already.
+
+`Or`
+
 Already available
-16.	What is namespace?
+### 16.	What is namespace?
 Ans: Namespace is a grouping mechanism inside the kubernetes container. 
 Kubernetes is a cluster, we divide the cluster as an individual PODs. All these PODs are called namespace.
-●	We create the namespaces in the cluster and we launch the containers in the particular namespaces.
-●	Ex: we create the namespaces as Dev, Testing,Pre-Production,Production, Performance Testing
-●		In kubernetes cluster we have a namespace, in that name space we have a POD, in that pod we have the container, and in that container we have our application.
-Or
+- We create the namespaces in the cluster and we launch the containers in the particular namespaces.
+- Ex: we create the namespaces as Dev, Testing,Pre-Production,Production, Performance Testing
+- In kubernetes cluster we have a namespace, in that name space we have a POD, in that pod we have the container, and in that container we have our application.
+
+`Or`
+
 Already available
-17.	What is kubectl in kubernetes?
+### 17.	What is kubectl in kubernetes?
 Ans: kubectl is a command line interface (CLI). If we want to access the cluster resources we need kubectl. It is a command line tool this we can install by using the command.
 Suppose if you want to list the PODs in namespace, through the kubectl only we can get the PODs.
 Ex: kubectl get namespaces (or) kubectl get pods namespace-name
 
-or
+`or`
 
 `kubectl` is the official command-line tool for interacting with Kubernetes clusters. It is a powerful and versatile utility that allows users to manage and control Kubernetes clusters directly from the command line. `kubectl` provides a unified and consistent interface to interact with various Kubernetes resources, perform operations, and query the state of the cluster.
-Key features and functions of `kubectl` include:
-1. Cluster Interaction:
+
+#### Key features and functions of `kubectl` include:
+#### 1. Cluster Interaction:
    - `kubectl` allows users to interact with one or more Kubernetes clusters. Users can switch between clusters or contexts to target different environments.
-2. Resource Management:
+#### 2. Resource Management:
    - Users can create, modify, and delete Kubernetes resources using `kubectl`. This includes deploying applications, configuring services, managing volumes, and more.
-3. Pod Operations:
+#### 3. Pod Operations:
    - `kubectl` provides commands for working with pods, such as creating pods, inspecting their logs, executing commands inside them, and managing their lifecycle.
-4. Service Management:
+#### 4. Service Management:
    - Users can create and manage services, including exposing applications internally or externally, using the `kubectl` tool.
-5. Deployment Management:
+#### 5. Deployment Management:
    - `kubectl` supports managing Deployments, ReplicaSets, and other higher-level abstractions for deploying and updating applications in a declarative manner.
-6. Configuration Management:
+#### 6. Configuration Management:
    - Users can configure and manage various aspects of the cluster, including contexts, clusters, users, and API versions, using `kubectl config` commands.
-7. Namespace Operations:
+#### 7. Namespace Operations:
    - `kubectl` allows users to work with Kubernetes namespaces, isolating resources and applications within distinct logical boundaries.
-8. Rolling Updates and Rollbacks:
+#### 8. Rolling Updates and Rollbacks:
    - `kubectl` facilitates rolling updates for applications, allowing users to update container images, configurations, and other parameters with minimal disruption. It also supports rolling back to previous configurations if needed.
-9. Scaling:
+#### 9. Scaling:
    - Users can scale applications by adjusting the number of replicas for Deployments or ReplicaSets using the `kubectl scale` command.
-10. Access Control:
-    - `kubectl` supports access control operations, such as creating and managing service accounts, roles, role bindings, and other RBAC (Role-Based Access Control) resources.
-11. Label and Annotation Management:
-    - Labels and annotations are important metadata in Kubernetes. `kubectl` enables users to label resources for categorization and annotation for additional information.
-12. Plugin Support:
-    - `kubectl` has a plugin architecture that allows extending its functionality with custom plugins. Users can write and install plugins to enhance `kubectl` with additional features.
-13. Resource Inspection:
-    - Users can inspect the details of various Kubernetes resources, such as pods, services, nodes, and configurations.
-Examples:
+#### 10. Access Control:
+- `kubectl` supports access control operations, such as creating and managing service accounts, roles, role bindings, and other RBAC (Role-Based Access Control) resources.
+#### 11. Label and Annotation Management:
+- Labels and annotations are important metadata in Kubernetes. `kubectl` enables users to label resources for categorization and annotation for additional information.
+#### 12. Plugin Support:
+- `kubectl` has a plugin architecture that allows extending its functionality with custom plugins. Users can write and install plugins to enhance `kubectl` with additional features.
+#### 13. Resource Inspection:
+- Users can inspect the details of various Kubernetes resources, such as pods, services, nodes, and configurations.
+
+`Examples:`
+
 ```bash
 # Get cluster information
 kubectl cluster-info
@@ -3582,25 +3661,29 @@ kubectl expose deployment <deployment-name> --type=LoadBalancer --port=80
 kubectl exec -it <pod-name> -- /bin/bash
 ```
 These are just a few examples, and `kubectl` supports a wide range of commands and options for managing and interacting with Kubernetes clusters. Users can refer to the official Kubernetes documentation and `kubectl` help commands for more detailed information and usage examples.
-18.	Why we use labels?
-Ans: We assign the services to the PODs only by using labels For example in POD we define the label name as, vinod:Prod
+### 18.	Why we use labels?
+Ans: We assign the services to the PODs only by using labels For example in POD we define the label name as, `vinod:Prod`
 So in service we give the same label  as vinod:Prod. So based on the label identification the service will redirect to the particular POD, i.e the defined label is available POD.
+
 Or Labels in Kubernetes serve several important purposes, making them a versatile and valuable feature within the system. Here are some key reasons why labels are used in Kubernetes:
+### 19. What is node selector?
+Ans: 
 In service we define that the particular POD is needs to run in which node. That is known as “node selector”
 In node selector we give the label name, for example we have a node by using the command we can give the label name
-*	“kubectl label nodes node-IPAddress (or) host-name label-name(i.e vi: Prod)”
-*	By using this command the labels which are assigned to the node all the respective PODs will run on the particular node.
-*	Then we give the node name in node selector under services. Then these PODs will run on the particular node.
-*	Simply we can say while we add the slave node to the master node by default some PODs will run. But if you want to run selected PODs, in that POD we simple give the labels, i.e The labels which already defined to the PODs (Ex: vi:pro) by using this we create the node selector, that node name we will define in the service, then particular PODs will run on the nodes
-Or
+* “kubectl label nodes node-IPAddress (or) host-name label-name(i.e vi: Prod)”
+* By using this command the labels which are assigned to the node all the respective PODs will run on the particular node.
+* Then we give the node name in node selector under services. Then these PODs will run on the particular node.
+* Simply we can say while we add the slave node to the master node by default some PODs will run. But if you want to run selected PODs, in that POD we simple give the labels, i.e The labels which already defined to the PODs (Ex: vi:pro) by using this we create the node selector, that node name we will define in the service, then particular PODs will run on the nodes
 
-1. Identification and Categorization:
+`Or`
+
+#### 1. Identification and Categorization:
    - Labels provide a way to attach key-value pairs to Kubernetes objects such as pods, nodes, services, and more. This allows users to assign meaningful identifiers or categories to objects, making it easier to understand their purpose or role in the context of an application or system architecture.
 
-2. Grouping and Organization:
+#### 2. Grouping and Organization:
    - Labels allow for the logical grouping and organization of resources. Objects can be labeled based on various criteria such as environment (e.g., "production" or "development"), application component (e.g., "frontend" or "backend"), or any other relevant classification.
 
-3. Selection and Filtering:
+#### 3. Selection and Filtering:
    - Labels enable powerful and flexible selection of objects based on specific criteria. Users can use `kubectl` commands or queries to select subsets of resources with particular labels. This is useful for managing, querying, or operating on specific groups of objects.
 
       ```bash
@@ -3611,34 +3694,34 @@ Or
       kubectl get pods -l environment=production,app=web
       ```
 
-4. Versioning and Release Management:
+#### 4. Versioning and Release Management:
    - Labels can be used to track versions or releases of applications. This is particularly useful for managing rolling updates, canary releases, or other deployment strategies where different versions of an application are running concurrently.
 
-5. Monitoring and Observability:
+#### 5. Monitoring and Observability:
    - Labels are commonly used for attaching metadata related to monitoring and observability. Information such as the application version, owner, or team responsible for maintenance can be associated with objects through labels.
 
-6. Routing and Load Balancing:
+#### 6. Routing and Load Balancing:
    - Labels play a crucial role in services and selectors, defining how traffic is routed to pods. Services use label selectors to discover and load balance across pods with specific labels, contributing to efficient load distribution.
 
-7. Dynamic Configuration:
+#### 7. Dynamic Configuration:
    - Labels can be used for dynamic configuration based on runtime characteristics. For example, nodes might be labeled with hardware capabilities, and pod specifications can use node selectors to ensure that pods are scheduled on nodes with specific labels.
 
-8. Policy Enforcement:
+#### 8. Policy Enforcement:
    - Labels contribute to policy enforcement within a Kubernetes cluster. Network policies, for instance, can be configured to restrict communication between pods based on their labels, enhancing security and isolation.
 
-9. Automation and Tooling:
+#### 9. Automation and Tooling:
    - Labels are valuable for automation and tooling within the Kubernetes ecosystem. Custom scripts, controllers, or other automation processes can leverage labels to make decisions or take actions based on metadata attached to objects.
 
-10. Integration with Higher-Level Tools:
+#### 10. Integration with Higher-Level Tools:
     - Labels provide a standard way to categorize and manage resources, making them compatible with higher-level tools and platforms. Continuous integration/continuous deployment (CI/CD) pipelines or Kubernetes operators may use labels to organize and manage resources efficiently.
 
-11. Flexibility and Customization:
+#### 11. Flexibility and Customization:
     - Labels offer a high degree of flexibility, allowing users to define their own key-value pairs based on specific requirements. This makes labels a customizable and adaptable mechanism for expressing relationships and characteristics of objects.
  
 In Kubernetes, labels are used to attach metadata to objects such as pods, nodes, services, and more. Labels provide a flexible and expressive way to organize, select, and manage resources within a cluster. 
 Here are some common use cases for labels in Kubernetes along with examples:
 
-1. Environment Classification:
+#### 1. Environment Classification:
    - Example: Labeling pods based on the environment (e.g., "production" or "development").
      ```yaml
      apiVersion: v1
@@ -3652,7 +3735,7 @@ Here are some common use cases for labels in Kubernetes along with examples:
          - name: nginx
            image: nginx:latest
      ```
-2. Application Component:
+#### 2. Application Component:
    - Example: Labeling pods based on the application component (e.g., "frontend" or "backend").
      ```yaml
      apiVersion: v1
@@ -3667,7 +3750,7 @@ Here are some common use cases for labels in Kubernetes along with examples:
            image: frontend-image:latest
      ```
 
-3. Versioning:
+#### 3. Versioning:
    - Example: Labeling pods to indicate the application version.
      ```yaml
      apiVersion: v1
@@ -3682,7 +3765,7 @@ Here are some common use cases for labels in Kubernetes along with examples:
            image: app-image:v1.2.3
      ```
 
-4. Role or Function:
+#### 4. Role or Function:
    - Example: Labeling nodes based on their role or function (e.g., "worker" or "database").
      ```yaml
      apiVersion: v1
@@ -3693,7 +3776,7 @@ Here are some common use cases for labels in Kubernetes along with examples:
          role: worker
      ```
 
-5. Release Management:
+#### 5. Release Management:
    - Example: Labeling pods to distinguish between different stages of a release (e.g., "canary" or "stable").
      ```yaml
      apiVersion: v1
@@ -3703,7 +3786,7 @@ Here are some common use cases for labels in Kubernetes along with examples:
        labels:
          release-stage: canary
      ```
-6. Owner or Team:
+#### 6. Owner or Team:
    - Example: Labeling pods with information about the team or owner.
      ```yaml
      apiVersion: v1
@@ -3718,7 +3801,7 @@ Here are some common use cases for labels in Kubernetes along with examples:
            image: app-image:latest
      ```
 
-7. Networking Policies:
+#### 7. Networking Policies:
    - Example: Applying network policies based on labels to control communication between pods.
      ```yaml
      apiVersion: networking.k8s.io/v1
@@ -3736,7 +3819,7 @@ Here are some common use cases for labels in Kubernetes along with examples:
                  app: backend
      ```
 
-8. Node Affinity:
+#### 8. Node Affinity:
    - Example: Using labels to express node affinity in a pod's scheduling preferences.
      ```yaml
      apiVersion: v1
@@ -3758,7 +3841,7 @@ Here are some common use cases for labels in Kubernetes along with examples:
          image: affinity-image:latest
      ```
 
-9. Pod Selection in Services:
+#### 9. Pod Selection in Services:
    - Example: Configuring a service to select pods based on labels.
      ```yaml
      apiVersion: v1
@@ -3774,9 +3857,9 @@ Here are some common use cases for labels in Kubernetes along with examples:
            targetPort: 8080
      ```
 
-10. Dynamic Configuration:
-    - Example: Labeling nodes with hardware capabilities for dynamic pod scheduling.
-      ```yaml
+#### 10. Dynamic Configuration:
+- Example: Labeling nodes with hardware capabilities for dynamic pod scheduling.
+    ```yaml
       apiVersion: v1
       kind: Node
       metadata:
@@ -3785,45 +3868,51 @@ Here are some common use cases for labels in Kubernetes along with examples:
           gpu: present
       ```
 
-These examples illustrate how labels in Kubernetes are used for various purposes, from organizational and operational considerations to influencing scheduling decisions, networking policies, and release management. Labels provide a powerful and flexible mechanism for metadata attachment, enabling effective management and organization of resources within a Kubernetes cluster.
+- These examples illustrate how labels in Kubernetes are used for various purposes, from organizational and operational considerations to influencing scheduling decisions, networking policies, and release management. 
+
+- Labels provide a powerful and flexible mechanism for metadata attachment, enabling effective management and organization of resources within a Kubernetes cluster.
 
 In summary, labels in Kubernetes are a powerful mechanism for attaching metadata to objects, contributing to improved organization, selection, and management of resources within a cluster. Their flexibility and versatility make them a fundamental feature for various use cases in Kubernetes environments.What is node selector in kubernetes?
-19.	What is deployment?
-Ans: In Kubernetes, Deployment is used to provide declarative updates to Pods as well as ReplicaSets. Also, a Deployment Controller is the higher version of a Replication Controller, as it Removes, Adds, Updates Pods in ReplicaSets. We need this to work faster and dynamically when we have ReplicaSets with tens of pods, and we are in need to modify them. By using Kubernetes Deployment, this can be achieved with very little effort if used in a correct way.
+### 20.	What is deployment?
+Ans: In Kubernetes, Deployment is used to provide declarative updates to Pods as well as ReplicaSets. Also, a Deployment Controller is the higher version of a Replication Controller, as it Removes, Adds, Updates Pods in ReplicaSets. 
+
+We need this to work faster and dynamically when we have ReplicaSets with tens of pods, and we are in need to modify them. By using Kubernetes Deployment, this can be achieved with very little effort if used in a correct way.
 
 Kubernetes Deployment works based on the specification YAML file, and you describe a required state in that. Then Deployment Controller changes the current state of Pods or ReplicaSets to the required state. We can define Deployments to create new ReplicaSets or to delete existing ReplicaSets or many other operations.
-Or
+
+`Or`
+
 In Kubernetes, a Deployment is a resource object that defines the desired state for a set of replica pods. It provides a declarative way to manage the deployment and scaling of applications in a Kubernetes cluster. Deployments abstract away the underlying complexities of managing individual pods and ensure that the specified number of replicas are running and accessible.
 
-Key features and characteristics of Deployments include:
+#### Key features and characteristics of Deployments include:
 
-1. Declarative Configuration:
+#### 1. Declarative Configuration:
    - Deployments use a declarative configuration, allowing users to define the desired state of the application and its replicas. Users specify attributes such as the container image, replicas, labels, and more.
 
-2. Pod Template:
+#### 2. Pod Template:
    - Deployments define a pod template that describes the desired pod specification. This template includes information such as the container image, environment variables, ports, and any other settings required for the application.
 
-3. Scalability:
+#### 3. Scalability:
    - Deployments enable easy scaling of applications by allowing users to specify the desired number of replicas. Kubernetes ensures that the specified number of pods is running at all times, automatically adjusting the deployment to meet the desired replica count.
 
-4. Rolling Updates:
+#### 4. Rolling Updates:
    - Deployments support rolling updates, allowing for controlled updates and rollbacks of application versions. Users can change the container image or other specifications, and Kubernetes orchestrates the update to ensure minimal disruption.
 
-5. Rollback:
+#### 5. Rollback:
    - If an update results in issues or failures, Deployments provide a rollback mechanism. Users can easily revert to a previous known-good version by initiating a rollback operation, and Kubernetes ensures that the application returns to the previous state.
 
-6. Replica Sets:
+#### 6. Replica Sets:
    - Internally, Deployments manage Replica Sets, which are another type of Kubernetes resource. Replica Sets ensure that the desired number of pod replicas is maintained and provide the mechanism for scaling and updating pods.
 
-7. Labels and Selectors:
+#### 7. Labels and Selectors:
    - Deployments use labels to select and manage sets of pods. Labels are applied to pods based on the template in the Deployment, and these labels are used to identify and manage the pods associated with the Deployment.
 
-8. Pod Anti-Affinity:
+#### 8. Pod Anti-Affinity:
    - Deployments support anti-affinity rules, allowing users to specify rules that influence the scheduling of pods. For example, users can configure anti-affinity to ensure that pods do not run on the same node or with other pods with certain labels.
 
-Example Deployment YAML:
+#### Example Deployment YAML:
 
-Here is a simple example of a Deployment YAML file:
+#### Here is a simple example of a Deployment YAML file:
 
 ```yaml
 apiVersion: apps/v1
@@ -3847,35 +3936,39 @@ spec:
         - containerPort: 80
 ```
 
-In this example:
+#### In this example:
 - The Deployment is named `example-deployment`.
 - It specifies that there should be 3 replicas of the pod.
 - The pod template includes a container running the Nginx image.
 - The labels used for pod selection are specified in both the selector and the pod template.
 
-To deploy this Deployment, you can use the `kubectl apply` command:
+- To deploy this Deployment, you can use the `kubectl apply` command:
 
 ```bash
 kubectl apply -f example-deployment.yaml
 ```
 
-This will create the specified number of replicas of the Nginx pod, managed by the Deployment controller.
+- This will create the specified number of replicas of the Nginx pod, managed by the Deployment controller.
 
 In summary, a Deployment in Kubernetes provides a powerful and convenient way to manage the deployment, scaling, and updating of applications. It abstracts away the complexity of managing individual pods and ensures that the application is running in the desired state, with support for rolling updates, rollbacks, and scalability.
-20.	What is replica set?
-Ans: As the name suggests, replica set, which basically means an exact copy of the pods. It decides how many replicas of the pods will be created at the same time. It is defined with the fields, which basically include the selector. This selector is used to identify the pods it can acquire; we also specify the number of replicas, representing the number of pods it will maintain. Once the configuration is done properly, Replica sets to identify and start deleting and creating the pods as per the criteria to reach the desired number it has to maintain.
-Or
+### 20.	What is replica set?
+Ans: As the name suggests, replica set, which basically means an exact copy of the pods. It decides how many replicas of the pods will be created at the same time. It is defined with the fields, which basically include the selector. 
+
+This selector is used to identify the pods it can acquire; we also specify the number of replicas, representing the number of pods it will maintain. Once the configuration is done properly, Replica sets to identify and start deleting and creating the pods as per the criteria to reach the desired number it has to maintain.
+
+`Or`
+
 In Kubernetes, a ReplicaSet is a resource object that ensures a specified number of replicas (copies) of a pod are running at all times. It is a higher-level abstraction built on top of the more basic Pod object. The primary purpose of a ReplicaSet is to maintain the desired number of identical pod instances, helping to achieve high availability, fault tolerance, and scalability for applications.
-Key features and characteristics of ReplicaSets include:
-1. Desired Replicas:
+#### Key features and characteristics of ReplicaSets include:
+#### 1. Desired Replicas:
    - ReplicaSets define a desired number of replicas (pod instances) that should be running in the cluster. This number is specified in the `replicas` field of the ReplicaSet configuration.
-2. Pod Template:
+#### 2. Pod Template:
    - A ReplicaSet uses a pod template to create and manage the replicated pods. The pod template includes specifications such as the container image, labels, volumes, and other settings for the pods.
-3. Pod Creation and Scaling:
+#### 3. Pod Creation and Scaling:
    - The ReplicaSet controller continuously monitors the cluster's current state and ensures that the actual number of running pods matches the desired number of replicas. If there are fewer pods than desired, the controller creates additional pods. If there are more pods than desired, the controller scales down by terminating excess pods.
-4. Labels and Selectors:
+#### 4. Labels and Selectors:
    - ReplicaSets use labels and selectors to manage and identify the pods they control. The labels specified in the ReplicaSet's `selector` field match the labels applied to the pods. This enables the ReplicaSet controller to track and manage the appropriate set of pods.
-5. Scaling Strategies:
+#### 5. Scaling Strategies:
    - ReplicaSets support two primary scaling strategies: scaling up (increasing the number of replicas) and scaling down (decreasing the number of replicas). These strategies are employed based on changes in the desired replica count or as part of rolling updates.
 Example ReplicaSet YAML:
 Here's a simple example of a ReplicaSet YAML file:
@@ -3901,7 +3994,7 @@ spec:
         - containerPort: 80
 ```
 
-In this example:
+#### In this example:
 - The ReplicaSet is named `example-replicaset`.
 - It specifies that there should be 3 replicas of the pod.
 - The pod template includes a container running the Nginx image.
@@ -3912,145 +4005,179 @@ kubectl apply -f example-replicaset.yaml
 ```
 This will create three identical replicas of the Nginx pod, managed by the ReplicaSet controller.
 In summary, ReplicaSets in Kubernetes provide a convenient way to ensure a specific number of identical pod instances are running in the cluster. They are commonly used for deploying and maintaining the availability of stateless applications that can be horizontally scaled by adding or removing replicas.
-21.	What is the difference between replica set and replication controller?
-
+### 21.	What is the difference between replica set and replication controller?
 Ans:
-Why do we need it?
+![Replica Set vs Replication Controller](./Images/Replicaset.jpg "Difference between RS and RC")
+
+**Why do we need it?**
+
 Let’s suppose application get crashed and pod fails, users are no longer to access an application.
 To control this risk, we need more than one instance or POD. Or even if there is one pod and if it fails we need some system, which creates another pod at the same time.
-Here the Replication Controller comes in the picture:
+#### Here the Replication Controller comes in the picture:
 The replication controller helps us to run multiple instances of a single pod in the Kubernetes cluster thus providing High Availability.
+
 Even though if a single pod is running, the Replication Controller helps to bring up new POD if the first POD fails.
 Thus Replication Controller ensures that specified POD will always be running.
 Another reason to create multiple PODS to share the loads. It helps to balance the loads and availability when demands increases.
-It is important to know that there are two similar terms.
-I)	Replication Controller
-II)	Replica Set Difference:
-Both have the same purpose but they are different.
-“Replication Controller” is older technologies that are being replaced by “Replica Set” Replica Set is the newer term. However, there is a minor difference between both of them. “Selector”
+
+- It is important to know that there are two similar terms.
+- 1. Replication Controller
+- 2. Replica Set Difference:
+- Both have the same purpose but they are different.
+
+- “Replication Controller” is older technologies that are being replaced by “Replica Set” Replica Set is the newer term. However, there is a minor difference between both of them. “Selector”
  
-There is one major difference between Replication Controller and Replica Set. Replica Set requires the “Selector” definition. The selector definition helps Replica Set to identify what POD falls under it.
+- There is one major difference between Replication Controller and Replica Set. Replica Set requires the “Selector” definition. The selector definition helps Replica Set to identify what POD falls under it.
 But why we need to specify “what pods fall under it” if you have provided contents of the pod definition file under template?
-Because Replica Set can also manage the Pods that were not created as part of Replica Set creation.
+
+- Because Replica Set can also manage the Pods that were not created as part of Replica Set creation.
 Selector is not mandatory in case of “Replication Controller” but it is required for “Replica Set”
 Incase of Replica Set a user input is required for these properties and it has to be written in the form of “matchLabels”
-The matchLabels selector simply matches the “label” under it to the labels on PODS.
 
-Or
+- The matchLabels selector simply matches the “label” under it to the labels on PODS.
+![Kubernetes Architecture](./Images/rs-rc.jpg "This is kubernetes Architecture")
+
+`Or`
+
 ReplicaSet and ReplicationController are both Kubernetes objects designed to manage the lifecycle of pods and ensure that a specified number of replicas are running. However, there are some differences between them:
 
-1. Label Selector Matching:
+#### 1. Label Selector Matching:
 
-   - ReplicaSet: Uses the more expressive `matchExpressions` field for label selector matching. This allows for more complex label selection criteria beyond the basic equality match used by ReplicationController.
-   - ReplicationController: Uses a simpler set of equality-based label selectors.
+   `- ReplicaSet:` Uses the more expressive `matchExpressions` field for label selector matching. This allows for more complex label selection criteria beyond the basic equality match used by ReplicationController.
+   
+   `- ReplicationController:` Uses a simpler set of equality-based label selectors.
 
-2. Label Selector Update Behavior:
+#### 2. Label Selector Update Behavior:
 
-   - ReplicaSet: Supports both updating and refining the label selector. This means you can modify the label selector of a ReplicaSet, and it will update the pods it manages accordingly.
+   `- ReplicaSet:` Supports both updating and refining the label selector. This means you can modify the label selector of a ReplicaSet, and it will update the pods it manages accordingly.
    - ReplicationController: If you need to change the label selector of a ReplicationController, you typically need to create a new ReplicationController with the desired label selector and scale it up or down.
 
-3. Scaling Behavior:
+#### 3. Scaling Behavior:
    - ReplicaSet: Provides more expressive scaling behaviors, such as support for scaling up or down based on a percentage of the desired replicas.
    - ReplicationController: Supports simple scaling by updating the `replicas` field, but it lacks the percentage-based scaling options available in ReplicaSet.
 
-4. Updates and Rollbacks:
+#### 4. Updates and Rollbacks:
    - ReplicaSet: Has more advanced update strategies, like rolling updates. Supports updating the pod template and controlling the pace of the update.
    - ReplicationController: Supports simple rolling updates but may not have as fine-grained control over the update process compared to ReplicaSet.
 
-4.	Deletion Behavior:
+#### 4.	Deletion Behavior:
 
-   - ReplicaSet: Has a `terminationGracePeriodSeconds` field that allows for specifying the termination grace period for pods during deletion.
-   - ReplicationController: Lacks the `terminationGracePeriodSeconds` field, which means it uses the default termination grace period.
+   `- ReplicaSet:` Has a `terminationGracePeriodSeconds` field that allows for specifying the termination grace period for pods during deletion.
+   
+   `- ReplicationController:` Lacks the `terminationGracePeriodSeconds` field, which means it uses the default termination grace period.
 
-6. Termination Trigger:
-   - ReplicaSet: Triggers termination of pods when the ReplicaSet's `selector` or `template` is changed.
-   - ReplicationController: Triggers termination of pods when the ReplicationController's `spec.template` is changed.
+#### 6. Termination Trigger:
 
-7. API Version:
+   `- ReplicaSet:` Triggers termination of pods when the ReplicaSet's `selector` or `template` is changed.
+   
+   `- ReplicationController:` Triggers termination of pods when the ReplicationController's `spec.template` is changed.
 
-   - ReplicaSet: Introduced in the `apps/v1` API group.
-   - ReplicationController:** In the older `v1` API group.
+#### 7. API Version:
 
-8. Usage Recommendation:
-   - ReplicaSet: Generally recommended for newer deployments due to its more advanced features and capabilities.
-   - ReplicationController: Considered legacy, and ReplicaSet or Deployments are often preferred for modern applications.
+   `- ReplicaSet:` Introduced in the `apps/v1` API group.
+   `- ReplicationController:`In the older `v1` API group.
 
-Recommendation:
+#### 8. Usage Recommendation:
+   `- ReplicaSet:` Generally recommended for newer deployments due to its more advanced features and capabilities.
 
-- For Modern Deployments: Use `Deployment` instead of directly using `ReplicaSet` or `ReplicationController`. Deployments provide a higher-level abstraction that incorporates features of ReplicaSets and adds additional capabilities, such as rolling updates and rollbacks.
+   `- ReplicationController:` Considered legacy, and ReplicaSet or Deployments are often preferred for modern applications.
 
-- For Legacy Compatibility: If you have existing applications managed by ReplicationControllers, consider migrating them to Deployments or ReplicaSets for better control over updates and scaling.
+#### Recommendation:
+
+`- For Modern Deployments:` Use `Deployment` instead of directly using `ReplicaSet` or `ReplicationController`. Deployments provide a higher-level abstraction that incorporates features of ReplicaSets and adds additional capabilities, such as rolling updates and rollbacks.
+
+`- For Legacy Compatibility:` If you have existing applications managed by ReplicationControllers, consider migrating them to Deployments or ReplicaSets for better control over updates and scaling.
 
 In summary, while ReplicationController and ReplicaSet have similar purposes, ReplicaSet offers additional features and flexibility, making it the preferred choice for newer deployments. Deployments, which build on ReplicaSets, provide even more advanced capabilities for managing application lifecycles in Kubernetes.
 
-22.	Why we use Deployment, why we are not using replica sets?
+### 22.	Why we use Deployment, why we are not using replica sets?
 Ans: Replica set is not suitable for rolling update strategy. That’s why we are using deployment.
-Or
-In Kubernetes, both Deployments and ReplicaSets are resources used for managing the deployment and scaling of applications. Deployments, however, provide a higher-level abstraction that incorporates the features of ReplicaSets while adding additional functionality. Here are some reasons why Deployments are often preferred over ReplicaSets:
-1. Declarative Updates:
-   - Deployments: Allow users to declare the desired state of the application and its replicas. They support declarative updates, making it easier to manage changes to the application over time.
-   - ReplicaSets: While you can manually update the pod template of a ReplicaSet, Deployments offer a more declarative and controlled approach to managing updates, especially with features like rolling updates.
-2. Rolling Updates and Rollbacks:
-   - Deployments: Provide built-in support for rolling updates, allowing you to perform updates to your application without downtime. If an update causes issues, Deployments support easy rollbacks to the previous known-good state.
-   - ReplicaSets: While you can manually perform rolling updates with ReplicaSets, Deployments simplify the process by automating and orchestrating the update strategy.
-3. Versioning and Rollback History:
-   - Deployments: Maintain a revision history of deployments, making it easy to track and roll back to a specific version if needed. This is valuable for maintaining a history of changes and debugging issues.
-   - ReplicaSets: Lack the built-in versioning and rollback history features provided by Deployments.
-4. Additional Deployment Strategies:
-   - Deployments: Support additional deployment strategies, such as blue-green deployments and canary releases. These strategies enable more advanced and controlled deployment scenarios.
-   - ReplicaSets: Lack built-in support for these advanced deployment strategies.
-5. Integration with Other Resources:
-   - Deployments: Can be used in conjunction with other resources like Services, allowing for easier management of end-to-end application deployments.
-   - ReplicaSets: Are more focused on maintaining a specified number of replicas and lack some of the higher-level deployment coordination features.
-6. Higher-Level Abstraction:
-   - Deployments: Are considered a higher-level abstraction that builds on ReplicaSets. They provide a more user-friendly interface for managing applications, abstracting away some of the complexities associated with directly managing ReplicaSets.
-7. Recommended for Most Use Cases:
-   - Deployments: Are recommended for most use cases due to their richer feature set and higher-level abstractions. They are suitable for both stateless and stateful applications.
-8. Flexible and Extensible:
-   - Deployments: Are designed to be more flexible and extensible. They can be used with additional features like ConfigMaps, Secrets, and Horizontal Pod Autoscaling for more comprehensive application management.
-   - ReplicaSets: Provide a more basic mechanism for ensuring a specified number of replicas and do not offer some of the more advanced features available with Deployments.
-In summary, while ReplicaSets serve a fundamental purpose in ensuring a specified number of pod replicas, Deployments offer a more comprehensive and user-friendly approach to managing application lifecycles. Deployments are recommended for most scenarios due to their additional features, declarative update strategies, and integration with other Kubernetes resources.
 
-23.	What is kubernetes services?
+`Or`
+
+In Kubernetes, both Deployments and ReplicaSets are resources used for managing the deployment and scaling of applications. Deployments, however, provide a higher-level abstraction that incorporates the features of ReplicaSets while adding additional functionality. Here are some reasons why Deployments are often preferred over ReplicaSets:
+
+#### 1. Declarative Updates:
+
+   `- Deployments:` Allow users to declare the desired state of the application and its replicas. They support declarative updates, making it easier to manage changes to the application over time.
+   
+   `- ReplicaSets:` While you can manually update the pod template of a ReplicaSet, Deployments offer a more declarative and controlled approach to managing updates, especially with features like rolling updates.
+#### 2. Rolling Updates and Rollbacks:
+
+   `- Deployments:` Provide built-in support for rolling updates, allowing you to perform updates to your application without downtime. If an update causes issues, Deployments support easy rollbacks to the previous known-good state.
+
+   `- ReplicaSets:` While you can manually perform rolling updates with ReplicaSets, Deployments simplify the process by automating and orchestrating the update strategy.
+#### 3. Versioning and Rollback History:
+   `- Deployments:` Maintain a revision history of deployments, making it easy to track and roll back to a specific version if needed. This is valuable for maintaining a history of changes and debugging issues.
+   
+   `- ReplicaSets:` Lack the built-in versioning and rollback history features provided by Deployments.
+#### 4. Additional Deployment Strategies:
+   `- Deployments:` Support additional deployment strategies, such as blue-green deployments and canary releases. These strategies enable more advanced and controlled deployment scenarios.
+   `- ReplicaSets:` Lack built-in support for these advanced deployment strategies.
+#### 5. Integration with Other Resources:
+   `- Deployments:` Can be used in conjunction with other resources like Services, allowing for easier management of end-to-end application deployments.
+   
+   `- ReplicaSets:` Are more focused on maintaining a specified number of replicas and lack some of the higher-level deployment coordination features.
+#### 6. Higher-Level Abstraction:
+   `- Deployments:` Are considered a higher-level abstraction that builds on ReplicaSets. They provide a more user-friendly interface for managing applications, abstracting away some of the complexities associated with directly managing ReplicaSets.
+#### 7. Recommended for Most Use Cases:
+   `- Deployments:` Are recommended for most use cases due to their richer feature set and higher-level abstractions. They are suitable for both stateless and stateful applications.
+#### 8. Flexible and Extensible:
+   `- Deployments:` Are designed to be more flexible and extensible. They can be used with additional features like ConfigMaps, Secrets, and Horizontal Pod Autoscaling for more comprehensive application management.
+   `- ReplicaSets:` Provide a more basic mechanism for ensuring a specified number of replicas and do not offer some of the more advanced features available with Deployments.
+
+In summary, while ReplicaSets serve a fundamental purpose in ensuring a specified number of pod replicas, Deployments offer a more comprehensive and user-friendly approach to managing application lifecycles. 
+Deployments are recommended for most scenarios due to their additional features, declarative update strategies, and integration with other Kubernetes resources.
+
+### 23.	What is kubernetes services?
 Ans: Cluster Ip, Node Port, load balancer
-24.	What is cluster ip in kubernetes?
+### 24.	What is cluster ip in kubernetes?
 Ans: cluster ip is the default service in kubernetes. This services it gets created with IP address. This cluster IP address is used to access the different PODs which are present in same cluster.
-*	But we can’t use this cluster IP externally. It means we can’t do the public traffic by using this cluster IP.
-Or
+* But we can’t use this cluster IP externally. It means we can’t do the public traffic by using this cluster IP.
+
+`Or`
+
 Already available
-25.	What is node port in kubernetes?
+### 25.	What is node port in kubernetes?
 Ans: In kubernetes node port range is 30000-32767. While we create the service one node port will create. By using the node port we can get the public access. It means we can access the PODs from the outside. Where as in cluster Ip we can access internally.
-*	Each and every application has a service that service is known as cluster IP or Node Port service or load balancer service
-*	The file which we define as a deployment file has a service. An IP gets created to that service i.e cluster IP. So the cluster will not use from externally so that time we need to assign the port .If we assign the port we can access the particular service from outside
-*So that here all the PODs are running in the worker nodes i.e slave nodes. The Node Port will expose the particular service in all nodes.
+* Each and every application has a service that service is known as cluster IP or Node Port service or load balancer service
+* The file which we define as a deployment file has a service. An IP gets created to that service i.e cluster IP. So the cluster will not use from externally so that time we need to assign the port .If we assign the port we can access the particular service from outside
+* So that here all the PODs are running in the worker nodes i.e slave nodes. The Node Port will expose the particular service in all nodes.
 So now we can access the PODs by following the below steps,
-*	Windows IP address:service-port-number Ex: 123.23.345:31236 //
-After we access like this, first request reached to service and it goes host port. And the request goes to the container that are present in the PODs from the host port. And internally the container has another port (Ex:80) so finally it redirects to the container port
-Why we need to use service to Access the PODs:
+`Windows IP address:service-port-number Ex: 123.23.345:31236 //`
+* After we access like this, first request reached to service and it goes host port. And the request goes to the container that are present in the PODs from the host port. And internally the container has another port (Ex:80) so finally it redirects to the container port.
+
+#### Why we need to use service to Access the PODs:
+
 Here we can directly access to the PODs. But every time IP gets created to the POD, but while we delete PODs the IP also gets deleted, so if you again create the New POD, new IP address also gets created so here we need to know the IP address of the POD and need to update it somewhere then only we can access that particular POD so to avoid that problem we create the service and we give the name to that service. The name will not change. While we hit the service the request will go all available PODs.
-Or
+
+`Or`
+
 Already available
-26.	What is Load Balancer in kubernetes?
+
+### 26.	What is Load Balancer in kubernetes?
 Ans: An IP address gets created in Load Balancer that IP is static IP, it will not change
 We need to give the IP address and Host port number to access the PODs. This is also used for external access
-Or
+
+`Or`
+
 In Kubernetes, a LoadBalancer is a service type that exposes a set of pods to the external network and automatically provisions an external load balancer to distribute network traffic to these pods. LoadBalancers are commonly used to make applications running in a Kubernetes cluster accessible from the internet or other external networks.
-Key features and characteristics of LoadBalancer services in Kubernetes include:
-1. External IP Address:
+#### Key features and characteristics of LoadBalancer services in Kubernetes include:
+#### 1. External IP Address:
    - LoadBalancer services receive an externally accessible IP address, allowing external clients to connect to the service. This IP address is typically provided by a cloud provider's load balancer service.
-2. Load Balancing:
+#### 2. Load Balancing:
    - The external load balancer automatically distributes incoming traffic among the healthy pods associated with the service. This provides load balancing for improved performance, high availability, and fault tolerance.
-3. Dynamic Provisioning:
+#### 3. Dynamic Provisioning:
    - LoadBalancer services dynamically provision an external load balancer, such as a cloud provider's load balancer service. The load balancer is created and configured based on the specifications of the LoadBalancer service in the Kubernetes cluster.
 
-4. NodePort and ClusterIP:
+#### 4. NodePort and ClusterIP:
    - Internally, LoadBalancer services also create a NodePort service to expose the service on each node's IP address and a ClusterIP service to provide an internal IP for communication within the cluster.
-5. Integration with Cloud Providers:
+#### 5. Integration with Cloud Providers:
    - LoadBalancer services leverage the capabilities of cloud providers to provision and manage external load balancers. Different cloud providers may offer variations in how LoadBalancer services are implemented.
-6. Health Checks:
+#### 6. Health Checks:
    - Many cloud providers integrate health checks with their load balancers. The external load balancer can perform health checks on the backend pods, directing traffic only to healthy instances.
-Example LoadBalancer Service YAML:
-Here's a simple example of a LoadBalancer service YAML file:
+#### Example LoadBalancer Service YAML:
+#### Here's a simple example of a LoadBalancer service YAML file:
 ```yaml
 apiVersion: v1
 kind: Service
@@ -4064,7 +4191,7 @@ spec:
   selector:
     app: example-app
 ```
-In this example:
+#### In this example:
 - The service is named `example-service`.
 - It is of type `LoadBalancer`.
 - The service exposes port 80 externally, forwarding traffic to pods with the label `app: example-app` on port 8080.
@@ -4074,32 +4201,40 @@ To deploy this service, you can use the `kubectl apply` command:
 kubectl apply -f example-service.yaml
 ```
 The external IP address assigned to the LoadBalancer service will be dynamically provisioned by the cloud provider.
+
 In summary, LoadBalancer services in Kubernetes provide a convenient way to expose applications to the external world with load balancing and automatic provisioning of external load balancers. They simplify the process of making applications accessible from the internet while maintaining high availability and distributing traffic across backend pods.
-27.	How many containers can we run in a single POD?
+### 27.	How many containers can we run in a single POD?
 Ans: We can run multiple container in a Single POD as for the user need.
-*	In docker we have only one container.
-*	Each and every container has different port, suppose if it is Jenkins container its port is 8080, if it is nginix 80
-*	Each and every container has individual access authority.
-Or
+* In docker we have only one container.
+* Each and every container has different port, suppose if it is Jenkins container its port is 8080, if it is nginix 80
+* Each and every container has individual access authority.
+
+`Or`
 Already available
-28.	What is the process of communication between container to container that are present in the POD? Suppose I have 3 containers available in the POD I want to make them communicate each other and how?
+
+### 28.	What is the process of communication between container to container that are present in the POD? Suppose I have 3 containers available in the POD I want to make them communicate each other and how?
 Ans: While a POD is creating, an IP address gets created to that corresponding POD. The IP address is called as a server or local host. By using the local host we can access or communicate between one containers to another container.
-Ex: localhost:container-port-number
-Ex: localhost:8080/	// Now it access Jenkins container
-*POD to POD communication is takes place by the IP address
-*	In worker nodes docker containers will run. If any container needs to be run in worker node we need container run time then only containers will run.
-*	Kubernetes by default communicates to docker for run the containers as container run time
-Or
+```
+localhost:container-port-number
+```
+`Ex: localhost:8080/	// Now it access Jenkins container`
+
+* POD to POD communication is takes place by the IP address
+* In worker nodes docker containers will run. If any container needs to be run in worker node we need container run time then only containers will run.
+* Kubernetes by default communicates to docker for run the containers as container run time
+
+`Or`
+
 In Kubernetes, when multiple containers are present within the same pod, they share the same network namespace. This means that the containers can communicate with each other over the localhost interface (`127.0.0.1`). The communication between containers within the same pod is similar to communication between processes on the same host.
-Here's a general overview of how communication can be established between containers within a pod:
-1. Use Localhost (Loopback Interface):
+- Here's a general overview of how communication can be established between containers within a pod:
+#### 1. Use Localhost (Loopback Interface):
    - Each container in the pod has its own network namespace, but they share the same localhost interface. Therefore, you can communicate between containers using `127.0.0.1` or `localhost`.
-2. Port Forwarding:
+#### 2. Port Forwarding:
    - Containers within the same pod can communicate over specific ports. If a container exposes a service on a certain port, other containers in the same pod can access that service using the pod's IP address and the exposed port.
-3. Shared Volumes:
+#### 3. Shared Volumes:
    - Containers can share data using shared volumes mounted into each container. This allows them to read and write data to the same filesystem, facilitating inter-container communication through file-based interactions.
-Example YAML with Multiple Containers:
-Here's an example YAML manifest with a pod containing three containers:
+#### Example YAML with Multiple Containers:
+#### Here's an example YAML manifest with a pod containing three containers:
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -4118,18 +4253,19 @@ spec:
     image: alpine
     command: ["/bin/sh", "-c", "while true; do echo 'Hello from container3'; sleep 10; done"]
 ```
-In this example:
+#### In this example:
 - `container1` is running an Nginx web server on port 80.
 - `container2` is running a simple shell command in a loop, printing messages every 10 seconds.
 - `container3` is similar to `container2` but prints different messages.
-Communication Examples:
-1. Using Localhost:
+#### Communication Examples:
+#### 1. Using Localhost:
    - Containers can communicate using localhost. For example, `container2` or `container3` can communicate with `container1` using `http://localhost`.
-2. Port Forwarding:
+#### 2. Port Forwarding:
    - If `container1` exposes a service on port 80, `container2` or `container3` can access it using the pod's IP address and port 80.
-3. Shared Volumes:
+#### 3. Shared Volumes:
    - Containers can write data to shared volumes, and other containers can read from those volumes. This allows them to share data through a common filesystem.
 Ensure that the containers are configured to listen on the appropriate ports or use shared volumes to facilitate communication.
+
 ```bash
 # Access container1 from container2
 kubectl exec -it multi-container-pod -c container2 -- curl http://localhost
@@ -4137,60 +4273,72 @@ kubectl exec -it multi-container-pod -c container2 -- curl http://localhost
 kubectl exec -it multi-container-pod -c container3 -- curl http://localhost
 ```
 Keep in mind that communication between containers in the same pod is generally easier than communication across different pods, as they share the same network namespace.
-29.	What is POD life cycle?
-Ans: Step 1 Pending State: Whenever we done the deployment it is in pending state at the beginning. Pending means that particular node is scheduling into the respective slave node. (Scheduler will schedule the PODS in the respective nodes). If the schedule is not finished still the POD is in pending state.
-30.	What happened if the POD is in pending state?
+### 29.	What is POD life cycle?
+Ans: 
+
+**Step 1 Pending State:** Whenever we done the deployment it is in pending state at the beginning. Pending means that particular node is scheduling into the respective slave node. (Scheduler will schedule the PODS in the respective nodes). If the schedule is not finished still the POD is in pending state.
+### 30.	What happened if the POD is in pending state?
 Ans: If the POD is in pending state, it’s because of insufficient CPU and memory.
-Step 2 Creating State: Once the POD is Moved or schedule to the Node, this state is called Creating state.
+
+**Step 2 Creating State:** Once the POD is Moved or schedule to the Node, this state is called Creating state.
+
 In Creating State the respective container which is present in the POD will pull the docker image from the docker registry. If the container pulls the docker image successfully then it moves to the next state. If it is unable to pull the image it goes to the waiting state
-*Waiting state means the POD is scheduled to node but the image pull was not done. It is called waiting state.
-Why Docker Image pull not working
-●	The docker image name may be incorrect
-●	The docker image may not be available in the docker registery. (We may not be push the respective docker image into the docker registery).
+* Waiting state means the POD is scheduled to node but the image pull was not done. It is called waiting state.
 
-Step 3 Running State: If the POD is moved to the node and pulls the docker image successfully from the docker registery. This state is called running state. Once the POD is in running state by any chance the health of the application which is present in the POD is not good it goes to the crash loop back state.
+- Why Docker Image pull not working
+- The docker image name may be incorrect
+- The docker image may not be available in the docker registery. (We may not be push the respective docker image into the docker registery).
 
-Step 4 Cross Loop back state: In cross loop back state the POD starts again, if any issues present in the application or code and the parameters and environmental variable are may be incorrect which we define so that it goes to the cross loop back state.
-31.	What are the deployment strategies in kubernetes?
+**Step 3 Running State:** If the POD is moved to the node and pulls the docker image successfully from the docker registery. This state is called running state. Once the POD is in running state by any chance the health of the application which is present in the POD is not good it goes to the crash loop back state.
+
+**Step 4 Cross Loop back state:** In cross loop back state the POD starts again, if any issues present in the application or code and the parameters and environmental variable are may be incorrect which we define so that it goes to the cross loop back state.
+
+### 31.	What are the deployment strategies in kubernetes?
 Ans: The process of manually updating containerized applications can be time consuming and tedious.
 A Kubernetes deployment makes this process automated and repeatable.
 Deployments are entirely managed by the Kubernetes backend, and the whole update process is performed on the server side without client interaction.
-We have 4 types of deployment strategies are available in the kubernetes
-1. Recreate Deployment 2. Rolling update deployment 3.Blue-Green Deployment
-4. Ceneray deployment
-1.	Recreate Strategy: In this strategy old replicas will delete at a time and new versions will create. In this strategy we have a problem i.e as soon as old versions are deleted application is not work until the new version create.so that time we face the down time issue.
 
+We have 4 types of deployment strategies are available in the kubernetes
+1. Recreate Deployment 
+2. Rolling update deployment 
+3. Blue-Green Deployment
+4. Ceneray deployment
+
+**1. Recreate Strategy:** In this strategy old replicas will delete at a time and new versions will create. In this strategy we have a problem i.e as soon as old versions are deleted application is not work until the new version create.so that time we face the down time issue.
+
+![Recreate Strategy](./Images/Recreate.jpg "This is recreate strategy")
 
 In recreate deployment, we fully scale down the existing application version before we scale up the new application version.
+
 In the below diagram, Version 1 represents the current application version, and Version 2 represents the new application version.
+
 When updating the current application version, we first scale down the existing replicas of Version 1 to zero and then concurrently deploy replicas with the new version.
 
 The below template shows deployment using the recreate strategy: First,
 we create our recreate deployment by saving the following yaml to a file recreate.yaml
  
- 
+ **2. Rolling Update strategy:** In this strategy old versions (replicas) are still available and it creates the versions one by one. After new version deployment works fine, now old versions are deleted at the backend one by one.
 
-
-
-2.	Rolling Update strategy: In this strategy old versions (replicas) are still available and it creates the versions one by one. After new version deployment works fine, now old versions are deleted at the backend one by one.
-
+![Rolling Update](./Images/rolling-update.jpg "Rolling update strategy")
 
 The rolling deployment is the default deployment strategy in Kubernetes. It replaces pods, one by one, of the previous version of our application with pods of the new version without any cluster downtime. A rolling deployment slowly replaces instances of the previous version of an application with instances of the new version of the application.
 
-3.	Blue-Green Deployment: In this deployment we create two versions at a time that is followed by Blue and Green.
+**3. Blue-Green Deployment:** In this deployment we create two versions at a time that is followed by Blue and Green.
+
+![Blue Green](./Images/blue-green.jpg "Blue-Green Deployment Strategy")
+
 Now, first we will work on the Blue. For example we create two deployments i.e deployment 1 is for blue and deployment 2 is for green. 
  
-
 In a blue/green deployment strategy (sometimes also referred to as red/black),
 The blue represents the current application version, and green represents the new application version.
 In this, only one version is live at a time. Traffic is routed to the blue deployment while the green deployment is created and tested.
 After we are finished testing, we then route traffic to the new version.
 
-
-
+![Blue Green](./Images/blue-green-final.jpg "Blue green deployment final copy")
 
 After the deployment succeeds, we can either keep the blue deployment for a possible rollback or decommission it.
-4.	Canary deployment: In this canary deployment now we have two revisions (versions) blue and green. Suppose in blue we have old updates and green has new updates. Now we allows the 50% traffic to the old revision i.e blue, and also we allow another 50% traffic to the new revision i.e green. Here we test the new version as well weather it is working or not. If the new version working fine the 50% traffic that we allows to old revision is also shift to the new version i.e green revision now it has 100% traffic.
+
+**4. Canary deployment:** In this canary deployment now we have two revisions (versions) blue and green. Suppose in blue we have old updates and green has new updates. Now we allows the 50% traffic to the old revision i.e blue, and also we allow another 50% traffic to the new revision i.e green. Here we test the new version as well weather it is working or not. If the new version working fine the 50% traffic that we allows to old revision is also shift to the new version i.e green revision now it has 100% traffic.
 
 The canary update strategy is a partial update process that allows us to test our new program version on a real user base without a commitment to a full rollout. Similar to 
 blue/green deployments, but they are more controlled, and they use a more progressive delivery where deployment is in a phased approach.
@@ -4199,26 +4347,27 @@ In canary deployment, the new version of the application is gradually deployed t
 In this approach, we have two almost identical servers: one that goes to all the current active users and another with the new features that gets rolled out to a subset of users and then compared. When no errors are reported and the confidence increases, the new version can gradually roll out to the rest of the infrastructure.
 In the end, all live traffic goes to canaries, making the canary version the new production version.
 
+![Canary Deployment](./Images/canary-deployment.jpg "Canary Deployment")
 
-
-
-
-*Note : Most commonly used strategy in our projects is Rollingupdate Deployment Strategy.
-32.	Which deployment strategy are you using in your project?
+`Note :` Most commonly used strategy in our projects is Rollingupdate Deployment Strategy.
+### 32.	Which deployment strategy are you using in your project?
 Ans: Rollingupdate Deployment Strategy.
-33.	Difference between blue green and rolling update deployment?
+### 33.	Difference between blue green and rolling update deployment?
 Ans: Refer above Answer
-34.	Difference between blue green and canary deployment?
+### 34.	Difference between blue green and canary deployment?
 Ans: refer above Answer
-35.	In which namespace the deployment will run by the command” kubectl create deployment”?
+### 35.	In which namespace the deployment will run by the command” kubectl create deployment”?
 Ans: Default namespace. While we create any deployment without define any namespace it creates under “Default Namespace.”
-Or
+
+`Or`
+
 When you create a deployment using the `kubectl create deployment` command without explicitly specifying a namespace, the deployment will be created in the default namespace. The default namespace is the one that is active when the `kubectl` command is executed.
-For example:
+#### For example:
 ```bash
 kubectl create deployment example-deployment --image=nginx
 ```
 In this command, if no specific namespace is set, the deployment (`example-deployment` in this case) will be created in the default namespace.
+
 If you want to create a deployment in a specific namespace, you can use the `--namespace` flag:
 ```bash
 kubectl create deployment example-deployment --image=nginx --namespace=my-namespace
@@ -4233,12 +4382,8 @@ And you can set the active namespace using:
 kubectl config set-context --current --namespace=my-namespace
 ```
 Replace `my-namespace` with the desired namespace.
-36.	Write the kubernetes manifest or deployment file and explain its stages?
-
- 
-
-
-
+### 36.	Write the kubernetes manifest or deployment file and explain its stages?
+```yaml
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
@@ -4264,24 +4409,19 @@ metadata:
 deploy: example spec:
 containers:
 - name: nginx image: nginx:1.7.9
+```
 
+`(or)`
 
-
-
-(or)
-
-
- 
- 
-
-●	Here the “kind:Deployment” in yaml file is manage our PODs
-●	Here the “kind:Pod” also we can give, but POD IPaddress will change always
-●	Every micro service has a file
-●	At beginning replication controllers was introduced, it is outdated. Now, we have replica set instead of replication controller. But in replica set has a disadvantage i.e RollingUpdateFeature is not available.
-●	Details about YAML file parameters: apiVersion: apps/v1	//It is deployment version metadata:
-name: rollingupdate-strategy	//name of the deployment
-version: nanoserver-1709	//version
-under metadata we can also give the “namespace” i.e in which namespace this deployment needs to be deploy.
+- Here the `kind:Deployment` in yaml file is manage our PODs
+- Here the `kind:Pod` also we can give, but POD IPaddress will change always
+- Every micro service has a file
+- At beginning replication controllers was introduced, it is outdated. Now, we have replica set instead of replication controller. But in replica set has a disadvantage i.e RollingUpdateFeature is not available.
+- Details about YAML file parameters: `apiVersion: apps/v1`	//It is deployment version metadata:
+- `name: rollingupdate-strategy`	//name of the deployment
+- `version:` nanoserver-1709	//version
+- under metadata we can also give the “namespace” i.e in which namespace this deployment needs to be deploy.
+```yaml
 Spec: //Here we define how many replicas are required
 strategy:
 type: RollingUpdate rollingUpdate:
@@ -4305,8 +4445,10 @@ containers:
 - name: web-app-rollingupdate-strategy //Container Name
 image: hello-world:nanoserver-1709 //Docker-Image for creating the container While we deploy container will create with name called web-app-rollingupdate-strategy
 from the image hello-world:nanoserver-1709
-*	Here we can also define the container port under the container section.
-*	Here we need to define in which node the PODs are needs to run. It is called node selector. It should be define under the container.
+```
+* Here we can also define the container port under the container section.
+* Here we need to define in which node the PODs are needs to run. It is called node selector. It should be define under the container.
+```yaml
 Ex: spec: //Here we define the container related information
 containers:
 - name: web-app-rollingupdate-strategy //Container Name
@@ -4316,90 +4458,100 @@ ports:
 on-master: "true"
 While we creating the node selector we use the command below,
 Ex: kubectl label nodes master on-master=true	#Create a label on the master node Here, master = node name
-on-master = label –name
+on-master = label –name 
 true = label value
-*	As soon as we attach the on-master true label name to the master node, the label name which we assign to the particular POD, all these PODs will run on the master node
-
-
-*	Once we have a deployment template, we can provide a way to access the instances of the deployment by creating a Service.
-
-
-*	Here First request goes to Service Port, then reached to target port i.e PODs port or container port
-*	In selector we give name of the labels as that we defined for the PODs label.
-*	So now, this service will attach and redirect to the particular POD. As soon as we hit this service, this service will redirect to the POD and we get the data
-*	type: LoadBalancer	//this is service type. This service type may have load balancer,
+```
+* As soon as we attach the on-master true label name to the master node, the label name which we assign to the particular POD, all these PODs will run on the master node
+* Once we have a deployment template, we can provide a way to access the instances of the deployment by creating a Service.
+* Here First request goes to Service Port, then reached to target port i.e PODs port or container port
+* In selector we give name of the labels as that we defined for the PODs label.
+* So now, this service will attach and redirect to the particular POD. As soon as we hit this service, this service will redirect to the POD and we get the data
+* `type: LoadBalancer`	//this is service type. This service type may have load balancer,
 cluster ip and node port.
+* command for apply the service “kubectl apply -f service.yaml”
+* Run kubectl get deployments to check if the Deployment is created.
 
-
-*	command for apply the service “kubectl apply -f service.yaml”
-*	Run kubectl get deployments to check if the Deployment is created.
 If the Deployment is still being created, the output should be similar to the following:
 
+```yaml
 $ kubectl get deployments
+```
+```plaintext
 NAME
 rollingupdate-strategy	
 0/3	READY 0	UP-TO-DATE 0	AVAILABLE
 1s	AGE
-
-If we run the kubectl get deployments again a few seconds later. The output should be similar to this:
+```
+- If we run the kubectl get deployments again a few seconds later. The output should be similar to this:
+```yaml
 $ kubectl get deployments
+```
+```plaintext
 NAME
 rollingupdate-strategy	
 3/3	READY 0	UP-TO-DATE 0	AVAILABLE
 7s	AGE
- 
-To see the ReplicaSet (rs) created by the Deployment, run kubectl get rs. The output should be similar to this:
+```
 
+- To see the ReplicaSet (rs) created by the Deployment, run kubectl get rs. The output should be similar to this:
+
+```yaml
 kubectl get rs	
+```
+```plaintext
 NAME	DESIRED	CURRENT	READY	AGE
 rollingupdate-strategy-87875f5897	3	3	3	18s
+```
 
-To see the 3 pods running for deployment, run kubectl get pods. The created ReplicaSet ensures that there are three Pods running. The output should be similar to the below.
+- To see the 3 pods running for deployment, run kubectl get pods. The created ReplicaSet ensures that there are three Pods running. The output should be similar to the below.
+
+```yaml
 kubectl get pods	
+```
+```plaintext
 NAME	READY	STATUS	RESTARTS	AGE
 rollingupdate-strategy-87875f5897-55i7o	1/1	Running	0	12s
 rollingupdate-strategy-87875f5897-abszs	1/1	Running	0	12s
 rollingupdate-strategy-87875f5897-qazrt	1/1	Running	0	12s
+```
 
-*	Here in deployment file we haven’t define any namespace .In kubernetes we have 3 default namespaces i.e default, kube-pubilc and kube-system. So we haven’t define any namespace it creates under the “default namespace”.
-*	If the health of the POD is not good it restarts automatically.
+* Here in deployment file we haven’t define any namespace .In kubernetes we have 3 default namespaces i.e default, kube-pubilc and kube-system. So we haven’t define any namespace it creates under the “default namespace”.
+* If the health of the POD is not good it restarts automatically.
+* The kubectl's rollout command is very useful here. We can use it to check how our deployment is doing
+* Here we have already existing version or revision and also we create the new revision. Now if you want to get back to old revision we use the below command
+* We can also get back to older revisions by using the version numbers.
 
-
-●	The kubectl's rollout command is very useful here. We can use it to check how our deployment is doing
-
-
-●	Here we have already existing version or revision and also we create the new revision. Now if you want to get back to old revision we use the below command
-
-
-*	We can also get back to older revisions by using the version numbers.
-
-37.	Difference between PORT and Target Port in Kubernetes service?
+### 37.	Difference between PORT and Target Port in Kubernetes service?
 Ans: Port is the service port and tagetPort is the containers Port. Here First request goes to Service Port, then reached to target port i.e PODs port or container port.
-Or
+
+`Or`
 Already available
 
-38.	How to install the kubernetes in On-Premises, not on the cloud kubernetes so which command do you use for install?
-Ans: kubeadm
-●	”kubeadm” is a tool by busing this tool we can install the kubernetes in the server.
-Or
+### 38.	How to install the kubernetes in On-Premises, not on the cloud kubernetes so which command do you use for install?
+Ans: 
+- kubeadm
+- ”kubeadm” is a tool by busing this tool we can install the kubernetes in the server.
+
+`Or`
+
 Installing Kubernetes on-premises involves setting up a Kubernetes cluster on your own infrastructure rather than relying on cloud providers. There are several tools available for deploying and managing Kubernetes clusters on-premises. One popular tool is **kubeadm**, which simplifies the process of setting up a basic Kubernetes cluster. Here's a high-level overview of the steps to install Kubernetes on-premises using kubeadm
-Prerequisites:
-1. Multiple Nodes:
+#### Prerequisites:
+#### 1. Multiple Nodes:
    - Prepare multiple nodes (physical or virtual machines) that will form your Kubernetes cluster. These nodes should have a compatible operating system (commonly Ubuntu, CentOS, or similar)
-2. Network Connectivity:
+#### 2. Network Connectivity:
    - Ensure that the nodes can communicate with each other over the network. This includes configuring DNS resolution and ensuring that each node can reach the others.
-3. Container Runtime:
+#### 3. Container Runtime:
    - Choose a container runtime such as Docker or containerd and install it on all nodes.
-Steps to Install Kubernetes with kubeadm:
-Step 1: Install Docker (if not installed):
+#### Steps to Install Kubernetes with kubeadm:
+#### Step 1: Install Docker (if not installed):
 Ensure Docker is installed on all nodes. You can install Docker using the package manager for your operating system.
 For example, on Ubuntu:
 ```bash
 sudo apt-get update
 sudo apt-get install -y docker.io
 ```
-Step 2: Install kubeadm, kubelet, and kubectl:
-Install the Kubernetes components on all nodes:
+#### Step 2: Install kubeadm, kubelet, and kubectl:
+- Install the Kubernetes components on all nodes:
 ```bash
 sudo apt-get update && sudo apt-get install -y apt-transport-https curl
 sudo curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
@@ -4407,70 +4559,82 @@ echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt
 sudo apt-get update
 sudo apt-get install -y kubelet kubeadm kubectl
 ```
-Step 3: Initialize the Master Node:
+#### Step 3: Initialize the Master Node:
 On one of the nodes, initialize the Kubernetes master using `kubeadm`:
 ```bash
 sudo kubeadm init --pod-network-cidr=192.168.0.0/16
 ```
 Note the output, which includes a `kubeadm join` command. You will use this command on worker nodes to join them to the cluster.
-Step 4: Set Up kubeconfig:
-Run the following commands to set up kubeconfig for the current user:
+#### Step 4: Set Up kubeconfig:
+- Run the following commands to set up kubeconfig for the current user:
 ```bash
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
-Step 5: Install a Pod Network Add-on:
-Choose a pod network add-on that suits your requirements. One popular choice is Calico:
+#### Step 5: Install a Pod Network Add-on:
+- Choose a pod network add-on that suits your requirements. One popular choice is Calico:
 ```bash
 kubectl apply -f https://docs.projectcalico.org/v3.20/manifests/calico.yaml
 ```
-Step 6: Join Worker Nodes:
-On each worker node, run the `kubeadm join` command obtained in Step 3.
+#### Step 6: Join Worker Nodes:
+- On each worker node, run the `kubeadm join` command obtained in Step 3.
 
-Step 7: Verify Cluster:
-On the master node, check the status of the cluster:
+#### Step 7: Verify Cluster:
+- On the master node, check the status of the cluster:
 ```bash
 kubectl get nodes
 kubectl get pods --all-namespaces
 ```
-This will confirm that your Kubernetes cluster is up and running.
-Keep in mind that these steps provide a basic setup. Depending on your specific requirements, you might need to customize the configuration, security settings, or use additional tools for on-premises installations. Refer to the official Kubernetes documentation for more detailed guidance: [Installing kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/).
+- This will confirm that your Kubernetes cluster is up and running.
+- Keep in mind that these steps provide a basic setup. Depending on your specific requirements, you might need to customize the configuration, security settings, or use additional tools for on-premises installations. Refer to the official Kubernetes documentation for more detailed guidance: [Installing kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/).
 
-39.	How to get the cluster information or by which command do you get the cluster information?
+### 39.	How to get the cluster information or by which command do you get the cluster information?
 Ans: kubectl cluster –info
-40.	What is default namespaces available in kubernetes?
+### 40.	What is default namespaces available in kubernetes?
 Ans: kube-system, kube-public, and default.
-41.	What are the static PODs in kubernetes?
+### 41.	What are the static PODs in kubernetes?
 Ans: The kubernetes resources (or) control plane (or) master node components are nothing but static PODs (i.e Scheduler, controller manager, API Server and etcd)
-Or
+
+`Or`
+
 Already available
-42.	What is ingress in kubernetes?
+
+### 42.	What is ingress in kubernetes?
 Ans: Ingress is used to routing the request to the multiple services at a time based on path. In ingress we have a configuration file called ingress configuration file, suppose in ingress configuration file we have some service1, service2 and service3, so our ingress has a port number now we take the IP address and ingress port and service name. So the request goes to the corresponding service as we define in the ingress configuration file.
+```plaintext
 Ex: ipaddress: ingress-port-number/payment	//request go to the service1
 Ex: ipaddress: ingress-port-number/login	//request go to the service2
 Ex: ipaddress: ingress-port-number/registration	//request go to the service3
-●	Ingress has IP Address i.e host name, here host name is common. So here no need to take the Node IP Address. It directly takes the ingress IP Address and ingress controller port and path and hit the request goes automatically to the specific service.
-Or
+```
+- Ingress has IP Address i.e host name, here host name is common. So here no need to take the Node IP Address. It directly takes the ingress IP Address and ingress controller port and path and hit the request goes automatically to the specific service.
+
+`Or`
+
 Already available
 
-43.	What is the command for deployment in kubernetes?
-Ans: kubectl apply -f rollingupdate.yaml
-*	We can also use create command instead of apply
-Or
-In Kubernetes, you can deploy applications using the `kubectl create deployment` command or by creating a Deployment YAML manifest and applying it using `kubectl apply -f`.
-Using `kubectl create deployment`:
-The basic syntax for creating a deployment using `kubectl create deployment` is as follows:
+### 43.	What is the command for deployment in kubernetes?
+Ans: 
+```bash
+kubectl apply -f rollingupdate.yaml
+```
+- We can also use create command instead of apply
+
+`Or`
+
+- In Kubernetes, you can deploy applications using the `kubectl create deployment` command or by creating a Deployment YAML manifest and applying it using `kubectl apply -f`.
+- Using `kubectl create deployment`:
+#### The basic syntax for creating a deployment using `kubectl create deployment` is as follows:
 ```bash
 kubectl create deployment <DEPLOYMENT_NAME> --image=<CONTAINER_IMAGE>
 ```
 - `<DEPLOYMENT_NAME>`: Provide a name for your deployment.
 - `<CONTAINER_IMAGE>`: Specify the container image you want to use.
-For example, deploying an Nginx web server:
+#### For example, deploying an Nginx web server:
 ```bash
 kubectl create deployment nginx-deployment --image=nginx
 ```
-Using Deployment YAML Manifest:
+#### Using Deployment YAML Manifest:
 Alternatively, you can create a Deployment YAML manifest file, which gives you more flexibility and control over the deployment. Here's an example YAML file for a simple Nginx deployment:
 ```yaml
 apiVersion: apps/v1
@@ -4493,37 +4657,44 @@ spec:
         ports:
         - containerPort: 80
 ```
-Save this file (e.g., `nginx-deployment.yaml`) and apply it using:
+- Save this file (e.g., `nginx-deployment.yaml`) and apply it using:
 ```bash
 kubectl apply -f nginx-deployment.yaml
 ```
-This deploys three replicas of the Nginx container.
-Additional Commands for Managing Deployments:
-1. Scale Deployment:
+- This deploys three replicas of the Nginx container.
+#### Additional Commands for Managing Deployments:
+#### 1. Scale Deployment:
    - You can scale the number of replicas in a deployment using the `kubectl scale` command. For example, to scale the deployment named `nginx-deployment` to 5 replicas:
+
    ```bash
    kubectl scale deployment nginx-deployment --replicas=5
    ```
-2. Rolling Updates:
+#### 2. Rolling Updates:
    - To update the image or configuration of a deployment, use the `kubectl set image` command. For example, to update the image to a new version:
    ```bash
    kubectl set image deployment/nginx-deployment nginx-container=nginx:latest
    ```
    This triggers a rolling update, ensuring that the application is updated gradually without downtime.
-3. View Deployment Details:
+#### 3. View Deployment Details:
    - To view details about a deployment, including its replicas, pods, and events, use:
-   ```bash
+   ```yaml
    kubectl get deployment nginx-deployment
    ```
-   ```bash
+   ```yaml
    kubectl describe deployment nginx-deployment
    ```
 These are some of the basic commands for managing deployments in Kubernetes. Depending on your use case and requirements, you might need additional features like liveness probes, readiness probes, and more, which can be specified in the Deployment YAML manifest.
-44.	What is the command for delete the deployment in kubernetes?
-Ex: kubectl delete –f yaml_file_name.yaml
-*	We always avoid delete the deployment
-	Or
-	To delete a deployment in Kubernetes, you can use the `kubectl delete deployment` command. The basic syntax is as follows:
+### 44.	What is the command for delete the deployment in kubernetes?
+Ex: 
+```yaml
+kubectl delete –f yaml_file_name.yaml
+```
+* We always avoid delete the deployment
+
+`Or`
+
+- To delete a deployment in Kubernetes, you can use the `kubectl delete deployment` command. The basic 
+syntax is as follows:
 ```bash
 kubectl delete deployment <DEPLOYMENT_NAME>
 ```
@@ -4531,88 +4702,106 @@ Replace `<DEPLOYMENT_NAME>` with the name of your deployment. For example, to de
 ```bash
 kubectl delete deployment nginx-deployment
 ```
-This command will delete the specified deployment along with its associated pods.
-If you want to delete all deployments in a namespace, you can use the `--all` flag:
+- This command will delete the specified deployment along with its associated pods.
+- If you want to delete all deployments in a namespace, you can use the `--all` flag:
 ```bash
 kubectl delete deployment --all
 ```
-This will delete all deployments in the current namespace.
+- This will delete all deployments in the current namespace.
+
 After deleting a deployment, Kubernetes will automatically scale down the number of pods associated with that deployment to zero, effectively stopping the application.
-Additional Options:
-1. Delete by Label:
+
+#### Additional Options:
+#### 1. Delete by Label:
    - You can also delete deployments based on a label selector. For example, to delete all deployments with the label `app=nginx`:
    ```bash
    kubectl delete deployment -l app=nginx
    ```
-2. Delete All Deployments in a Namespace:
+#### 2. Delete All Deployments in a Namespace:
    - To delete all deployments in a specific namespace, you can use:
    ```bash
    kubectl delete deployments --all -n <NAMESPACE>
    ```
    Replace `<NAMESPACE>` with the name of the namespace.
-3. Delete Deployments in YAML Manifest:
+#### 3. Delete Deployments in YAML Manifest:
    - If you have the deployment defined in a YAML manifest file, you can delete it using:
    ```bash
    kubectl delete -f nginx-deployment.yaml
    ```
    This will delete the deployment as specified in the manifest file.
 	Make sure to exercise caution when using `kubectl delete` commands, as they permanently remove resources. Always double-check the names and labels to avoid unintentional deletions.
-45.	What is Auto-Scaling In kubernetes?
+### 45.	What is Auto-Scaling In kubernetes?
 Ans: As we know, Kubernetes is a container resources management and orchestration tool or, in simple words, a container management technology to manage containerized applications in pods across physical, Virtual, and Cloud environments. Kubernetes is inherently scalable with many tools that allow both applications as well as infrastructure nodes; to scale in and out based on demand, efficiency, threshold/limits and several other metrics. We have three kinds of Autoscaling available,
 1.	Horizontal Pod Autoscaling (HPA)
 2.	Vertical Pod Autoscaling (VPA)
 3.	Cluster Autoscaling (CA)
 
 
-1.	Horizontal Pod Autoscaling (HPA): The HPA is what you can say is the main functionality of Kubernetes and will be using mostly. HPA can change the number of replicas of a pod, scale pods to add or remove pod container collections as needed. HPA achieves its goal by checking various metrics to see whether present thresholds have been met and reacting accordingly. HPA takes care of scaling and distributing pods over the entire available nodes.
+#### 1.	Horizontal Pod Autoscaling (HPA): 
+
+The HPA is what you can say is the main functionality of Kubernetes and will be using mostly. HPA can change the number of replicas of a pod, scale pods to add or remove pod container collections as needed. HPA achieves its goal by checking various metrics to see whether present thresholds have been met and reacting accordingly. HPA takes care of scaling and distributing pods over the entire available nodes.
 In simple terms, for suppose our POD consumes some 70% of CPU and memory, now new PODs will be created based on our condition. This is known as Horizontal POD Auto Scaling.
 First, create a Deployment using a Yaml file named “ngnix.yaml” like below:
+
+![Horizontal Pod Autoscaling](./Images/HPA.jpg "HPA")
  
 Then use the kubectl command to apply it and implement it.
 
+![Horizontal Pod Autoscaling](./Images/hpa-op.jpg "HPA output")
 
 Check the number of pods deployed in this deployment. As you can see, there are 3 pods replicas created.
 
+![Horizontal Pod Autoscaling](./Images/hpa-op-2.jpg "HPA output")
 
-Create an HPA file like below: –
+#### Create an HPA file like below: –
 
+![Horizontal Pod Autoscaling](./Images/hpa-manifest-file.jpg "HPA manifest file")
 
-●		Here while the deployment starts with minimum replicas is: 1 and when the load increases the maximum replicas will be: 10
-●	The “targetCPUUtilizationPercentage” reached to 50, the replicas will increase one by one up to 10.
+- Here while the deployment starts with minimum replicas is: 1 and when the load increases the maximum replicas will be: 10
+- The `“targetCPUUtilizationPercentage”` reached to 50, the replicas will increase one by one up to 10.
 Then apply this using
+
+![Horizontal Pod Autoscaling](./Images/hpa-apply.jpg "HPA manifest apply")
 
 You can check HPA status:
 
+![Horizontal Pod Autoscaling](./Images/hpa-status.jpg "HPA get status")
 
 To get details about the HPA, you can use “kubectl get hpa” with the “-o yaml.” 
  
+![Horizontal Pod Autoscaling](./Images/hpa-details.jpg "HPA details")
 
+#### 2.	Vertical Pod Autoscaling (VPA): 
 
-2.	Vertical Pod Autoscaling (VPA): The VPA is only concerned with increasing the resources available to a pod that resides on a node by giving you control by automatically adding or reducing CPU and memory to a pod. VPA can detect out of memory events and use this as a trigger to scale the pod. You can set both minimum and maximum limits for resource allocation.
+The VPA is only concerned with increasing the resources available to a pod that resides on a node by giving you control by automatically adding or reducing CPU and memory to a pod. VPA can detect out of memory events and use this as a trigger to scale the pod. You can set both minimum and maximum limits for resource allocation.
+
 In simple terms, for suppose our POD consumes some 70% of CPU and memory, this will just increase or allocates the resources to the existing POD, it doesn’t create the new PODs.
-*Note: We generally use Horizontal Pod Autoscaling in our projects.
-3.	Cluster Autoscaling (CA)
+
+`Note:` We generally use Horizontal Pod Autoscaling in our projects.
+#### 3.	Cluster Autoscaling (CA)
 CA automatically adds or removes nodes from a cluster node pool in order to meet demand and save money. It scales up or down the number of nodes inside your cluster. CA scales your cluster nodes based on pending pods. It periodically checks whether there are any pending pods and increases the size of the cluster if more resources are needed and if the scaled-up cluster is still within the user-provided constraints.
-46.	In which namespace the cluster related PODs are available?
+### 46.	In which namespace the cluster related PODs are available?
 Ans: The cluster related components and PODs are created under kube-system namespace.
-Or
+
+`Or`
+
 Cluster-related components and system-level Pods in a Kubernetes cluster are typically found in the `kube-system` namespace. The `kube-system` namespace is reserved for these system-level components that are essential for the proper functioning of the Kubernetes cluster.
 Common components and Pods found in the `kube-system` namespace include:
-1. kube-apiserver:
+#### 1. kube-apiserver:
    - The API server is the component that exposes the Kubernetes API.
-2. kube-controller-manager:
+#### 2. kube-controller-manager:
    - The controller manager is responsible for running controller processes that regulate the state of the system.
-3. kube-scheduler:
+#### 3. kube-scheduler:
    - The scheduler watches for newly created Pods with no assigned node and selects a node for them to run on.
-4. kube-dns or CoreDNS:
+#### 4. kube-dns or CoreDNS:
    - Provides DNS resolution for services within the cluster.
-5. etcd:
+#### 5. etcd:
    - The distributed key-value store used as the primary datastore for Kubernetes cluster information.
-6. kube-proxy:
+#### 6. kube-proxy:
    - Maintains network rules on nodes. These network rules allow network communication to your Pods from network sessions inside or outside of your cluster.
-7. Calico, Flannel, or other network plugins:
+#### 7. Calico, Flannel, or other network plugins:
    - Components related to the chosen networking solution for the cluster.
-8. Cluster autoscaler and other add-ons:
+#### 8. Cluster autoscaler and other add-ons:
    - Various add-ons and controllers that extend the functionality of the cluster.
 You can view the Pods in the `kube-system` namespace using the following command:
 
@@ -4620,25 +4809,31 @@ You can view the Pods in the `kube-system` namespace using the following command
 kubectl get pods -n kube-system
 ```
 This will list all the Pods in the `kube-system` namespace, providing insight into the health and status of the critical components of your Kubernetes cluster.
+
 Keep in mind that the specific components and Pods in the `kube-system` namespace may vary slightly depending on the Kubernetes distribution, version, and configuration of your cluster. Always refer to the documentation specific to your Kubernetes environment for accurate information.
-47.	What is kubernetes Secret?
+
+### 47.	What is kubernetes Secret?
 Ans: Kubernetes Secret lets you store sensitive and confidential information in a Kubernetes object in such a way that is more secure and more flexible rather than putting this information in Pod’s definition or in Kubernetes ConfigMap or in the container image.
-Or
+
+`Or`
+
 In Kubernetes, a Secret is an object that allows you to store and manage sensitive information, such as authentication tokens, API keys, passwords, or any other data that you want to keep confidential. Secrets provide a way to decouple sensitive information from the application code and configuration, enhancing security and manageability.
-Key features of Kubernetes Secrets include:
-1. Data Storage:
+#### Key features of Kubernetes Secrets include:
+#### 1. Data Storage:
    - Secrets can store arbitrary key-value pairs of sensitive data.
-2. Immutable:
+#### 2. Immutable:
    - Once created, the data in a Secret is immutable. If you need to update the secret, you must create a new one.
-3. Namespacing:
+#### 3. Namespacing:
    - Secrets are namespace-specific, allowing you to scope them to specific namespaces within a cluster.
-4. Decoding:
+#### 4. Decoding:
    - Data stored in Secrets is base64 encoded. When you retrieve the data, Kubernetes automatically decodes it.
-5. Access Control:
+#### 5. Access Control:
    - Access to Secrets can be controlled using Kubernetes RBAC (Role-Based Access Control), limiting who can create, update, or delete Secrets.
-Creating a Secret:
+#### Creating a Secret:
+
 Secrets can be created in several ways, either directly through YAML manifests or using the `kubectl create secret` command.
-Example YAML Manifest for a Generic Secret:
+
+#### Example YAML Manifest for a Generic Secret:
 ```yaml
 apiVersion: v1
 kind: Secret
@@ -4649,17 +4844,18 @@ data:
   username: YWRtaW4=  # Base64 encoded "admin"
   password: MWYyZDFlMmU2N2Rm  # Base64 encoded "1f2d1e2e67df"
 ```
-In this example:
+#### In this example:
 - The secret is named `my-secret`.
 - It is of type `Opaque`, a generic secret type.
 - It contains two key-value pairs (`username` and `password`), each base64 encoded.
-To create this secret:
+### To create this secret:
 ```bash
 kubectl apply -f my-secret.yaml
 ```
-Using Secrets in Pods:
+#### Using Secrets in Pods:
 Secrets can be consumed by Pods in various ways, such as environment variables or mounted volumes.
-Example of using a Secret as environment variables:
+- Example of using a Secret as environment variables:
+
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -4682,39 +4878,48 @@ spec:
           key: password
 ```
 This example creates a Pod named `mypod` with an Nginx container. The `MY_USERNAME` and `MY_PASSWORD` environment variables are populated from the `username` and `password` keys in the `my-secret` Secret, respectively.
+
 ```bash
 kubectl apply -f mypod.yaml
 ```
 Secrets play a crucial role in managing sensitive information within Kubernetes, allowing you to securely store and distribute confidential data to your applications.
-48.	Difference between Kubernetes Secret and ConfigMap?
-*	ConfigMap and Secret is used to store application related configuration files but the difference is the secret is in Base64 (encrypted) Format. Like user name password and keys. In secret file sensitive content will not be display.
-*	In ConfigMap the data is available in form of plain text file. Here it displays all the content from the file.
-*	Mostly username and password will store in the Secret file because it is confidential
-*	Command for creating the secret,
-kubectl create secret generic get-cred --from-file=./username.txt --form-file=./password.txt To get the yaml secret file information,
-*	kubectl get secrets get-cred -0 yaml
+### 48.	Difference between Kubernetes Secret and ConfigMap?
+* ConfigMap and Secret is used to store application related configuration files but the difference is the secret is in Base64 (encrypted) Format. Like user name password and keys. In secret file sensitive content will not be display.
+* In ConfigMap the data is available in form of plain text file. Here it displays all the content from the file.
+* Mostly username and password will store in the Secret file because it is confidential
+* Command for creating the secret,
 
-or
-	Kubernetes Secrets and ConfigMaps are both Kubernetes objects designed to manage configuration data, but they are used for different types of information and have distinct characteristics.
+`kubectl create secret generic get-cred --from-file=./username.txt --form-file=./password.txt`
 
-Kubernetes Secret:
+To get the yaml secret file information,
 
-1. Use Case:
+```yaml
+kubectl get secrets get-cred -0 yaml
+```
+![Kubernetes Secret](./Images/k8s-secret.jpg "k8s secret ")
+
+`or`
+	
+- Kubernetes Secrets and ConfigMaps are both Kubernetes objects designed to manage configuration data, but they are used for different types of information and have distinct characteristics.
+
+#### Kubernetes Secret:
+
+#### 1. Use Case:
    - Secrets are designed specifically for storing sensitive information, such as passwords, API keys, and other confidential data.
 
-2. Data Encryption:
+#### 2. Data Encryption:
    - The data stored in Secrets is automatically base64 encoded, providing a minimal level of encoding but not encryption. For higher security requirements, consider using encryption tools or solutions.
 
-3. Immutability:
+#### 3. Immutability:
    - Once created, the data in a Secret is immutable. If you need to update the secret, you must create a new one.
 
-4. Security Considerations:
+#### 4. Security Considerations:
    - Secrets are intended for confidential data, and their access can be controlled through Kubernetes RBAC (Role-Based Access Control). It's crucial to manage access carefully to prevent unauthorized users from retrieving sensitive information.
 
-5. Typical Use Cases:
+#### 5. Typical Use Cases:
    - Storing database credentials, API tokens, certificates, and other sensitive information.
 
-Example YAML for a Secret:
+#### Example YAML for a Secret:
 ```yaml
 apiVersion: v1
 kind: Secret
@@ -4725,24 +4930,24 @@ data:
   username: YWRtaW4=  # Base64 encoded "admin"
   password: MWYyZDFlMmU2N2Rm  # Base64 encoded "1f2d1e2e67df"
 ```
-Kubernetes ConfigMap:
+#### Kubernetes ConfigMap:
 
-1. Use Case:
+#### 1. Use Case:
    - ConfigMaps are designed for storing configuration data and non-sensitive, environment-specific information.
 
-2. Data Format:
+#### 2. Data Format:
    - ConfigMaps can store data in various formats, including key-value pairs and files. The data is stored in plain text.
 
-3. Immutability:
+#### 3. Immutability:
    - Similar to Secrets, the data in a ConfigMap is immutable once created. Updates involve creating a new ConfigMap.
 
-4. Security Considerations:
+#### 4. Security Considerations:
    - ConfigMaps are not intended for storing sensitive information, and their access is managed through Kubernetes RBAC. However, they lack the inherent security features provided by Secrets.
 
-5. Typical Use Cases:
+#### 5. Typical Use Cases:
    - Storing configuration files, environment variables, or any non-sensitive configuration data needed by applications.
 
-Example YAML for a ConfigMap:
+#### Example YAML for a ConfigMap:
 ```yaml
 apiVersion: v1
 kind: ConfigMap
@@ -4755,52 +4960,57 @@ data:
     key2: value2
 ```
 
-Summary:
+#### Summary:
 
 - Use Secrets for managing sensitive information that requires extra security measures.
 - Use ConfigMaps for managing non-sensitive configuration data and environment-specific settings.
 
 In practice, these two types of objects complement each other. Applications can use ConfigMaps for general configuration and Secrets for managing sensitive data, providing a flexible and secure way to handle different types of configuration needs in Kubernetes.
 
-49.	What is Image pull policy in kubernetes?
+### 49.	What is Image pull policy in kubernetes?
 Ans: Whenever we create the docker image, this docker image will stored in registery. This registery may be the docker hub, ECR (Elastic Container Registery).
-Here, if we define as “imagepullpolicy: Always” means it pull the image from the registery while we deploy and creates the container.
-If we define as “imagepullpolicy: none” it considered as the image has already available in the host so no need to pull.
+
+- Here, if we define as “imagepullpolicy: Always” means it pull the image from the registery while we deploy and creates the container.
+
+- If we define as “imagepullpolicy: none” it considered as the image has already available in the host so no need to pull.
+```yaml
 spec:
 containers:
 -name: my-assets
 image: our-img : our-release imagepullpolicy: Always
-* Note: maximum we use “imagepullpolicy: Always” in our projects.
-Or
+```
+- Note: maximum we use “imagepullpolicy: Always” in our projects.
+
+`Or`
 
 In Kubernetes, the image pull policy specifies when to pull a container image from a container registry. The image pull policy can be set at the Pod level, and it determines whether Kubernetes should attempt to pull a newer version of the container image before running the Pod.
 
-There are three common image pull policies:
+#### There are three common image pull policies:
 
-1. IfNotPresent (Default):
+#### 1. IfNotPresent (Default):
    - This is the default policy. It instructs Kubernetes to pull the container image only if it is not present on the node. If the image is already present, Kubernetes uses the existing image without attempting to pull a newer version.
 
    ```yaml
    imagePullPolicy: IfNotPresent
    ```
 
-2. Always:
+#### 2. Always:
    - This policy instructs Kubernetes to always pull the latest version of the container image from the registry, regardless of whether it already exists on the node. This ensures that the Pod runs the latest version of the image.
 
    ```yaml
    imagePullPolicy: Always
    ```
 
-3. Never:
+#### 3. Never:
    - This policy instructs Kubernetes to never pull the container image, assuming that it already exists on the node. If the image is not present, the Pod may fail to start.
 
    ```yaml
    imagePullPolicy: Never
    ```
 
-Example Usage in a Pod Spec:
+#### Example Usage in a Pod Spec:
 
-Here's an example of how the image pull policy is specified within a Pod specification:
+- Here's an example of how the image pull policy is specified within a Pod specification:
 
 ```yaml
 apiVersion: v1
@@ -4814,40 +5024,44 @@ spec:
     imagePullPolicy: Always
 ```
 
-In this example:
+#### In this example:
 - The Pod is named `mypod`.
 - It contains a single container named `mycontainer`.
 - The container uses the Nginx image with the tag `latest`.
 - The image pull policy is set to `Always`, meaning Kubernetes will always attempt to pull the latest version of the Nginx image.
 
-Considerations:
+#### Considerations:
 
-- Network Overhead:
+#### - Network Overhead:
   - Setting the image pull policy to `Always` may introduce additional network overhead, especially in large clusters, as it forces nodes to pull the latest image version even if they already have a previous version.
 
-- Resource Utilization:
+#### - Resource Utilization:
   - The choice of the image pull policy depends on factors like the desired level of control over image versions, network considerations, and resource utilization. For production workloads, a balance between ensuring the use of desired versions and minimizing unnecessary image pulls is important.
 
 Choose the image pull policy based on your specific use case and requirements for maintaining the desired state of your application.
-50.	What is Init Containers in kubernetes?
+### 50.	What is Init Containers in kubernetes?
 Ans: In our deployment file we define the containers, and we also define the Init containers in our deployment file. Before starting the actual containers , Init containers will start and it install the packages that are related to our environment, and creates some files and other related data. Later Init containers will delete.
-●	After deleting the Init Containers, actual containers will start.
-*	The main use of Init Containers is, suppose if you want to install some debug related tools such as curl VI our docker image size will be increase so the response of our application will slow while we hit the application. So we try to maintain the less docker image size.
-*	So here Init containers will install and delete later so it will not show impact on the docker image. But here actual containers just use those services that installed by the Init containers.
-Or
-In Kubernetes, an Init Container is a specialized container that runs before the main containers in a Pod start. The primary purpose of Init Containers is to perform setup tasks or pre-initialization steps before the application containers in the Pod are launched. Init Containers are typically used to ensure that certain conditions are met or that specific resources are available before the main application starts.
-Key characteristics and use cases for Init Containers:
-1. Sequential Execution:
-   - Init Containers run to completion in sequential order before the main containers in the Pod start. Each Init Container must successfully terminate before the next one begins, and all Init Containers must complete successfully for the main containers to start.
-2. Setup and Configuration:
-   - Init Containers are commonly used for tasks such as downloading configuration files, setting up permissions, initializing databases, or performing other tasks required for the proper functioning of the application.
-3. Shared Storage:
-   - Init Containers can be used to populate shared volumes or perform data migrations before the main containers start. This ensures that the required data is available to the application containers.
-4. Dependency Resolution:
-   - Init Containers are helpful in scenarios where the main application depends on external services or resources that need to be ready before the application starts. For example, waiting for a database to be initialized before starting the application.
-Example of a Pod with Init Containers:
 
-Here's an example of a Pod definition that includes Init Containers:
+* After deleting the Init Containers, actual containers will start.
+* The main use of Init Containers is, suppose if you want to install some debug related tools such as curl VI our docker image size will be increase so the response of our application will slow while we hit the application. So we try to maintain the less docker image size.
+* So here Init containers will install and delete later so it will not show impact on the docker image. But here actual containers just use those services that installed by the Init containers.
+
+`Or`
+
+In Kubernetes, an Init Container is a specialized container that runs before the main containers in a Pod start. The primary purpose of Init Containers is to perform setup tasks or pre-initialization steps before the application containers in the Pod are launched. Init Containers are typically used to ensure that certain conditions are met or that specific resources are available before the main application starts.
+
+#### Key characteristics and use cases for Init Containers:
+#### 1. Sequential Execution:
+   - Init Containers run to completion in sequential order before the main containers in the Pod start. Each Init Container must successfully terminate before the next one begins, and all Init Containers must complete successfully for the main containers to start.
+#### 2. Setup and Configuration:
+   - Init Containers are commonly used for tasks such as downloading configuration files, setting up permissions, initializing databases, or performing other tasks required for the proper functioning of the application.
+#### 3. Shared Storage:
+   - Init Containers can be used to populate shared volumes or perform data migrations before the main containers start. This ensures that the required data is available to the application containers.
+#### 4. Dependency Resolution:
+   - Init Containers are helpful in scenarios where the main application depends on external services or resources that need to be ready before the application starts. For example, waiting for a database to be initialized before starting the application.
+#### Example of a Pod with Init Containers:
+
+#### Here's an example of a Pod definition that includes Init Containers:
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -4865,113 +5079,142 @@ spec:
   - name: mycontainer
     image: nginx
 ```
-In this example:
+#### In this example:
 - The Pod named `mypod` has two Init Containers (`init-1` and `init-2`) and one main container (`mycontainer`).
 - The Init Containers are based on the BusyBox image and each prints a message and sleeps for 5 seconds.
 - The main container is an Nginx container.
-Both Init Containers must complete successfully before the main container (`mycontainer`) starts.
-Benefits of Using Init Containers:
-- Dependency Management:
+- Both Init Containers must complete successfully before the main container (`mycontainer`) starts.
+#### Benefits of Using Init Containers:
+#### - Dependency Management:
   - Init Containers help manage dependencies and ensure that prerequisites are met before the application containers start.
-- Isolation of Setup Logic:
+#### - Isolation of Setup Logic:
   - Initialization logic can be encapsulated in separate Init Containers, keeping the main container image focused on the application logic.
-- Improved Reliability:
+#### - Improved Reliability:
   - Init Containers contribute to the reliability of the application by ensuring that necessary resources are available before the main containers begin processing.
 Init Containers are a powerful feature in Kubernetes that enhances the reliability and flexibility of application deployment and initialization processes.
-51.	What is the Kubernetes Environment Variables?
+### 51.	What is the Kubernetes Environment Variables?
 Ans: Here we can define the Application or POD related Environment Variables
-Scenario: 1. Create a pod with a few environment variables and print on STDOUT after the container is started.
-Step: 1. First of all, we need to create a YAML file as shown below, here file name is demo-pod.yml: –
+
+**Scenario: 1.** Create a pod with a few environment variables and print on STDOUT after the container is started.
+
+`Step: 1.` First of all, we need to create a YAML file as shown below, here file name is demo-pod.yml: –
 🡺 demo-pod.yml
-Step 2. Let’s create the pod using the above YAML file as shown below: –
-🡺 $kubectl apply -f demo-pod.yml
-Step 3. Now, check the status of the pod, it should be in running state, to check the status of the pod, run the below command, you will see the pod named ‘demo-pod’: –
-🡺 $kubectl get pods
-Step 4. Finally, let’s check the environment is available in the container or not. To check the status, we have to connect to the pod and execute ‘printenv’ command as shown below: –
 
-🡺 $kubectl exec <POD_NAME> -- printenv
-🡺 $kubectl exec demo-pod -- printenv 
+`Step 2.` Let’s create the pod using the above YAML file as shown below: –
+```yaml
+$kubectl apply -f demo-pod.yml
+```
+`Step 3.` Now, check the status of the pod, it should be in running state, to check the status of the pod, run the below command, you will see the pod named ‘demo-pod’: –
+```yaml
+$kubectl get pods
+```
+`Step 4.` Finally, let’s check the environment is available in the container or not. To check the status, we have to connect to the pod and execute ‘printenv’ command as shown below: –
 
-Explanation: – In the above snapshot, we can see that the environment variables ‘APP_VERSION’ and ‘ENVIRONMENT’ mentioned in the yaml file are present in the container.
+```yaml
+$kubectl exec <POD_NAME> -- printenv
+$kubectl exec demo-pod -- printenv 
+```
 
-Scenario: 2. Create ConfigMap and reference the data of ConfigMap in the pod as environment variables.
+![k8s env variables](./Images/k8s-env-variables.jpg "k8s environment variables")
+
+    Explanation:     – In the above snapshot, we can see that the environment variables ‘APP_VERSION’ and ‘ENVIRONMENT’ mentioned in the yaml file are present in the container.
+
+**Scenario: 2.** Create ConfigMap and reference the data of ConfigMap in the pod as environment variables.
 Step 1. First thing first, let’s create two ConfigMaps using below yaml file named ‘demo-configmap.yml’: –
 
-demo-configmap.yml
-🡺 $kubectl apply -f demo-configmap.yml
+```yaml
+$kubectl apply -f demo-configmap.yml
+```
 
-
-Step 2. Now, create a pod that is going to take reference from configMap for the value of the environment variable mentioned in the pod yaml file or container. Here file name is demo2-pod.yml: –
-
-demo2-pod.yml
-🡺 $kubectl apply -f demo2-pod.yml
+`Step 2.` Now, create a pod that is going to take reference from configMap for the value of the environment variable mentioned in the pod yaml file or container. Here file name is demo2-pod.yml: –
+```yaml
+$kubectl apply -f demo2-pod.yml
+```
+![k8s configmap](./Images/configmap.png "k8s ConfigMap")
  
-Explanation: In the above example, we can see that Kubernetes has created 2 configMap ‘env-config-file’ and ‘env-var-config’ and also created a pod named ‘demo2-pod’.
+`Explanation:` In the above example, we can see that Kubernetes has created 2 configMap ‘env-config-file’ and ‘env-var-config’ and also created a pod named ‘demo2-pod’.
 
-Step 3. Let’s go ahead and check the status of the pod and see if the value of the environment variables have been replaced successfully or not.
+`Step 3.` Let’s go ahead and check the status of the pod and see if the value of the environment variables have been replaced successfully or not.
 
-🡺 $kubectl get pods
+```yaml
+$kubectl get pods
+```
+![k8s configmap output](./Images/configmap-op.png "k8s ConfigMap output")
 
-Explanation: In the above snapshot, we can see that the status is not running but completed because the container has stopped after running the command mentioned in the ‘demo2-pod.yml’ ﬁle.
-
-Step 4. So let’s go ahead and check the logs of the pod and see if environment variables are available or not with correct values: –
-🡺 $kubectl logs <POD_NAME> (Note – It will only show the pods running in default namespace)
-🡺 $kubectl logs demo2-pod
- 
- 
-
-Explanation: In the above snapshot, we can see that the value of environment variables has been assigned that is mentioned in the ConﬁgMap.
-Scenario: 3. Pass secrets as container environment variables.
-Step 1. In this scenario, first, we have to create a secret using the below yaml file: –
-
-🡺 test-secret.yml
-
-🡺 $kubectl apply -f test-secret.yml
-
-Step 2. Next, create a pod using the below YAML file and as discussed earlier use the ‘envForm’ keyword to take the secret reference as shown in the below YAML file: –
+`Explanation:` In the above snapshot, we can see that the status is not running but completed because the container has stopped after running the command mentioned in the ‘demo2-pod.yml’ ﬁle.
 
 
-🡺 demo3-pod.yml
+`Step 4.` So let’s go ahead and check the logs of the pod and see if environment variables are available or not with correct values: –
 
-🡺 $kubectl apply -f demo3-pod.yml
+```yaml
+$kubectl logs <POD_NAME> (Note – It will only show the pods running in default namespace)
+$kubectl logs demo2-pod
+```
+![k8s logs](./Images/k8s-logs.jpg "k8s logs")
+![k8s logs](./Images/k8s-logs-2.jpg "k8s logs")
 
+`Explanation:` In the above snapshot, we can see that the value of environment variables has been assigned that is mentioned in the ConﬁgMap.
 
+#### Scenario: 3. Pass secrets as container environment variables.
+`Step 1.` In this scenario, first, we have to create a secret using the below yaml file: –
 
+```yaml
+test-secret.yml
+kubectl apply -f test-secret.yml
+```
+![Pass secret to container](./Images/secret-pass-container.png "pass secret to container")
 
-Step 3. Let’s check the status of the pod and environment variables of the container ran under that container: –
+`Step 2.` Next, create a pod using the below YAML file and as discussed earlier use the ‘envForm’ keyword to take the secret reference as shown in the below YAML file: –
+```yaml
+demo3-pod.yml
 
--> $kubectl get pods
+kubectl apply -f demo3-pod.yml
+```
+![secret ref](./Images/secret-pass-ref.png "secret ref")
 
+`Step 3.` Let’s check the status of the pod and environment variables of the container ran under that container: –
 
--> $kubectl logs demo3-pod
- 
- 
+```yaml
+kubectl get pods
+```
+![Apply Secret](./Images/secret-file-apply.png "Apply secret")
 
-Explanation: In the above snapshot, we can see that container has environment variables ‘PASSWORD’ and ‘USER_NAME’ and it has a value that is not visible as text as it is coming from Kubernetes secret.
-52.	What is DNS (Domain Name System) in kubernetes?
+```yaml
+kubectl logs demo3-pod
+```
+![k8s logs](./Images/logs-demo.jpg "k8s logs")
+![k8s logs](./Images/logs-demo-2.jpg "k8s logs")
+`Explanation:` In the above snapshot, we can see that container has environment variables ‘PASSWORD’ and 
+
+`USER_NAME` and it has a value that is not visible as text as it is coming from Kubernetes secret.
+### 52.	What is DNS (Domain Name System) in kubernetes?
 Ans: Whenever we create the deployment we use the service to redirect the deployment. So an Ip address got created for service. Suppose we have two services running along with the PODs in the backend. If we want to communicate from one POD to another POD it is by using IPAddress only we can communicate.
+
 While we hit from one service to another service we give service name and service port so that it redirect to cluster Ip that are assigned to particular service. This will work based on the DNS. While we install the kubernetes by default DNS service will run in kube-system namespace.
-●	Every service we have fully qualified domain name. By using this domain name we can access to the PODs that are running in another service.
-●	By using “ns look up” : we can get the IP Address that are assigned to the Fully Qualified domain name
-Or
+
+- Every service we have fully qualified domain name. By using this domain name we can access to the PODs that are running in another service.
+- By using “ns look up” : we can get the IP Address that are assigned to the Fully Qualified domain name
+
+`Or`
+
 In Kubernetes, the Domain Name System (DNS) plays a crucial role in providing a scalable and consistent way to resolve domain names to network addresses within a cluster. Kubernetes relies on DNS for service discovery and communication between applications running in different Pods or Services.
-Here are the key aspects of DNS in Kubernetes:
-1. Service Discovery:
+#### Here are the key aspects of DNS in Kubernetes:
+#### 1. Service Discovery:
    - DNS is used for service discovery within the cluster. Each Service in Kubernetes is assigned a DNS name that other Pods within the cluster can use to reach the service.
-2. DNS Naming Convention:
+#### 2. DNS Naming Convention:
    - The DNS name for a Service is constructed based on the Service name and namespace. The general format is `<service-name>.<namespace>.svc.cluster.local`.
    - For example, if you have a Service named `my-service` in the `default` namespace, the DNS name would be `my-service.default.svc.cluster.local`.
 
-3. Pod-to-Pod Communication:
+#### 3. Pod-to-Pod Communication:
    - Pods within the same cluster can communicate with each other using the DNS names of the Services. This allows applications to dynamically discover and connect to other services without hardcoding IP addresses.
-4. Cluster DNS Service:
+#### 4. Cluster DNS Service:
    - Kubernetes clusters typically have a dedicated DNS service (such as CoreDNS or kube-dns) that handles DNS queries and resolves them to the appropriate Pod or Service IP addresses.
-5. Service Endpoints:
+#### 5. Service Endpoints:
    - When a Pod communicates with a Service, DNS resolution directs the traffic to one of the Service's endpoints (Pods backing the Service). This allows for load balancing and high availability.
-6. External DNS Resolution:
+### 6. External DNS Resolution:
    - Kubernetes can also be configured to resolve external domain names by using the cluster's DNS resolver.
-Example:
-Let's consider a simple example:
+#### Example:
+#### Let's consider a simple example:
 ```yaml
 apiVersion: v1
 kind: Service
@@ -4988,7 +5231,7 @@ spec:
 In this example, if a Pod wants to communicate with `my-service`, it would use the DNS name `my-service.default.svc.cluster.local`. The DNS resolution would then point to the set of Pods selected by the label selector (`app: my-app`) in the Service.
 Debugging DNS:
 
-If you encounter DNS-related issues, you can use the following commands for debugging:
+- If you encounter DNS-related issues, you can use the following commands for debugging:
 - To check the DNS configuration in a Pod:
   ```bash
   kubectl exec <pod-name> -- nslookup <service-name>
@@ -4998,20 +5241,22 @@ If you encounter DNS-related issues, you can use the following commands for debu
   kubectl get svc <service-name>
   ```
 Understanding and leveraging DNS in Kubernetes is crucial for building scalable, dynamic, and resilient applications that can easily discover and communicate with other services within the cluster.
-53.	What is Annotations in kubernetes?
+### 53.	What is Annotations in kubernetes?
 Ans: While we create the deployment and get the yaml file of that particular deployment there we find the Annotations. Here we can get the information about the deployment, client details and owner details, application build, release version, name, git branch, registery address we can attach.
-Or
+
+`Or`
+
 In Kubernetes, annotations are key-value pairs associated with objects in the cluster. Annotations are metadata that you can use to attach arbitrary non-identifying information to Kubernetes resources. Unlike labels, which are used to identify and organize objects, annotations are typically used to store additional information or configuration details that are not used by the Kubernetes system itself.
-Here are some key points about annotations in Kubernetes:
-1. Key-Value Pairs:
+#### Here are some key points about annotations in Kubernetes:
+#### 1. Key-Value Pairs:
    - Annotations are expressed as key-value pairs, where the keys and values are strings. Annotations can be applied to a wide range of Kubernetes resources, including Pods, Services, Deployments, Nodes, and more.
-2. Non-Identifying Information:
+#### 2. Non-Identifying Information:
    - Annotations are meant for storing additional information that is not used to identify or categorize objects. They are often used to add contextual information, configuration details, or metadata that can be utilized by external tools or processes.
-3. Use Cases:
+#### 3. Use Cases:
    - Annotations can be used for various purposes, such as specifying build details, version information, tool-specific configuration, or any custom information relevant to the resource.
-4. Visibility and Documentation:
+#### 4. Visibility and Documentation:
    - Annotations provide a way to document and convey information about resources. They can be used to enhance visibility into the purpose or context of a particular object.
-5. Example:
+#### 5. Example:
    - Here's an example of how annotations can be applied to a Pod:
      ```yaml
      apiVersion: v1
@@ -5028,63 +5273,71 @@ Here are some key points about annotations in Kubernetes:
            image: nginx
      ```
 In this example, the Pod `mypod` has annotations providing version information, build date, and the associated development team.
-Working with Annotations:
-1. Viewing Annotations:
-   - To view the annotations of a Kubernetes resource, you can use the `kubectl describe` command. For example:
+#### Working with Annotations:
+#### 1. Viewing Annotations:
+   - To view the annotations of a Kubernetes resource, you can use the `kubectl describe` command. For `example:`
      ```bash
      kubectl describe pod mypod
      ```
-2. Applying Annotations:
+#### 2. Applying Annotations:
    - Annotations can be applied in YAML manifests or using the `kubectl annotate` command. For example:
      ```bash
      kubectl annotate pod mypod version="1.1" team="ops-team"
      ```
-3. Accessing Annotations Programmatically:
-   - Annotations can be accessed programmatically using the Kubernetes API or client libraries. The annotations are available in the `metadata.annotations` field of the resource's metadata.
+#### 3. Accessing Annotations Programmatically:
+- Annotations can be accessed programmatically using the Kubernetes API or client libraries. The annotations are available in the `metadata.annotations` field of the resource's metadata.
 Annotations provide a flexible and extensible mechanism for attaching metadata to Kubernetes resources, allowing for better documentation, integration with external tools, and customization of resource behavior.
-54.	What is readiness and liveness?
+### 54.	What is readiness and liveness?
 Ans: readiness probe: suppose POD has created, we have the container in the POD, in container we have the application. Here readiness probe will checks status that the POD is in active state or not, if it is ready it forwards or (accept) the requests to the POD.
+
 liveness probe: Suppose if the application that is present in the container is not working, the liveness probe will restarts the POD
-or
+
+`Or`
 Already available
 
+---
 
-TERRAFORM
+## TERRAFORM
 
-1.	What is the use of ‘terraform fmt’ command?
+### 1.	What is the use of ‘terraform fmt’ command?
 Ans: Reformat our configuration file in the standard style.
-Or
+
+`Or`
+
 The `terraform fmt` command is used in Terraform to automatically format and stylize Terraform configuration files (.tf files). This command helps ensure consistency in the formatting of your Terraform code, making it more readable and maintainable. The primary purpose of `terraform fmt` is to apply a standard coding style to your Terraform configuration files.
-Usage:
+
+`Usage:`
+
 ```bash
 terraform fmt [options] [DIR]
 ```
 - `options`: Additional formatting options.
 - `DIR`: Optional directory path. If provided, only files within that directory and its subdirectories are formatted.
-Key Points:
-1. Formatting Standardization:
+#### Key Points:
+#### 1. Formatting Standardization:
    - `terraform fmt` enforces a standard formatting style for your Terraform code. This includes rules for indentation, line breaks, spacing, and other stylistic conventions.
-2. Consistency Across Teams:
+#### 2. Consistency Across Teams:
    - Enforcing a consistent style is important, especially in collaborative projects involving multiple team members. `terraform fmt` helps ensure that everyone adheres to the same formatting standards.
-3. Automation in CI/CD Pipelines:
+#### 3. Automation in CI/CD Pipelines:
    - It is common to include `terraform fmt` as a step in continuous integration/continuous deployment (CI/CD) pipelines. This ensures that code is automatically formatted before being merged or deployed.
-4. Reduced Version Control Noise:
+#### 4. Reduced Version Control Noise:
    - By automatically formatting code with `terraform fmt`, you can reduce unnecessary noise in version control systems. Changes introduced by formatting will be separate from substantive code changes, making it easier to review and understand meaningful updates.
-5. Integration with Editors and IDEs:
+#### 5. Integration with Editors and IDEs:
    - Many text editors and integrated development environments (IDEs) have integrations or plugins that automatically apply `terraform fmt` upon saving a Terraform configuration file. This ensures that the code stays formatted consistently while you work.
-Example:
+#### Example:
 ```bash
 # Format all Terraform files in the current directory and its subdirectories
 terraform fmt
 # Format files in a specific directory
 terraform fmt /path/to/your/terraform/project
 ```
-Options:
+#### Options:
 - `-check`: Checks whether the files are formatted correctly without modifying them. It returns a non-zero exit code if formatting is required.
 - `-diff`: Shows the differences between the formatted and original files.
 - `-write`: Writes the changes to disk.
 Integration with Other Commands:
 - It's common to include `terraform fmt` as part of a sequence of commands in automation scripts or CI/CD pipelines. For example:
+
   ```bash
   terraform fmt -check -write=true
   terraform init
@@ -5092,55 +5345,64 @@ Integration with Other Commands:
   ```
 
 In summary, `terraform fmt` is a useful command for maintaining consistent and standardized formatting in your Terraform codebase, promoting readability and collaboration across teams.
-2.	Difference between terraform and CloudFormation?
+
+### 2.	Difference between terraform and CloudFormation?
 Ans: By using terraform we can install multiple resources at a time. We can divide the deployment in multiple files by using terraform.
+
 Backend concept is supports in Terraform but where as in CloudFormation backend will not support.
 Locking concept is supports in Terraform but in CloudFormation Locking will not support
-Or
+
+`Or`
+
 Terraform and AWS CloudFormation are both Infrastructure as Code (IaC) tools designed to help automate the provisioning and management of infrastructure resources in cloud environments. While they share a similar goal, there are some key differences between Terraform and CloudFormation:
-1.Language:
-- Terraform:
+
+#### 1.Language:
+#### - Terraform:
   - Uses its own declarative configuration language called HashiCorp Configuration Language (HCL). HCL is designed to be human-readable and allows users to describe the desired infrastructure in a clear and concise manner.
-- CloudFormation:
+#### - CloudFormation:
   - Uses JSON or YAML templates to define the infrastructure. Users describe the resources and their configurations using a template syntax.
-2. Provider Support:
-- Terraform:
+#### 2. Provider Support:
+#### - Terraform:
   - Is a multi-cloud IaC tool that supports a wide range of cloud providers (AWS, Azure, Google Cloud, etc.) and other infrastructure platforms (on-premises, VMware, etc.). It has a large provider ecosystem.
-- CloudFormation:
+#### - CloudFormation:
   - Is specific to AWS and tightly integrated with the AWS ecosystem. It's the native IaC tool for provisioning AWS resources.
-3.Execution Model:
-- Terraform:
+#### 3.Execution Model:
+#### - Terraform:
   - Adopts a plan and apply execution model. Users first create a Terraform plan that outlines the changes to be made, and then apply the plan to actually make those changes.
-- CloudFormation:
+#### - CloudFormation:
   - Follows a create, update, or delete stack execution model. Users create or update a CloudFormation stack to apply changes, and stacks can be deleted to remove resources.
-4. State Management:
-- Terraform:
+#### 4. State Management:
+#### - Terraform:
   - Uses a state file to track the current state of the infrastructure. This state is stored locally or remotely (e.g., in Terraform Cloud) and is crucial for tracking and managing changes.
-- CloudFormation:
+#### - CloudFormation:
   - Manages the state of the stack within the AWS environment. Users don't directly interact with state files, as the AWS service maintains the state.
-5. Ecosystem and Modules:
-- Terraform:
+#### 5. Ecosystem and Modules:
+#### - Terraform:
   - Has a rich ecosystem of modules that users can leverage to encapsulate and share reusable pieces of infrastructure code. Modules allow for better organization and reuse of Terraform configurations.
-- CloudFormation:
+#### - CloudFormation:
   - Supports nested stacks, which can be used for modularization, but it doesn't have the same level of module ecosystem as Terraform.
-6. Community and Adoption:
-- Terraform:
+#### 6. Community and Adoption:
+#### - Terraform:
   - Has gained popularity across multiple cloud platforms and has a large and active community. It is widely used in multi-cloud and hybrid cloud scenarios.
-- CloudFormation:
+#### - CloudFormation:
   - Is heavily adopted within the AWS community and is the primary choice for AWS-specific deployments.
-7. Updates and Drift Detection:
-- Terraform:
+#### 7. Updates and Drift Detection:
+#### - Terraform:
   - Detects changes to infrastructure and can plan and apply updates accordingly. Terraform also helps identify and manage drift between the desired state and the actual state.
-- CloudFormation:
+#### - CloudFormation:
   - Can be used to update existing stacks, and drift detection can be performed by comparing the stack's state with the deployed resources.
-Conclusion:
+#### Conclusion:
 The choice between Terraform and CloudFormation often depends on factors such as the cloud provider, the complexity of the infrastructure, the desired language syntax, and the preferences of the development and operations teams. Some organizations use a combination of both tools based on specific requirements and use cases.
-3.	What is terraform providers?
+### 3.	What is terraform providers?
 Ans: Terraform Provider is to interact with the many resources supported by AWS. You must configure the provider with the proper credentials before you can use it.
-*	Terraform Providers is used to create, manage, and update infrastructure resources such as physical machines, VMs, network switches, containers, and more.
-*	Credentials can be provided by adding an access key, secret key, and optionally token, to the AWS provider block.
-Usage:
-Ex:
+* Terraform Providers is used to create, manage, and update infrastructure resources such as physical machines, VMs, network switches, containers, and more.
+* Credentials can be provided by adding an access key, secret key, and optionally token, to the AWS provider block.
+
+#### Usage:
+
+`Ex:`
+
+```hcl
 provider "aws" {
 region	= "us-west-2" access_key = "my-access-key" secret_key = "my-secret-key"
 }
@@ -5152,48 +5414,75 @@ tags = {
 Name	= "My bucket" Environment = "Dev"
 }
 }
-4.	Difference between Ansible and Terraform?
-Ans: TERRAFORM:
-*	Terraform is a provisioning tool, and Cloud formation, puppet, etc., are few tools that consider the declarative form of code in their usage and suggest that they are designed to provision the server themselves. They also take care of other infrastructures, such as load balancer, database networking, etc. We should be aware that most provisioning tools will be capable of doing configuration management to some extent, and similarly, most of the configuration management tools can also provision to some extent, but when we focus on a particular aspect, then some tools are obviously better fit than the other tool.
-*	Terraform is completely declarative; in declarative, we declare what actually is needed, not the process by which the result can be achieved. While using the terraform, we will define the environment, and if the environment changes at a later time, it will be only applied to the next ‘Terraform Apply’. Here since declarative, the code always represents the present state of the infrastructure.
-ANSIBLE
-*	Ansible is one the configuration management tool and other similar tool includes chef, puppet, etc. The chef is one more tool that follows this sort of procedural approach.
-*	Ansible follows the procedural style with a step-by-step process to achieve the desired end and, unlike terraform, can accept the ad-hoc change queries. When we actually deal with the procedural type of tasks, the state of infrastructure is not completely considered. The reusability of procedural code is quite limited as the state is changing.
-5.	What is the terraform state file?
+```
+### 4.	Difference between Ansible and Terraform?
+Ans: 
+
+#### TERRAFORM:
+
+* Terraform is a provisioning tool, and Cloud formation, puppet, etc., are few tools that consider the declarative form of code in their usage and suggest that they are designed to provision the server themselves. 
+
+* They also take care of other infrastructures, such as load balancer, database networking, etc. We should be aware that most provisioning tools will be capable of doing configuration management to some extent, and similarly, most of the configuration management tools can also provision to some extent, but when we focus on a particular aspect, then some tools are obviously better fit than the other tool.
+* Terraform is completely declarative; in declarative, we declare what actually is needed, not the process by which the result can be achieved. While using the terraform, we will define the environment, and if the environment changes at a later time, it will be only applied to the next ‘Terraform Apply’. Here since declarative, the code always represents the present state of the infrastructure.
+
+#### ANSIBLE
+
+* Ansible is one the configuration management tool and other similar tool includes chef, puppet, etc. The chef is one more tool that follows this sort of procedural approach.
+* Ansible follows the procedural style with a step-by-step process to achieve the desired end and, unlike terraform, can accept the ad-hoc change queries. When we actually deal with the procedural type of tasks, the state of infrastructure is not completely considered. The reusability of procedural code is quite limited as the state is changing.
+### 5.	What is the terraform state file?
 Ans: Terraform must store state about your managed infrastructure and configuration.
-*	Suppose we created the S3 and EC2 instances, then after sometime if we want to delete these services, so that we need to login to AWS and delete the services one by one it may not correct way because ex: we created ec2 instance and we assign some of the services to the ec2 like VPC, Subnet, Internet gateway, Route Table etc. so we need to delete all the services one by one. So it is a time taking process and sometimes we did ‘not delete these services properly.
-*	So in Terraform while we create any service a file will be created i.e known as “terraform.tfstate”. Here we deployed one service (Ex: S3 bucket), so here it stores all the information about S3 bucket. Now If you want to install the EC2 instance the Terraform will check the state file first weather the file has EC2 instance or not. If not available EC2 instance will be created.
-*	Suppose If I want delete the 10 S3 buckets and 10 Ec2 instances, in terraform we use the destroy command for delete. As soon as we use the destroy command it checks the state file about S3 buckets and Ec2 instances and destroy it. So that we can delete by using single command.
-Or
+
+* Suppose we created the S3 and EC2 instances, then after sometime if we want to delete these services, so that we need to login to AWS and delete the services one by one it may not correct way because ex: we created ec2 instance and we assign some of the services to the ec2 like VPC, Subnet, Internet gateway, Route Table etc. so we need to delete all the services one by one. So it is a time taking process and sometimes we did ‘not delete these services properly.
+
+* So in Terraform while we create any service a file will be created i.e known as “terraform.tfstate”. Here we deployed one service (Ex: S3 bucket), so here it stores all the information about S3 bucket. Now If you want to install the EC2 instance the Terraform will check the state file first weather the file has EC2 instance or not. If not available EC2 instance will be created.
+
+* Suppose If I want delete the 10 S3 buckets and 10 Ec2 instances, in terraform we use the destroy command for delete. As soon as we use the destroy command it checks the state file about S3 buckets and Ec2 instances and destroy it. So that we can delete by using single command.
+
+`Or`
+
 Already available
-6.	What is the terraform Lock?
+
+### 6.	What is the terraform Lock?
 Ans: Terraform will lock your state for all operations that could write state. This prevents others from acquiring the lock and potentially corrupting your state.
-Suppose if you are involving the deployment process while another person trying to deploy with same deployment command the lock will stops the command. It says someone is already using, you need to wait for some time till the time period ends.
-The lock file is always named “ .terraform.lock.hcl,” and this name is intended to signify that it is a lock file for various items that Terraform caches in the .terraform subdirectory of your working directory.
-* This locking concept will not be available in the CloudFormation and ARM
-Or
+
+- Suppose if you are involving the deployment process while another person trying to deploy with same deployment command the lock will stops the command. It says someone is already using, you need to wait for some time till the time period ends.
+
+=- The lock file is always named “ .terraform.lock.hcl,” and this name is intended to signify that it is a lock file for various items that Terraform caches in the .terraform subdirectory of your working directory.
+
+- This locking concept will not be available in the CloudFormation and ARM
+
+`Or`
+
 Already available
-7.	What is the terraform backend?
+
+### 7.	What is the terraform backend?
 Ans: Terraform Backend define where Terraforms state snapshots are stored.
 
+![Terraform Backend](./Images/terraform-backend.jpg "Terraform Backend")
 
 Terraform backend should be configured like any other configuration in the configuration file and when you run the terraform init, Backed will be created. For example, we are going to configure the AWS S3 as a Terraform backend.
-●	Backend concept is not be available in AWS and Azure. 
+- Backend concept is not be available in AWS and Azure. 
+```hcl
 terraform {
 backend "s3" {
-bucket = "terraform-s3-bucket-name" 
-key	= "s3 key path"
+bucket = "terraform-s3-bucket-name" key	= "s3 key path"
 region = "us-west-1"
 }
 }
-In the above configuration, AWS S3 is configured as the Terraform Backed. And this will be effective once you run the Terraform Backend. In this, we have configured S3 bucket name as “terraform-s3-bucket-name“, key and the region. Remember, you don’t have to 
+```
+- In the above configuration, AWS S3 is configured as the Terraform Backed. And this will be effective once you run the Terraform Backend. In this, we have configured S3 bucket name as “terraform-s3-bucket-name“, key and the region. Remember, you don’t have to 
 specify all the parameters inside the backend. There are many ways to declare the parameters of the Backend. We can do partial Configure the Terraform Backend and get the rest of the values in different ways.
-Or
-In Terraform, a backend is a mechanism that determines where and how Terraform stores its state files. The state file is a crucial component in Terraform that keeps track of the current state of the infrastructure, mapping the real-world resources to the Terraform configuration. Backends provide a way to store and share this state file among team members, enable remote collaboration, and support state locking to prevent conflicts.
+
+`Or`
+
+In Terraform, a backend is a mechanism that determines where and how Terraform stores its state files. The state file is a crucial component in Terraform that keeps track of the current state of the infrastructure, mapping the real-world resources to the Terraform configuration. 
+
+Backends provide a way to store and share this state file among team members, enable remote collaboration, and support state locking to prevent conflicts.
+
 Terraform supports various backends, and the choice of a backend depends on factors such as collaboration requirements, security considerations, and the desired level of automation. Here are some commonly used backends:
-1. Local Backend:
+#### 1. Local Backend:
 - The default backend stores the Terraform state file on the local filesystem where Terraform commands are run.
-- Example Configuration:
+#### - Example Configuration:
   ```hcl
   terraform {
     backend "local" {
@@ -5202,9 +5491,9 @@ Terraform supports various backends, and the choice of a backend depends on fact
   }
   ```
 - This is suitable for solo development or learning but is not recommended for collaboration or production use.
-2. Remote Backends:
+#### 2. Remote Backends:
 - Remote backends store the Terraform state remotely, allowing for collaboration among team members and supporting a more automated workflow. 
-a). AWS S3 Backend:
+#### a). AWS S3 Backend:
   ```hcl
   terraform {
     backend "s3" {
@@ -5215,7 +5504,7 @@ a). AWS S3 Backend:
   }
   ```
   
-b). Azure Storage Backend:
+#### b). Azure Storage Backend:
   ```hcl
   terraform {
     backend "azurerm" {
@@ -5226,7 +5515,7 @@ b). Azure Storage Backend:
   }
   ```
   
-c). Google Cloud Storage Backend:
+#### c). Google Cloud Storage Backend:
   ```hcl
   terraform {
     backend "gcs" {
@@ -5235,7 +5524,7 @@ c). Google Cloud Storage Backend:
     }
   }
   ```
-d). HashiCorp Terraform Cloud Backend:
+#### d). HashiCorp Terraform Cloud Backend:
   ```hcl
   terraform {
     backend "remote" {
@@ -5247,8 +5536,9 @@ d). HashiCorp Terraform Cloud Backend:
   }
   ```
 - Terraform Cloud is a fully managed service by HashiCorp that provides collaboration features, state management, and version control integration.
-3. Consul Backend:
+#### 3. Consul Backend:
 - Consul can be used as a backend to store the Terraform state in a distributed system like Consul.
+ 
   ```hcl
   terraform {
     backend "consul" {
@@ -5257,9 +5547,9 @@ d). HashiCorp Terraform Cloud Backend:
     }
   }
   ```
-4. State Locking:
+#### 4. State Locking:
 - Many remote backends support state locking, which prevents concurrent Terraform operations that could lead to conflicts. Locking helps maintain the integrity of the Terraform state.
-- Example with AWS S3 Backend and Locking:
+#### - Example with AWS S3 Backend and Locking:
   ```hcl
   terraform {
     backend "s3" {
@@ -5270,71 +5560,78 @@ d). HashiCorp Terraform Cloud Backend:
     }
   }
   ```
-Important Considerations:
-- Security:
+#### Important Considerations:
+#### - Security:
   - Choose a backend that aligns with your organization's security policies. Remote backends often provide better security practices than local backends.
-- Collaboration:
+#### - Collaboration:
   - For team collaboration, remote backends such as Terraform Cloud or a shared cloud storage solution are recommended.
-- Locking:
+#### - Locking:
   - Use a backend that supports state locking to avoid potential conflicts when multiple users or automation processes are making changes to the infrastructure.
-- Versioning:
+#### - Versioning:
   - Some remote backends, like Terraform Cloud, provide version control integration, allowing you to track changes to your Terraform configurations over time.
 The selection of a backend depends on your specific use case, team structure, collaboration requirements, and infrastructure provider. It's important to carefully consider the pros and cons of each backend type before making a choice.
-8.	What is Terraform?
+### 8.	What is Terraform?
 Ans: Terraform is Cloud agnostic by using this terraform we can provision the infrastructure. Terraform can be use with any cloud platforms like AWS, Azure and GCP with same syntax. By using Terraform we can launch services like EC2, S3 buckets, VPC’s, Internet gateways and auto scaling and Subnets etc.
-●	Terraform is very fast
+- Terraform is very fast
 Specific clouds have some specific services to provisioning the infrastructure like For AWS we use CloudFormation and Azure we use ARM templates and we upload the template in the services as mentioned above it will provisioning the infrastructure.
-●	CloudFormation>>>AWS Cloud
-●	ARM Template>>>Azure
-●	CloudFormation and ARM Templates are very slow while deployment.
-●	But by using the Terraform we can provision the infrastructure in any cloud.
-●	In CloudFormation and ARM we can’t create and delete multiple services at a time
-●	By using the same Terraform syntax we deploy the services in AWS and Azure
-●	Suppose I want to provision the S3 bucket and EC2 instance in AWS by using CloudFormation, in this case we write one template and we define both services(EC2 and S3 bucket) in that single template file. Ex: if you want to launch or provision 10 services we should define in single template files.
-●	But where as in Terraform we can define separate files for EC2 and S3 buckets. So here we can create separate files for each services. We can simply launch multiple instances by using loop in terraform
-Or
-Already available
-9.	What are the main commands in Terraform?
-Ans: init : First We need to initialize the terraform onfiguration validate : It checks the configuration is valid or not.
-plan: It shows the services what we are going to provision ex: S3 and Ec2
-apply: To create the Resources and Provisioning the infrastructure. 
-destroy: To destroy the infrastructure
+- CloudFormation>>>AWS Cloud
+- ARM Template>>>Azure
+- CloudFormation and ARM Templates are very slow while deployment.
+- But by using the Terraform we can provision the infrastructure in any cloud.
+- In CloudFormation and ARM we can’t create and delete multiple services at a time
+- By using the same Terraform syntax we deploy the services in AWS and Azure
+- Suppose I want to provision the S3 bucket and EC2 instance in AWS by using CloudFormation, in this case we write one template and we define both services(EC2 and S3 bucket) in that single template file. Ex: if you want to launch or provision 10 services we should define in single template files.
+- But where as in Terraform we can define separate files for EC2 and S3 buckets. So here we can create separate files for each services. We can simply launch multiple instances by using loop in terraform
 
-or
+### 9.	What are the main commands in Terraform?
+Ans: Ans: 
+
+**init :** First We need to initialize the terraform configuration 
+
+**validate :** It checks the configuration is valid or not.
+
+**plan:** It shows the services what we are going to provision ex: S3 and Ec2
+
+**apply:** To create the Resources and Provisioning the infrastructure. 
+
+**destroy:** To destroy the infrastructure
+
+`Or`
+
 Terraform, as an Infrastructure as Code (IaC) tool, provides a set of commands to interact with and manage infrastructure. Here are some of the main Terraform commands:
 
-1. `terraform init`:
+#### 1. `terraform init`:
    - Initializes a Terraform working directory by downloading and installing the provider plugins specified in the configuration.
 
    ```bash
    terraform init
    ```
-2. `terraform validate`:
+#### 2. `terraform validate`:
    - Checks the configuration files for syntax errors and validates the configuration against Terraform language conventions.
 
    ```bash
    terraform validate
    ```
 
-3. `terraform plan`:
+#### 3. `terraform plan`:
    - Generates an execution plan describing the changes that Terraform will apply to the infrastructure.
    ```bash
    terraform plan
    ```
 
-4. `terraform apply`:
+#### 4. `terraform apply`:
    - Applies the changes described in the execution plan, creating or updating infrastructure resources.
 
    ```bash
    terraform apply
    ```
-5. `terraform destroy`:
+#### 5. `terraform destroy`:
    - Destroys all the resources defined in the Terraform configuration, effectively tearing down the infrastructure.
 
    ```bash
    terraform destroy
   ```
-6. `terraform state`:
+#### 6. `terraform state`:
    - Provides commands for advanced state management, including inspecting, modifying, and migrating the Terraform state.
 
    ```bash
@@ -5342,75 +5639,77 @@ Terraform, as an Infrastructure as Code (IaC) tool, provides a set of commands t
    terraform state show <resource_name>
   ```
 
-7. `terraform import`:
+#### 7. `terraform import`:
    - Associates an existing infrastructure resource with a Terraform resource configuration. This is used to import resources into Terraform management.
 
    ```bash
    terraform import aws_instance.example i-0c1234567890abcdef
    ```
-8. `terraform output`:
+#### 8. `terraform output`:
    - Displays the values of outputs defined in the Terraform configuration. Outputs provide a way to expose information about the infrastructure.
 
    ```bash
    terraform output
    ```
 
-9. `terraform workspace`:
+#### 9. `terraform workspace`:
    - Manages workspaces, which are separate instances of the same configuration. Workspaces allow you to deploy multiple environments or configurations from the same codebase.
 
    ```bash
    terraform workspace new <workspace_name>
    terraform workspace select <workspace_name>
    ```
-10. `terraform fmt`:
-    - Rewrites Terraform configuration files to a canonical format, enforcing consistent code style.
+#### 10. `terraform fmt`:
+- Rewrites Terraform configuration files to a canonical format, enforcing consistent code style.
 
     ```bash
     terraform fmt
     ```
 
-11. `terraform providers`:
-    - Lists all providers used in the configuration along with their versions.
+#### 11. `terraform providers`:
+- Lists all providers used in the configuration along with their versions.
 
     ```bash
     terraform providers
     ```
-12. `terraform graph`:
-    - Creates a visual representation of the resource graph for the infrastructure defined in the Terraform configuration.
+#### 12. `terraform graph`:
+- Creates a visual representation of the resource graph for the infrastructure defined in the Terraform configuration.
 
     ```bash
     terraform graph | dot -Tpng > graph.png
     ```
 These commands cover the essential operations in Terraform for initializing, planning, applying, and managing infrastructure. Depending on your specific use case and workflow, you may also use other commands and options provided by Terraform. Always refer to the official Terraform documentation for the most up-to-date information.
 
+---
 
-SONARQUBE
+## SONARQUBE
 
-1.	What is sonarQube?
+### 1.	What is sonarQube?
 Ans: SonarQube is a tool which is used for code quality checks.
-	Or
-Already available
-2.	What is sonarqube quality Gate?
+
+### 2.	What is sonarqube quality Gate?
 Ans: In sonarqube quality gate we define some thresholds. Whenever sonarqube scans the code it checks the weather the thresholds are meet or not which we define. If it’s not meet the thresholds, the quality gate will fails.
-Or
-Already available
-3.	What is sonarQube quality Profiles?
-Ans: Each and every language has sonarQube quality profile. The Quality profile has collection of rules
-Or
-Already available
-4.	What is PV and PVC?
+
+### 3.	What is sonarQube quality Profiles?
+Ans: Each and every language has sonarQube quality profile. The Quality profile has collection of rules.
+### 4.	What is PV and PVC?
 Ans: PV (Persistent Volume): We need some storage for our application and microservices. If we use the containers after we delete the containers our application data is also deletes. So that we need PV and PVC
-PV – means if we use external storage like NFS (Network File System). In NFS server we create the file system we invoke this NFS server in PV. While creating the persistence volume we give the NFS volume.
-PVC (Persistent Volume Claim): While we creating the PVC we need to give the PV name. Here PVC fetch the data from the PV. PV gets the directory to store the data from the NFS.
-*Note: These operations will perform on kubernetes.
-Or
-Already available
+
+`PV` – means if we use external storage like NFS (Network File System). In NFS server we create the file system we invoke this NFS server in PV. While creating the persistence volume we give the NFS volume.
+
+`PVC (Persistent Volume Claim):` While we creating the PVC we need to give the PV name. Here PVC fetch the data from the PV. PV gets the directory to store the data from the NFS.
+
+`Note:` These operations will perform on kubernetes.
+
 5.	What is cronjob?
 Ans: If you want to schedule any service for particular period of time we use the cron job
-●	A cron job is a Linux command used for scheduling tasks to be executed sometime in the future.
+- A cron job is a Linux command used for scheduling tasks to be executed sometime in the future.
 The crontab File Entry Format
+
 A crontab file contains entries for each cron job. Entries are separated by newline characters. Each crontab file entry contains six fields separated by spaces or tabs in the following form:
 minute  hour  day_of_month  month  weekday  command
+
+```bash
 These fields accept the following values:
 Item	Description
 minute	0 through 59
@@ -5419,14 +5718,19 @@ day_of_month	1 through 31
 month	1 through 12
 weekday	0 through 6 for Sunday through Saturday
 command	a shell command
-To run the calendar command at 6:30 a.m. every Monday, Wednesday, and Friday, enter:
 
+```
+- To run the calendar command at 6:30 a.m. every Monday, Wednesday, and Friday, enter:
+
+```bash
 minute  hour  day_of_month  month  weekday  command
 
-30 	6 	* 		*    1,3,5 	/usr/bin/calendar
+30 	    6 	    * 		    *       1,3,5 	/usr/bin/calendar
+```
 
-To run the calendar command every day of the year at 6:30, enter the following:
+- To run the calendar command every day of the year at 6:30, enter the following:
 
-30	30 6 * * * /usr/bin/calendar
-
+```bash
+30	 * * * /usr/bin/calendar
+```
 

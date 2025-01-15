@@ -971,7 +971,7 @@ Ans: In Kubernetes, Deployment is used to provide declarative updates to Pods as
 Kubernetes Deployment works based on the specification YAML file, and you describe a required state in that. Then Deployment Controller changes the current state of Pods or ReplicaSets to the required state. We can define Deployments to create new ReplicaSets or to delete existing ReplicaSets or many other operations.
 ### 21.	What is replica set?
 Ans: As the name suggests, replica set, which basically means an exact copy of the pods. It decides how many replicas of the pods will be created at the same time. It is defined with the fields, which basically include the selector. This selector is used to identify the pods it can acquire; we also specify the number of replicas, representing the number of pods it will maintain. Once the configuration is done properly, Replica sets to identify and start deleting and creating the pods as per the criteria to reach the desired number it has to maintain.
-22.	What is the difference between replica set and replication controller? 
+### 22.	What is the difference between replica set and replication controller? 
 Ans:
 
 ![Replica Set vs Replication Controller](./Images/Replicaset.jpg "Difference between RS and RC")
@@ -1062,7 +1062,9 @@ A Kubernetes deployment makes this process automated and repeatable.
 
 Deployments are entirely managed by the Kubernetes backend, and the whole update process is performed on the server side without client interaction. 
 We have 4 types of deployment strategies are available in the kubernetes
-1. Recreate Deployment 2. Rolling update deployment 3.Blue-Green Deployment
+1. Recreate Deployment 
+2. Rolling update deployment 
+3. Blue-Green Deployment
 4. Ceneray deployment
 
 **1.	Recreate Strategy:** In this strategy old replicas will delete at a time and new versions will create. In this strategy we have a problem i.e as soon as old versions are deleted application is not work until the new version create.so that time we face the down time issue.
@@ -1337,6 +1339,7 @@ To get details about the HPA, you can use “kubectl get hpa” with the “-o y
 **2. Vertical Pod Autoscaling (VPA):** The VPA is only concerned with increasing the resources available to a pod that resides on a node by giving you control by automatically adding or reducing CPU and memory to a pod. VPA can detect out of memory events and use this as a trigger to scale the pod. You can set both minimum and maximum limits for resource allocation.
 
 In simple terms, for suppose our POD consumes some 70% of CPU and memory, this will just increase or allocates the resources to the existing POD, it doesn’t create the new PODs.
+
 `Note:` We generally use Horizontal Pod Autoscaling in our projects.
 
 #### 3.	Cluster Autoscaling (CA)
